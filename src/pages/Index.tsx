@@ -279,26 +279,38 @@ export default function Index() {
                       </span>
                     </motion.div>)}
 
-                  {/* Central NEO hub - perfectly centered */}
-                  <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" initial={{
-                  opacity: 0,
-                  scale: 0
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} transition={{
-                  delay: 1.5,
-                  type: "spring",
-                  stiffness: 80
-                }}>
-                    <div className="relative">
-                      <motion.div animate={{
-                      rotate: 360
-                    }} transition={{
-                      duration: 60,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }} className="absolute -inset-6 border-2 border-dashed border-primary/20 rounded-full" />
+                  {/* Central NEO hub - positioned at SVG center (200,200 in 400x400 viewBox = 50%) */}
+                  <motion.div 
+                    className="absolute"
+                    style={{ 
+                      top: '50%', 
+                      left: '50%', 
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0
+                    }} 
+                    animate={{
+                      opacity: 1,
+                      scale: 1
+                    }} 
+                    transition={{
+                      delay: 1.5,
+                      type: "spring",
+                      stiffness: 80
+                    }}
+                  >
+                    <div className="relative flex items-center justify-center">
+                      <motion.div 
+                        animate={{ rotate: 360 }} 
+                        transition={{
+                          duration: 60,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }} 
+                        className="absolute w-32 h-32 border-2 border-dashed border-primary/20 rounded-full" 
+                      />
                       <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
                         <Workflow className="w-9 h-9 text-primary-foreground" />
                       </div>
