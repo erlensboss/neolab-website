@@ -67,7 +67,7 @@ export default function AiAutomatizacija() {
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Manual Work Problem ========== */}
       <section className="bg-gradient-hero grid-overlay">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl">
             <ScrollReveal>
               <span className="chip-outline mb-6 inline-block">Problēma</span>
@@ -81,7 +81,7 @@ export default function AiAutomatizacija() {
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
               {manualProblems.map((item, index) => (
                 <ScrollReveal key={index} delay={0.2 + index * 0.1}>
-                  <div className="flex items-center gap-4 bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border">
+                  <div className="flex items-center gap-4 bg-card/80 backdrop-blur-sm rounded-xl p-4 border border-border hover-lift">
                     <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center">
                       <item.icon className="w-5 h-5 text-destructive" />
                     </div>
@@ -142,10 +142,7 @@ export default function AiAutomatizacija() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
               {automationModules.map((module, index) => (
                 <ScrollReveal key={module.title} delay={0.2 + index * 0.15}>
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="card-neo h-full"
-                  >
+                  <div className="card-neo h-full">
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                         <module.icon className="w-6 h-6 text-primary" />
@@ -161,7 +158,7 @@ export default function AiAutomatizacija() {
                     </div>
                     <h4 className="font-semibold mb-2">{module.title}</h4>
                     <p className="text-sm text-muted-foreground">{module.description}</p>
-                  </motion.div>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
@@ -206,7 +203,7 @@ export default function AiAutomatizacija() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {benefits.map((benefit, index) => (
                   <ScrollReveal key={benefit} delay={index * 0.1} direction="right">
-                    <div className="flex items-center gap-3 bg-card rounded-lg p-4 border border-border">
+                    <div className="flex items-center gap-3 bg-card rounded-lg p-4 border border-border hover-lift">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                       <span>{benefit}</span>
                     </div>
@@ -220,7 +217,7 @@ export default function AiAutomatizacija() {
 
       {/* ========== SECTION 4: How It Feels (Machine Building) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-8">
@@ -254,7 +251,7 @@ export default function AiAutomatizacija() {
 
       {/* ========== SECTION 5: CTA ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">

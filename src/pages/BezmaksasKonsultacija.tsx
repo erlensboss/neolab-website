@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Calendar, 
   CheckCircle2, 
-  ArrowRight,
   Clock,
   MessageSquare,
   User,
@@ -40,7 +39,7 @@ export default function BezmaksasKonsultacija() {
     <div className="overflow-hidden">
       {/* ========== Main Section ========== */}
       <section className="bg-gradient-hero min-h-screen">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
               <motion.div
@@ -87,9 +86,9 @@ export default function BezmaksasKonsultacija() {
                   {/* Visual element */}
                   <ScrollReveal delay={0.4}>
                     <div className="hidden lg:block">
-                      <div className="glass-warm rounded-xl p-6">
+                      <div className="glass-warm rounded-xl p-6 border border-border/50">
                         <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
                             <Calendar className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
@@ -230,7 +229,7 @@ export default function BezmaksasKonsultacija() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="glass-warm rounded-xl p-6 inline-block"
+                  className="glass-warm rounded-xl p-6 inline-block border border-border/50"
                 >
                   <div className="flex items-center gap-4">
                     <Mail className="w-6 h-6 text-primary" />

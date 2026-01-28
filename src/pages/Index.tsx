@@ -10,7 +10,10 @@ import {
   Workflow,
   Target,
   BarChart3,
-  Settings2
+  Settings2,
+  Database,
+  LineChart,
+  Layers
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -92,12 +95,168 @@ const processSteps = [
   { step: "04", title: "Optimizācija", description: "Nepārtraukta uzlabošana" },
 ];
 
+// System flow nodes for hero
+const systemNodes = [
+  { id: "seo", label: "SEO", icon: Search, x: 10, y: 15 },
+  { id: "ads", label: "Ads", icon: BarChart3, x: 85, y: 10 },
+  { id: "ai", label: "AI", icon: Brain, x: 90, y: 55 },
+  { id: "crm", label: "CRM", icon: Database, x: 8, y: 60 },
+  { id: "data", label: "Data", icon: LineChart, x: 50, y: 85 },
+];
+
 export default function Index() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Problem-First Opening ========== */}
-      <section className="bg-gradient-hero grid-overlay min-h-[80vh] flex items-center">
-        <div className="container-neo section-padding">
+      {/* ========== SECTION 1: Problem-First Opening with WOW Visual ========== */}
+      <section className="bg-gradient-hero min-h-[90vh] flex items-center relative overflow-hidden">
+        {/* Large system diagram background */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Subtle grid */}
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `
+                linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+              `,
+              backgroundSize: "60px 60px",
+            }}
+          />
+          
+          {/* Animated connection lines */}
+          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+            {/* Central hub */}
+            <motion.circle
+              cx="50%"
+              cy="50%"
+              r="80"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="1"
+              strokeDasharray="8 6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 0.15, scale: 1 }}
+              transition={{ duration: 1.5 }}
+            />
+            <motion.circle
+              cx="50%"
+              cy="50%"
+              r="140"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="1"
+              strokeDasharray="4 8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 0.1, scale: 1 }}
+              transition={{ duration: 1.8, delay: 0.2 }}
+            />
+            <motion.circle
+              cx="50%"
+              cy="50%"
+              r="200"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="1"
+              strokeDasharray="2 10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 0.08, scale: 1 }}
+              transition={{ duration: 2, delay: 0.4 }}
+            />
+            
+            {/* Flowing lines from nodes to center */}
+            <motion.path
+              d="M 10% 20% Q 30% 30% 50% 50%"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.2 }}
+              transition={{ duration: 2, delay: 0.5 }}
+            />
+            <motion.path
+              d="M 90% 15% Q 70% 30% 50% 50%"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.2 }}
+              transition={{ duration: 2, delay: 0.7 }}
+            />
+            <motion.path
+              d="M 90% 60% Q 70% 55% 50% 50%"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.2 }}
+              transition={{ duration: 2, delay: 0.9 }}
+            />
+            <motion.path
+              d="M 10% 65% Q 30% 55% 50% 50%"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.2 }}
+              transition={{ duration: 2, delay: 1.1 }}
+            />
+            <motion.path
+              d="M 50% 85% Q 50% 70% 50% 50%"
+              fill="none"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.2 }}
+              transition={{ duration: 2, delay: 1.3 }}
+            />
+          </svg>
+          
+          {/* Floating system nodes */}
+          {systemNodes.map((node, i) => (
+            <motion.div
+              key={node.id}
+              className="absolute hidden lg:flex"
+              style={{ left: `${node.x}%`, top: `${node.y}%` }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 + i * 0.15, type: "spring", stiffness: 100 }}
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+                className="glass-warm p-4 rounded-xl shadow-card border border-white/40"
+              >
+                <node.icon className="w-6 h-6 text-primary/60" />
+              </motion.div>
+            </motion.div>
+          ))}
+          
+          {/* Central NEO hub */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, type: "spring", stiffness: 80 }}
+          >
+            <div className="relative">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-8 border-2 border-dashed border-primary/10 rounded-full"
+              />
+              <div className="w-24 h-24 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                <Workflow className="w-10 h-10 text-primary-foreground" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="container-neo section-padding relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Problem Statement */}
             <div>
@@ -131,29 +290,40 @@ export default function Index() {
                   ))}
                 </ul>
               </ScrollReveal>
+              <ScrollReveal delay={0.5}>
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/bezmaksas-konsultacija">
+                    <Button variant="hero" size="lg">
+                      Sākt sarunu
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
 
-            {/* Right: Abstract System Diagram */}
-            <ScrollReveal delay={0.2} direction="right">
+            {/* Right: System Diagram Visual (Mobile/Tablet) */}
+            <ScrollReveal delay={0.2} direction="right" className="lg:hidden">
               <div className="relative">
-                {/* Fragmented system visualization */}
-                <div className="relative aspect-square max-w-md mx-auto">
-                  {/* Central chaos node */}
+                <div className="relative aspect-square max-w-sm mx-auto">
+                  {/* Central hub for mobile */}
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5, type: "spring" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-muted border-2 border-dashed border-primary/30 flex items-center justify-center"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   >
-                    <span className="text-2xl">?</span>
+                    <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                      <Workflow className="w-8 h-8 text-primary-foreground" />
+                    </div>
                   </motion.div>
                   
-                  {/* Scattered nodes */}
+                  {/* Mobile nodes */}
                   {[
-                    { x: "10%", y: "20%", icon: Search, label: "SEO" },
+                    { x: "15%", y: "20%", icon: Search, label: "SEO" },
                     { x: "75%", y: "15%", icon: BarChart3, label: "Ads" },
-                    { x: "85%", y: "60%", icon: Brain, label: "AI" },
-                    { x: "15%", y: "70%", icon: Settings2, label: "CRM" },
+                    { x: "85%", y: "55%", icon: Brain, label: "AI" },
+                    { x: "15%", y: "65%", icon: Database, label: "CRM" },
                   ].map((node, i) => (
                     <motion.div
                       key={i}
@@ -164,7 +334,7 @@ export default function Index() {
                       className="absolute"
                     >
                       <div className="glass-warm p-3 rounded-xl shadow-card">
-                        <node.icon className="w-5 h-5 text-muted-foreground" />
+                        <node.icon className="w-5 h-5 text-primary/70" />
                       </div>
                       <span className="text-xs text-muted-foreground mt-1 block text-center">
                         {node.label}
@@ -172,21 +342,35 @@ export default function Index() {
                     </motion.div>
                   ))}
 
-                  {/* Disconnected lines */}
+                  {/* Connection lines */}
                   <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
                     <motion.line
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ delay: 1, duration: 0.8 }}
-                      x1="20%" y1="25%" x2="40%" y2="45%"
-                      stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"
+                      x1="25%" y1="28%" x2="42%" y2="45%"
+                      stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" opacity="0.25"
+                    />
+                    <motion.line
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ delay: 1.1, duration: 0.8 }}
+                      x1="78%" y1="25%" x2="58%" y2="45%"
+                      stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" opacity="0.25"
                     />
                     <motion.line
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ delay: 1.2, duration: 0.8 }}
-                      x1="75%" y1="25%" x2="60%" y2="45%"
-                      stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"
+                      x1="85%" y1="60%" x2="58%" y2="52%"
+                      stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" opacity="0.25"
+                    />
+                    <motion.line
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ delay: 1.3, duration: 0.8 }}
+                      x1="25%" y1="70%" x2="42%" y2="55%"
+                      stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" opacity="0.25"
                     />
                   </svg>
                 </div>
@@ -198,7 +382,7 @@ export default function Index() {
 
       {/* ========== SECTION 2: NEOLab Perspective (Gradient Transition) ========== */}
       <section className="bg-gradient-section relative">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <span className="chip mb-6 inline-block">NEOLab pieeja</span>
@@ -240,7 +424,7 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* System Diagram */}
             <ScrollReveal>
-              <div className="relative bg-card rounded-2xl p-8 shadow-card border border-border">
+              <div className="relative bg-card rounded-2xl p-8 shadow-card border border-border hover:shadow-neo-lg transition-shadow duration-300">
                 <div className="flex flex-col items-center">
                   {/* Top row */}
                   <div className="flex items-center justify-center gap-4 mb-4">
@@ -335,7 +519,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-6">
             {clientProblems.map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="card-bordered hover-lift">
+                <div className="card-bordered">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-primary font-semibold text-sm">{index + 1}</span>
@@ -365,15 +549,11 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <ScrollReveal key={service.id} delay={index * 0.1}>
-                <Link to={service.path} className="group block">
-                  <div className={`
-                    card-neo hover-lift h-full transition-all duration-300
-                    ${index === 0 ? "md:col-span-1 row-span-1" : ""}
-                    group-hover:border-primary/30
-                  `}>
+                <Link to={service.path} className="group block h-full">
+                  <div className="card-neo h-full group-hover:border-primary/30">
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                           <service.icon className="w-6 h-6 text-primary" />
                         </div>
                         <div>
@@ -403,7 +583,7 @@ export default function Index() {
 
       {/* ========== SECTION 6: Brand Moment (Editorial) ========== */}
       <section className="section-gray grid-overlay-subtle">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto">
             <ScrollReveal>
               <div className="border-l-4 border-primary pl-8 py-4">
@@ -459,7 +639,7 @@ export default function Index() {
 
       {/* ========== SECTION 8: Final CTA ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">

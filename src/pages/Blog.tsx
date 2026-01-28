@@ -69,10 +69,10 @@ export default function Blog() {
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/80 backdrop-blur-sm mb-6">
                 <BookOpen className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Lab Journal</span>
               </div>
@@ -122,10 +122,7 @@ export default function Blog() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <ScrollReveal key={post.id} delay={index * 0.1}>
-                <motion.article
-                  whileHover={{ y: -4 }}
-                  className="card-bordered h-full flex flex-col group"
-                >
+                <article className="card-bordered h-full flex flex-col group cursor-pointer">
                   {/* Category tag */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="chip">
@@ -163,7 +160,7 @@ export default function Blog() {
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
-                </motion.article>
+                </article>
               </ScrollReveal>
             ))}
           </div>
@@ -175,7 +172,7 @@ export default function Blog() {
         <div className="container-neo section-padding-sm">
           <div className="max-w-2xl mx-auto text-center">
             <ScrollReveal>
-              <div className="glass-warm rounded-2xl p-8 md:p-12">
+              <div className="glass-warm rounded-2xl p-8 md:p-12 border border-border/50">
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <BookOpen className="w-8 h-8 text-primary" />
                 </div>
@@ -199,7 +196,7 @@ export default function Blog() {
 
       {/* ========== SECTION 5: CTA ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">
