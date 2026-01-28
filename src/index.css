@@ -5,6 +5,8 @@
 /* NEOLab Design System — "Light Lab with Warm Energy"
    Glass × Precision × Calm Intelligence × Sunset Energy
    All colors in HSL format
+   
+   CRITICAL: Gradients NEVER cover text. Text always has z-index above backgrounds.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -97,6 +99,7 @@
     font-family: 'Inter', sans-serif;
   }
 
+  /* CRITICAL: All headings have full opacity and proper contrast */
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight text-foreground;
   }
@@ -131,7 +134,7 @@
     box-shadow: var(--shadow-card);
   }
 
-  /* Gradient backgrounds — ALWAYS as background layer, never covering text */
+  /* Gradient backgrounds — ALWAYS as background layer, NEVER above text */
   .bg-gradient-warm {
     background: var(--gradient-warm);
   }
@@ -170,7 +173,7 @@
     @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
   }
 
-  /* Text styles — always ensure proper z-index for readability */
+  /* Text styles — ALWAYS full opacity, proper contrast */
   .text-gradient-orange {
     @apply bg-clip-text text-transparent;
     background: var(--gradient-sunset);
@@ -193,7 +196,7 @@
     @apply h-px bg-gradient-to-r from-primary/40 via-primary/20 to-transparent;
   }
 
-  /* Grid overlays for visual interest — low opacity, never covers content */
+  /* Grid overlays — low opacity, positioned BEHIND content with z-index */
   .grid-overlay {
     position: relative;
   }
@@ -208,11 +211,6 @@
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
-  }
-  
-  .grid-overlay > * {
-    position: relative;
-    z-index: 1;
   }
 
   .grid-overlay-subtle {
@@ -230,15 +228,10 @@
     pointer-events: none;
     z-index: 0;
   }
-  
-  .grid-overlay-subtle > * {
-    position: relative;
-    z-index: 1;
-  }
 
-  /* Card variants with enhanced hover effects */
+  /* Card variants with enhanced hover effects — orange glow + lift */
   .card-neo {
-    @apply bg-card rounded-xl p-6 md:p-8 relative;
+    @apply bg-card rounded-xl p-6 md:p-8 relative overflow-hidden;
     box-shadow: var(--shadow-card);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -246,6 +239,24 @@
   .card-neo:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.12);
+  }
+  
+  /* Orange accent line on hover */
+  .card-neo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 3px;
+    background: var(--gradient-orange);
+    border-radius: 3px 3px 0 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-neo:hover::after {
+    transform: translateX(-50%) scaleX(1);
   }
 
   .card-glass {
@@ -259,7 +270,7 @@
   }
 
   .card-bordered {
-    @apply bg-background border border-border rounded-xl p-6 md:p-8 relative;
+    @apply bg-background border border-border rounded-xl p-6 md:p-8 relative overflow-hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
@@ -269,8 +280,6 @@
     box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.1);
   }
   
-  /* Orange accent line on hover for cards */
-  .card-neo::after,
   .card-bordered::after {
     content: '';
     position: absolute;
@@ -284,7 +293,6 @@
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .card-neo:hover::after,
   .card-bordered:hover::after {
     transform: translateX(-50%) scaleX(1);
   }
@@ -358,7 +366,7 @@
     text-wrap: balance;
   }
   
-  /* Ensure content is always above background effects */
+  /* CRITICAL: Content always above background effects */
   .content-above {
     position: relative;
     z-index: 1;

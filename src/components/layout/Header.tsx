@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import LogoBlack from "@/assets/logo-black.svg";
 
 const navItems = [
-  { label: "Sākums", path: "/" },
   { label: "SEO & GEO", path: "/seo-un-geo" },
   { label: "AI Automatizācijas", path: "/ai-automatizacija" },
   { label: "Digitālā reklāma", path: "/performance-reklama" },
@@ -22,24 +21,24 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container-neo">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={LogoBlack} alt="NEOLab" className="h-6 md:h-7" />
+        <div className="flex items-center justify-between h-18 md:h-22">
+          {/* Logo with breathing room */}
+          <Link to="/" className="flex items-center py-4">
+            <img src={LogoBlack} alt="NEOLab" className="h-7 md:h-8" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop Navigation — more spacing */}
+          <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}>
                 <Button
                   variant="nav"
                   size="sm"
-                  className={
+                  className={`px-4 ${
                     location.pathname === item.path
                       ? "text-primary"
                       : ""
-                  }
+                  }`}
                 >
                   {item.label}
                 </Button>
@@ -47,10 +46,10 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Button — visually dominant */}
+          <div className="hidden lg:flex items-center">
             <Link to="/bezmaksas-konsultacija">
-              <Button variant="nav-cta" size="default">
+              <Button variant="nav-cta" size="default" className="ml-4">
                 Bezmaksas konsultācija
               </Button>
             </Link>
@@ -77,6 +76,17 @@ export function Header() {
             className="lg:hidden bg-card border-t border-border"
           >
             <nav className="container-neo py-6 flex flex-col gap-2">
+              <Link
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
+                  location.pathname === "/"
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground hover:bg-accent"
+                }`}
+              >
+                Sākums
+              </Link>
               {navItems.map((item) => (
                 <Link
                   key={item.path}
