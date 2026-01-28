@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Brain,
-  Workflow,
-  Zap,
+import { 
+  Brain, 
+  Workflow, 
+  Zap, 
   ArrowRight,
   Clock,
   Users,
@@ -15,7 +15,7 @@ import {
   Settings,
   CheckCircle2,
   Layers,
-  BarChart3,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -91,12 +91,12 @@ export default function AiAutomatizacija() {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                  AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai cilvēki varētu darīt to, ko roboti
-                  nevar — domāt, radīt, risināt problēmas.
+                  AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai 
+                  cilvēki varētu darīt to, ko roboti nevar — domāt, radīt, risināt problēmas.
                 </p>
               </ScrollReveal>
             </div>
-
+            
             {/* System Visual - centered workflow diagram */}
             <ScrollReveal delay={0.3}>
               <div className="relative max-w-3xl mx-auto mb-12">
@@ -134,7 +134,7 @@ export default function AiAutomatizacija() {
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 1, delay: 0.9 }}
                     />
-
+                    
                     {/* Arrow heads */}
                     <motion.polygon
                       points="370,40 360,35 360,45"
@@ -144,9 +144,9 @@ export default function AiAutomatizacija() {
                       transition={{ delay: 1.2 }}
                     />
                   </svg>
-
+                  
                   {/* Nodes overlay */}
-                  <div className="absolute inset-0 grid grid-cols-4 place-items-center px-8">
+                  <div className="absolute inset-0 flex items-center justify-around px-8">
                     {[
                       { icon: Zap, label: "Trigeris", delay: 0.3 },
                       { icon: Layers, label: "Process", delay: 0.5 },
@@ -158,28 +158,19 @@ export default function AiAutomatizacija() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: node.delay }}
-                        className="flex flex-col items-center text-center"
+                        className="flex flex-col items-center"
                       >
-                        <div
-                          className={`w-12 h-12 rounded-xl flex items-center justify-center
-        ${i === 3 ? "bg-gradient-orange shadow-orange" : "bg-primary/10"}`}
-                        >
-                          <node.icon
-                            className={`w-6 h-6 ${i === 3 ? "text-primary-foreground" : "text-primary"}`}
-                            style={{ display: "block" }}
-                          />
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
+                          <node.icon className={`w-6 h-6 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
                         </div>
-
-                        <span className="mt-2 text-xs font-medium leading-none text-foreground whitespace-nowrap">
-                          {node.label}
-                        </span>
+                        <span className="text-xs font-medium text-foreground mt-2">{node.label}</span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
               </div>
             </ScrollReveal>
-
+            
             {/* Problem cards - grid below */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {manualProblems.map((item, index) => (
@@ -226,14 +217,12 @@ export default function AiAutomatizacija() {
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                         <module.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <span
-                        className={`
+                      <span className={`
                         text-xs px-2 py-1 rounded-full
                         ${module.complexity === "Vienkārši" ? "bg-green-100 text-green-700" : ""}
                         ${module.complexity === "Vidēji" ? "bg-yellow-100 text-yellow-700" : ""}
                         ${module.complexity === "Kompleksi" ? "bg-primary/10 text-primary" : ""}
-                      `}
-                      >
+                      `}>
                         {module.complexity}
                       </span>
                     </div>
@@ -266,7 +255,8 @@ export default function AiAutomatizacija() {
                   Ko jūs <span className="text-gradient-orange">iegūstat</span>
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Automatizācija nav izdevums — tā ir investīcija, kas atmaksājas katru dienu.
+                  Automatizācija nav izdevums — tā ir investīcija, 
+                  kas atmaksājas katru dienu.
                 </p>
                 <Link to="/bezmaksas-konsultacija">
                   <Button variant="hero" size="lg">
@@ -309,11 +299,11 @@ export default function AiAutomatizacija() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Katrs automatizācijas projekts ir unikāls. Mēs sākam ar jūsu procesu izpratni, ne ar gatavu risinājumu.
-                Rezultāts — sistēma, kas aug līdzi jūsu biznesam.
+                Katrs automatizācijas projekts ir unikāls. Mēs sākam ar jūsu procesu izpratni, 
+                ne ar gatavu risinājumu. Rezultāts — sistēma, kas aug līdzi jūsu biznesam.
               </p>
             </ScrollReveal>
-
+            
             <ScrollReveal delay={0.3}>
               <div className="flex flex-wrap justify-center gap-4">
                 {["Zapier", "Make", "n8n", "Custom API", "OpenAI"].map((tool) => (
