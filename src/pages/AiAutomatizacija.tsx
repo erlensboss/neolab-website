@@ -146,20 +146,20 @@ export default function AiAutomatizacija() {
                   </svg>
                   
                   {/* Nodes overlay - positioned to match SVG coordinates */}
-                  <div className="absolute inset-0 flex items-center">
+                  <div className="absolute inset-0">
                     {[
-                      { icon: Zap, label: "Trigeris", delay: 0.3, position: "12.5%" },      // x=50 out of 400 = 12.5%
-                      { icon: Layers, label: "Process", delay: 0.5, position: "40%" },     // x=160 out of 400 = 40%
-                      { icon: Brain, label: "AI", delay: 0.7, position: "70%" },           // x=280 out of 400 = 70%
-                      { icon: BarChart3, label: "Rezultāts", delay: 0.9, position: "92.5%" }, // x=370 out of 400 = 92.5%
+                      { icon: Zap, label: "Trigeris", delay: 0.3, left: "10%", top: "58%" },
+                      { icon: Layers, label: "Process", delay: 0.5, left: "35%", top: "58%" },
+                      { icon: Brain, label: "AI", delay: 0.7, left: "62%", top: "58%" },
+                      { icon: BarChart3, label: "Rezultāts", delay: 0.9, left: "88%", top: "58%" },
                     ].map((node, i) => (
                       <motion.div
                         key={node.label}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: node.delay }}
-                        className="absolute flex flex-col items-center -translate-x-1/2"
-                        style={{ left: node.position }}
+                        className="absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2"
+                        style={{ left: node.left, top: node.top }}
                       >
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
                           <node.icon className={`w-6 h-6 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
