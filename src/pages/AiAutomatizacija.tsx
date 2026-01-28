@@ -76,21 +76,21 @@ export default function AiAutomatizacija() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: CENTERED Hero with System Visual ========== */}
-      <section className="bg-gradient-hero min-h-[85vh] flex items-center relative overflow-hidden">
+      <section className="bg-gradient-hero min-h-[90vh] flex items-center relative overflow-hidden bg-atmosphere">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {/* Centered content */}
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <ScrollReveal>
-                <span className="chip-outline mb-6 inline-block">Problēma</span>
+                <span className="chip-outline mb-8 inline-block text-sm">Problēma</span>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
-                <h1 className="mb-6 text-foreground">
+                <h1 className="mb-8 text-foreground">
                   Jūsu komanda tērē laiku <span className="text-gradient-orange">robotu darbam</span>
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10">
                   AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai 
                   cilvēki varētu darīt to, ko roboti nevar — domāt, radīt, risināt problēmas.
                 </p>
@@ -99,10 +99,10 @@ export default function AiAutomatizacija() {
             
             {/* System Visual - centered workflow diagram */}
             <ScrollReveal delay={0.3}>
-              <div className="relative max-w-3xl mx-auto mb-12">
-                <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-border shadow-card">
+              <div className="relative max-w-4xl mx-auto mb-16">
+                <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-10 md:p-12 border border-border shadow-card">
                   {/* Flow visualization */}
-                  <svg className="w-full h-32" viewBox="0 0 400 80">
+                  <svg className="w-full h-40" viewBox="0 0 400 80">
                     {/* Connection lines */}
                     <motion.path
                       d="M 50 40 L 140 40"
@@ -161,10 +161,10 @@ export default function AiAutomatizacija() {
                         className="absolute flex flex-col items-center -translate-x-1/2"
                         style={{ left: node.position }}
                       >
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
-                          <node.icon className={`w-6 h-6 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
+                          <node.icon className={`w-8 h-8 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
                         </div>
-                        <span className="text-xs font-medium text-foreground mt-2">{node.label}</span>
+                        <span className="text-sm font-medium text-foreground mt-3">{node.label}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -173,14 +173,14 @@ export default function AiAutomatizacija() {
             </ScrollReveal>
             
             {/* Problem cards - grid below */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {manualProblems.map((item, index) => (
                 <ScrollReveal key={index} delay={0.4 + index * 0.1}>
-                  <div className="flex items-center gap-4 bg-card/80 backdrop-blur-sm rounded-xl p-4 border border-border hover-lift">
-                    <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-destructive" />
+                  <div className="flex items-center gap-5 bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover-lift">
+                    <div className="w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-7 h-7 text-destructive" />
                     </div>
-                    <span className="text-foreground text-sm">{item.text}</span>
+                    <span className="text-foreground">{item.text}</span>
                   </div>
                 </ScrollReveal>
               ))}
@@ -190,36 +190,36 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 2: Visual Workflow Builder ========== */}
-      <section className="section-offwhite">
+      <section className="section-offwhite bg-atmosphere">
         <div className="container-neo section-padding">
           <SectionHeading
             chip="Sistēmas būvēšana"
             title="No manuāla līdz automatizētam"
             description="Katrs modulis ir kā LEGO klucis — savienojams ar citiem, veidojot pilnu sistēmu."
-            className="mb-16"
+            className="mb-20"
           />
 
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-6xl mx-auto">
             {/* Input trigger */}
-            <ScrollReveal className="mb-8 text-center">
-              <div className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-orange">
-                <Zap className="w-5 h-5" />
-                <span className="font-semibold">Trigeris</span>
-                <span className="text-primary-foreground/70 text-sm">Jauns lead, forma, e-pasts...</span>
+            <ScrollReveal className="mb-10 text-center">
+              <div className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 rounded-2xl shadow-orange">
+                <Zap className="w-6 h-6" />
+                <span className="font-semibold text-lg">Trigeris</span>
+                <span className="text-primary-foreground/70">Jauns lead, forma, e-pasts...</span>
               </div>
             </ScrollReveal>
 
             {/* Workflow steps */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {automationModules.map((module, index) => (
                 <ScrollReveal key={module.title} delay={0.2 + index * 0.15}>
                   <div className="card-neo h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <module.icon className="w-6 h-6 text-primary" />
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                        <module.icon className="w-8 h-8 text-primary" />
                       </div>
                       <span className={`
-                        text-xs px-2 py-1 rounded-full
+                        text-sm px-3 py-1.5 rounded-full
                         ${module.complexity === "Vienkārši" ? "bg-green-100 text-green-700" : ""}
                         ${module.complexity === "Vidēji" ? "bg-yellow-100 text-yellow-700" : ""}
                         ${module.complexity === "Kompleksi" ? "bg-primary/10 text-primary" : ""}
@@ -227,18 +227,18 @@ export default function AiAutomatizacija() {
                         {module.complexity}
                       </span>
                     </div>
-                    <h4 className="font-semibold mb-2 text-foreground">{module.title}</h4>
-                    <p className="text-sm text-muted-foreground">{module.description}</p>
+                    <h4 className="font-semibold text-lg mb-3 text-foreground">{module.title}</h4>
+                    <p className="text-muted-foreground">{module.description}</p>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
 
             {/* Output */}
-            <ScrollReveal delay={0.8} className="mt-8 text-center">
-              <div className="inline-flex items-center gap-3 glass-warm px-6 py-3 rounded-xl">
-                <Settings className="w-5 h-5 text-primary animate-spin" style={{ animationDuration: "3s" }} />
-                <span className="font-medium text-foreground">Automatizēts rezultāts</span>
+            <ScrollReveal delay={0.8} className="mt-10 text-center">
+              <div className="inline-flex items-center gap-4 glass-warm px-8 py-4 rounded-2xl">
+                <Settings className="w-6 h-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+                <span className="font-medium text-lg text-foreground">Automatizēts rezultāts</span>
               </div>
             </ScrollReveal>
           </div>
@@ -246,16 +246,16 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 3: Benefits ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
-          <div className="grid lg:grid-cols-5 gap-12 items-center">
+      <section className="section-warm section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
+          <div className="grid lg:grid-cols-5 gap-16 items-center">
             <div className="lg:col-span-2">
               <ScrollReveal>
-                <span className="chip mb-4 inline-block">Ieguvumi</span>
-                <h2 className="mb-6 text-foreground">
+                <span className="chip mb-6 inline-block text-sm">Ieguvumi</span>
+                <h2 className="mb-8 text-foreground">
                   Ko jūs <span className="text-gradient-orange">iegūstat</span>
                 </h2>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-muted-foreground text-lg mb-10">
                   Automatizācija nav izdevums — tā ir investīcija, 
                   kas atmaksājas katru dienu.
                 </p>
@@ -269,12 +269,12 @@ export default function AiAutomatizacija() {
             </div>
 
             <div className="lg:col-span-3">
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-6">
                 {benefits.map((benefit, index) => (
                   <ScrollReveal key={benefit} delay={index * 0.1} direction="right">
-                    <div className="flex items-center gap-3 bg-card rounded-lg p-4 border border-border hover-lift">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-foreground">{benefit}</span>
+                    <div className="flex items-center gap-4 bg-card rounded-xl p-6 border border-border hover-lift">
+                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
+                      <span className="text-foreground text-lg">{benefit}</span>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -285,21 +285,21 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 4: Philosophy ========== */}
-      <section className="section-offwhite grid-overlay-subtle">
+      <section className="section-offwhite grid-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <ScrollReveal>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-8">
-                <Brain className="w-10 h-10 text-primary" />
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-primary/10 mb-10">
+                <Brain className="w-12 h-12 text-primary" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="mb-6 text-foreground">
+              <h2 className="mb-8 text-foreground">
                 Mēs būvējam <span className="text-gradient-orange">mašīnas</span>, nevis skriptus
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto">
                 Katrs automatizācijas projekts ir unikāls. Mēs sākam ar jūsu procesu izpratni, 
                 ne ar gatavu risinājumu. Rezultāts — sistēma, kas aug līdzi jūsu biznesam.
               </p>
@@ -308,7 +308,7 @@ export default function AiAutomatizacija() {
             <ScrollReveal delay={0.3}>
               <div className="flex flex-wrap justify-center gap-4">
                 {["Zapier", "Make", "n8n", "Custom API", "OpenAI"].map((tool) => (
-                  <span key={tool} className="px-4 py-2 bg-muted rounded-lg text-sm font-medium text-foreground">
+                  <span key={tool} className="px-5 py-3 bg-muted rounded-xl text-base font-medium text-foreground">
                     {tool}
                   </span>
                 ))}
@@ -319,16 +319,16 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 5: CTA ========== */}
-      <section className="bg-gradient-hero">
+      <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-6 text-foreground">
+              <h2 className="mb-8 text-foreground">
                 Gatavi <span className="text-gradient-orange">automatizēt</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground mb-10">
                 Konsultācijā identificēsim jūsu lielākās automatizācijas iespējas.
               </p>
             </ScrollReveal>
