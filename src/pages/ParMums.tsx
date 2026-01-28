@@ -39,28 +39,28 @@ export default function ParMums() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Philosophy (Not Team Grid) ========== */}
-      <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
-          <div className="max-w-4xl">
+      <section className="bg-gradient-hero bg-atmosphere">
+        <div className="container-neo section-padding relative z-10">
+          <div className="max-w-5xl">
             <ScrollReveal>
-              <span className="chip-outline mb-6 inline-block">Par mums</span>
+              <span className="chip-outline mb-8 inline-block text-sm">Par mums</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h1 className="mb-8">
+              <h1 className="mb-10">
                 Mēs esam <span className="text-gradient-orange">sistēmu domātāji</span>,
                 <br />
                 nevis tipiskas aģentūras
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl">
                 NEOLab ir jauna veida digitālā aģentūra. Mēs neticam standarta 
                 risinājumiem, jo katrs bizness ir unikāls. Mēs būvējam personalizētas 
                 sistēmas, kas aug līdzi jūsu ambīcijām.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
-              <p className="text-lg text-foreground/80">
+              <p className="text-xl text-foreground/80">
                 Jauni. Gudri. Neatlaidīgi. Profesionāli. Unikāli.
               </p>
             </ScrollReveal>
@@ -69,26 +69,26 @@ export default function ParMums() {
       </section>
 
       {/* ========== SECTION 2: Values (Visual Blocks) ========== */}
-      <section className="section-offwhite">
-        <div className="container-neo section-padding">
+      <section className="section-offwhite section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
           <SectionHeading
             chip="Vērtības"
             title="Kas mūs vada"
-            className="mb-16"
+            className="mb-20"
           />
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {values.map((value, index) => (
               <ScrollReveal key={value.title} delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -4 }}
                   className="card-neo h-full"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-orange flex items-center justify-center mb-6 shadow-orange">
-                    <value.icon className="w-7 h-7 text-primary-foreground" />
+                  <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-gradient-orange flex items-center justify-center mb-8 shadow-orange">
+                    <value.icon className="w-9 h-9 text-primary-foreground" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
+                  <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground text-lg">{value.description}</p>
                 </motion.div>
               </ScrollReveal>
             ))}

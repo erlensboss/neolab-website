@@ -112,9 +112,9 @@ const systemNodes = [{
 export default function Index() {
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero with RIGHT-side System Visual ========== */}
-      <section className="bg-gradient-hero min-h-[90vh] flex items-center relative overflow-hidden">
+      <section className="bg-gradient-hero min-h-[95vh] flex items-center relative overflow-hidden bg-atmosphere">
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left: Problem Statement — text always readable */}
             <div className="relative z-10">
               <ScrollReveal>
@@ -161,7 +161,7 @@ export default function Index() {
             {/* Right: LARGE System Diagram — intentional, dominant, centered */}
             <ScrollReveal delay={0.2} direction="right">
               <div className="relative">
-                <div className="relative aspect-square w-full max-w-lg mx-auto">
+                <div className="relative aspect-square w-full max-w-xl mx-auto">
                   {/* Background circles - concentric rings */}
                   <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
                     {/* Outer ring */}
@@ -309,10 +309,10 @@ export default function Index() {
                           repeat: Infinity,
                           ease: "linear"
                         }} 
-                        className="absolute w-32 h-32 border-2 border-dashed border-primary/20 rounded-full" 
+                        className="absolute w-36 h-36 border-2 border-dashed border-primary/20 rounded-full" 
                       />
-                      <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                        <Workflow className="w-9 h-9 text-primary-foreground" />
+                      <div className="w-24 h-24 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <Workflow className="w-11 h-11 text-primary-foreground" />
                       </div>
                     </div>
                   </motion.div>
@@ -324,19 +324,19 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 2: NEOLab Perspective ========== */}
-      <section className="bg-gradient-section relative">
+      <section className="bg-gradient-section relative section-full-bleed grid-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <ScrollReveal>
-              <span className="chip mb-6 inline-block">NEOLab pieeja</span>
+              <span className="chip mb-8 inline-block text-sm">NEOLab pieeja</span>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="mb-8 text-center text-5xl">
+              <h2 className="mb-10 text-center">
                 Jauna ēra <span className="text-gradient-orange">optimizācijai</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-14 max-w-3xl mx-auto">
                 Mēs neesam tipiskas aģentūras. Mēs esam sistēmas domātāji — jauni, gudri, neatlaidīgi un unikāli. Mēs
                 savienojam AI tehnoloģijas ar stratēģisku domāšanu, radot personalizētus risinājumus katram klientam.
               </p>
@@ -361,12 +361,12 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 3: What NEOLab Does — Aligned & Reactive ========== */}
-      <section className="section-offwhite">
+      <section className="section-offwhite bg-atmosphere">
         <div className="container-neo section-padding">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* System Diagram — with hover reactivity */}
             <ScrollReveal>
-              <motion.div className="relative bg-card rounded-2xl p-8 shadow-card border border-border" whileHover={{
+              <motion.div className="relative bg-card rounded-2xl p-10 md:p-12 shadow-card border border-border" whileHover={{
               y: -4
             }} transition={{
               duration: 0.3
@@ -382,30 +382,30 @@ export default function Index() {
 
                 <div className="flex flex-col items-center">
                   {/* Top row */}
-                  <div className="flex items-center justify-center gap-6 mb-4">
-                    <motion.div className="glass-warm px-5 py-3 rounded-lg text-sm font-medium flex items-center gap-2" whileHover={{
+                  <div className="flex items-center justify-center gap-8 mb-6">
+                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
                     scale: 1.05,
                     boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
                   }}>
-                      <Search className="w-4 h-4 text-primary" />
+                      <Search className="w-5 h-5 text-primary" />
                       SEO
                     </motion.div>
-                    <div className="w-10 h-px bg-primary/30" />
-                    <motion.div className="glass-warm px-5 py-3 rounded-lg text-sm font-medium flex items-center gap-2" whileHover={{
+                    <div className="w-14 h-px bg-primary/30" />
+                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
                     scale: 1.05,
                     boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
                   }}>
-                      <TrendingUp className="w-4 h-4 text-primary" />
+                      <TrendingUp className="w-5 h-5 text-primary" />
                       Ads
                     </motion.div>
                   </div>
 
                   {/* Connectors */}
-                  <div className="flex justify-center gap-24">
-                    <motion.div className="w-px h-10 bg-primary/30" whileHover={{
+                  <div className="flex justify-center gap-32">
+                    <motion.div className="w-px h-14 bg-primary/30" whileHover={{
                     backgroundColor: "hsl(21 90% 48% / 0.5)"
                   }} />
-                    <motion.div className="w-px h-10 bg-primary/30" whileHover={{
+                    <motion.div className="w-px h-14 bg-primary/30" whileHover={{
                     backgroundColor: "hsl(21 90% 48% / 0.5)"
                   }} />
                   </div>
@@ -421,32 +421,32 @@ export default function Index() {
                   scale: 1.05
                 }} viewport={{
                   once: true
-                }} className="bg-gradient-orange text-primary-foreground px-8 py-5 rounded-xl font-semibold shadow-orange my-4">
-                    <Workflow className="w-5 h-5 inline mr-2" />
+                }} className="bg-gradient-orange text-primary-foreground px-10 py-6 rounded-2xl font-semibold text-lg shadow-orange my-6">
+                    <Workflow className="w-6 h-6 inline mr-3" />
                     NEO Sistēma
                   </motion.div>
 
                   {/* Bottom connectors */}
-                  <div className="flex justify-center gap-24">
-                    <div className="w-px h-10 bg-primary/30" />
-                    <div className="w-px h-10 bg-primary/30" />
+                  <div className="flex justify-center gap-32">
+                    <div className="w-px h-14 bg-primary/30" />
+                    <div className="w-px h-14 bg-primary/30" />
                   </div>
 
                   {/* Bottom row */}
-                  <div className="flex items-center justify-center gap-6 mt-4">
-                    <motion.div className="glass-warm px-5 py-3 rounded-lg text-sm font-medium flex items-center gap-2" whileHover={{
+                  <div className="flex items-center justify-center gap-8 mt-6">
+                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
                     scale: 1.05,
                     boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
                   }}>
-                      <Brain className="w-4 h-4 text-primary" />
+                      <Brain className="w-5 h-5 text-primary" />
                       AI
                     </motion.div>
-                    <div className="w-10 h-px bg-primary/30" />
-                    <motion.div className="glass-warm px-5 py-3 rounded-lg text-sm font-medium flex items-center gap-2" whileHover={{
+                    <div className="w-14 h-px bg-primary/30" />
+                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
                     scale: 1.05,
                     boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
                   }}>
-                      <Target className="w-4 h-4 text-primary" />
+                      <Target className="w-5 h-5 text-primary" />
                       Stratēģija
                     </motion.div>
                   </div>
@@ -456,12 +456,12 @@ export default function Index() {
 
             {/* Explanation — properly aligned with visual */}
             <div className="flex flex-col justify-center">
-              <SectionHeading chip="Sistēmas domāšana" title="Viss savienots vienā ekosistēmā" description="Mēs neredzam SEO, reklāmas un AI kā atsevišķus pakalpojumus. Tie ir vienas sistēmas elementi, kas pastiprina viens otru." className="mb-8" />
+              <SectionHeading chip="Sistēmas domāšana" title="Viss savienots vienā ekosistēmā" description="Mēs neredzam SEO, reklāmas un AI kā atsevišķus pakalpojumus. Tie ir vienas sistēmas elementi, kas pastiprina viens otru." className="mb-10" />
               <ScrollReveal delay={0.2}>
-                <ul className="space-y-4">
-                  {["SEO dati informē reklāmas stratēģiju", "AI automatizē manuālos procesus", "Reklāmas signāli uzlabo SEO prioritātes", "Viss optimizēts kopējam mērķim"].map((item, index) => <li key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
+                <ul className="space-y-5">
+                  {["SEO dati informē reklāmas stratēģiju", "AI automatizē manuālos procesus", "Reklāmas signāli uzlabo SEO prioritātes", "Viss optimizēts kopējam mērķim"].map((item, index) => <li key={index} className="flex items-start gap-4">
+                      <CheckCircle2 className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-foreground text-lg">{item}</span>
                     </li>)}
                 </ul>
               </ScrollReveal>
@@ -471,20 +471,20 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 4: Client Reality ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
-          <SectionHeading chip="Klientu realitāte" title="Pazīstamas problēmas?" description="Mēs dzirdam šīs lietas katru dienu. Tās nav unikālas — bet risinājumi ir." className="mb-16 max-w-2xl" />
+      <section className="section-warm section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
+          <SectionHeading chip="Klientu realitāte" title="Pazīstamas problēmas?" description="Mēs dzirdam šīs lietas katru dienu. Tās nav unikālas — bet risinājumi ir." className="mb-20 max-w-3xl" />
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {clientProblems.map((item, index) => <ScrollReveal key={index} delay={index * 0.1}>
                 <div className="card-bordered">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-primary font-semibold text-sm">{index + 1}</span>
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-bold text-lg">{index + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2 text-foreground">{item.problem}</h3>
-                      <p className="text-muted-foreground">{item.detail}</p>
+                      <h3 className="text-xl font-semibold mb-3 text-foreground">{item.problem}</h3>
+                      <p className="text-muted-foreground text-lg">{item.detail}</p>
                     </div>
                   </div>
                 </div>
@@ -494,31 +494,31 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 5: Service Directions ========== */}
-      <section className="section-offwhite">
+      <section className="section-offwhite bg-atmosphere">
         <div className="container-neo section-padding">
-          <SectionHeading chip="Pakalpojumi" title="Četri virzieni. Viena sistēma." className="mb-16 text-center mx-auto" align="center" />
+          <SectionHeading chip="Pakalpojumi" title="Četri virzieni. Viena sistēma." className="mb-20 text-center mx-auto" align="center" />
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {services.map((service, index) => <ScrollReveal key={service.id} delay={index * 0.1}>
                 <Link to={service.path} className="group block h-full">
                   <div className="card-neo h-full group-hover:border-primary/30">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <service.icon className="w-6 h-6 text-primary" />
+                    <div className="flex items-start justify-between mb-8">
+                      <div className="flex items-center gap-5">
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <service.icon className="w-8 h-8 text-primary" />
                         </div>
                         <div>
-                          <span className="chip text-xs">{service.chip}</span>
+                          <span className="chip text-sm">{service.chip}</span>
                         </div>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                     </div>
 
-                    <h3 className="text-xl font-semibold mb-2 text-foreground">{service.title}</h3>
-                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <h3 className="text-2xl font-semibold mb-3 text-foreground">{service.title}</h3>
+                    <p className="text-muted-foreground text-lg mb-8">{service.description}</p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {service.features.map(feature => <span key={feature} className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground">
+                    <div className="flex flex-wrap gap-3">
+                      {service.features.map(feature => <span key={feature} className="text-sm px-3 py-1.5 rounded-lg bg-muted text-muted-foreground">
                           {feature}
                         </span>)}
                     </div>
@@ -530,17 +530,17 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 6: Brand Moment ========== */}
-      <section className="section-gray grid-overlay-subtle">
+      <section className="section-gray grid-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <ScrollReveal>
-              <div className="border-l-4 border-primary pl-8 py-4">
-                <blockquote className="text-2xl md:text-3xl font-medium text-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-10 py-6">
+                <blockquote className="text-3xl md:text-4xl font-medium text-foreground leading-relaxed">
                   "Mēs neesam aģentūra, kas pārdod stundas.
                   <br />
                   <span className="text-gradient-orange">Mēs esam partneri, kas būvē sistēmas.</span>"
                 </blockquote>
-                <p className="mt-6 text-muted-foreground">— NEOLab filozofija</p>
+                <p className="mt-8 text-muted-foreground text-lg">— NEOLab filozofija</p>
               </div>
             </ScrollReveal>
           </div>
@@ -548,22 +548,22 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 7: How We Work ========== */}
-      <section className="section-offwhite overflow-hidden">
+      <section className="section-offwhite overflow-hidden bg-atmosphere">
         <div className="container-neo section-padding">
-          <SectionHeading chip="Process" title="Kā mēs strādājam" description="Strukturēta pieeja ar skaidriem soļiem un nepārtrauktu uzlabošanu." className="mb-16" />
+          <SectionHeading chip="Process" title="Kā mēs strādājam" description="Strukturēta pieeja ar skaidriem soļiem un nepārtrauktu uzlabošanu." className="mb-20" />
 
           <div className="overflow-x-auto pb-4 -mx-6 px-6">
-            <div className="flex gap-4 md:grid md:grid-cols-4 md:gap-8 min-w-max md:min-w-0">
+            <div className="flex gap-6 md:grid md:grid-cols-4 md:gap-12 min-w-max md:min-w-0">
               {processSteps.map((step, index) => <ScrollReveal key={step.step} delay={index * 0.1} direction="up">
-                  <div className="relative flex flex-col items-center w-48 md:w-auto">
-                    <div className="w-14 h-14 rounded-full bg-gradient-orange text-primary-foreground flex items-center justify-center font-bold text-lg shadow-orange mb-4">
+                  <div className="relative flex flex-col items-center w-56 md:w-auto">
+                    <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-gradient-orange text-primary-foreground flex items-center justify-center font-bold text-xl shadow-orange mb-6">
                       {step.step}
                     </div>
 
-                    {index < processSteps.length - 1 && <div className="hidden md:block absolute top-7 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-primary/20" />}
+                    {index < processSteps.length - 1 && <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-primary/20" />}
 
-                    <h4 className="font-semibold text-lg mb-1 text-foreground">{step.title}</h4>
-                    <p className="text-sm text-muted-foreground text-center">{step.description}</p>
+                    <h4 className="font-semibold text-xl mb-2 text-foreground">{step.title}</h4>
+                    <p className="text-base text-muted-foreground text-center">{step.description}</p>
                   </div>
                 </ScrollReveal>)}
             </div>
@@ -572,16 +572,16 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 8: Final CTA ========== */}
-      <section className="bg-gradient-hero">
+      <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-6 text-foreground">
+              <h2 className="mb-8 text-foreground">
                 Gatavi sākt <span className="text-gradient-orange">jaunu nodaļu</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground mb-10">
                 Bezmaksas konsultācija bez saistībām. Izrunāsim jūsu situāciju un redzēsim, vai varam palīdzēt.
               </p>
             </ScrollReveal>

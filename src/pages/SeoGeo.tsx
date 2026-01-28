@@ -64,21 +64,21 @@ export default function SeoGeo() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Diagnosis First ========== */}
-      <section className="bg-gradient-hero">
+      <section className="bg-gradient-hero bg-atmosphere">
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
+          <div className="grid lg:grid-cols-5 gap-16 items-start">
             {/* Left: Diagnostic intro */}
             <div className="lg:col-span-2">
               <ScrollReveal>
-                <span className="chip-outline mb-6 inline-block">Diagnostika vispirms</span>
+                <span className="chip-outline mb-8 inline-block text-sm">Diagnostika vispirms</span>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
-                <h1 className="mb-6 text-foreground">
+                <h1 className="mb-8 text-foreground">
                   SEO bez <span className="text-gradient-orange">minēšanas</span>
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-xl text-muted-foreground mb-10">
                   Pirms jebkādas optimizācijas — pilna sistēmas diagnoze. 
                   Mēs nedarām SEO "jo tā vajag". Mēs zinām, kāpēc katrs solis ir nepieciešams.
                 </p>
@@ -95,18 +95,18 @@ export default function SeoGeo() {
 
             {/* Right: Diagnostic steps */}
             <div className="lg:col-span-3">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {diagnosticsSteps.map((step, index) => (
                   <ScrollReveal key={step.label} delay={0.2 + index * 0.1} direction="right">
-                    <div className="glass-warm rounded-xl p-5 flex items-center gap-5 hover-lift">
-                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-7 h-7 text-primary" />
+                    <div className="glass-warm rounded-2xl p-7 flex items-center gap-6 hover-lift">
+                      <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <step.icon className="w-9 h-9 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-lg text-foreground">{step.label}</h4>
-                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                        <h4 className="font-semibold text-xl text-foreground">{step.label}</h4>
+                        <p className="text-muted-foreground">{step.description}</p>
                       </div>
-                      <div className="text-5xl font-bold text-primary/10">
+                      <div className="text-6xl font-bold text-primary/10">
                         {String(index + 1).padStart(2, "0")}
                       </div>
                     </div>
@@ -119,16 +119,16 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 2: SEO System Layers ========== */}
-      <section className="section-offwhite">
-        <div className="container-neo section-padding">
+      <section className="section-offwhite section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
           <SectionHeading
             chip="Sistēmas pieeja"
             title="SEO kā slāņu sistēma"
             description="Katrs slānis būvējas uz iepriekšējā. Nav shortcut — ir process."
-            className="mb-16 max-w-2xl"
+            className="mb-20 max-w-3xl"
           />
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {[
               { layer: "Rezultāti", color: "bg-primary", desc: "Rankings, trafiks, konversijas" },
               { layer: "Saturs", color: "bg-primary/80", desc: "Stratēģisks, mērķēts, vērtīgs" },
@@ -142,13 +142,13 @@ export default function SeoGeo() {
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   className={`
-                    ${item.color} rounded-xl mb-2 p-6 text-center
+                    ${item.color} rounded-2xl mb-3 p-8 text-center
                     ${index < 3 ? "text-primary-foreground" : "text-foreground"}
                   `}
                   style={{ marginLeft: `${index * 2}%`, marginRight: `${index * 2}%` }}
                 >
-                  <div className="font-semibold text-lg">{item.layer}</div>
-                  <div className={`text-sm ${index < 3 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                  <div className="font-semibold text-xl">{item.layer}</div>
+                  <div className={`text-base ${index < 3 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                     {item.desc}
                   </div>
                 </motion.div>
@@ -159,40 +159,40 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 3: Scenarios ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
+      <section className="section-warm bg-atmosphere">
+        <div className="container-neo section-padding relative z-10">
           <SectionHeading
             chip="Scenāriji"
             title="Reālas situācijas. Reāli rezultāti."
-            className="mb-16"
+            className="mb-20"
           />
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-10">
             {scenarios.map((scenario, index) => (
               <ScrollReveal key={scenario.title} delay={index * 0.15}>
                 <div className="card-neo h-full flex flex-col">
-                  <span className="chip mb-4">{scenario.title}</span>
+                  <span className="chip mb-6 text-sm">{scenario.title}</span>
                   
-                  <div className="space-y-4 flex-1">
+                  <div className="space-y-6 flex-1">
                     <div>
-                      <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
+                      <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
                         Problēma
                       </div>
-                      <p className="text-foreground">{scenario.problem}</p>
+                      <p className="text-foreground text-lg">{scenario.problem}</p>
                     </div>
                     
-                    <div className="border-l-2 border-primary/30 pl-4">
-                      <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
+                    <div className="border-l-2 border-primary/30 pl-5">
+                      <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
                         Risinājums
                       </div>
-                      <p className="text-foreground">{scenario.solution}</p>
+                      <p className="text-foreground text-lg">{scenario.solution}</p>
                     </div>
                     
-                    <div className="bg-primary/5 rounded-lg p-4">
-                      <div className="text-xs font-medium text-primary uppercase tracking-wider mb-1">
+                    <div className="bg-primary/5 rounded-xl p-6">
+                      <div className="text-sm font-medium text-primary uppercase tracking-wider mb-2">
                         Rezultāts
                       </div>
-                      <p className="text-2xl font-bold text-primary">{scenario.result}</p>
+                      <p className="text-3xl font-bold text-primary">{scenario.result}</p>
                     </div>
                   </div>
                 </div>
@@ -203,13 +203,13 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 4: GEO Optimization — CENTERED & ALIGNED ========== */}
-      <section className="section-offwhite grid-overlay-subtle">
+      <section className="section-offwhite grid-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* GEO Map Visual — CENTERED & LARGER */}
             <ScrollReveal>
               <div className="relative">
-                <div className="aspect-square w-full max-w-md mx-auto bg-card rounded-2xl p-6 relative overflow-hidden border border-border shadow-card">
+                <div className="aspect-square w-full max-w-lg mx-auto bg-card rounded-2xl p-8 relative overflow-hidden border border-border shadow-card">
                   {/* Grid background */}
                   <div 
                     className="absolute inset-0 opacity-[0.08]"
@@ -291,8 +291,8 @@ export default function SeoGeo() {
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   >
                     <div className="relative">
-                      <div className="w-14 h-14 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                        <MapPin className="w-7 h-7 text-primary-foreground" />
+                      <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <MapPin className="w-10 h-10 text-primary-foreground" />
                       </div>
                       <motion.div
                         animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
@@ -318,8 +318,8 @@ export default function SeoGeo() {
                       style={{ left: loc.x, top: loc.y }}
                       className="absolute"
                     >
-                      <div className="w-8 h-8 rounded-full bg-card border-2 border-primary/40 flex items-center justify-center shadow-neo">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
+                      <div className="w-10 h-10 rounded-full bg-card border-2 border-primary/40 flex items-center justify-center shadow-neo">
+                        <div className="w-3 h-3 rounded-full bg-primary" />
                       </div>
                     </motion.div>
                   ))}
@@ -330,9 +330,9 @@ export default function SeoGeo() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 1 }}
-                    className="absolute bottom-4 right-4 bg-card/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border"
+                    className="absolute bottom-6 right-6 bg-card/90 backdrop-blur-sm px-4 py-3 rounded-xl border border-border"
                   >
-                    <span className="text-xs font-medium text-foreground">5 km rādiuss</span>
+                    <span className="text-sm font-medium text-foreground">5 km rādiuss</span>
                   </motion.div>
                 </div>
               </div>
@@ -341,23 +341,23 @@ export default function SeoGeo() {
             {/* GEO content */}
             <div className="flex flex-col justify-center">
               <ScrollReveal>
-                <span className="chip mb-4 inline-block">
-                  <Globe className="w-3 h-3 inline mr-1" />
+                <span className="chip mb-6 inline-block text-sm">
+                  <Globe className="w-4 h-4 inline mr-1" />
                   GEO Optimizācija
                 </span>
-                <h2 className="mb-6 text-foreground">Esiet atrasti tur, kur tas svarīgi</h2>
-                <p className="text-muted-foreground mb-8">
+                <h2 className="mb-8 text-foreground">Esiet atrasti tur, kur tas svarīgi</h2>
+                <p className="text-muted-foreground text-lg mb-10">
                   Lokālā meklēšana ir īpaša disciplīna. Mēs palīdzam jums dominēt 
                   savā ģeogrāfiskajā zonā — no Google Maps līdz lokāliem rezultātiem.
                 </p>
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4">
                   {geoFeatures.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-sm text-foreground">{feature}</span>
+                    <div key={feature} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <span className="text-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -368,25 +368,25 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 5: Metrics — LARGER CARD BLOCKS ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
+      <section className="section-warm section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
           <SectionHeading
             chip="Analītika"
             title="Ko mēs sekojam"
             description="Ne tukši skaitļi. Metrikas, kas tiešām ietekmē jūsu biznesu."
-            className="mb-16 text-center mx-auto"
+            className="mb-20 text-center mx-auto"
             align="center"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((item, index) => (
               <ScrollReveal key={item.metric} delay={index * 0.1}>
                 <div className="card-neo text-center h-full">
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                    <item.icon className="w-8 h-8 text-primary" />
+                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                    <item.icon className="w-10 h-10 text-primary" />
                   </div>
-                  <h4 className="font-semibold text-lg mb-2 text-foreground">{item.metric}</h4>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h4 className="font-semibold text-xl mb-3 text-foreground">{item.metric}</h4>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -395,23 +395,23 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 6: CTA ========== */}
-      <section className="bg-gradient-hero">
+      <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-6 text-foreground">
+              <h2 className="mb-8 text-foreground">
                 Gatavi uzlabot <span className="text-gradient-orange">organisko redzamību</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-lg text-muted-foreground mb-8">
-                Sāksim ar bezmaksas auditu. Jūs redzēsiet precīzi, kur ir iespējas uzlabojumiem.
+              <p className="text-xl text-muted-foreground mb-10">
+                Bezmaksas audits parādīs, kur jūsu vietne zaudē pozīcijas un ko darīt tālāk.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
                 <Button variant="hero" size="xl">
-                  Pieprasīt bezmaksas SEO auditu
+                  Pieprasīt SEO auditu
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
