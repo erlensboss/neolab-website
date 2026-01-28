@@ -10,9 +10,10 @@ import {
   Lightbulb,
   FlaskConical,
   Rocket,
-  Activity,
-  Binary,
-  Waves
+  Hexagon,
+  Triangle,
+  Circle,
+  Square
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -38,18 +39,19 @@ const experiments = [
   },
 ];
 
-// Particle component for background
-function Particle({ delay, duration, x, y }: { delay: number; duration: number; x: number; y: number }) {
+// Scientific data point component
+function DataPoint({ x, y, delay }: { x: number; y: number; delay: number }) {
   return (
     <motion.div
-      className="absolute w-1 h-1 rounded-full bg-primary/40"
+      className="absolute w-1 h-1 bg-primary/60"
       style={{ left: `${x}%`, top: `${y}%` }}
-      animate={{
-        opacity: [0, 1, 0],
-        scale: [0, 1.5, 0],
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ 
+        opacity: [0, 1, 0.5, 1, 0],
+        scale: [0, 1, 0.8, 1, 0]
       }}
       transition={{
-        duration,
+        duration: 4,
         delay,
         repeat: Infinity,
         ease: "easeInOut",
@@ -58,18 +60,19 @@ function Particle({ delay, duration, x, y }: { delay: number; duration: number; 
   );
 }
 
-// Signal wave component
-function SignalWave({ delay }: { delay: number }) {
+// Scientific grid cell
+function GridCell({ x, y, delay }: { x: number; y: number; delay: number }) {
   return (
     <motion.div
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/20"
-      initial={{ scale: 0, opacity: 0.5 }}
-      animate={{ scale: 4, opacity: 0 }}
+      className="absolute w-8 h-8 border border-primary/5"
+      style={{ left: `${x}%`, top: `${y}%` }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 0.3, 0.1, 0.3, 0] }}
       transition={{
-        duration: 4,
+        duration: 6,
         delay,
         repeat: Infinity,
-        ease: "easeOut",
+        ease: "easeInOut",
       }}
     />
   );
@@ -77,12 +80,11 @@ function SignalWave({ delay }: { delay: number }) {
 
 export default function AiLab() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
   
-  const springConfig = { damping: 25, stiffness: 150 };
+  const springConfig = { damping: 30, stiffness: 100 };
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
   
@@ -94,7 +96,6 @@ export default function AiLab() {
         const y = (e.clientY - rect.top) / rect.height;
         mouseX.set(x);
         mouseY.set(y);
-        setMousePosition({ x, y });
       }
     };
     
@@ -102,181 +103,194 @@ export default function AiLab() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  // Generate random particles
-  const particles = Array.from({ length: 30 }, (_, i) => ({
+  // Generate random data points
+  const dataPoints = Array.from({ length: 25 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
     delay: Math.random() * 5,
-    duration: 3 + Math.random() * 4,
+  }));
+
+  // Grid cells for scientific aesthetic
+  const gridCells = Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    x: (i % 4) * 25 + 5,
+    y: Math.floor(i / 4) * 30 + 10,
+    delay: Math.random() * 3,
   }));
 
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Mystery Opening with Dynamic Background ========== */}
+      {/* ========== SECTION 1: UNIQUE Scientific Lab Hero — CENTERED ========== */}
       <section 
         ref={containerRef}
         className="min-h-[90vh] relative overflow-hidden"
         style={{
-          background: `linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 25% 95%) 50%, hsl(30 15% 93%) 100%)`,
+          background: `linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 20% 96%) 50%, hsl(30 15% 94%) 100%)`,
         }}
       >
-        {/* Animated grid that reacts to scroll */}
-        <motion.div
-          className="absolute inset-0"
+        {/* Scientific grid pattern — different from main site */}
+        <div 
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `
-              linear-gradient(hsla(21 90% 48% / 0.04) 1px, transparent 1px),
-              linear-gradient(90deg, hsla(21 90% 48% / 0.04) 1px, transparent 1px)
+              linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px),
+              linear-gradient(hsl(21 90% 48%) 0.5px, transparent 0.5px),
+              linear-gradient(90deg, hsl(21 90% 48%) 0.5px, transparent 0.5px)
             `,
-            backgroundSize: "50px 50px",
+            backgroundSize: "100px 100px, 100px 100px, 20px 20px, 20px 20px",
           }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
         />
         
-        {/* Signal waves emanating from center */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <SignalWave delay={0} />
-          <SignalWave delay={1.5} />
-          <SignalWave delay={3} />
-        </div>
-        
-        {/* Floating particles */}
+        {/* Animated data points */}
         <div className="absolute inset-0 pointer-events-none">
-          {particles.map((particle) => (
-            <Particle key={particle.id} {...particle} />
+          {dataPoints.map((point) => (
+            <DataPoint key={point.id} x={point.x} y={point.y} delay={point.delay} />
           ))}
         </div>
         
-        {/* Data flow lines */}
+        {/* Scientific shapes — UNIQUE to AI Lab */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-          {/* Horizontal flowing lines */}
-          {[20, 40, 60, 80].map((y, i) => (
-            <motion.line
-              key={`h-${i}`}
-              x1="0%" y1={`${y}%`} x2="100%" y2={`${y}%`}
+          {/* Hexagonal grid pattern */}
+          {[1, 2, 3].map((ring) => (
+            <motion.circle
+              key={ring}
+              cx="50%"
+              cy="50%"
+              r={80 * ring}
+              fill="none"
               stroke="hsl(21 90% 48%)"
               strokeWidth="0.5"
-              strokeDasharray="10 20"
-              initial={{ strokeDashoffset: 0 }}
-              animate={{ strokeDashoffset: -100 }}
-              transition={{ duration: 20 + i * 5, repeat: Infinity, ease: "linear" }}
-              opacity="0.1"
+              strokeDasharray={`${ring * 3} ${ring * 6}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.08, rotate: ring % 2 === 0 ? 360 : -360 }}
+              transition={{ 
+                opacity: { duration: 2, delay: ring * 0.3 },
+                rotate: { duration: 60 * ring, repeat: Infinity, ease: "linear" }
+              }}
             />
           ))}
           
-          {/* Vertical flowing lines */}
-          {[15, 35, 65, 85].map((x, i) => (
+          {/* Signal wave lines */}
+          {[0, 1, 2, 3, 4].map((i) => (
             <motion.line
-              key={`v-${i}`}
-              x1={`${x}%`} y1="0%" x2={`${x}%`} y2="100%"
+              key={`wave-${i}`}
+              x1="0%"
+              y1={`${20 + i * 15}%`}
+              x2="100%"
+              y2={`${20 + i * 15}%`}
               stroke="hsl(21 90% 48%)"
               strokeWidth="0.5"
-              strokeDasharray="8 16"
+              strokeDasharray="2 8"
               initial={{ strokeDashoffset: 0 }}
-              animate={{ strokeDashoffset: i % 2 === 0 ? -80 : 80 }}
-              transition={{ duration: 15 + i * 3, repeat: Infinity, ease: "linear" }}
-              opacity="0.08"
+              animate={{ strokeDashoffset: i % 2 === 0 ? -100 : 100 }}
+              transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear" }}
+              opacity="0.06"
+            />
+          ))}
+          
+          {/* Vertical scan lines */}
+          {[0, 1, 2].map((i) => (
+            <motion.line
+              key={`scan-${i}`}
+              x1={`${25 + i * 25}%`}
+              y1="0%"
+              x2={`${25 + i * 25}%`}
+              y2="100%"
+              stroke="hsl(21 90% 48%)"
+              strokeWidth="1"
+              initial={{ opacity: 0, y1: "0%" }}
+              animate={{ opacity: [0, 0.1, 0], y1: ["0%", "100%", "0%"] }}
+              transition={{ duration: 8, delay: i * 2, repeat: Infinity, ease: "linear" }}
             />
           ))}
         </svg>
         
-        {/* Floating tech elements that react to cursor */}
+        {/* Cursor-reactive scientific elements */}
         <motion.div
-          className="absolute top-[15%] left-[10%] hidden lg:block"
+          className="absolute hidden lg:block"
           style={{
-            x: useTransform(springX, [0, 1], [-20, 20]),
-            y: useTransform(springY, [0, 1], [-15, 15]),
+            left: useTransform(springX, [0, 1], ["15%", "25%"]),
+            top: useTransform(springY, [0, 1], ["20%", "30%"]),
           }}
         >
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="w-16 h-16 border border-dashed border-primary/20 rounded-lg flex items-center justify-center"
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
-            <Binary className="w-6 h-6 text-primary/30" />
+            <Hexagon className="w-12 h-12 text-primary/15 stroke-1" />
           </motion.div>
         </motion.div>
         
         <motion.div
-          className="absolute top-[25%] right-[15%] hidden lg:block"
+          className="absolute hidden lg:block"
           style={{
-            x: useTransform(springX, [0, 1], [15, -15]),
-            y: useTransform(springY, [0, 1], [-10, 10]),
-          }}
-        >
-          <motion.div
-            animate={{ y: [-5, 5, -5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-warm p-4 rounded-xl border border-primary/10"
-          >
-            <Activity className="w-6 h-6 text-primary/50" />
-          </motion.div>
-        </motion.div>
-        
-        <motion.div
-          className="absolute bottom-[20%] left-[20%] hidden lg:block"
-          style={{
-            x: useTransform(springX, [0, 1], [-10, 10]),
-            y: useTransform(springY, [0, 1], [10, -10]),
-          }}
-        >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="w-12 h-12 rounded-full border-2 border-primary/15 flex items-center justify-center"
-          >
-            <Waves className="w-5 h-5 text-primary/40" />
-          </motion.div>
-        </motion.div>
-        
-        <motion.div
-          className="absolute bottom-[30%] right-[12%] hidden lg:block"
-          style={{
-            x: useTransform(springX, [0, 1], [20, -20]),
-            y: useTransform(springY, [0, 1], [15, -15]),
+            right: useTransform(springX, [0, 1], ["20%", "10%"]),
+            top: useTransform(springY, [0, 1], ["25%", "15%"]),
           }}
         >
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="w-20 h-20 border border-primary/10 rounded-full"
           >
-            <motion.div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/30"
-            />
+            <Triangle className="w-10 h-10 text-primary/12 stroke-1" />
           </motion.div>
         </motion.div>
         
-        {/* Central pulsing element */}
+        <motion.div
+          className="absolute hidden lg:block"
+          style={{
+            left: useTransform(springX, [0, 1], ["20%", "30%"]),
+            bottom: useTransform(springY, [0, 1], ["25%", "35%"]),
+          }}
+        >
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Square className="w-8 h-8 text-primary/10 stroke-1" />
+          </motion.div>
+        </motion.div>
+        
+        {/* Central lab element — CENTERED composition */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block pointer-events-none"
           style={{
-            x: useTransform(springX, [0, 1], [-5, 5]),
-            y: useTransform(springY, [0, 1], [-5, 5]),
+            x: useTransform(springX, [0, 1], [-10, 10]),
+            y: useTransform(springY, [0, 1], [-10, 10]),
           }}
         >
           <div className="relative">
+            {/* Outer rings */}
             <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -inset-16 rounded-full bg-primary/10"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-20 border border-dashed border-primary/10 rounded-full"
             />
             <motion.div
-              animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -inset-8 rounded-full bg-primary/15"
-            />
-            <div className="w-24 h-24 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-              <FlaskConical className="w-10 h-10 text-primary-foreground" />
-            </div>
+              animate={{ rotate: -360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-12 border border-primary/15 rounded-full"
+            >
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
+            </motion.div>
+            
+            {/* Central flask */}
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="w-24 h-24 rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
+            >
+              <FlaskConical className="w-12 h-12 text-primary-foreground" />
+            </motion.div>
           </div>
         </motion.div>
 
-        <div className="container-neo section-padding relative z-10 flex items-center min-h-[90vh]">
-          <div className="max-w-3xl">
+        {/* CENTERED Hero Content */}
+        <div className="container-neo section-padding relative z-10 flex items-center justify-center min-h-[90vh]">
+          <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/80 backdrop-blur-sm mb-8">
                 <FlaskConical className="w-4 h-4 text-primary" />
@@ -293,14 +307,14 @@ export default function AiLab() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground mb-8 max-w-xl">
+              <p className="text-xl text-muted-foreground mb-8 max-w-xl mx-auto">
                 Šī nav pakalpojumu lapa. Šī ir vieta, kur mēs eksperimentējam, 
                 testējam un veidojam risinājumus, kas vēl nepastāv tirgū.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground bg-card/60 backdrop-blur-sm px-4 py-3 rounded-lg inline-flex border border-border/50">
+              <div className="inline-flex items-center gap-3 text-sm text-muted-foreground bg-card/60 backdrop-blur-sm px-4 py-3 rounded-lg border border-border/50">
                 <Lock className="w-4 h-4" />
                 <span>Pieejams tikai NEOLab partneriem</span>
               </div>
@@ -317,7 +331,7 @@ export default function AiLab() {
               <Cpu className="w-3 h-3" />
               Aktīvie projekti
             </span>
-            <h2>Kas šobrīd notiek laboratorijā</h2>
+            <h2 className="text-foreground">Kas šobrīd notiek laboratorijā</h2>
           </ScrollReveal>
 
           <div className="space-y-6">
@@ -348,7 +362,7 @@ export default function AiLab() {
                         {exp.status}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-foreground">{exp.title}</h3>
                     <p className="text-muted-foreground">{exp.description}</p>
                   </div>
                   
@@ -375,7 +389,7 @@ export default function AiLab() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <h2 className="mb-6">
+              <h2 className="mb-6 text-foreground">
                 Mēs nedarām to, ko visi citi
               </h2>
             </ScrollReveal>
@@ -413,7 +427,7 @@ export default function AiLab() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <h2 className="mb-6">
+              <h2 className="mb-6 text-foreground">
                 Sazināties ar <span className="text-gradient-orange">NEOLab</span>
               </h2>
             </ScrollReveal>

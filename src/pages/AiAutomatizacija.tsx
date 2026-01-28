@@ -13,7 +13,9 @@ import {
   FileSpreadsheet,
   MessageSquare,
   Settings,
-  CheckCircle2
+  CheckCircle2,
+  Layers,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -62,41 +64,126 @@ const benefits = [
   "Focus uz stratēģisku darbu",
 ];
 
+// System nodes for hero visual
+const systemNodes = [
+  { id: "input", icon: Zap, label: "Trigeris", x: 10, y: 50 },
+  { id: "process", icon: Workflow, label: "Process", x: 40, y: 25 },
+  { id: "ai", icon: Brain, label: "AI", x: 50, y: 75 },
+  { id: "output", icon: BarChart3, label: "Rezultāts", x: 85, y: 50 },
+];
+
 export default function AiAutomatizacija() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Manual Work Problem ========== */}
-      <section className="bg-gradient-hero grid-overlay">
+      {/* ========== SECTION 1: CENTERED Hero with System Visual ========== */}
+      <section className="bg-gradient-hero min-h-[85vh] flex items-center relative overflow-hidden">
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl">
-            <ScrollReveal>
-              <span className="chip-outline mb-6 inline-block">Problēma</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h1 className="mb-8">
-                Jūsu komanda tērē laiku <span className="text-gradient-orange">robotu darbam</span>
-              </h1>
+          <div className="max-w-5xl mx-auto">
+            {/* Centered content */}
+            <div className="text-center mb-12">
+              <ScrollReveal>
+                <span className="chip-outline mb-6 inline-block">Problēma</span>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1}>
+                <h1 className="mb-6 text-foreground">
+                  Jūsu komanda tērē laiku <span className="text-gradient-orange">robotu darbam</span>
+                </h1>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                  AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai 
+                  cilvēki varētu darīt to, ko roboti nevar — domāt, radīt, risināt problēmas.
+                </p>
+              </ScrollReveal>
+            </div>
+            
+            {/* System Visual - centered workflow diagram */}
+            <ScrollReveal delay={0.3}>
+              <div className="relative max-w-3xl mx-auto mb-12">
+                <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-border shadow-card">
+                  {/* Flow visualization */}
+                  <svg className="w-full h-32" viewBox="0 0 400 80">
+                    {/* Connection lines */}
+                    <motion.path
+                      d="M 50 40 L 140 40"
+                      stroke="hsl(21 90% 48%)"
+                      strokeWidth="2"
+                      strokeDasharray="6 4"
+                      fill="none"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                    />
+                    <motion.path
+                      d="M 180 40 L 260 40"
+                      stroke="hsl(21 90% 48%)"
+                      strokeWidth="2"
+                      strokeDasharray="6 4"
+                      fill="none"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 1, delay: 0.7 }}
+                    />
+                    <motion.path
+                      d="M 300 40 L 370 40"
+                      stroke="hsl(21 90% 48%)"
+                      strokeWidth="2"
+                      strokeDasharray="6 4"
+                      fill="none"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 1, delay: 0.9 }}
+                    />
+                    
+                    {/* Arrow heads */}
+                    <motion.polygon
+                      points="370,40 360,35 360,45"
+                      fill="hsl(21 90% 48%)"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.2 }}
+                    />
+                  </svg>
+                  
+                  {/* Nodes overlay */}
+                  <div className="absolute inset-0 flex items-center justify-around px-8">
+                    {[
+                      { icon: Zap, label: "Trigeris", delay: 0.3 },
+                      { icon: Layers, label: "Process", delay: 0.5 },
+                      { icon: Brain, label: "AI", delay: 0.7 },
+                      { icon: BarChart3, label: "Rezultāts", delay: 0.9 },
+                    ].map((node, i) => (
+                      <motion.div
+                        key={node.label}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: node.delay }}
+                        className="flex flex-col items-center"
+                      >
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
+                          <node.icon className={`w-6 h-6 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
+                        </div>
+                        <span className="text-xs font-medium text-foreground mt-2">{node.label}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </ScrollReveal>
             
-            <div className="grid sm:grid-cols-2 gap-4 mb-12">
+            {/* Problem cards - grid below */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {manualProblems.map((item, index) => (
-                <ScrollReveal key={index} delay={0.2 + index * 0.1}>
+                <ScrollReveal key={index} delay={0.4 + index * 0.1}>
                   <div className="flex items-center gap-4 bg-card/80 backdrop-blur-sm rounded-xl p-4 border border-border hover-lift">
-                    <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-5 h-5 text-destructive" />
                     </div>
-                    <span className="text-foreground">{item.text}</span>
+                    <span className="text-foreground text-sm">{item.text}</span>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
-
-            <ScrollReveal delay={0.5}>
-              <p className="text-lg text-muted-foreground max-w-2xl">
-                AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai 
-                cilvēki varētu darīt to, ko roboti nevar — domāt, radīt, risināt problēmas.
-              </p>
-            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -111,26 +198,9 @@ export default function AiAutomatizacija() {
             className="mb-16"
           />
 
-          {/* Flow diagram */}
           <div className="relative max-w-5xl mx-auto">
-            {/* Connection lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-              <motion.path
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-                d="M 200 100 Q 400 100 400 200 Q 400 300 600 300"
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-                strokeDasharray="8 4"
-                opacity="0.3"
-              />
-            </svg>
-
             {/* Input trigger */}
-            <ScrollReveal className="mb-8">
+            <ScrollReveal className="mb-8 text-center">
               <div className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-orange">
                 <Zap className="w-5 h-5" />
                 <span className="font-semibold">Trigeris</span>
@@ -156,7 +226,7 @@ export default function AiAutomatizacija() {
                         {module.complexity}
                       </span>
                     </div>
-                    <h4 className="font-semibold mb-2">{module.title}</h4>
+                    <h4 className="font-semibold mb-2 text-foreground">{module.title}</h4>
                     <p className="text-sm text-muted-foreground">{module.description}</p>
                   </div>
                 </ScrollReveal>
@@ -167,22 +237,21 @@ export default function AiAutomatizacija() {
             <ScrollReveal delay={0.8} className="mt-8 text-center">
               <div className="inline-flex items-center gap-3 glass-warm px-6 py-3 rounded-xl">
                 <Settings className="w-5 h-5 text-primary animate-spin" style={{ animationDuration: "3s" }} />
-                <span className="font-medium">Automatizēts rezultāts</span>
+                <span className="font-medium text-foreground">Automatizēts rezultāts</span>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 3: Benefits (Asymmetric Layout) ========== */}
+      {/* ========== SECTION 3: Benefits ========== */}
       <section className="section-warm">
         <div className="container-neo section-padding">
           <div className="grid lg:grid-cols-5 gap-12 items-center">
-            {/* Left: Large statement */}
             <div className="lg:col-span-2">
               <ScrollReveal>
                 <span className="chip mb-4 inline-block">Ieguvumi</span>
-                <h2 className="mb-6">
+                <h2 className="mb-6 text-foreground">
                   Ko jūs <span className="text-gradient-orange">iegūstat</span>
                 </h2>
                 <p className="text-muted-foreground mb-8">
@@ -198,14 +267,13 @@ export default function AiAutomatizacija() {
               </ScrollReveal>
             </div>
 
-            {/* Right: Benefits grid */}
             <div className="lg:col-span-3">
               <div className="grid sm:grid-cols-2 gap-4">
                 {benefits.map((benefit, index) => (
                   <ScrollReveal key={benefit} delay={index * 0.1} direction="right">
                     <div className="flex items-center gap-3 bg-card rounded-lg p-4 border border-border hover-lift">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span>{benefit}</span>
+                      <span className="text-foreground">{benefit}</span>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -215,7 +283,7 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: How It Feels (Machine Building) ========== */}
+      {/* ========== SECTION 4: Philosophy ========== */}
       <section className="section-offwhite grid-overlay-subtle">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -225,7 +293,7 @@ export default function AiAutomatizacija() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="mb-6">
+              <h2 className="mb-6 text-foreground">
                 Mēs būvējam <span className="text-gradient-orange">mašīnas</span>, nevis skriptus
               </h2>
             </ScrollReveal>
@@ -239,7 +307,7 @@ export default function AiAutomatizacija() {
             <ScrollReveal delay={0.3}>
               <div className="flex flex-wrap justify-center gap-4">
                 {["Zapier", "Make", "n8n", "Custom API", "OpenAI"].map((tool) => (
-                  <span key={tool} className="px-4 py-2 bg-muted rounded-lg text-sm font-medium">
+                  <span key={tool} className="px-4 py-2 bg-muted rounded-lg text-sm font-medium text-foreground">
                     {tool}
                   </span>
                 ))}
@@ -254,7 +322,7 @@ export default function AiAutomatizacija() {
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-6">
+              <h2 className="mb-6 text-foreground">
                 Gatavi <span className="text-gradient-orange">automatizēt</span>?
               </h2>
             </ScrollReveal>
