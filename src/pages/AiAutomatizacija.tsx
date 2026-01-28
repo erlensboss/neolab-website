@@ -166,7 +166,7 @@ export default function AiAutomatizacija() {
                         >
                           <node.icon
                             className={`w-6 h-6 ${i === 3 ? "text-primary-foreground" : "text-primary"}`}
-                            style={{ display: "block" }}
+                            style={{ display: "block", transform: "translateY(0.5px)" }}
                           />
                         </div>
 
