@@ -67,7 +67,9 @@
     --shadow-md: 0 4px 12px hsla(20 15% 12% / 0.06);
     --shadow-lg: 0 8px 30px hsla(20 15% 12% / 0.08);
     --shadow-orange: 0 8px 30px hsla(21 90% 48% / 0.2);
+    --shadow-orange-hover: 0 12px 40px hsla(21 90% 48% / 0.3);
     --shadow-card: 0 2px 8px hsla(20 15% 12% / 0.04), 0 8px 24px hsla(20 15% 12% / 0.06);
+    --shadow-card-hover: 0 4px 12px hsla(20 15% 12% / 0.06), 0 16px 40px hsla(20 15% 12% / 0.1);
 
     /* Sidebar (keeping for compatibility) */
     --sidebar-background: 40 20% 98%;
@@ -129,7 +131,7 @@
     box-shadow: var(--shadow-card);
   }
 
-  /* Gradient backgrounds */
+  /* Gradient backgrounds — ALWAYS as background layer, never covering text */
   .bg-gradient-warm {
     background: var(--gradient-warm);
   }
@@ -168,7 +170,7 @@
     @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
   }
 
-  /* Text styles */
+  /* Text styles — always ensure proper z-index for readability */
   .text-gradient-orange {
     @apply bg-clip-text text-transparent;
     background: var(--gradient-sunset);
@@ -191,33 +193,100 @@
     @apply h-px bg-gradient-to-r from-primary/40 via-primary/20 to-transparent;
   }
 
-  /* Grid overlays for visual interest */
+  /* Grid overlays for visual interest — low opacity, never covers content */
   .grid-overlay {
+    position: relative;
+  }
+  
+  .grid-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-image: 
       linear-gradient(hsla(21 90% 48% / 0.03) 1px, transparent 1px),
       linear-gradient(90deg, hsla(21 90% 48% / 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .grid-overlay > * {
+    position: relative;
+    z-index: 1;
   }
 
   .grid-overlay-subtle {
+    position: relative;
+  }
+  
+  .grid-overlay-subtle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-image: 
       linear-gradient(hsla(20 15% 12% / 0.02) 1px, transparent 1px),
       linear-gradient(90deg, hsla(20 15% 12% / 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .grid-overlay-subtle > * {
+    position: relative;
+    z-index: 1;
   }
 
-  /* Card variants */
+  /* Card variants with enhanced hover effects */
   .card-neo {
-    @apply bg-card rounded-xl p-6 md:p-8;
+    @apply bg-card rounded-xl p-6 md:p-8 relative;
     box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-neo:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.12);
   }
 
   .card-glass {
     @apply glass rounded-xl p-6 md:p-8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-glass:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.12);
   }
 
   .card-bordered {
-    @apply bg-background border border-border rounded-xl p-6 md:p-8;
+    @apply bg-background border border-border rounded-xl p-6 md:p-8 relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-bordered:hover {
+    transform: translateY(-6px);
+    border-color: hsl(21 90% 48% / 0.3);
+    box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.1);
+  }
+  
+  /* Orange accent line on hover for cards */
+  .card-neo::after,
+  .card-bordered::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 3px;
+    background: var(--gradient-orange);
+    border-radius: 3px 3px 0 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-neo:hover::after,
+  .card-bordered:hover::after {
+    transform: translateX(-50%) scaleX(1);
   }
 
   /* Interactive elements */
@@ -263,13 +332,20 @@
     @apply opacity-100 translate-y-0 transition-all duration-700 ease-out;
   }
 
-  /* Subtle hover effects */
+  /* Enhanced hover effects with orange glow */
   .hover-lift {
-    @apply transition-transform duration-300 ease-out;
+    @apply transition-all duration-300 ease-out;
   }
 
   .hover-lift:hover {
-    @apply -translate-y-1;
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover), 0 12px 40px hsla(21 90% 48% / 0.12);
+  }
+  
+  /* Orange glow variant for important elements */
+  .hover-lift-glow:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-orange-hover);
   }
 
   /* Orange glow */
@@ -280,5 +356,11 @@
   /* Text balance */
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Ensure content is always above background effects */
+  .content-above {
+    position: relative;
+    z-index: 1;
   }
 }

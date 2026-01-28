@@ -10,7 +10,9 @@ import {
   CheckCircle2,
   Target,
   Globe,
-  TrendingUp
+  TrendingUp,
+  Navigation,
+  Radio
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -53,12 +55,19 @@ const geoFeatures = [
   "Strukturēti dati lokālajam biznesam",
 ];
 
+const metrics = [
+  { metric: "Organiskais trafiks", icon: TrendingUp, description: "Apmeklētāju plūsma no meklētājiem" },
+  { metric: "Keyword pozīcijas", icon: Search, description: "Ranki mērķa atslēgvārdiem" },
+  { metric: "Konversijas no SEO", icon: Target, description: "Leads un pārdošanas" },
+  { metric: "Domēna autoritāte", icon: BarChart3, description: "Vietnes uzticamība" },
+];
+
 export default function SeoGeo() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Diagnosis First (Not Hero) ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             {/* Left: Diagnostic intro */}
             <div className="lg:col-span-2">
@@ -92,14 +101,14 @@ export default function SeoGeo() {
                 {diagnosticsSteps.map((step, index) => (
                   <ScrollReveal key={step.label} delay={0.2 + index * 0.1} direction="right">
                     <div className="glass-warm rounded-xl p-5 flex items-center gap-5 hover-lift">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-6 h-6 text-primary" />
+                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <step.icon className="w-7 h-7 text-primary" />
                       </div>
-                      <div>
-                        <h4 className="font-semibold">{step.label}</h4>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-lg">{step.label}</h4>
                         <p className="text-sm text-muted-foreground">{step.description}</p>
                       </div>
-                      <div className="ml-auto text-4xl font-bold text-primary/10">
+                      <div className="text-5xl font-bold text-primary/10">
                         {String(index + 1).padStart(2, "0")}
                       </div>
                     </div>
@@ -196,61 +205,184 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: GEO Optimization (Location Focus) ========== */}
+      {/* ========== SECTION 4: GEO Optimization (Enhanced Visual) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Map/Location visual */}
+            {/* Enhanced Map/Location visual */}
             <ScrollReveal>
               <div className="relative">
-                <div className="aspect-square max-w-md mx-auto bg-gradient-section rounded-2xl p-8 relative overflow-hidden">
-                  {/* Grid lines */}
-                  <div className="absolute inset-0 grid grid-cols-6 grid-rows-6">
-                    {Array.from({ length: 36 }).map((_, i) => (
-                      <div key={i} className="border border-primary/5" />
-                    ))}
+                <div className="aspect-[4/3] w-full bg-gradient-section rounded-2xl p-8 relative overflow-hidden border border-border shadow-card">
+                  {/* Grid lines - more structured */}
+                  <div className="absolute inset-0">
+                    <svg className="w-full h-full" viewBox="0 0 400 300">
+                      {/* Horizontal grid lines */}
+                      {[50, 100, 150, 200, 250].map((y) => (
+                        <motion.line
+                          key={`h-${y}`}
+                          x1="0" y1={y} x2="400" y2={y}
+                          stroke="hsl(21 90% 48%)" strokeWidth="0.5" opacity="0.1"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1 }}
+                        />
+                      ))}
+                      {/* Vertical grid lines */}
+                      {[50, 100, 150, 200, 250, 300, 350].map((x) => (
+                        <motion.line
+                          key={`v-${x}`}
+                          x1={x} y1="0" x2={x} y2="300"
+                          stroke="hsl(21 90% 48%)" strokeWidth="0.5" opacity="0.1"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.2 }}
+                        />
+                      ))}
+                      
+                      {/* Main radius zones */}
+                      <motion.circle
+                        cx="200" cy="140" r="40"
+                        fill="none"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="2"
+                        opacity="0.3"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                      />
+                      <motion.circle
+                        cx="200" cy="140" r="80"
+                        fill="none"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1.5"
+                        strokeDasharray="6 4"
+                        opacity="0.2"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                      />
+                      <motion.circle
+                        cx="200" cy="140" r="120"
+                        fill="none"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1"
+                        strokeDasharray="4 6"
+                        opacity="0.15"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.6 }}
+                      />
+                      
+                      {/* Connection lines to secondary locations */}
+                      <motion.path
+                        d="M 200 140 L 80 80"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1.5"
+                        strokeDasharray="4 3"
+                        opacity="0.25"
+                        fill="none"
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                      />
+                      <motion.path
+                        d="M 200 140 L 320 100"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1.5"
+                        strokeDasharray="4 3"
+                        opacity="0.25"
+                        fill="none"
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                      />
+                      <motion.path
+                        d="M 200 140 L 150 220"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1.5"
+                        strokeDasharray="4 3"
+                        opacity="0.25"
+                        fill="none"
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 1 }}
+                      />
+                      <motion.path
+                        d="M 200 140 L 300 200"
+                        stroke="hsl(21 90% 48%)"
+                        strokeWidth="1.5"
+                        strokeDasharray="4 3"
+                        opacity="0.25"
+                        fill="none"
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 1.1 }}
+                      />
+                    </svg>
                   </div>
                   
-                  {/* Location pins */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3, type: "spring" }}
-                    className="absolute top-1/4 left-1/3"
-                  >
-                    <div className="relative">
-                      <MapPin className="w-8 h-8 text-primary" />
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    </div>
-                  </motion.div>
-                  
+                  {/* Central main location */}
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5, type: "spring" }}
-                    className="absolute top-1/2 right-1/4"
+                    className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2"
                   >
                     <div className="relative">
-                      <MapPin className="w-6 h-6 text-primary/60" />
+                      <div className="w-14 h-14 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <MapPin className="w-7 h-7 text-primary-foreground" />
+                      </div>
+                      <motion.div
+                        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute inset-0 rounded-full bg-primary/30"
+                      />
                     </div>
                   </motion.div>
                   
+                  {/* Secondary locations */}
+                  {[
+                    { x: "18%", y: "22%", delay: 0.7 },
+                    { x: "78%", y: "30%", delay: 0.8 },
+                    { x: "35%", y: "72%", delay: 0.9 },
+                    { x: "72%", y: "65%", delay: 1.0 },
+                  ].map((loc, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: loc.delay, type: "spring" }}
+                      style={{ left: loc.x, top: loc.y }}
+                      className="absolute"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-card border-2 border-primary/40 flex items-center justify-center shadow-neo">
+                        <Navigation className="w-4 h-4 text-primary" />
+                      </div>
+                    </motion.div>
+                  ))}
+                  
+                  {/* Signal indicator */}
                   <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.7, type: "spring" }}
-                    className="absolute bottom-1/3 left-1/2"
+                    transition={{ delay: 1.2 }}
+                    className="absolute bottom-4 right-4 flex items-center gap-2 bg-card/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border"
                   >
-                    <div className="relative">
-                      <MapPin className="w-6 h-6 text-primary/60" />
-                    </div>
+                    <Radio className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-medium text-foreground">5 km rādiuss</span>
                   </motion.div>
-                  
-                  {/* Central area highlight */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-dashed border-primary/30" />
                 </div>
               </div>
             </ScrollReveal>
@@ -270,10 +402,10 @@ export default function SeoGeo() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4">
                   {geoFeatures.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                    <div key={feature} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
@@ -284,7 +416,7 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: Data-Inspired Metrics ========== */}
+      {/* ========== SECTION 5: Data-Inspired Metrics (Enhanced Cards) ========== */}
       <section className="section-warm">
         <div className="container-neo section-padding">
           <SectionHeading
@@ -295,19 +427,15 @@ export default function SeoGeo() {
             align="center"
           />
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { metric: "Organiskais trafiks", icon: TrendingUp },
-              { metric: "Keyword pozīcijas", icon: Search },
-              { metric: "Konversijas no SEO", icon: Target },
-              { metric: "Domēna autoritāte", icon: BarChart3 },
-            ].map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {metrics.map((item, index) => (
               <ScrollReveal key={item.metric} delay={index * 0.1}>
-                <div className="text-center p-6">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-7 h-7 text-primary" />
+                <div className="card-neo text-center h-full">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mx-auto mb-5 shadow-orange">
+                    <item.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <h4 className="font-medium">{item.metric}</h4>
+                  <h4 className="font-semibold text-lg mb-2">{item.metric}</h4>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -317,7 +445,7 @@ export default function SeoGeo() {
 
       {/* ========== SECTION 6: CTA ========== */}
       <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+        <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">
