@@ -209,7 +209,7 @@ export default function Index() {
         <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
-        <div className="container-neo py-20 md:py-28 relative z-10">
+        <div className="container-neo py-20 md:py-28 relative z-10 flex justify-start">
           <div className="max-w-xl lg:max-w-2xl">
             <ScrollReveal>
               <h1 className="mb-5 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
