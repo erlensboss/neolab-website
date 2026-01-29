@@ -89,7 +89,7 @@ export default function Index() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-hero-strong overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-hero-strong dots-atmosphere overflow-hidden">
         {/* Grid pattern — stronger */}
         <div className="absolute inset-0 opacity-[0.05]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
@@ -258,92 +258,78 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 2: Jauna pieeja (Control Panel Style) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-background via-muted/30 to-background overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-warm-peach dots-radial-right overflow-hidden">
         {/* Subtle grid extending beyond */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{
+        <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }} />
         
         <div className="container-neo relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Control Panel Visual */}
+            {/* Left: Performance Dashboard Visual (like PerformanceReklama) */}
             <ScrollReveal>
-              <div className="relative aspect-square max-w-lg mx-auto lg:max-w-none">
-                {/* Glass panel background */}
-                <div className="absolute inset-0 rounded-3xl bg-surface-dashboard border border-primary/10 shadow-dashboard" />
-                
-                {/* Inner grid lines */}
-                <div className="absolute inset-8 opacity-[0.04]" style={{
-                  backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
-                  backgroundSize: '30px 30px'
-                }} />
-                
-                {/* System diagram inside */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    {/* Outer rotating ring */}
-                    <motion.div 
-                      animate={{ rotate: 360 }} 
-                      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                      className="w-56 h-56 md:w-64 md:h-64 border-2 border-dashed border-primary/25 rounded-full"
-                    />
-                    
-                    {/* Middle ring */}
-                    <motion.div 
-                      animate={{ rotate: -360 }} 
-                      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 border border-primary/15 rounded-full"
-                    />
-                    
-                    {/* Central hub */}
-                    <motion.div 
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange glow-pulse"
-                    >
-                      <Workflow className="w-12 h-12 md:w-14 md:h-14 text-primary-foreground" />
-                    </motion.div>
-                    
-                    {/* Orbiting icons with glow */}
-                    {[Search, Brain, TrendingUp, Zap].map((Icon, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-12 h-12 md:w-14 md:h-14 rounded-xl bg-background border border-primary/20 shadow-lg flex items-center justify-center"
-                        style={{
-                          top: `${50 + 45 * Math.sin((i * Math.PI) / 2)}%`,
-                          left: `${50 + 45 * Math.cos((i * Math.PI) / 2)}%`,
-                          transform: 'translate(-50%, -50%)'
-                        }}
-                        animate={{ y: [0, -8, 0] }}
-                        transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
-                        whileHover={{ scale: 1.1, boxShadow: "0 8px 30px hsla(21 90% 48% / 0.25)" }}
-                      >
-                        <Icon className="w-6 h-6 text-primary" />
-                      </motion.div>
-                    ))}
-                    
-                    {/* Data flow lines */}
-                    {[0, 1, 2, 3].map((i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-px h-6 bg-primary/30"
-                        style={{
-                          top: `${50 + 32 * Math.sin((i * Math.PI) / 2)}%`,
-                          left: `${50 + 32 * Math.cos((i * Math.PI) / 2)}%`,
-                          transform: `translate(-50%, -50%) rotate(${i * 90 + 45}deg)`
-                        }}
-                        animate={{ opacity: [0.3, 0.8, 0.3] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
-                      />
-                    ))}
+              <div className="glass-warm rounded-2xl p-6 md:p-8 shadow-dashboard max-w-lg mx-auto lg:max-w-none relative z-10">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-semibold text-lg text-foreground">{t("Sistēmas pārskats", "System Overview")}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="status-dot" />
+                    <span className="text-sm text-muted-foreground">{t("Aktīvs", "Active")}</span>
                   </div>
                 </div>
                 
-                {/* Corner status indicators */}
-                <div className="absolute top-6 left-6 flex items-center gap-2">
-                  <div className="status-dot" />
-                  <span className="text-xs text-muted-foreground font-medium">ACTIVE</span>
+                {/* 4 KPI blocks in grid */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <motion.div 
+                    className="bg-card rounded-xl p-4 border border-border hover:border-primary/30 transition-colors"
+                    whileHover={{ y: -2 }}
+                  >
+                    <div className="text-sm text-muted-foreground mb-1">{t("Procesu efektivitāte", "Process Efficiency")}</div>
+                    <div className="text-2xl font-bold text-primary">+85%</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-card rounded-xl p-4 border border-border hover:border-primary/30 transition-colors"
+                    whileHover={{ y: -2 }}
+                  >
+                    <div className="text-sm text-muted-foreground mb-1">{t("Monitorings", "Monitoring")}</div>
+                    <div className="text-2xl font-bold text-primary">24/7</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-card rounded-xl p-4 border border-border hover:border-primary/30 transition-colors"
+                    whileHover={{ y: -2 }}
+                  >
+                    <div className="text-sm text-muted-foreground mb-1">{t("Vidējais ROI", "Average ROI")}</div>
+                    <div className="text-2xl font-bold text-primary">4.2x</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-card rounded-xl p-4 border border-border hover:border-primary/30 transition-colors"
+                    whileHover={{ y: -2 }}
+                  >
+                    <div className="text-sm text-muted-foreground mb-1">{t("Klientu apmierinātība", "Client Satisfaction")}</div>
+                    <div className="text-2xl font-bold text-primary">98%</div>
+                  </motion.div>
                 </div>
-                <div className="absolute top-6 right-6 text-xs text-primary font-medium">v2.4</div>
+                
+                {/* Mini bar chart */}
+                <div className="h-20 bg-muted/60 rounded-xl flex items-end justify-around p-3 gap-2">
+                  {[65, 80, 55, 90, 75, 85, 70, 95].map((height, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex-1 bg-gradient-to-t from-primary to-primary/60 rounded-t"
+                      initial={{ height: 0 }}
+                      whileInView={{ height: `${height}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Bottom status bar */}
+                <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                  <span>{t("Pēdējais atjauninājums", "Last updated")}: 2 min</span>
+                  <span className="text-primary font-medium">v2.4</span>
+                </div>
               </div>
             </ScrollReveal>
 
@@ -384,9 +370,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 3: Digitālie risinājumi (Dashboard Blocks) ========== */}
-      <section className="relative py-16 md:py-24 bg-muted/40">
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(32_22%_95%)] via-[hsl(30_18%_93%)] to-[hsl(32_22%_95%)] dots-atmosphere">
         {/* Full-bleed background panel */}
-        <div className="absolute inset-0 border-y border-border/50" />
+        <div className="absolute inset-0 border-y border-border/40" />
         
         <div className="container-neo relative z-10">
           <ScrollReveal>
@@ -436,9 +422,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 4: Izaicinājumi (Diagnostic Panel) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30">
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(30_20%_95%)] via-[hsl(28_25%_92%)] to-[hsl(30_20%_95%)] dots-radial-left">
         {/* Grid background */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
+        <div className="absolute inset-0 opacity-[0.025]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }} />
@@ -491,9 +477,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 5: NEOLab risinājums (Glow States, No Arrows) ========== */}
-      <section className="relative py-16 md:py-24 bg-background">
+      <section className="relative py-16 md:py-24 bg-warm-peach-light dots-radial-right">
         {/* Subtle grid background */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{
+        <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
         }} />
@@ -568,9 +554,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 6: Pakalpojumu virzieni (Larger Cards) ========== */}
-      <section className="relative py-16 md:py-24 bg-muted/30">
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(35_18%_96%)] via-[hsl(32_22%_94%)] to-[hsl(35_18%_96%)] dots-both-sides">
         {/* Border frame */}
-        <div className="absolute inset-0 border-y border-border/40" />
+        <div className="absolute inset-0 border-y border-border/30" />
         
         <div className="container-neo relative z-10">
           <ScrollReveal>
@@ -636,7 +622,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 7: NEO Brand Block (Dictionary/Etymology) ========== */}
-      <section className="relative py-14 md:py-20 bg-background">
+      <section className="relative py-14 md:py-20 bg-[hsl(38_18%_97%)]">
         <div className="container-neo">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
@@ -685,9 +671,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 8: Kā mēs strādājam (Horizontal Roadmap) ========== */}
-      <section className="relative py-16 md:py-24 bg-muted/40 overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-warm-peach dots-atmosphere overflow-hidden">
         {/* Border frame */}
-        <div className="absolute inset-0 border-y border-border/40" />
+        <div className="absolute inset-0 border-y border-border/30" />
         
         <div className="container-neo relative z-10">
           <ScrollReveal>
