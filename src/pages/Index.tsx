@@ -210,7 +210,7 @@ export default function Index() {
         <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
         <div className="container-neo py-20 md:py-28 relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-xl lg:max-w-2xl">
             <ScrollReveal>
               <h1 className="mb-5 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
                 {t("Jauna ēra", "A New Era for")} <br />
@@ -219,7 +219,7 @@ export default function Index() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-xl">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-md">
                 {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
               </p>
             </ScrollReveal>
@@ -235,7 +235,7 @@ export default function Index() {
 
             {/* Enhanced Benefit chips — Larger with icons */}
             <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 max-w-lg">
                 {heroFeatures.map((feature, i) => (
                   <motion.div
                     key={i}
