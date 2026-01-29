@@ -35,15 +35,15 @@ export function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-background/85 backdrop-blur-xl shadow-sm shadow-black/5 border-b border-border/60" 
-          : "bg-background/85 backdrop-blur-xl border-b border-border/60 shadow-sm shadow-black/5"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50" 
+          : "bg-background/70 backdrop-blur-xl border-b border-border/30"
       }`}
     >
       <div className="container-neo">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo — Enlarged */}
           <Link to="/" className="flex items-center">
-            <img src={LogoBlack} alt="NEOLab" className="h-9 md:h-10" />
+            <img src={LogoBlack} alt="NEOLab" className="h-8 md:h-10" />
           </Link>
 
           {/* Desktop Navigation — Better spacing */}

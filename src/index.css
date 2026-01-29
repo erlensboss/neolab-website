@@ -742,58 +742,6 @@
     }
   }
 
-  /* ========== SIDE DOT SEPARATORS FOR WHITE BLOCKS ========== */
-  /* Vertical dotted edge indicators on block sides */
-  .block-side-dots {
-    position: relative;
-  }
-
-  .block-side-dots::before {
-    content: '';
-    position: absolute;
-    left: 3%;
-    top: 15%;
-    bottom: 15%;
-    width: 4px;
-    background-image: radial-gradient(
-      circle at 2px 2px,
-      hsla(21, 90%, 48%, 0.35) 1px,
-      transparent 1px
-    );
-    background-size: 4px 8px;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Alternate side for rhythm — apply .block-side-dots-right for right side */
-  .block-side-dots-right {
-    position: relative;
-  }
-
-  .block-side-dots-right::after {
-    content: '';
-    position: absolute;
-    right: 3%;
-    top: 15%;
-    bottom: 15%;
-    width: 4px;
-    background-image: radial-gradient(
-      circle at 2px 2px,
-      hsla(21, 90%, 48%, 0.35) 1px,
-      transparent 1px
-    );
-    background-size: 4px 8px;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  @media (max-width: 768px) {
-    .block-side-dots::before,
-    .block-side-dots-right::after {
-      display: none;
-    }
-  }
-
 @layer utilities {
   /* Scroll reveal animation classes */
   .reveal {
