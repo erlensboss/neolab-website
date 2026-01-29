@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Search, Brain, TrendingUp, Zap, ArrowRight, CheckCircle2, 
-  Workflow, BarChart3, Lightbulb, Settings, Target, ChevronRight
+  Workflow, BarChart3, Lightbulb, Settings, Target, Activity,
+  Database, Cpu, Globe, ChartLine
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -48,13 +49,13 @@ const services = [
   },
 ];
 
-// Process steps
-const processSteps = [
-  { stepLv: "Darbs sākas ar sākotnējo uzņēmuma izvērtējumu/auditu.", stepEn: "Work begins with an initial company assessment/audit." },
-  { stepLv: "Tiek analizēta digitālā vide un esošie procesi.", stepEn: "Digital environment and existing processes are analyzed." },
-  { stepLv: "Definē prioritātes un rīcības plānu.", stepEn: "Priorities and action plan are defined." },
-  { stepLv: "Risinājumi tiek ieviesti pakāpeniski.", stepEn: "Solutions are implemented gradually." },
-  { stepLv: "Rezultāti tiek analizēti un optimizēti.", stepEn: "Results are analyzed and optimized." },
+// Roadmap steps (updated labels per requirements)
+const roadmapSteps = [
+  { labelLv: "Sākotnējais audits", labelEn: "Initial Audit", icon: Search },
+  { labelLv: "Analīze", labelEn: "Analysis", icon: BarChart3 },
+  { labelLv: "Prioritātes un plāns", labelEn: "Priorities & Plan", icon: Target },
+  { labelLv: "Ieviešana", labelEn: "Implementation", icon: Settings },
+  { labelLv: "Optimizācija", labelEn: "Optimization", icon: Activity },
 ];
 
 // Challenges list
@@ -76,10 +77,10 @@ const solutionSteps = [
 
 // Features for hero section
 const heroFeatures = [
-  { lv: "AI risinājumu ieviešana", en: "AI solution implementation" },
-  { lv: "Procesu automatizācija", en: "Process automation" },
-  { lv: "SEO un GEO optimizācija", en: "SEO & GEO optimization" },
-  { lv: "Google Ads pārvaldība", en: "Google Ads management" },
+  { lv: "AI risinājumu ieviešana", en: "AI solution implementation", icon: Brain },
+  { lv: "Procesu automatizācija", en: "Process automation", icon: Cpu },
+  { lv: "SEO un GEO optimizācija", en: "SEO & GEO optimization", icon: Globe },
+  { lv: "Google Ads pārvaldība", en: "Google Ads management", icon: ChartLine },
 ];
 
 export default function Index() {
@@ -87,77 +88,166 @@ export default function Index() {
 
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: HERO — Compact, Bold, Premium ========== */}
-      <section className="relative min-h-[85vh] flex items-center bg-gradient-hero overflow-hidden">
-        {/* Background system visual */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }} />
-          
-          {/* Flowing nodes/system visual on right */}
-          <svg className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] h-[80%] opacity-20" viewBox="0 0 400 400">
-            {/* Concentric circles */}
-            <circle cx="250" cy="200" r="150" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="0.5" strokeDasharray="4 8" />
-            <circle cx="250" cy="200" r="100" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="6 6" />
-            <circle cx="250" cy="200" r="50" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1.5" />
+      {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-hero-strong overflow-hidden">
+        {/* Grid pattern — stronger */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+        
+        {/* Large System Visualization — Dashboard Style */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[65%] h-[85%] pointer-events-none">
+          <svg className="w-full h-full opacity-50" viewBox="0 0 500 500" fill="none">
+            {/* Central hub with pulsing glow */}
+            <motion.circle 
+              cx="280" cy="250" r="60" 
+              fill="url(#hubGradient)" 
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+            <motion.circle 
+              cx="280" cy="250" r="75" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="2"
+              strokeDasharray="8 4"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              style={{ transformOrigin: "280px 250px" }}
+            />
+            <motion.circle 
+              cx="280" cy="250" r="95" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="1"
+              strokeDasharray="4 8"
+              opacity="0.5"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+              style={{ transformOrigin: "280px 250px" }}
+            />
             
-            {/* Connection lines */}
-            <path d="M 100 100 Q 175 150 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
-            <path d="M 50 250 Q 150 225 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
-            <path d="M 350 80 Q 300 140 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
-            <path d="M 380 300 Q 315 250 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
+            {/* Module blocks around hub */}
+            {/* AI Module */}
+            <rect x="120" y="100" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
+            <text x="160" y="130" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">AI</text>
             
-            {/* Nodes */}
-            <circle cx="100" cy="100" r="8" fill="hsl(21 90% 48%)" opacity="0.3" />
-            <circle cx="50" cy="250" r="6" fill="hsl(21 90% 48%)" opacity="0.3" />
-            <circle cx="350" cy="80" r="7" fill="hsl(21 90% 48%)" opacity="0.3" />
-            <circle cx="380" cy="300" r="5" fill="hsl(21 90% 48%)" opacity="0.3" />
-            <circle cx="250" cy="200" r="20" fill="hsl(21 90% 48%)" opacity="0.15" />
+            {/* SEO Module */}
+            <rect x="380" y="120" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
+            <text x="420" y="150" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">SEO</text>
+            
+            {/* Ads Module */}
+            <rect x="400" y="320" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
+            <text x="440" y="350" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">ADS</text>
+            
+            {/* Automation Module */}
+            <rect x="100" y="300" width="90" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
+            <text x="145" y="330" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10" fontWeight="500">AUTO</text>
+            
+            {/* Connection lines with flow animation */}
+            <motion.path 
+              d="M 200 125 Q 240 180 280 190" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.path 
+              d="M 380 145 Q 340 190 280 220" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.3 }}
+            />
+            <motion.path 
+              d="M 400 345 Q 350 310 280 280" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.6 }}
+            />
+            <motion.path 
+              d="M 190 325 Q 230 290 260 270" 
+              fill="none" 
+              stroke="hsl(21 90% 48%)" 
+              strokeWidth="2"
+              strokeDasharray="6 4"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.9 }}
+            />
+            
+            {/* Status indicators */}
+            <motion.circle cx="160" y="80" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+            <motion.circle cx="420" cy="100" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+            <motion.circle cx="440" cy="380" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} />
+            <motion.circle cx="145" cy="360" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} />
+            
+            {/* Metrics displays */}
+            <rect x="50" y="180" width="60" height="30" rx="4" fill="hsl(40 20% 98%)" opacity="0.8" />
+            <text x="80" y="200" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10">+127%</text>
+            
+            <rect x="430" y="230" width="55" height="30" rx="4" fill="hsl(40 20% 98%)" opacity="0.8" />
+            <text x="457" y="250" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10">98.5%</text>
+            
+            <defs>
+              <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="hsl(21 90% 58%)" />
+                <stop offset="100%" stopColor="hsl(21 90% 48%)" />
+              </radialGradient>
+            </defs>
           </svg>
-          
-          {/* Orange glow corners */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
         </div>
+        
+        {/* Orange glow accents */}
+        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
-        <div className="container-neo py-16 md:py-20 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container-neo py-20 md:py-28 relative z-10">
+          <div className="max-w-3xl">
             <ScrollReveal>
-              <h1 className="mb-4 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
-                {t("Jauna ēra", "A New Era for")} <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
+              <h1 className="mb-5 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
+                {t("Jauna ēra", "A New Era for")} <br />
+                <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
               </h1>
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-xl">
                 {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl" className="mb-10">
+                <Button variant="hero" size="xl" className="mb-12 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7">
                   {t("Pieteikt konsultāciju", "Book Consultation")}
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
               </Link>
             </ScrollReveal>
 
-            {/* Benefit chips */}
+            {/* Enhanced Benefit chips — Larger with icons */}
             <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap gap-3">
                 {heroFeatures.map((feature, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + i * 0.1 }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 border border-border text-sm font-medium text-foreground shadow-sm"
+                    transition={{ delay: 0.5 + i * 0.1 }}
+                    whileHover={{ y: -3, boxShadow: "0 8px 25px hsla(21, 90%, 48%, 0.15)" }}
+                    className="flex items-center gap-3 px-5 py-3 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <feature.icon className="w-4 h-4 text-primary" />
+                    </div>
                     {language === "lv" ? feature.lv : feature.en}
                   </motion.div>
                 ))}
@@ -167,50 +257,93 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 2: Jauna pieeja (Split Layout) ========== */}
-      <section className="relative bg-background py-12 md:py-20">
-        {/* Framed background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-transparent" />
+      {/* ========== SECTION 2: Jauna pieeja (Control Panel Style) ========== */}
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-background via-muted/30 to-background overflow-hidden">
+        {/* Subtle grid extending beyond */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{
+          backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
         
         <div className="container-neo relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left: Visual panel */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Control Panel Visual */}
             <ScrollReveal>
-              <div className="relative aspect-square max-w-md mx-auto lg:max-w-none">
-                {/* Layered gradient shapes */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
-                <div className="absolute top-8 left-8 right-8 bottom-8 rounded-2xl bg-gradient-to-tr from-primary/15 to-primary/5 border border-primary/20" />
+              <div className="relative aspect-square max-w-lg mx-auto lg:max-w-none">
+                {/* Glass panel background */}
+                <div className="absolute inset-0 rounded-3xl bg-surface-dashboard border border-primary/10 shadow-dashboard" />
+                
+                {/* Inner grid lines */}
+                <div className="absolute inset-8 opacity-[0.04]" style={{
+                  backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+                  backgroundSize: '30px 30px'
+                }} />
                 
                 {/* System diagram inside */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
+                    {/* Outer rotating ring */}
                     <motion.div 
                       animate={{ rotate: 360 }} 
-                      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                      className="w-48 h-48 md:w-56 md:h-56 border-2 border-dashed border-primary/20 rounded-full"
+                      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                      className="w-56 h-56 md:w-64 md:h-64 border-2 border-dashed border-primary/25 rounded-full"
                     />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                      <Workflow className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
-                    </div>
                     
-                    {/* Orbiting icons */}
+                    {/* Middle ring */}
+                    <motion.div 
+                      animate={{ rotate: -360 }} 
+                      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 border border-primary/15 rounded-full"
+                    />
+                    
+                    {/* Central hub */}
+                    <motion.div 
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange glow-pulse"
+                    >
+                      <Workflow className="w-12 h-12 md:w-14 md:h-14 text-primary-foreground" />
+                    </motion.div>
+                    
+                    {/* Orbiting icons with glow */}
                     {[Search, Brain, TrendingUp, Zap].map((Icon, i) => (
                       <motion.div
                         key={i}
-                        className="absolute w-10 h-10 md:w-12 md:h-12 rounded-xl bg-background border border-border shadow-md flex items-center justify-center"
+                        className="absolute w-12 h-12 md:w-14 md:h-14 rounded-xl bg-background border border-primary/20 shadow-lg flex items-center justify-center"
                         style={{
-                          top: `${50 + 42 * Math.sin((i * Math.PI) / 2)}%`,
-                          left: `${50 + 42 * Math.cos((i * Math.PI) / 2)}%`,
+                          top: `${50 + 45 * Math.sin((i * Math.PI) / 2)}%`,
+                          left: `${50 + 45 * Math.cos((i * Math.PI) / 2)}%`,
                           transform: 'translate(-50%, -50%)'
                         }}
-                        animate={{ y: [0, -6, 0] }}
+                        animate={{ y: [0, -8, 0] }}
                         transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.1, boxShadow: "0 8px 30px hsla(21 90% 48% / 0.25)" }}
                       >
-                        <Icon className="w-5 h-5 text-primary" />
+                        <Icon className="w-6 h-6 text-primary" />
                       </motion.div>
+                    ))}
+                    
+                    {/* Data flow lines */}
+                    {[0, 1, 2, 3].map((i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-px h-6 bg-primary/30"
+                        style={{
+                          top: `${50 + 32 * Math.sin((i * Math.PI) / 2)}%`,
+                          left: `${50 + 32 * Math.cos((i * Math.PI) / 2)}%`,
+                          transform: `translate(-50%, -50%) rotate(${i * 90 + 45}deg)`
+                        }}
+                        animate={{ opacity: [0.3, 0.8, 0.3] }}
+                        transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+                      />
                     ))}
                   </div>
                 </div>
+                
+                {/* Corner status indicators */}
+                <div className="absolute top-6 left-6 flex items-center gap-2">
+                  <div className="status-dot" />
+                  <span className="text-xs text-muted-foreground font-medium">ACTIVE</span>
+                </div>
+                <div className="absolute top-6 right-6 text-xs text-primary font-medium">v2.4</div>
               </div>
             </ScrollReveal>
 
@@ -220,26 +353,26 @@ export default function Index() {
                 <span className="chip mb-4 inline-block">
                   {t("NEOLab pieeja", "NEOLab Approach")}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                   {t("Jauna pieeja digitālajai izaugsmei", "A New Approach to Digital Growth")}
                 </h2>
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                   {t(
-                    "NEOLab strādā ar uzņēmumiem, kuri sniedzas pēc pilnveidošanās digitālaja pasaulē. Darbības fokusējas uz digitālo procesu sakārtošanu, tehnoloģiju ieviešanu, radīšanu un ilgtermiņa redzamības uzlabošanu.",
+                    "NEOLab strādā ar uzņēmumiem, kuri sniedzas pēc pilnveidošanās digitālajā pasaulē. Darbības fokusējas uz digitālo procesu sakārtošanu, tehnoloģiju ieviešanu, radīšanu un ilgtermiņa redzamības uzlabošanu.",
                     "NEOLab works with companies striving for improvement in the digital world. Our focus is on organizing digital processes, implementing technology, and improving long-term visibility."
                   )}
                 </p>
               </ScrollReveal>
               
               <ScrollReveal delay={0.3}>
-                {/* Highlighted sentence */}
-                <div className="p-4 rounded-xl bg-primary/5 border-l-4 border-primary mb-4">
-                  <p className="text-foreground font-medium">
+                {/* Highlighted sentence — stronger */}
+                <div className="p-5 rounded-xl bg-primary/8 border-l-4 border-primary shadow-sm">
+                  <p className="text-foreground font-medium text-lg leading-relaxed">
                     {t(
-                      "Katra organizacija ir ipatneja, tiesi tapec NEOLab fokusejas uz personalizetu risinajumu piedavasanu un implementesanu, kas nodrosinatu sekmigus rezultatus un izaugsmi uznemumam.",
+                      "Katra organizācija ir īpatnēja, tieši tāpēc NEOLab fokusējas uz personalizētu risinājumu piedāvāšanu un implementēšanu, kas nodrošinātu sekmīgus rezultātus un izaugsmi uzņēmumam.",
                       "Every organization is unique, which is why NEOLab focuses on offering and implementing personalized solutions that ensure successful results and growth for the company."
                     )}
                   </p>
@@ -250,43 +383,51 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 3: Digitālie risinājumi (Feature Chips) ========== */}
-      <section className="relative py-12 md:py-20 bg-muted/30">
-        {/* Frame */}
-        <div className="absolute inset-4 md:inset-8 border border-border/50 rounded-3xl pointer-events-none" />
+      {/* ========== SECTION 3: Digitālie risinājumi (Dashboard Blocks) ========== */}
+      <section className="relative py-16 md:py-24 bg-muted/40">
+        {/* Full-bleed background panel */}
+        <div className="absolute inset-0 border-y border-border/50" />
         
         <div className="container-neo relative z-10">
           <ScrollReveal>
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <span className="chip mb-4 inline-block">{t("Risinājumi", "Solutions")}</span>
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5">
                 {t("Digitālie un mākslīgā intelekta risinājumi uzņēmumiem", "Digital and AI solutions for businesses")}
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 {t(
-                  "Mēs risinājumus pielāgotojam konkrētai uzņēmuma situācijai, esošajiem procesiem un biznesa mērķiem.",
+                  "Mēs risinājumus pielāgojam konkrētai uzņēmuma situācijai, esošajiem procesiem un biznesa mērķiem.",
                   "We adapt solutions to the specific company situation, existing processes, and business goals."
                 )}
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
+          {/* Dashboard-style grid */}
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             {heroFeatures.map((feature, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <motion.div 
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-background border border-border shadow-sm hover:shadow-md transition-all"
-                  whileHover={{ y: -4, boxShadow: "0 12px 40px hsla(21, 90%, 48%, 0.12)" }}
+                  className="card-dashboard flex items-center gap-5"
+                  whileHover={{ y: -6 }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    {i === 0 && <Lightbulb className="w-6 h-6 text-primary" />}
-                    {i === 1 && <Settings className="w-6 h-6 text-primary" />}
-                    {i === 2 && <Search className="w-6 h-6 text-primary" />}
-                    {i === 3 && <TrendingUp className="w-6 h-6 text-primary" />}
+                  {/* Status dot */}
+                  <div className="absolute top-4 right-4">
+                    <div className="status-dot" />
                   </div>
-                  <span className="font-medium text-foreground">
-                    {language === "lv" ? feature.lv : feature.en}
-                  </span>
+                  
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground text-lg block">
+                      {language === "lv" ? feature.lv : feature.en}
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {t("Aktīvs modulis", "Active module")}
+                    </span>
+                  </div>
                 </motion.div>
               </ScrollReveal>
             ))}
@@ -294,69 +435,82 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: Izaicinājumi (Framed Challenges) ========== */}
-      <section className="relative py-12 md:py-20 bg-background">
-        <div className="container-neo">
-          <div className="rounded-3xl bg-muted/50 border border-border p-6 md:p-10 lg:p-12">
-            <ScrollReveal>
-              <span className="chip mb-4 inline-block">{t("Izaicinājumi", "Challenges")}</span>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-                {t("Ar kādiem izaicinājumiem visbiežāk saskarās mūsu klienti", "What challenges our clients face most often")}
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                {t("Laika gaitā digitālā vide uzņēmumos kļūst sarežģītāka.", "Over time, the digital environment in companies becomes more complex.")}
-              </p>
-            </ScrollReveal>
-
-            <div className="space-y-3 mb-8">
-              {challenges.map((challenge, i) => (
-                <ScrollReveal key={i} delay={i * 0.05}>
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-background border border-border">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <p className="text-foreground">
-                      {language === "lv" ? challenge.lv : challenge.en}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            {/* Result bar */}
-            <ScrollReveal delay={0.3}>
-              <div className="p-5 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
-                <p className="text-foreground font-medium text-center">
-                  {t(
-                    "Rezultātā digitālie kanāli strādā, bet ne pilnā potenciālā.",
-                    "As a result, digital channels work, but not at full potential."
-                  )}
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: NEOLab risinājums (Interactive Steps) ========== */}
-      <section className="relative py-12 md:py-20 bg-muted/20">
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
+      {/* ========== SECTION 4: Izaicinājumi (Diagnostic Panel) ========== */}
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30">
+        {/* Grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }} />
         
         <div className="container-neo relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-3xl bg-background/80 backdrop-blur-sm border border-border shadow-lg p-8 md:p-12">
+              <ScrollReveal>
+                <span className="chip mb-4 inline-block">{t("Izaicinājumi", "Challenges")}</span>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+                  {t("Ar kādiem izaicinājumiem visbiežāk saskaras mūsu klienti", "What challenges our clients face most often")}
+                </h2>
+                <p className="text-muted-foreground mb-10 text-lg">
+                  {t("Laika gaitā digitālā vide uzņēmumos kļūst sarežģītāka.", "Over time, the digital environment in companies becomes more complex.")}
+                </p>
+              </ScrollReveal>
+
+              <div className="space-y-4 mb-10">
+                {challenges.map((challenge, i) => (
+                  <ScrollReveal key={i} delay={i * 0.05}>
+                    <div className="card-diagnostic">
+                      <p className="text-foreground font-medium">
+                        {language === "lv" ? challenge.lv : challenge.en}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              {/* Conclusion bar — System alert style */}
+              <ScrollReveal delay={0.3}>
+                <div className="p-6 rounded-xl bg-gradient-to-r from-primary/15 via-primary/10 to-primary/5 border border-primary/25 shadow-md">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Activity className="w-5 h-5 text-primary" />
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+                      {t("Sistēmas brīdinājums", "System Alert")}
+                    </span>
+                  </div>
+                  <p className="text-foreground font-semibold text-lg">
+                    {t(
+                      "Rezultātā digitālie kanāli strādā, bet ne pilnā potenciālā.",
+                      "As a result, digital channels work, but not at full potential."
+                    )}
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 5: NEOLab risinājums (Glow States, No Arrows) ========== */}
+      <section className="relative py-16 md:py-24 bg-background">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{
+          backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+        
+        <div className="container-neo relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Text */}
             <div>
               <ScrollReveal>
                 <span className="chip mb-4 inline-block">{t("Risinājums", "Solution")}</span>
-                <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                   {t("Kāds ir NEOLab risinājums?", "What is NEOLab's solution?")}
                 </h2>
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   {t(
                     "NEOLab strādā ar jaunākajiem un efektīvākajiem digitālajiem risinājumiem, kas palīdz sakārtot procesus, novērst digitālās vājās vietas un paātrināt biznesa ikdienas darbu. Mēs fokusējamies uz risinājumiem, kuri dod praktisku ieguvumu un ir pielāgojami konkrētai uzņēmuma situācijai, nevis universālām shēmām.",
                     "NEOLab works with the latest and most effective digital solutions that help organize processes, eliminate digital weak points, and accelerate daily business operations. We focus on solutions that provide practical benefits and are adaptable to specific company situations, not universal schemes."
@@ -365,31 +519,45 @@ export default function Index() {
               </ScrollReveal>
             </div>
 
-            {/* Right: 4-step interactive list */}
+            {/* Right: 4-step with glow states (no arrows) */}
             <ScrollReveal delay={0.2}>
               <div className="relative">
-                {/* Vertical connector line */}
-                <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-primary/30 via-primary/20 to-primary/10" />
+                {/* Vertical connector line with pulse */}
+                <div className="absolute left-7 top-10 bottom-10 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 rounded-full" />
+                <motion.div 
+                  className="absolute left-7 top-10 w-0.5 h-8 bg-primary rounded-full"
+                  animate={{ y: [0, 120, 240, 360, 0], opacity: [1, 0.5, 1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
                 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {solutionSteps.map((step, i) => (
                     <motion.div 
                       key={i}
-                      className="relative flex items-center gap-5 p-4 rounded-xl bg-background border border-border cursor-pointer"
+                      className="relative flex items-center gap-6 p-5 rounded-xl bg-muted/50 border border-border cursor-pointer"
                       whileHover={{ 
-                        x: 8, 
-                        boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)",
-                        borderColor: "hsl(21 90% 48% / 0.3)"
+                        x: 10, 
+                        boxShadow: "0 12px 40px hsla(21, 90%, 48%, 0.2)",
+                        borderColor: "hsl(21 90% 48% / 0.4)",
+                        background: "hsl(40 20% 98%)"
                       }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange flex-shrink-0 relative z-10">
-                        <step.icon className="w-5 h-5 text-primary-foreground" />
-                      </div>
-                      <span className="font-semibold text-lg text-foreground">
+                      {/* Glowing step indicator */}
+                      <motion.div 
+                        className="w-14 h-14 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange flex-shrink-0 relative z-10"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <step.icon className="w-6 h-6 text-primary-foreground" />
+                      </motion.div>
+                      <span className="font-semibold text-xl text-foreground">
                         {language === "lv" ? step.titleLv : step.titleEn}
                       </span>
-                      <ChevronRight className="w-5 h-5 text-muted-foreground ml-auto" />
+                      {/* Glow indicator on hover instead of arrow */}
+                      <motion.div 
+                        className="absolute right-5 w-3 h-3 rounded-full bg-primary/30"
+                        whileHover={{ scale: 1.5, backgroundColor: "hsl(21 90% 48%)" }}
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -399,52 +567,64 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 6: Pakalpojumu virzieni (4 Service Cards) ========== */}
-      <section className="relative py-12 md:py-20 bg-background">
-        <div className="container-neo">
+      {/* ========== SECTION 6: Pakalpojumu virzieni (Larger Cards) ========== */}
+      <section className="relative py-16 md:py-24 bg-muted/30">
+        {/* Border frame */}
+        <div className="absolute inset-0 border-y border-border/40" />
+        
+        <div className="container-neo relative z-10">
           <ScrollReveal>
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <span className="chip mb-4 inline-block">{t("Pakalpojumi", "Services")}</span>
-              <h2 className="text-3xl md:text-4xl font-semibold">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                 {t("Pakalpojumu virzieni", "Service Directions")}
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service, i) => (
               <ScrollReveal key={service.id} delay={i * 0.1}>
                 <Link to={service.path} className="group block h-full">
                   <motion.div 
-                    className="h-full p-6 md:p-8 rounded-2xl bg-muted/30 border border-border relative overflow-hidden"
+                    className="h-full p-8 md:p-10 rounded-2xl bg-background border border-border relative overflow-hidden"
                     whileHover={{ 
-                      y: -6,
-                      boxShadow: "0 16px 50px hsla(21, 90%, 48%, 0.15)"
+                      y: -8,
+                      boxShadow: "0 20px 60px hsla(21, 90%, 48%, 0.18)"
                     }}
                   >
-                    {/* Hover gradient shift */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-300" />
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500" />
                     
-                    {/* Orange accent line */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-1 bg-gradient-orange rounded-t-full transition-all duration-300" />
+                    {/* Orange accent line — expands on hover */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-full h-1 bg-gradient-orange transition-all duration-500" />
+                    
+                    {/* Decorative pattern reveal */}
+                    <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500" style={{
+                      backgroundImage: `radial-gradient(circle at 2px 2px, hsl(21 90% 48%) 1px, transparent 1px)`,
+                      backgroundSize: '12px 12px'
+                    }} />
                     
                     <div className="relative z-10">
-                      {/* Icon container */}
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                        <service.icon className="w-7 h-7 text-primary" />
+                      {/* Larger icon container */}
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:shadow-orange transition-all duration-300">
+                        <service.icon className="w-8 h-8 text-primary" />
                       </div>
                       
-                      <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      {/* Divider */}
+                      <div className="w-12 h-px bg-border mb-5 group-hover:bg-primary/30 group-hover:w-20 transition-all duration-300" />
+                      
+                      <h3 className="text-xl md:text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
                         {language === "lv" ? service.titleLv : service.titleEn}
                       </h3>
                       
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed mb-6">
                         {language === "lv" ? service.descLv : service.descEn}
                       </p>
                       
-                      <div className="flex items-center gap-2 mt-5 text-primary font-medium text-sm">
+                      <div className="flex items-center gap-2 text-primary font-semibold">
                         {t("Uzzināt vairāk", "Learn more")}
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                       </div>
                     </div>
                   </motion.div>
@@ -455,104 +635,186 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 7: Brand Block — NEO ========== */}
-      <section className="relative py-10 md:py-16 bg-muted/30">
-        {/* Subtle animated gradient underline will be added */}
+      {/* ========== SECTION 7: NEO Brand Block (Dictionary/Etymology) ========== */}
+      <section className="relative py-14 md:py-20 bg-background">
         <div className="container-neo">
           <ScrollReveal>
-            <div className="flex flex-col items-center text-center">
-              <motion.h2 
-                className="text-6xl md:text-8xl lg:text-9xl font-bold text-gradient-orange"
-                animate={{ 
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
-                Neo
-              </motion.h2>
-              <p className="text-muted-foreground mt-3 text-lg italic">
-                — {t("jauns", "new")} in Latin
-              </p>
-              {/* Animated gradient underline */}
-              <motion.div 
-                className="mt-4 h-1 rounded-full bg-gradient-orange"
-                initial={{ width: 0 }}
-                whileInView={{ width: 120 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              />
+            <div className="max-w-2xl mx-auto text-center">
+              {/* Dictionary-style entry */}
+              <div className="relative">
+                {/* Main word */}
+                <motion.h2 
+                  className="text-7xl md:text-8xl lg:text-9xl font-bold text-gradient-orange tracking-tight"
+                  animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  style={{ backgroundSize: "200% 200%" }}
+                >
+                  Neo
+                </motion.h2>
+                
+                {/* Pronunciation / meaning */}
+                <p className="text-xl md:text-2xl text-muted-foreground mt-4 italic">
+                  /ˈniːoʊ/ — {t("jauns, jaundzimis", "new, young")}
+                </p>
+                
+                {/* Etymology block */}
+                <div className="mt-8 p-6 rounded-xl border border-border/60 bg-muted/30 text-left max-w-md mx-auto">
+                  <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2 font-semibold">
+                    {t("Etimoloģija", "Etymology")}
+                  </p>
+                  <p className="text-foreground leading-relaxed">
+                    {t(
+                      'No sengrieķu νέος (néos, "jauns, jaundzimis"). Prefikss: neo-',
+                      'From Ancient Greek νέος (néos, "new, young"). Prefix: neo-'
+                    )}
+                  </p>
+                </div>
+                
+                {/* Animated gradient underline — more subtle */}
+                <motion.div 
+                  className="mt-8 h-1 rounded-full bg-gradient-orange mx-auto"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: 100 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                />
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ========== SECTION 8: Kā mēs strādājam (Compact Stepper) ========== */}
-      <section className="relative py-12 md:py-20 bg-background">
-        <div className="container-neo">
+      {/* ========== SECTION 8: Kā mēs strādājam (Horizontal Roadmap) ========== */}
+      <section className="relative py-16 md:py-24 bg-muted/40 overflow-hidden">
+        {/* Border frame */}
+        <div className="absolute inset-0 border-y border-border/40" />
+        
+        <div className="container-neo relative z-10">
           <ScrollReveal>
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <span className="chip mb-4 inline-block">{t("Process", "Process")}</span>
-              <h2 className="text-3xl md:text-4xl font-semibold">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                 {t("Kā mēs strādājam", "How We Work")}
               </h2>
             </div>
           </ScrollReveal>
 
-          {/* Vertical stepper */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
+          {/* Horizontal roadmap on desktop, vertical on mobile */}
+          <div className="relative">
+            {/* Desktop: Horizontal */}
+            <div className="hidden lg:block">
+              {/* Connection line */}
+              <div className="absolute top-12 left-[10%] right-[10%] h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full" />
               
-              <div className="space-y-4">
-                {processSteps.map((step, i) => (
+              <div className="flex justify-between items-start">
+                {roadmapSteps.map((step, i) => (
                   <ScrollReveal key={i} delay={i * 0.1}>
                     <motion.div 
-                      className="relative flex items-start gap-5 pl-12"
-                      whileHover={{ x: 4 }}
+                      className="flex flex-col items-center text-center max-w-[180px]"
+                      whileHover={{ y: -5 }}
                     >
-                      {/* Step number dot */}
-                      <div className="absolute left-0 w-10 h-10 rounded-full bg-gradient-orange flex items-center justify-center text-primary-foreground font-bold text-sm shadow-orange">
-                        {i + 1}
-                      </div>
+                      {/* Step circle with gradient progression */}
+                      <motion.div 
+                        className="w-24 h-24 rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg shadow-orange relative z-10 mb-5"
+                        style={{
+                          background: `linear-gradient(135deg, hsl(${35 - i * 3} ${80 + i * 5}% ${60 - i * 3}%) 0%, hsl(${25 - i * 3} ${85 + i * 3}% ${50 - i * 2}%) 100%)`
+                        }}
+                        whileHover={{ scale: 1.1, boxShadow: "0 12px 40px hsla(21 90% 48% / 0.35)" }}
+                      >
+                        <step.icon className="w-10 h-10" />
+                      </motion.div>
                       
-                      <div className="flex-1 p-4 rounded-xl bg-muted/50 border border-border hover:border-primary/20 transition-colors">
-                        <p className="text-foreground">
-                          {language === "lv" ? step.stepLv : step.stepEn}
-                        </p>
-                      </div>
+                      <span className="text-xs text-muted-foreground font-semibold mb-2">
+                        {t("SOLIS", "STEP")} {i + 1}
+                      </span>
+                      <h4 className="font-bold text-foreground">
+                        {language === "lv" ? step.labelLv : step.labelEn}
+                      </h4>
                     </motion.div>
                   </ScrollReveal>
                 ))}
+              </div>
+            </div>
+
+            {/* Mobile: Vertical */}
+            <div className="lg:hidden max-w-md mx-auto">
+              <div className="relative">
+                {/* Vertical line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20" />
+                
+                <div className="space-y-6">
+                  {roadmapSteps.map((step, i) => (
+                    <ScrollReveal key={i} delay={i * 0.1}>
+                      <motion.div 
+                        className="relative flex items-center gap-5 pl-16"
+                        whileHover={{ x: 4 }}
+                      >
+                        {/* Step number circle */}
+                        <motion.div 
+                          className="absolute left-0 w-12 h-12 rounded-full flex items-center justify-center text-primary-foreground font-bold shadow-orange"
+                          style={{
+                            background: `linear-gradient(135deg, hsl(${35 - i * 3} ${80 + i * 5}% ${60 - i * 3}%) 0%, hsl(${25 - i * 3} ${85 + i * 3}% ${50 - i * 2}%) 100%)`
+                          }}
+                        >
+                          {i + 1}
+                        </motion.div>
+                        
+                        <div className="flex-1 p-4 rounded-xl bg-background border border-border hover:border-primary/30 transition-colors">
+                          <span className="text-xs text-muted-foreground font-semibold block mb-1">
+                            {t("SOLIS", "STEP")} {i + 1}
+                          </span>
+                          <p className="text-foreground font-semibold">
+                            {language === "lv" ? step.labelLv : step.labelEn}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </ScrollReveal>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 9: Final CTA — Orange, Premium, Compact ========== */}
-      <section className="relative py-12 md:py-20 overflow-hidden">
-        {/* Orange gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+      {/* ========== SECTION 9: Final CTA — Strong Orange ========== */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Strong orange gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         
-        {/* Subtle depth elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        {/* Radial glow at center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+        
+        {/* Corner accents */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl" />
+        
+        {/* Subtle animated gradient */}
+        <motion.div 
+          className="absolute inset-0 opacity-30"
+          animate={{ 
+            background: [
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
         
         <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-5">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {t("Uzzini, kā varam palīdzēt tev.", "Find out how we can help you.")}
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
                 {t(
-                  "Piesakies bezmaksas konsultācijai, kurā mēs izvērtesim uzņēmumu un tā procesu, lai sniegtu visprecīzāko pakalpojumu tava uznemuma vajadzibam.",
+                  "Piesakies bezmaksas konsultācijai, kurā mēs izvērtēsim uzņēmumu un tā procesus, lai sniegtu visprecīzāko pakalpojumu tava uzņēmuma vajadzībām.",
                   "Book a free consultation where we will evaluate your company and its processes to provide the most accurate service for your business needs."
                 )}
               </p>
@@ -560,9 +822,13 @@ export default function Index() {
             
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl" className="shadow-orange hover:shadow-orange-hover">
+                <Button 
+                  variant="hero" 
+                  size="xl" 
+                  className="shadow-orange-strong hover:shadow-orange-hover text-lg px-12 py-8"
+                >
                   {t("Pieteikt konsultāciju", "Book Consultation")}
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
               </Link>
             </ScrollReveal>
