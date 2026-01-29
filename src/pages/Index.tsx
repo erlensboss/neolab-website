@@ -1,594 +1,567 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, Brain, TrendingUp, Zap, ArrowRight, CheckCircle2, Workflow, Target, BarChart3, Database, LineChart, Layers } from "lucide-react";
+import { 
+  Search, Brain, TrendingUp, Zap, ArrowRight, CheckCircle2, 
+  Workflow, BarChart3, Lightbulb, Settings, Target, ChevronRight
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
-import { SectionHeading } from "@/components/shared/SectionHeading";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-// Problem-first opening data
-const chaosProblems = ["Desmitiem rīku bez vienotas sistēmas", "AI risinājumi bez stratēģijas", "Dati, kas nekad netiek izmantoti", "Kampaņas bez skaidra virziena"];
-
-// Service directions with unique layouts
-const services = [{
-  id: "seo",
-  title: "SEO & GEO",
-  description: "Organiskā redzamība ar sistēmisku pieeju",
-  icon: Search,
-  chip: "Analītika",
-  path: "/seo-un-geo",
-  features: ["Tehniskais audits", "Satura stratēģija", "Lokālā optimizācija"]
-}, {
-  id: "ai",
-  title: "AI Automatizācijas",
-  description: "Manuālā darba transformācija inteliģentās sistēmās",
-  icon: Brain,
-  chip: "Sistēmas",
-  path: "/ai-automatizacija",
-  features: ["Darba plūsmas", "Integrācijas", "Pašmācīšanās"]
-}, {
-  id: "ads",
-  title: "Digitālā reklāma",
-  description: "Performance ar pilnu kontroli un signāliem",
-  icon: TrendingUp,
-  chip: "Performance",
-  path: "/performance-reklama",
-  features: ["Meta Ads", "Google Ads", "Atribūcija"]
-}, {
-  id: "lab",
-  title: "AI Lab",
-  description: "Eksperimentāla telpa nākotnes risinājumiem",
-  icon: Zap,
-  chip: "Izpēte",
-  path: "/ai-lab",
-  features: ["Prototipi", "Testēšana", "Inovācijas"]
-}];
-
-// Client reality problems
-const clientProblems = [{
-  problem: "Mārketinga haoss",
-  detail: "Kampaņas darbojas, bet neviens īsti nezina kāpēc vai cik labi."
-}, {
-  problem: "Datu pārpilnība",
-  detail: "Analītika ir, bet insights — nav. Skaitļi bez konteksta."
-}, {
-  problem: "AI sajukums",
-  detail: "Visi runā par AI, bet konkrēti pielietojumi nav skaidri."
-}, {
-  problem: "Aģentūru vilšanās",
-  detail: "Iepriekšējā pieredze ar aģentūrām nav atstājusi labu iespaidu."
-}];
+// Service cards data
+const services = [
+  {
+    id: "ai",
+    titleLv: "AI automatizācija",
+    titleEn: "AI Automation",
+    descLv: "AI risinājumi tiek izmantoti procesu automatizācijai, manuālā darba samazināšanai un datu apstrādes uzlabošanai. Risinājumi tiek pielāgoti un izstrādāti atbilstoši uzņēmuma darbības modelim un esošajām sistēmām.",
+    descEn: "AI solutions for process automation, reducing manual work, and improving data processing. Solutions are customized according to the company's business model and existing systems.",
+    icon: Brain,
+    path: "/ai-automatizacija",
+  },
+  {
+    id: "seo",
+    titleLv: "SEO un GEO optimizācija",
+    titleEn: "SEO & GEO Optimization",
+    descLv: "SEO darbs ietver tehnisko optimizāciju, satura struktūras uzlabošanu un atslēgvārdu plānošanu. Papildus tiek izmantoti GEO risinājumi, kas palīdz uzlabot redzamību jaunās paaudzes meklēšanas vidēs, tostarp AI balstītos meklējumos.",
+    descEn: "SEO work includes technical optimization, content structure improvement, and keyword planning. GEO solutions help improve visibility in next-generation search environments, including AI-based searches.",
+    icon: Search,
+    path: "/seo-un-geo",
+  },
+  {
+    id: "ads",
+    titleLv: "Google Ads pārvaldība",
+    titleEn: "Google Ads Management",
+    descLv: "Google Ads tiek izmantots kā maksas pieprasījuma piesaistes kanāls. Darbs ietver kampaņu uzstādīšanu, optimizāciju, konversiju izsekošanu un rezultātu analīzi, lai nodrošinātu kontrolējamu un prognozējamu rezultātu.",
+    descEn: "Google Ads is used as a paid demand acquisition channel. Work includes campaign setup, optimization, conversion tracking, and results analysis to ensure controllable and predictable outcomes.",
+    icon: TrendingUp,
+    path: "/performance-reklama",
+  },
+  {
+    id: "lab",
+    titleLv: "AI Lab",
+    titleEn: "AI Lab",
+    descLv: "AI Lab ir NEOLab iekšējā attīstības vide jaunu risinājumu testēšanai un pilnveidošanai. Šeit tiek analizētas un veidotas jaunākās tehnoloģijas, kā arī testēts to praktiskais pielietojums uzņēmumu vajadzībām.",
+    descEn: "AI Lab is NEOLab's internal development environment for testing and refining new solutions. Here we analyze and develop the latest technologies, testing their practical applications for business needs.",
+    icon: Zap,
+    path: "/ai-lab",
+  },
+];
 
 // Process steps
-const processSteps = [{
-  step: "01",
-  title: "Diagnostika",
-  description: "Sistēmas analīze"
-}, {
-  step: "02",
-  title: "Stratēģija",
-  description: "Personalizēts plāns"
-}, {
-  step: "03",
-  title: "Implementācija",
-  description: "Precīza izpilde"
-}, {
-  step: "04",
-  title: "Optimizācija",
-  description: "Nepārtraukta uzlabošana"
-}];
+const processSteps = [
+  { stepLv: "Darbs sākas ar sākotnējo uzņēmuma izvērtējumu/auditu.", stepEn: "Work begins with an initial company assessment/audit." },
+  { stepLv: "Tiek analizēta digitālā vide un esošie procesi.", stepEn: "Digital environment and existing processes are analyzed." },
+  { stepLv: "Definē prioritātes un rīcības plānu.", stepEn: "Priorities and action plan are defined." },
+  { stepLv: "Risinājumi tiek ieviesti pakāpeniski.", stepEn: "Solutions are implemented gradually." },
+  { stepLv: "Rezultāti tiek analizēti un optimizēti.", stepEn: "Results are analyzed and optimized." },
+];
 
-// System nodes for the RIGHT side hero visual
-const systemNodes = [{
-  id: "seo",
-  label: "SEO",
-  icon: Search,
-  x: 15,
-  y: 12
-}, {
-  id: "ads",
-  label: "Ads",
-  icon: BarChart3,
-  x: 75,
-  y: 8
-}, {
-  id: "ai",
-  label: "AI",
-  icon: Brain,
-  x: 85,
-  y: 50
-}, {
-  id: "crm",
-  label: "CRM",
-  icon: Database,
-  x: 10,
-  y: 55
-}, {
-  id: "data",
-  label: "Data",
-  icon: LineChart,
-  x: 45,
-  y: 85
-}];
+// Challenges list
+const challenges = [
+  { lv: "Procesi tiek papildināti, bet netiek sistemātiski pārskatīti.", en: "Processes are added to but not systematically reviewed." },
+  { lv: "Daļa darbu joprojām tiek veikta manuāli.", en: "Some work is still done manually." },
+  { lv: "Dati ir pieejami, bet netiek pilnvērtīgi izmantoti lēmumu pieņemšanā.", en: "Data is available but not fully used in decision making." },
+  { lv: "SEO tiek īstenots bez skaidras struktūras un konsekventas stratēģijas.", en: "SEO is implemented without clear structure and consistent strategy." },
+  { lv: "Google Ads kampaņas darbojas, bet trūkst pārskatāmas kontroles pār rezultātiem.", en: "Google Ads campaigns run but lack transparent control over results." },
+];
+
+// Solution steps
+const solutionSteps = [
+  { titleLv: "Analīze", titleEn: "Analysis", icon: Search },
+  { titleLv: "Stratēģija", titleEn: "Strategy", icon: Target },
+  { titleLv: "Ieviešana", titleEn: "Implementation", icon: Settings },
+  { titleLv: "Optimizācija", titleEn: "Optimization", icon: BarChart3 },
+];
+
+// Features for hero section
+const heroFeatures = [
+  { lv: "AI risinājumu ieviešana", en: "AI solution implementation" },
+  { lv: "Procesu automatizācija", en: "Process automation" },
+  { lv: "SEO un GEO optimizācija", en: "SEO & GEO optimization" },
+  { lv: "Google Ads pārvaldība", en: "Google Ads management" },
+];
+
 export default function Index() {
-  return <div className="overflow-hidden">
-      {/* ========== SECTION 1: Hero with RIGHT-side System Visual ========== */}
-      <section className="bg-gradient-hero min-h-[95vh] flex items-center relative overflow-hidden bg-atmosphere">
-        <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Left: Problem Statement — text always readable */}
-            <div className="relative z-10">
-              <ScrollReveal>
-                <span className="chip-outline mb-6 inline-block">Realitāte</span>
-              </ScrollReveal>
-              <ScrollReveal delay={0.1}>
-                <h1 className="mb-6">
-                  Jūsu digitālais mārketings ir <span className="text-gradient-orange">fragmentēts</span>
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                  Rīki, kas nerunā savā starpā. Dati bez insights. AI bez stratēģijas. Kampaņas bez vienotas sistēmas.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.3}>
-                <ul className="space-y-3 mb-8">
-                  {chaosProblems.map((problem, index) => <motion.li key={index} initial={{
-                  opacity: 0,
-                  x: -20
-                }} animate={{
-                  opacity: 1,
-                  x: 0
-                }} transition={{
-                  delay: 0.4 + index * 0.1
-                }} className="flex items-center gap-3 text-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {problem}
-                    </motion.li>)}
-                </ul>
-              </ScrollReveal>
-              <ScrollReveal delay={0.5}>
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/bezmaksas-konsultacija">
-                    <Button variant="hero" size="lg">
-                      Sākt sarunu
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </div>
-              </ScrollReveal>
-            </div>
+  const { t, language } = useLanguage();
 
-            {/* Right: LARGE System Diagram — intentional, dominant, centered */}
-            <ScrollReveal delay={0.2} direction="right">
-              <div className="relative">
-                <div className="relative aspect-square w-full max-w-xl mx-auto">
-                  {/* Background circles - concentric rings */}
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
-                    {/* Outer ring */}
-                    <motion.circle cx="200" cy="200" r="180" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 8" initial={{
-                    opacity: 0,
-                    scale: 0.8
-                  }} animate={{
-                    opacity: 0.15,
-                    scale: 1
-                  }} transition={{
-                    duration: 1.5
-                  }} />
-                    {/* Middle ring */}
-                    <motion.circle cx="200" cy="200" r="130" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1.5" strokeDasharray="6 4" initial={{
-                    opacity: 0,
-                    scale: 0.8
-                  }} animate={{
-                    opacity: 0.2,
-                    scale: 1
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 0.2
-                  }} />
-                    {/* Inner ring */}
-                    <motion.circle cx="200" cy="200" r="80" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" initial={{
-                    opacity: 0,
-                    scale: 0.8
-                  }} animate={{
-                    opacity: 0.25,
-                    scale: 1
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 0.4
-                  }} />
-
-                    {/* Connection lines from nodes to center */}
-                    <motion.path d="M 70 60 Q 130 120 200 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" strokeDasharray="6 4" initial={{
-                    pathLength: 0,
-                    opacity: 0
-                  }} animate={{
-                    pathLength: 1,
-                    opacity: 0.3
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 0.6
-                  }} />
-                    <motion.path d="M 320 50 Q 270 120 200 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" strokeDasharray="6 4" initial={{
-                    pathLength: 0,
-                    opacity: 0
-                  }} animate={{
-                    pathLength: 1,
-                    opacity: 0.3
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 0.8
-                  }} />
-                    <motion.path d="M 350 210 Q 280 210 200 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" strokeDasharray="6 4" initial={{
-                    pathLength: 0,
-                    opacity: 0
-                  }} animate={{
-                    pathLength: 1,
-                    opacity: 0.3
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 1
-                  }} />
-                    <motion.path d="M 50 230 Q 120 220 200 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" strokeDasharray="6 4" initial={{
-                    pathLength: 0,
-                    opacity: 0
-                  }} animate={{
-                    pathLength: 1,
-                    opacity: 0.3
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 1.2
-                  }} />
-                    <motion.path d="M 190 350 Q 195 280 200 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="2" strokeDasharray="6 4" initial={{
-                    pathLength: 0,
-                    opacity: 0
-                  }} animate={{
-                    pathLength: 1,
-                    opacity: 0.3
-                  }} transition={{
-                    duration: 1.5,
-                    delay: 1.4
-                  }} />
-                  </svg>
-
-                  {/* System nodes positioned around */}
-                  {systemNodes.map((node, i) => <motion.div key={node.id} className="absolute" style={{
-                  left: `${node.x}%`,
-                  top: `${node.y}%`
-                }} initial={{
-                  opacity: 0,
-                  scale: 0
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} transition={{
-                  delay: 0.8 + i * 0.15,
-                  type: "spring",
-                  stiffness: 100
-                }}>
-                      <motion.div animate={{
-                    y: [0, -6, 0]
-                  }} transition={{
-                    duration: 4 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }} className="glass-warm p-4 rounded-xl shadow-card border border-white/40">
-                        <node.icon className="w-6 h-6 text-primary" />
-                      </motion.div>
-                      <span className="text-xs font-medium text-foreground/70 mt-2 block text-center">
-                        {node.label}
-                      </span>
-                    </motion.div>)}
-
-                  {/* Central NEO hub - positioned at SVG center (200,200 in 400x400 viewBox = 50%) */}
-                  <motion.div 
-                    className="absolute"
-                    style={{ 
-                      top: '50%', 
-                      left: '50%', 
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                    initial={{
-                      opacity: 0,
-                      scale: 0
-                    }} 
-                    animate={{
-                      opacity: 1,
-                      scale: 1
-                    }} 
-                    transition={{
-                      delay: 1.5,
-                      type: "spring",
-                      stiffness: 80
-                    }}
-                  >
-                    <div className="relative flex items-center justify-center">
-                      <motion.div 
-                        animate={{ rotate: 360 }} 
-                        transition={{
-                          duration: 60,
-                          repeat: Infinity,
-                          ease: "linear"
-                        }} 
-                        className="absolute w-36 h-36 border-2 border-dashed border-primary/20 rounded-full" 
-                      />
-                      <div className="w-24 h-24 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                        <Workflow className="w-11 h-11 text-primary-foreground" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+  return (
+    <div className="overflow-hidden">
+      {/* ========== SECTION 1: HERO — Compact, Bold, Premium ========== */}
+      <section className="relative min-h-[85vh] flex items-center bg-gradient-hero overflow-hidden">
+        {/* Background system visual */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }} />
+          
+          {/* Flowing nodes/system visual on right */}
+          <svg className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] h-[80%] opacity-20" viewBox="0 0 400 400">
+            {/* Concentric circles */}
+            <circle cx="250" cy="200" r="150" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="0.5" strokeDasharray="4 8" />
+            <circle cx="250" cy="200" r="100" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="6 6" />
+            <circle cx="250" cy="200" r="50" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1.5" />
+            
+            {/* Connection lines */}
+            <path d="M 100 100 Q 175 150 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
+            <path d="M 50 250 Q 150 225 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
+            <path d="M 350 80 Q 300 140 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
+            <path d="M 380 300 Q 315 250 250 200" fill="none" stroke="hsl(21 90% 48%)" strokeWidth="1" strokeDasharray="4 4" />
+            
+            {/* Nodes */}
+            <circle cx="100" cy="100" r="8" fill="hsl(21 90% 48%)" opacity="0.3" />
+            <circle cx="50" cy="250" r="6" fill="hsl(21 90% 48%)" opacity="0.3" />
+            <circle cx="350" cy="80" r="7" fill="hsl(21 90% 48%)" opacity="0.3" />
+            <circle cx="380" cy="300" r="5" fill="hsl(21 90% 48%)" opacity="0.3" />
+            <circle cx="250" cy="200" r="20" fill="hsl(21 90% 48%)" opacity="0.15" />
+          </svg>
+          
+          {/* Orange glow corners */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
         </div>
-      </section>
 
-      {/* ========== SECTION 2: NEOLab Perspective ========== */}
-      <section className="bg-gradient-section relative section-full-bleed grid-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <ScrollReveal>
-              <span className="chip mb-8 inline-block text-sm">NEOLab pieeja</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="mb-10 text-center">
-                Jauna ēra <span className="text-gradient-orange">optimizācijai</span>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-14 max-w-3xl mx-auto">
-                Mēs neesam tipiskas aģentūras. Mēs esam sistēmas domātāji — jauni, gudri, neatlaidīgi un unikāli. Mēs
-                savienojam AI tehnoloģijas ar stratēģisku domāšanu, radot personalizētus risinājumus katram klientam.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/bezmaksas-konsultacija">
-                  <Button variant="hero" size="lg">
-                    Sākt sarunu
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link to="/par-mums">
-                  <Button variant="hero-outline" size="lg">
-                    Uzzināt vairāk
-                  </Button>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: What NEOLab Does — Aligned & Reactive ========== */}
-      <section className="section-offwhite bg-atmosphere">
-        <div className="container-neo section-padding">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* System Diagram — with hover reactivity */}
-            <ScrollReveal>
-              <motion.div className="relative bg-card rounded-2xl p-10 md:p-12 shadow-card border border-border" whileHover={{
-              y: -4
-            }} transition={{
-              duration: 0.3
-            }}>
-                {/* Orange accent line on hover */}
-                <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 bg-gradient-orange rounded-full" initial={{
-                width: 0
-              }} whileHover={{
-                width: "60%"
-              }} transition={{
-                duration: 0.3
-              }} />
-
-                <div className="flex flex-col items-center">
-                  {/* Top row */}
-                  <div className="flex items-center justify-center gap-8 mb-6">
-                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
-                  }}>
-                      <Search className="w-5 h-5 text-primary" />
-                      SEO
-                    </motion.div>
-                    <div className="w-14 h-px bg-primary/30" />
-                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
-                  }}>
-                      <TrendingUp className="w-5 h-5 text-primary" />
-                      Ads
-                    </motion.div>
-                  </div>
-
-                  {/* Connectors */}
-                  <div className="flex justify-center gap-32">
-                    <motion.div className="w-px h-14 bg-primary/30" whileHover={{
-                    backgroundColor: "hsl(21 90% 48% / 0.5)"
-                  }} />
-                    <motion.div className="w-px h-14 bg-primary/30" whileHover={{
-                    backgroundColor: "hsl(21 90% 48% / 0.5)"
-                  }} />
-                  </div>
-
-                  {/* Center: NEO System */}
-                  <motion.div initial={{
-                  scale: 0.9,
-                  opacity: 0
-                }} whileInView={{
-                  scale: 1,
-                  opacity: 1
-                }} whileHover={{
-                  scale: 1.05
-                }} viewport={{
-                  once: true
-                }} className="bg-gradient-orange text-primary-foreground px-10 py-6 rounded-2xl font-semibold text-lg shadow-orange my-6">
-                    <Workflow className="w-6 h-6 inline mr-3" />
-                    NEO Sistēma
-                  </motion.div>
-
-                  {/* Bottom connectors */}
-                  <div className="flex justify-center gap-32">
-                    <div className="w-px h-14 bg-primary/30" />
-                    <div className="w-px h-14 bg-primary/30" />
-                  </div>
-
-                  {/* Bottom row */}
-                  <div className="flex items-center justify-center gap-8 mt-6">
-                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
-                  }}>
-                      <Brain className="w-5 h-5 text-primary" />
-                      AI
-                    </motion.div>
-                    <div className="w-14 h-px bg-primary/30" />
-                    <motion.div className="glass-warm px-6 py-4 rounded-xl text-base font-medium flex items-center gap-3" whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)"
-                  }}>
-                      <Target className="w-5 h-5 text-primary" />
-                      Stratēģija
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            </ScrollReveal>
-
-            {/* Explanation — properly aligned with visual */}
-            <div className="flex flex-col justify-center">
-              <SectionHeading chip="Sistēmas domāšana" title="Viss savienots vienā ekosistēmā" description="Mēs neredzam SEO, reklāmas un AI kā atsevišķus pakalpojumus. Tie ir vienas sistēmas elementi, kas pastiprina viens otru." className="mb-10" />
-              <ScrollReveal delay={0.2}>
-                <ul className="space-y-5">
-                  {["SEO dati informē reklāmas stratēģiju", "AI automatizē manuālos procesus", "Reklāmas signāli uzlabo SEO prioritātes", "Viss optimizēts kopējam mērķim"].map((item, index) => <li key={index} className="flex items-start gap-4">
-                      <CheckCircle2 className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground text-lg">{item}</span>
-                    </li>)}
-                </ul>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: Client Reality ========== */}
-      <section className="section-warm section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <SectionHeading chip="Klientu realitāte" title="Pazīstamas problēmas?" description="Mēs dzirdam šīs lietas katru dienu. Tās nav unikālas — bet risinājumi ir." className="mb-20 max-w-3xl" />
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {clientProblems.map((item, index) => <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="card-bordered">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-primary font-bold text-lg">{index + 1}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-3 text-foreground">{item.problem}</h3>
-                      <p className="text-muted-foreground text-lg">{item.detail}</p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>)}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: Service Directions ========== */}
-      <section className="section-offwhite bg-atmosphere">
-        <div className="container-neo section-padding">
-          <SectionHeading chip="Pakalpojumi" title="Četri virzieni. Viena sistēma." className="mb-20 text-center mx-auto" align="center" />
-
-          <div className="grid md:grid-cols-2 gap-10">
-            {services.map((service, index) => <ScrollReveal key={service.id} delay={index * 0.1}>
-                <Link to={service.path} className="group block h-full">
-                  <div className="card-neo h-full group-hover:border-primary/30">
-                    <div className="flex items-start justify-between mb-8">
-                      <div className="flex items-center gap-5">
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <service.icon className="w-8 h-8 text-primary" />
-                        </div>
-                        <div>
-                          <span className="chip text-sm">{service.chip}</span>
-                        </div>
-                      </div>
-                      <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                    </div>
-
-                    <h3 className="text-2xl font-semibold mb-3 text-foreground">{service.title}</h3>
-                    <p className="text-muted-foreground text-lg mb-8">{service.description}</p>
-
-                    <div className="flex flex-wrap gap-3">
-                      {service.features.map(feature => <span key={feature} className="text-sm px-3 py-1.5 rounded-lg bg-muted text-muted-foreground">
-                          {feature}
-                        </span>)}
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>)}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 6: Brand Moment ========== */}
-      <section className="section-gray grid-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <ScrollReveal>
-              <div className="border-l-4 border-primary pl-10 py-6">
-                <blockquote className="text-3xl md:text-4xl font-medium text-foreground leading-relaxed">
-                  "Mēs neesam aģentūra, kas pārdod stundas.
-                  <br />
-                  <span className="text-gradient-orange">Mēs esam partneri, kas būvē sistēmas.</span>"
-                </blockquote>
-                <p className="mt-8 text-muted-foreground text-lg">— NEOLab filozofija</p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: How We Work ========== */}
-      <section className="section-offwhite overflow-hidden bg-atmosphere">
-        <div className="container-neo section-padding">
-          <SectionHeading chip="Process" title="Kā mēs strādājam" description="Strukturēta pieeja ar skaidriem soļiem un nepārtrauktu uzlabošanu." className="mb-20" />
-
-          <div className="overflow-x-auto pb-4 -mx-6 px-6">
-            <div className="flex gap-6 md:grid md:grid-cols-4 md:gap-12 min-w-max md:min-w-0">
-              {processSteps.map((step, index) => <ScrollReveal key={step.step} delay={index * 0.1} direction="up">
-                  <div className="relative flex flex-col items-center w-56 md:w-auto">
-                    <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-gradient-orange text-primary-foreground flex items-center justify-center font-bold text-xl shadow-orange mb-6">
-                      {step.step}
-                    </div>
-
-                    {index < processSteps.length - 1 && <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-primary/20" />}
-
-                    <h4 className="font-semibold text-xl mb-2 text-foreground">{step.title}</h4>
-                    <p className="text-base text-muted-foreground text-center">{step.description}</p>
-                  </div>
-                </ScrollReveal>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: Final CTA ========== */}
-      <section className="bg-gradient-hero section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
+        <div className="container-neo py-16 md:py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-8 text-foreground">
-                Gatavi sākt <span className="text-gradient-orange">jaunu nodaļu</span>?
-              </h2>
+              <h1 className="mb-4 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+                {t("Jauna ēra", "A New Era for")} <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
+              </h1>
             </ScrollReveal>
+            
             <ScrollReveal delay={0.1}>
-              <p className="text-xl text-muted-foreground mb-10">
-                Bezmaksas konsultācija bez saistībām. Izrunāsim jūsu situāciju un redzēsim, vai varam palīdzēt.
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
               </p>
             </ScrollReveal>
+
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Pieteikties bezmaksas konsultācijai
+                <Button variant="hero" size="xl" className="mb-10">
+                  {t("Pieteikt konsultāciju", "Book Consultation")}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+            </ScrollReveal>
+
+            {/* Benefit chips */}
+            <ScrollReveal delay={0.3}>
+              <div className="flex flex-wrap justify-center gap-3">
+                {heroFeatures.map((feature, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 border border-border text-sm font-medium text-foreground shadow-sm"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                    {language === "lv" ? feature.lv : feature.en}
+                  </motion.div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 2: Jauna pieeja (Split Layout) ========== */}
+      <section className="relative bg-background py-12 md:py-20">
+        {/* Framed background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-transparent" />
+        
+        <div className="container-neo relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left: Visual panel */}
+            <ScrollReveal>
+              <div className="relative aspect-square max-w-md mx-auto lg:max-w-none">
+                {/* Layered gradient shapes */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+                <div className="absolute top-8 left-8 right-8 bottom-8 rounded-2xl bg-gradient-to-tr from-primary/15 to-primary/5 border border-primary/20" />
+                
+                {/* System diagram inside */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <motion.div 
+                      animate={{ rotate: 360 }} 
+                      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                      className="w-48 h-48 md:w-56 md:h-56 border-2 border-dashed border-primary/20 rounded-full"
+                    />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                      <Workflow className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
+                    </div>
+                    
+                    {/* Orbiting icons */}
+                    {[Search, Brain, TrendingUp, Zap].map((Icon, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-10 h-10 md:w-12 md:h-12 rounded-xl bg-background border border-border shadow-md flex items-center justify-center"
+                        style={{
+                          top: `${50 + 42 * Math.sin((i * Math.PI) / 2)}%`,
+                          left: `${50 + 42 * Math.cos((i * Math.PI) / 2)}%`,
+                          transform: 'translate(-50%, -50%)'
+                        }}
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <Icon className="w-5 h-5 text-primary" />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right: Text */}
+            <div>
+              <ScrollReveal delay={0.1}>
+                <span className="chip mb-4 inline-block">
+                  {t("NEOLab pieeja", "NEOLab Approach")}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+                  {t("Jauna pieeja digitālajai izaugsmei", "A New Approach to Digital Growth")}
+                </h2>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.2}>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {t(
+                    "NEOLab strādā ar uzņēmumiem, kuri sniedzas pēc pilnveidošanās digitālaja pasaulē. Darbības fokusējas uz digitālo procesu sakārtošanu, tehnoloģiju ieviešanu, radīšanu un ilgtermiņa redzamības uzlabošanu.",
+                    "NEOLab works with companies striving for improvement in the digital world. Our focus is on organizing digital processes, implementing technology, and improving long-term visibility."
+                  )}
+                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.3}>
+                {/* Highlighted sentence */}
+                <div className="p-4 rounded-xl bg-primary/5 border-l-4 border-primary mb-4">
+                  <p className="text-foreground font-medium">
+                    {t(
+                      "Katra organizacija ir ipatneja, tiesi tapec NEOLab fokusejas uz personalizetu risinajumu piedavasanu un implementesanu, kas nodrosinatu sekmigus rezultatus un izaugsmi uznemumam.",
+                      "Every organization is unique, which is why NEOLab focuses on offering and implementing personalized solutions that ensure successful results and growth for the company."
+                    )}
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 3: Digitālie risinājumi (Feature Chips) ========== */}
+      <section className="relative py-12 md:py-20 bg-muted/30">
+        {/* Frame */}
+        <div className="absolute inset-4 md:inset-8 border border-border/50 rounded-3xl pointer-events-none" />
+        
+        <div className="container-neo relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <span className="chip mb-4 inline-block">{t("Risinājumi", "Solutions")}</span>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+                {t("Digitālie un mākslīgā intelekta risinājumi uzņēmumiem", "Digital and AI solutions for businesses")}
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {t(
+                  "Mēs risinājumus pielāgotojam konkrētai uzņēmuma situācijai, esošajiem procesiem un biznesa mērķiem.",
+                  "We adapt solutions to the specific company situation, existing processes, and business goals."
+                )}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
+            {heroFeatures.map((feature, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <motion.div 
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-background border border-border shadow-sm hover:shadow-md transition-all"
+                  whileHover={{ y: -4, boxShadow: "0 12px 40px hsla(21, 90%, 48%, 0.12)" }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    {i === 0 && <Lightbulb className="w-6 h-6 text-primary" />}
+                    {i === 1 && <Settings className="w-6 h-6 text-primary" />}
+                    {i === 2 && <Search className="w-6 h-6 text-primary" />}
+                    {i === 3 && <TrendingUp className="w-6 h-6 text-primary" />}
+                  </div>
+                  <span className="font-medium text-foreground">
+                    {language === "lv" ? feature.lv : feature.en}
+                  </span>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 4: Izaicinājumi (Framed Challenges) ========== */}
+      <section className="relative py-12 md:py-20 bg-background">
+        <div className="container-neo">
+          <div className="rounded-3xl bg-muted/50 border border-border p-6 md:p-10 lg:p-12">
+            <ScrollReveal>
+              <span className="chip mb-4 inline-block">{t("Izaicinājumi", "Challenges")}</span>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+                {t("Ar kādiem izaicinājumiem visbiežāk saskarās mūsu klienti", "What challenges our clients face most often")}
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                {t("Laika gaitā digitālā vide uzņēmumos kļūst sarežģītāka.", "Over time, the digital environment in companies becomes more complex.")}
+              </p>
+            </ScrollReveal>
+
+            <div className="space-y-3 mb-8">
+              {challenges.map((challenge, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-background border border-border">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <p className="text-foreground">
+                      {language === "lv" ? challenge.lv : challenge.en}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            {/* Result bar */}
+            <ScrollReveal delay={0.3}>
+              <div className="p-5 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
+                <p className="text-foreground font-medium text-center">
+                  {t(
+                    "Rezultātā digitālie kanāli strādā, bet ne pilnā potenciālā.",
+                    "As a result, digital channels work, but not at full potential."
+                  )}
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 5: NEOLab risinājums (Interactive Steps) ========== */}
+      <section className="relative py-12 md:py-20 bg-muted/20">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }} />
+        
+        <div className="container-neo relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left: Text */}
+            <div>
+              <ScrollReveal>
+                <span className="chip mb-4 inline-block">{t("Risinājums", "Solution")}</span>
+                <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+                  {t("Kāds ir NEOLab risinājums?", "What is NEOLab's solution?")}
+                </h2>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.1}>
+                <p className="text-muted-foreground leading-relaxed">
+                  {t(
+                    "NEOLab strādā ar jaunākajiem un efektīvākajiem digitālajiem risinājumiem, kas palīdz sakārtot procesus, novērst digitālās vājās vietas un paātrināt biznesa ikdienas darbu. Mēs fokusējamies uz risinājumiem, kuri dod praktisku ieguvumu un ir pielāgojami konkrētai uzņēmuma situācijai, nevis universālām shēmām.",
+                    "NEOLab works with the latest and most effective digital solutions that help organize processes, eliminate digital weak points, and accelerate daily business operations. We focus on solutions that provide practical benefits and are adaptable to specific company situations, not universal schemes."
+                  )}
+                </p>
+              </ScrollReveal>
+            </div>
+
+            {/* Right: 4-step interactive list */}
+            <ScrollReveal delay={0.2}>
+              <div className="relative">
+                {/* Vertical connector line */}
+                <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-primary/30 via-primary/20 to-primary/10" />
+                
+                <div className="space-y-4">
+                  {solutionSteps.map((step, i) => (
+                    <motion.div 
+                      key={i}
+                      className="relative flex items-center gap-5 p-4 rounded-xl bg-background border border-border cursor-pointer"
+                      whileHover={{ 
+                        x: 8, 
+                        boxShadow: "0 8px 30px hsla(21, 90%, 48%, 0.15)",
+                        borderColor: "hsl(21 90% 48% / 0.3)"
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange flex-shrink-0 relative z-10">
+                        <step.icon className="w-5 h-5 text-primary-foreground" />
+                      </div>
+                      <span className="font-semibold text-lg text-foreground">
+                        {language === "lv" ? step.titleLv : step.titleEn}
+                      </span>
+                      <ChevronRight className="w-5 h-5 text-muted-foreground ml-auto" />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: Pakalpojumu virzieni (4 Service Cards) ========== */}
+      <section className="relative py-12 md:py-20 bg-background">
+        <div className="container-neo">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <span className="chip mb-4 inline-block">{t("Pakalpojumi", "Services")}</span>
+              <h2 className="text-3xl md:text-4xl font-semibold">
+                {t("Pakalpojumu virzieni", "Service Directions")}
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {services.map((service, i) => (
+              <ScrollReveal key={service.id} delay={i * 0.1}>
+                <Link to={service.path} className="group block h-full">
+                  <motion.div 
+                    className="h-full p-6 md:p-8 rounded-2xl bg-muted/30 border border-border relative overflow-hidden"
+                    whileHover={{ 
+                      y: -6,
+                      boxShadow: "0 16px 50px hsla(21, 90%, 48%, 0.15)"
+                    }}
+                  >
+                    {/* Hover gradient shift */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-300" />
+                    
+                    {/* Orange accent line */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-1 bg-gradient-orange rounded-t-full transition-all duration-300" />
+                    
+                    <div className="relative z-10">
+                      {/* Icon container */}
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                        <service.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      
+                      <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                        {language === "lv" ? service.titleLv : service.titleEn}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {language === "lv" ? service.descLv : service.descEn}
+                      </p>
+                      
+                      <div className="flex items-center gap-2 mt-5 text-primary font-medium text-sm">
+                        {t("Uzzināt vairāk", "Learn more")}
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 7: Brand Block — NEO ========== */}
+      <section className="relative py-10 md:py-16 bg-muted/30">
+        {/* Subtle animated gradient underline will be added */}
+        <div className="container-neo">
+          <ScrollReveal>
+            <div className="flex flex-col items-center text-center">
+              <motion.h2 
+                className="text-6xl md:text-8xl lg:text-9xl font-bold text-gradient-orange"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                Neo
+              </motion.h2>
+              <p className="text-muted-foreground mt-3 text-lg italic">
+                — {t("jauns", "new")} in Latin
+              </p>
+              {/* Animated gradient underline */}
+              <motion.div 
+                className="mt-4 h-1 rounded-full bg-gradient-orange"
+                initial={{ width: 0 }}
+                whileInView={{ width: 120 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ========== SECTION 8: Kā mēs strādājam (Compact Stepper) ========== */}
+      <section className="relative py-12 md:py-20 bg-background">
+        <div className="container-neo">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <span className="chip mb-4 inline-block">{t("Process", "Process")}</span>
+              <h2 className="text-3xl md:text-4xl font-semibold">
+                {t("Kā mēs strādājam", "How We Work")}
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          {/* Vertical stepper */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
+              
+              <div className="space-y-4">
+                {processSteps.map((step, i) => (
+                  <ScrollReveal key={i} delay={i * 0.1}>
+                    <motion.div 
+                      className="relative flex items-start gap-5 pl-12"
+                      whileHover={{ x: 4 }}
+                    >
+                      {/* Step number dot */}
+                      <div className="absolute left-0 w-10 h-10 rounded-full bg-gradient-orange flex items-center justify-center text-primary-foreground font-bold text-sm shadow-orange">
+                        {i + 1}
+                      </div>
+                      
+                      <div className="flex-1 p-4 rounded-xl bg-muted/50 border border-border hover:border-primary/20 transition-colors">
+                        <p className="text-foreground">
+                          {language === "lv" ? step.stepLv : step.stepEn}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 9: Final CTA — Orange, Premium, Compact ========== */}
+      <section className="relative py-12 md:py-20 overflow-hidden">
+        {/* Orange gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+        
+        {/* Subtle depth elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-5">
+                {t("Uzzini, kā varam palīdzēt tev.", "Find out how we can help you.")}
+              </h2>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.1}>
+              <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+                {t(
+                  "Piesakies bezmaksas konsultācijai, kurā mēs izvērtesim uzņēmumu un tā procesu, lai sniegtu visprecīzāko pakalpojumu tava uznemuma vajadzibam.",
+                  "Book a free consultation where we will evaluate your company and its processes to provide the most accurate service for your business needs."
+                )}
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.2}>
+              <Link to="/bezmaksas-konsultacija">
+                <Button variant="hero" size="xl" className="shadow-orange hover:shadow-orange-hover">
+                  {t("Pieteikt konsultāciju", "Book Consultation")}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -596,5 +569,6 @@ export default function Index() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
