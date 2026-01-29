@@ -422,9 +422,9 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 4: Izaicinājumi (Diagnostic Panel) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(30_20%_95%)] via-[hsl(28_25%_92%)] to-[hsl(30_20%_95%)] dots-radial-left">
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(30_20%_94%)] via-[hsl(28_25%_91%)] to-[hsl(30_20%_94%)] dots-atmosphere">
         {/* Grid background */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{
+        <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }} />
@@ -622,8 +622,21 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 7: NEO Brand Block (Dictionary/Etymology) ========== */}
-      <section className="relative py-14 md:py-20 bg-[hsl(38_18%_97%)]">
-        <div className="container-neo">
+      <section className="relative py-14 md:py-20 overflow-hidden">
+        {/* Rich warm background with radial glows */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(35_22%_96%)] via-[hsl(30_28%_93%)] to-[hsl(25_32%_90%)]" />
+        
+        {/* Subtle corner glows for depth */}
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-primary/8 rounded-full blur-3xl" />
+        
+        {/* Fine grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
+        }} />
+        
+        <div className="container-neo relative z-10">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
               {/* Dictionary-style entry */}
@@ -643,9 +656,9 @@ export default function Index() {
                   /ˈniːoʊ/ — {t("jauns, jaundzimis", "new, young")}
                 </p>
                 
-                {/* Etymology block */}
-                <div className="mt-8 p-6 rounded-xl border border-border/60 bg-muted/30 text-left max-w-md mx-auto">
-                  <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2 font-semibold">
+                {/* Etymology block - enhanced styling */}
+                <div className="mt-8 p-6 rounded-xl border border-primary/15 bg-background/70 backdrop-blur-sm text-left max-w-md mx-auto shadow-md">
+                  <p className="text-sm text-primary uppercase tracking-wider mb-2 font-semibold">
                     {t("Etimoloģija", "Etymology")}
                   </p>
                   <p className="text-foreground leading-relaxed">
