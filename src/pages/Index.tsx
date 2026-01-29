@@ -89,170 +89,177 @@ export default function Index() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-hero-strong dots-atmosphere overflow-hidden">
+      <section className="relative min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden">
         {/* Grid pattern — stronger */}
         <div className="absolute inset-0 opacity-[0.05]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
         }} />
         
-        {/* Large System Visualization — Dashboard Style */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[65%] h-[85%] pointer-events-none">
-          <svg className="w-full h-full opacity-50" viewBox="0 0 500 500" fill="none">
-            {/* Central hub with pulsing glow */}
-            <motion.circle 
-              cx="280" cy="250" r="60" 
-              fill="url(#hubGradient)" 
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-            <motion.circle 
-              cx="280" cy="250" r="75" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="2"
-              strokeDasharray="8 4"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              style={{ transformOrigin: "280px 250px" }}
-            />
-            <motion.circle 
-              cx="280" cy="250" r="95" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="1"
-              strokeDasharray="4 8"
-              opacity="0.5"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-              style={{ transformOrigin: "280px 250px" }}
-            />
-            
-            {/* Module blocks around hub */}
-            {/* AI Module */}
-            <rect x="120" y="100" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
-            <text x="160" y="130" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">AI</text>
-            
-            {/* SEO Module */}
-            <rect x="380" y="120" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
-            <text x="420" y="150" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">SEO</text>
-            
-            {/* Ads Module */}
-            <rect x="400" y="320" width="80" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
-            <text x="440" y="350" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="11" fontWeight="500">ADS</text>
-            
-            {/* Automation Module */}
-            <rect x="100" y="300" width="90" height="50" rx="8" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.9" />
-            <text x="145" y="330" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10" fontWeight="500">AUTO</text>
-            
-            {/* Connection lines with flow animation */}
-            <motion.path 
-              d="M 200 125 Q 240 180 280 190" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="2"
-              strokeDasharray="6 4"
-              animate={{ strokeDashoffset: [0, -20] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.path 
-              d="M 380 145 Q 340 190 280 220" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="2"
-              strokeDasharray="6 4"
-              animate={{ strokeDashoffset: [0, -20] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.3 }}
-            />
-            <motion.path 
-              d="M 400 345 Q 350 310 280 280" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="2"
-              strokeDasharray="6 4"
-              animate={{ strokeDashoffset: [0, -20] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.6 }}
-            />
-            <motion.path 
-              d="M 190 325 Q 230 290 260 270" 
-              fill="none" 
-              stroke="hsl(21 90% 48%)" 
-              strokeWidth="2"
-              strokeDasharray="6 4"
-              animate={{ strokeDashoffset: [0, -20] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.9 }}
-            />
-            
-            {/* Status indicators */}
-            <motion.circle cx="160" y="80" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            <motion.circle cx="420" cy="100" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
-            <motion.circle cx="440" cy="380" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} />
-            <motion.circle cx="145" cy="360" r="4" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} />
-            
-            {/* Metrics displays */}
-            <rect x="50" y="180" width="60" height="30" rx="4" fill="hsl(40 20% 98%)" opacity="0.8" />
-            <text x="80" y="200" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10">+127%</text>
-            
-            <rect x="430" y="230" width="55" height="30" rx="4" fill="hsl(40 20% 98%)" opacity="0.8" />
-            <text x="457" y="250" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="10">98.5%</text>
-            
-            <defs>
-              <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="hsl(21 90% 58%)" />
-                <stop offset="100%" stopColor="hsl(21 90% 48%)" />
-              </radialGradient>
-            </defs>
-          </svg>
-        </div>
-        
         {/* Orange glow accents */}
         <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
-        <div className="container-neo py-20 md:py-28 relative z-10 flex justify-start">
-          <div className="max-w-xl lg:max-w-2xl">
-            <ScrollReveal>
-              <h1 className="mb-5 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
-                {t("Jauna ēra", "A New Era for")} <br />
-                <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
-              </h1>
-            </ScrollReveal>
+        {/* 2-Column Grid Layout */}
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[70vh]">
             
-            <ScrollReveal delay={0.1}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-md">
-                {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
-              </p>
-            </ScrollReveal>
+            {/* LEFT COLUMN: Content — aligned left */}
+            <div className="lg:col-span-5 flex flex-col items-start text-left">
+              <ScrollReveal>
+                <h1 className="mb-5 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
+                  {t("Jauna ēra", "A New Era for")} <br />
+                  <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
+                </h1>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.1}>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-md text-left">
+                  {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
+                </p>
+              </ScrollReveal>
 
-            <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl" className="mb-12 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7">
-                  {t("Pieteikt konsultāciju", "Book Consultation")}
-                  <ArrowRight className="ml-3 w-6 h-6" />
-                </Button>
-              </Link>
-            </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <Link to="/bezmaksas-konsultacija">
+                  <Button variant="hero" size="xl" className="mb-8 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7">
+                    {t("Pieteikt konsultāciju", "Book Consultation")}
+                    <ArrowRight className="ml-3 w-6 h-6" />
+                  </Button>
+                </Link>
+              </ScrollReveal>
 
-            {/* Enhanced Benefit chips — Larger with icons */}
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap gap-3 max-w-lg">
-                {heroFeatures.map((feature, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    whileHover={{ y: -3, boxShadow: "0 8px 25px hsla(21, 90%, 48%, 0.15)" }}
-                    className="flex items-center gap-3 px-5 py-3 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <feature.icon className="w-4 h-4 text-primary" />
-                    </div>
-                    {language === "lv" ? feature.lv : feature.en}
-                  </motion.div>
-                ))}
+              {/* Enhanced Benefit chips — Larger with icons */}
+              <ScrollReveal delay={0.3}>
+                <div className="flex flex-wrap gap-3 justify-start">
+                  {heroFeatures.map((feature, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 + i * 0.1 }}
+                      whileHover={{ y: -3, boxShadow: "0 8px 25px hsla(21, 90%, 48%, 0.15)" }}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <feature.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      {language === "lv" ? feature.lv : feature.en}
+                    </motion.div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </div>
+            
+            {/* RIGHT COLUMN: Dashboard Visual */}
+            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+              <div className="w-full max-w-[600px] lg:max-w-none aspect-square">
+                <svg className="w-full h-full opacity-60" viewBox="0 0 500 500" fill="none">
+                  {/* Central hub with pulsing glow */}
+                  <motion.circle 
+                    cx="250" cy="250" r="70" 
+                    fill="url(#hubGradient)" 
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  />
+                  <motion.circle 
+                    cx="250" cy="250" r="90" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="2"
+                    strokeDasharray="8 4"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "250px 250px" }}
+                  />
+                  <motion.circle 
+                    cx="250" cy="250" r="115" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="1"
+                    strokeDasharray="4 8"
+                    opacity="0.5"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "250px 250px" }}
+                  />
+                  
+                  {/* Module blocks around hub */}
+                  {/* AI Module - top left */}
+                  <rect x="80" y="80" width="90" height="55" rx="10" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.95" />
+                  <text x="125" y="115" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="14" fontWeight="600">AI</text>
+                  
+                  {/* SEO Module - top right */}
+                  <rect x="330" y="60" width="90" height="55" rx="10" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.95" />
+                  <text x="375" y="95" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="14" fontWeight="600">SEO</text>
+                  
+                  {/* Ads Module - bottom right */}
+                  <rect x="350" y="360" width="90" height="55" rx="10" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.95" />
+                  <text x="395" y="395" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="14" fontWeight="600">ADS</text>
+                  
+                  {/* Automation Module - bottom left */}
+                  <rect x="60" y="340" width="100" height="55" rx="10" fill="hsl(40 20% 98%)" stroke="hsl(21 90% 48%)" strokeWidth="1.5" opacity="0.95" />
+                  <text x="110" y="375" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="12" fontWeight="600">AUTO</text>
+                  
+                  {/* Connection lines with flow animation */}
+                  <motion.path 
+                    d="M 170 107 Q 200 170 250 180" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="2"
+                    strokeDasharray="6 4"
+                    animate={{ strokeDashoffset: [0, -20] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                  />
+                  <motion.path 
+                    d="M 330 87 Q 290 150 250 180" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="2"
+                    strokeDasharray="6 4"
+                    animate={{ strokeDashoffset: [0, -20] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.3 }}
+                  />
+                  <motion.path 
+                    d="M 350 387 Q 300 340 250 320" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="2"
+                    strokeDasharray="6 4"
+                    animate={{ strokeDashoffset: [0, -20] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.6 }}
+                  />
+                  <motion.path 
+                    d="M 160 367 Q 200 320 250 320" 
+                    fill="none" 
+                    stroke="hsl(21 90% 48%)" 
+                    strokeWidth="2"
+                    strokeDasharray="6 4"
+                    animate={{ strokeDashoffset: [0, -20] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: 0.9 }}
+                  />
+                  
+                  {/* Status indicators */}
+                  <motion.circle cx="125" cy="60" r="5" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+                  <motion.circle cx="375" cy="40" r="5" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+                  <motion.circle cx="395" cy="430" r="5" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} />
+                  <motion.circle cx="110" cy="410" r="5" fill="hsl(21 90% 48%)" animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} />
+                  
+                  {/* Metrics displays */}
+                  <rect x="20" y="180" width="65" height="35" rx="6" fill="hsl(40 20% 98%)" opacity="0.9" />
+                  <text x="52" y="203" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="12" fontWeight="600">+127%</text>
+                  
+                  <rect x="415" y="220" width="65" height="35" rx="6" fill="hsl(40 20% 98%)" opacity="0.9" />
+                  <text x="447" y="243" textAnchor="middle" fill="hsl(21 90% 48%)" fontSize="12" fontWeight="600">98.5%</text>
+                  
+                  <defs>
+                    <radialGradient id="hubGradient" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="hsl(21 90% 58%)" />
+                      <stop offset="100%" stopColor="hsl(21 90% 48%)" />
+                    </radialGradient>
+                  </defs>
+                </svg>
               </div>
-            </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
