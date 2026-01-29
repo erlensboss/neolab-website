@@ -101,11 +101,11 @@ export default function Index() {
         <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
         {/* 2-Column Grid Layout */}
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[70vh]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[70vh]">
             
-            {/* LEFT COLUMN: Content — aligned left */}
-            <div className="lg:col-span-5 flex flex-col items-start text-left">
+            {/* LEFT COLUMN: Content — constrained width, aligned left */}
+            <div className="lg:col-span-5 flex flex-col items-start text-left max-w-xl lg:max-w-2xl">
               <ScrollReveal>
                 <h1 className="mb-5 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
                   {t("Jauna ēra", "A New Era for")} <br />
@@ -114,14 +114,14 @@ export default function Index() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-md text-left">
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6 max-w-md text-left">
                   {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
                 <Link to="/bezmaksas-konsultacija">
-                  <Button variant="hero" size="xl" className="mb-8 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7">
+                  <Button variant="hero" size="xl" className="mb-6 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7">
                     {t("Pieteikt konsultāciju", "Book Consultation")}
                     <ArrowRight className="ml-3 w-6 h-6" />
                   </Button>
@@ -130,7 +130,7 @@ export default function Index() {
 
               {/* Enhanced Benefit chips — Larger with icons */}
               <ScrollReveal delay={0.3}>
-                <div className="flex flex-wrap gap-3 justify-start">
+                <div className="flex flex-wrap gap-2.5 justify-start max-w-lg">
                   {heroFeatures.map((feature, i) => (
                     <motion.div
                       key={i}
@@ -138,10 +138,10 @@ export default function Index() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 + i * 0.1 }}
                       whileHover={{ y: -3, boxShadow: "0 8px 25px hsla(21, 90%, 48%, 0.15)" }}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
+                      className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
                     >
-                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <feature.icon className="w-4 h-4 text-primary" />
+                      <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <feature.icon className="w-3.5 h-3.5 text-primary" />
                       </div>
                       {language === "lv" ? feature.lv : feature.en}
                     </motion.div>
@@ -150,8 +150,8 @@ export default function Index() {
               </ScrollReveal>
             </div>
             
-            {/* RIGHT COLUMN: Dashboard Visual */}
-            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+            {/* RIGHT COLUMN: Dashboard Visual — positioned to the right */}
+            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end lg:absolute lg:right-[-6rem] xl:right-[-10rem] lg:top-1/2 lg:-translate-y-1/2 lg:w-[55%]">
               <div className="w-full max-w-[600px] lg:max-w-none aspect-square">
                 <svg className="w-full h-full opacity-60" viewBox="0 0 500 500" fill="none">
                   {/* Central hub with pulsing glow */}
@@ -377,7 +377,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 3: Digitālie risinājumi (Dashboard Blocks) ========== */}
-      <section className="relative py-10 md:py-14 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(40 15% 97%) 0%, hsl(38 12% 95%) 100%)' }}>
+      <section className="relative py-10 md:py-14 section-divider-top section-dots block-side-dots-right" style={{ background: 'linear-gradient(180deg, hsl(40 15% 97%) 0%, hsl(38 12% 95%) 100%)' }}>
         {/* Full-bleed background panel */}
         <div className="absolute inset-0 border-y border-border/40" />
         
@@ -428,8 +428,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: Izaicinājumi (Diagnostic Panel) ========== */}
-      <section className="relative py-10 md:py-14 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 95%) 0%, hsl(28 25% 92%) 100%)' }}>
+      {/* ========== SECTION 4: Izaicinājumi (Horizontal Diagnostic Dashboard) ========== */}
+      <section className="relative py-8 md:py-12 section-divider-top section-dots block-side-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 95%) 0%, hsl(28 25% 92%) 100%)' }}>
         {/* Grid background */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
@@ -437,23 +437,30 @@ export default function Index() {
         }} />
         
         <div className="container-neo relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="rounded-3xl bg-background/80 backdrop-blur-sm border border-border shadow-lg p-8 md:p-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="rounded-2xl bg-background/70 backdrop-blur-sm border border-border/60 shadow-lg p-6 md:p-8">
               <ScrollReveal>
-                <span className="chip mb-4 inline-block">{t("Izaicinājumi", "Challenges")}</span>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                  {t("Ar kādiem izaicinājumiem visbiežāk saskaras mūsu klienti", "What challenges our clients face most often")}
-                </h2>
-                <p className="text-muted-foreground mb-10 text-lg">
-                  {t("Laika gaitā digitālā vide uzņēmumos kļūst sarežģītāka.", "Over time, the digital environment in companies becomes more complex.")}
-                </p>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                  <div>
+                    <span className="chip mb-2 inline-block">{t("Izaicinājumi", "Challenges")}</span>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">
+                      {t("Ar kādiem izaicinājumiem saskaras mūsu klienti", "What challenges our clients face")}
+                    </h2>
+                  </div>
+                  <p className="text-muted-foreground text-base max-w-xs">
+                    {t("Laika gaitā digitālā vide uzņēmumos kļūst sarežģītāka.", "Over time, the digital environment in companies becomes more complex.")}
+                  </p>
+                </div>
               </ScrollReveal>
 
-              <div className="space-y-4 mb-10">
+              {/* Horizontal 2-column grid layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                 {challenges.map((challenge, i) => (
-                  <ScrollReveal key={i} delay={i * 0.05}>
-                    <div className="card-diagnostic">
-                      <p className="text-foreground font-medium">
+                  <ScrollReveal key={i} delay={i * 0.03}>
+                    <div className="flex items-center gap-4 p-3.5 rounded-lg bg-muted/40 border border-border/50 transition-all hover:bg-muted/60 hover:translate-x-1">
+                      {/* Orange indicator dot */}
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0" />
+                      <p className="text-foreground font-medium text-sm leading-snug">
                         {language === "lv" ? challenge.lv : challenge.en}
                       </p>
                     </div>
@@ -461,21 +468,23 @@ export default function Index() {
                 ))}
               </div>
 
-              {/* Conclusion bar — System alert style */}
-              <ScrollReveal delay={0.3}>
-                <div className="p-6 rounded-xl bg-gradient-to-r from-primary/15 via-primary/10 to-primary/5 border border-primary/25 shadow-md">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Activity className="w-5 h-5 text-primary" />
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-                      {t("Sistēmas brīdinājums", "System Alert")}
-                    </span>
+              {/* Conclusion bar — Full-width, stronger orange gradient */}
+              <ScrollReveal delay={0.2}>
+                <div className="p-4 md:p-5 rounded-xl bg-gradient-to-r from-primary/20 via-primary/15 to-primary/10 border border-primary/30 shadow-md">
+                  <div className="flex items-center gap-3">
+                    <Activity className="w-5 h-5 text-primary flex-shrink-0" />
+                    <div>
+                      <span className="text-xs font-semibold text-primary uppercase tracking-wide block mb-0.5">
+                        {t("Sistēmas brīdinājums", "System Alert")}
+                      </span>
+                      <p className="text-foreground font-semibold text-base md:text-lg">
+                        {t(
+                          "Rezultātā digitālie kanāli strādā, bet ne pilnā potenciālā.",
+                          "As a result, digital channels work, but not at full potential."
+                        )}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-foreground font-semibold text-lg">
-                    {t(
-                      "Rezultātā digitālie kanāli strādā, bet ne pilnā potenciālā.",
-                      "As a result, digital channels work, but not at full potential."
-                    )}
-                  </p>
                 </div>
               </ScrollReveal>
             </div>
@@ -561,7 +570,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 6: Pakalpojumu virzieni (Larger Cards) ========== */}
-      <section className="relative py-12 md:py-16 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 94%) 0%, hsl(28 28% 91%) 100%)' }}>
+      <section className="relative py-12 md:py-16 section-divider-top section-dots block-side-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 94%) 0%, hsl(28 28% 91%) 100%)' }}>
         {/* Border frame */}
         <div className="absolute inset-0 border-y border-border/30" />
         
@@ -629,7 +638,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 7: NEO Brand Block (Dictionary/Etymology) ========== */}
-      <section className="relative py-10 md:py-14 overflow-hidden section-dots">
+      <section className="relative py-10 md:py-14 overflow-hidden section-dots block-side-dots-right">
         {/* Rich warm background with radial glows */}
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(35_22%_96%)] via-[hsl(30_28%_93%)] to-[hsl(25_32%_90%)]" />
         
