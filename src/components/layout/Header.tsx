@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -22,39 +22,40 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
 
   // Scroll detection for sticky header styling
-  useState(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-background/90 backdrop-blur-xl shadow-md" 
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50" 
+          : "bg-background/70 backdrop-blur-xl border-b border-border/30"
       }`}
     >
       <div className="container-neo">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo — Enlarged */}
           <Link to="/" className="flex items-center">
-            <img src={LogoBlack} alt="NEOLab" className="h-6 md:h-7" />
+            <img src={LogoBlack} alt="NEOLab" className="h-8 md:h-10" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop Navigation — Better spacing */}
+          <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}>
                 <Button
                   variant="nav"
                   size="sm"
-                  className={`px-3 text-sm ${
+                  className={`px-4 text-sm font-medium ${
                     location.pathname === item.path
-                      ? "text-primary"
+                      ? "text-primary bg-primary/5"
                       : ""
                   }`}
                 >
@@ -65,15 +66,15 @@ export function Header() {
           </nav>
 
           {/* Right side: Language Toggle + CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Language Toggle */}
-            <div className="flex items-center gap-1 text-sm font-medium border border-border rounded-lg p-1 bg-background/50">
+          <div className="hidden lg:flex items-center gap-5">
+            {/* Language Toggle — Enhanced */}
+            <div className="flex items-center gap-1 text-sm font-medium border border-border rounded-lg p-1 bg-background/80 shadow-sm">
               <button
                 onClick={() => setLanguage("lv")}
                 className={`px-3 py-1.5 rounded-md transition-all ${
                   language === "lv"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 LV
@@ -82,17 +83,21 @@ export function Header() {
                 onClick={() => setLanguage("en")}
                 className={`px-3 py-1.5 rounded-md transition-all ${
                   language === "en"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 EN
               </button>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button — Enhanced with glow */}
             <Link to="/bezmaksas-konsultacija">
-              <Button variant="nav-cta" size="default">
+              <Button 
+                variant="nav-cta" 
+                size="default" 
+                className="shadow-md hover:shadow-orange transition-shadow px-6"
+              >
                 {t("Pieteikt konsultāciju", "Book Consultation")}
               </Button>
             </Link>
@@ -101,7 +106,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
             {/* Mobile Language Toggle */}
-            <div className="flex items-center gap-0.5 text-xs font-medium border border-border rounded-md p-0.5 bg-background/50">
+            <div className="flex items-center gap-0.5 text-xs font-medium border border-border rounded-md p-0.5 bg-background/80">
               <button
                 onClick={() => setLanguage("lv")}
                 className={`px-2 py-1 rounded transition-all ${
@@ -142,7 +147,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border"
+            className="lg:hidden bg-background/98 backdrop-blur-xl border-t border-border"
           >
             <nav className="container-neo py-4 flex flex-col gap-1">
               {navItems.map((item) => (
@@ -161,7 +166,7 @@ export function Header() {
               ))}
               <div className="pt-3 mt-2 border-t border-border">
                 <Link to="/bezmaksas-konsultacija" onClick={() => setIsOpen(false)}>
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button variant="hero" size="lg" className="w-full shadow-orange">
                     {t("Pieteikt konsultāciju", "Book Consultation")}
                   </Button>
                 </Link>

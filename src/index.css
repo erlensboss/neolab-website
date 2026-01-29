@@ -62,7 +62,9 @@
     --gradient-orange: linear-gradient(135deg, hsl(25 100% 60%) 0%, hsl(21 90% 48%) 100%);
     --gradient-sunset: linear-gradient(135deg, hsl(35 100% 70%) 0%, hsl(21 90% 50%) 50%, hsl(15 85% 45%) 100%);
     --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.8) 0%, hsla(35 30% 98% / 0.6) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(30 25% 95%) 40%, hsl(25 30% 92%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(35 22% 94%) 0%, hsl(28 28% 91%) 50%, hsl(25 30% 88%) 100%);
+    --gradient-hero-strong: linear-gradient(180deg, hsl(32 25% 92%) 0%, hsl(26 30% 88%) 40%, hsl(22 32% 85%) 100%);
+    --surface-dashboard: linear-gradient(145deg, hsla(40 20% 98% / 0.9) 0%, hsla(35 25% 95% / 0.7) 100%);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px hsla(20 15% 12% / 0.04);
@@ -70,8 +72,10 @@
     --shadow-lg: 0 8px 30px hsla(20 15% 12% / 0.08);
     --shadow-orange: 0 8px 30px hsla(21 90% 48% / 0.2);
     --shadow-orange-hover: 0 12px 40px hsla(21 90% 48% / 0.3);
+    --shadow-orange-strong: 0 16px 50px hsla(21 90% 48% / 0.35);
     --shadow-card: 0 2px 8px hsla(20 15% 12% / 0.04), 0 8px 24px hsla(20 15% 12% / 0.06);
     --shadow-card-hover: 0 4px 12px hsla(20 15% 12% / 0.06), 0 16px 40px hsla(20 15% 12% / 0.1);
+    --shadow-dashboard: 0 4px 20px hsla(20 15% 12% / 0.08), inset 0 1px 0 hsla(0 0% 100% / 0.5);
 
     /* Sidebar (keeping for compatibility) */
     --sidebar-background: 40 20% 98%;
@@ -148,12 +152,20 @@
     background: var(--gradient-hero);
   }
 
+  .bg-gradient-hero-strong {
+    background: var(--gradient-hero-strong);
+  }
+
   .bg-gradient-orange {
     background: var(--gradient-orange);
   }
 
   .bg-gradient-sunset {
     background: var(--gradient-sunset);
+  }
+
+  .bg-surface-dashboard {
+    background: var(--surface-dashboard);
   }
 
   /* Section variations */
@@ -386,6 +398,121 @@
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* Dashboard-style card for structural blocks */
+  .card-dashboard {
+    @apply bg-background rounded-2xl p-6 md:p-8 relative overflow-hidden;
+    background: var(--surface-dashboard);
+    box-shadow: var(--shadow-dashboard);
+    border: 1px solid hsla(21 90% 48% / 0.08);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-orange);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-dashboard:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover), 0 16px 50px hsla(21 90% 48% / 0.15);
+    border-color: hsla(21 90% 48% / 0.2);
+  }
+
+  .card-dashboard:hover::before {
+    opacity: 1;
+  }
+
+  /* Diagnostic panel for warning/challenge style */
+  .card-diagnostic {
+    @apply bg-muted/60 rounded-xl p-4 relative overflow-hidden;
+    border-left: 3px solid hsl(21 90% 48%);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+  }
+
+  .card-diagnostic:hover {
+    background: hsl(35 25% 93%);
+    transform: translateX(4px);
+  }
+
+  /* Glow pulse for status indicators */
+  .glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsla(21 90% 48% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px 8px hsla(21 90% 48% / 0.2);
+    }
+  }
+
+  /* Data flow animation for connection lines */
+  .data-flow {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(21 90% 48%) 50%, 
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: dataFlow 2s linear infinite;
+  }
+
+  @keyframes dataFlow {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Status indicator dot */
+  .status-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(0.8);
+    }
+  }
+
+  /* Roadmap step styling */
+  .roadmap-step {
+    @apply relative flex items-center gap-4;
+  }
+
+  .roadmap-step::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 100%;
+    width: 2px;
+    height: calc(100% + 16px);
+    background: linear-gradient(180deg, hsl(21 90% 48%) 0%, hsl(21 90% 48% / 0.3) 100%);
+  }
+
+  .roadmap-step:last-child::before {
+    display: none;
   }
 }
 
