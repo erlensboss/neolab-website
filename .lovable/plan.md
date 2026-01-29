@@ -1,317 +1,295 @@
 
-# NEOLab Homepage Visual Redesign Plan
 
-## Overview
-This plan addresses the key visual and structural issues: cramped layout, underpowered hero, weak visual contrast, inconsistent spacing, and "pasted-on" feel. The redesign will create a premium, dashboard-like aesthetic with warm lab energy.
+# Homepage Visual Warmth and Depth Enhancement Plan
 
----
+## Problem Summary
 
-## Phase 1: Header Enhancement
+The homepage currently feels cold and empty because:
+1. Most sections have plain white/light backgrounds without the warm gradients seen in the Final CTA section
+2. The "Jauna pieeja" section has a weak, off-centered rotating circle visual
+3. Sides of the page lack subtle atmospheric elements (like dot patterns) that add depth
+4. Sections between Hero and CTA lack the "warm lab" feeling
 
-### Current Issues
-- Logo is too small (h-6/h-7)
-- Header height is minimal (h-16/h-20)
-- Blends into background without authority
-- Navigation feels cramped
+## Solution Overview
 
-### Changes to `src/components/layout/Header.tsx`
-
-1. **Increase Header Height**
-   - Change from `h-16 md:h-20` to `h-20 md:h-24`
-
-2. **Enlarge Logo**
-   - Change from `h-6 md:h-7` to `h-8 md:h-10`
-
-3. **Add Permanent Background Surface**
-   - Replace transparent default with subtle warm glass surface
-   - Use `bg-background/70 backdrop-blur-xl border-b border-border/50` always
-   - On scroll: increase to `bg-background/90` with stronger shadow
-
-4. **Improve Navigation Spacing**
-   - Increase gap between nav items from `gap-1` to `gap-2`
-   - Increase button padding from `px-3` to `px-4`
-
-5. **Enhance CTA Button**
-   - Add subtle glow effect
-   - Slightly larger size
+Apply the warm peach/cream gradient treatment (like in Section 9) across more sections, add subtle dot pattern backgrounds to sides, and replace the rotating circle with a dashboard diagram similar to the Performance Reklama page.
 
 ---
 
-## Phase 2: Hero Section Complete Rebuild
+## Phase 1: Global Atmospheric Enhancements
 
-### Current Issues
-- Hero feels empty and lacks impact
-- Background visual (SVG) is too subtle (opacity-20)
-- Composition is not commanding
-- No dashboard/system feel
+### 1.1 New CSS Classes for Warm Backgrounds (`src/index.css`)
 
-### Changes to `src/pages/Index.tsx` - Hero Section (Lines 91-168)
+Add new background utility classes:
 
-1. **Darker, Richer Background**
-   - Create a new gradient: warm cream transitioning to light peach
-   - Add subtle noise texture overlay
-   - Increase grid opacity from 0.03 to 0.05
+```css
+/* Warm peach gradient like final CTA */
+.bg-warm-peach {
+  background: linear-gradient(180deg, 
+    hsl(30 30% 96%) 0%, 
+    hsl(25 35% 93%) 40%, 
+    hsl(22 38% 90%) 100%
+  );
+}
 
-2. **Large System Visualization**
-   Replace current subtle SVG with a dominant dashboard-style visual:
-   - Positioned right/behind the content
-   - Multiple layered elements:
-     - Central control hub with pulsing glow
-     - Connected module blocks (AI, SEO, Ads, Automation)
-     - Flowing data lines between modules
-     - Status indicators and metrics displays
-   - Scale: at least 50% of viewport width
-   - Opacity: 0.4-0.6 (clearly visible, not hidden)
+/* Subtle dot pattern for sides - like reference */
+.dots-atmosphere {
+  position: relative;
+}
 
-3. **Hero Text Composition**
-   - Keep centered layout
-   - H1 stays: "Jauna ēra optimizācijai"
-   - Subheadline: "Jauna pieeja digitālajai izaugsmei."
-   - Add visual weight with larger font size (text-5xl md:text-7xl lg:text-8xl)
+.dots-atmosphere::before,
+.dots-atmosphere::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  pointer-events: none;
+  z-index: 0;
+}
 
-4. **Enhanced Benefit Chips**
-   - Larger chips with icons
-   - Subtle glass morphism background
-   - Gentle hover glow effect
+.dots-atmosphere::before {
+  left: 0;
+  background-image: radial-gradient(
+    circle at 2px 2px, 
+    hsla(21, 90%, 48%, 0.06) 1px, 
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+}
 
-5. **CTA Button Enhancement**
-   - Larger size with stronger shadow
-   - Subtle pulse animation on idle
+.dots-atmosphere::after {
+  right: 0;
+  background-image: radial-gradient(
+    circle at 2px 2px, 
+    hsla(21, 90%, 48%, 0.06) 1px, 
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to left, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+}
 
----
+/* Radial dot fade pattern (like reference image) */
+.dots-radial-right {
+  position: relative;
+}
 
-## Phase 3: Section-by-Section Redesign
-
-### Section 2: "Jauna pieeja digitālajai izaugsmei"
-
-**Current Issues:** Plain text block, weak visual panel
-
-**Changes:**
-1. **Left Visual Panel Upgrade**
-   - Replace rotating circle with a "Control Panel" style diagram
-   - Add glass surface with subtle grid lines
-   - Include animated data flow indicators
-   - Orange accent glows at key points
-
-2. **Right Text Formatting**
-   - Keep exact copy
-   - Add visual hierarchy with highlighted key sentence
-   - Use subtle background tint for the highlight block
-   - Better spacing between paragraphs
-
-3. **Background Enhancement**
-   - Add subtle warm gradient tint
-   - Extend grid pattern subtly
-
----
-
-### Section 3: "Digitalie un maksliga intelekta risinajumi"
-
-**Current Issues:** Looks like floating cards, not structural
-
-**Changes:**
-1. **Dashboard Block Style**
-   - Transform from cards to dashboard modules
-   - Add subtle glass borders
-   - Include small status indicators (dots)
-   - Hover reveals additional depth
-
-2. **Grid Layout Enhancement**
-   - Keep 2-column grid
-   - Add connecting visual elements between blocks
-   - Subtle background panel behind all 4 blocks
-
-3. **Individual Block Design**
-   - Larger icons with orange container
-   - Title + subtle description line
-   - Hover: lift + orange bottom glow + slight expansion
+.dots-radial-right::after {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background-image: radial-gradient(
+    circle at 3px 3px, 
+    hsla(210, 15%, 70%, 0.15) 1.5px, 
+    transparent 1.5px
+  );
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 70% 60% at 100% 50%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 100% 50%, black 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+```
 
 ---
 
-### Section 4: "Ar kadiem izaicinajumiem..." (Challenges)
+## Phase 2: Section-by-Section Background Updates
 
-**Current Issues:** Standard list, not diagnostic-feeling
+### 2.1 Hero Section (Lines 91-258)
 
-**Changes:**
-1. **Diagnostic Panel Aesthetic**
-   - Wrap in strong framed container with darker tint
-   - Add "warning" style visual indicators
-   - Each challenge gets an orange bullet + subtle left border
+**Current:** `bg-gradient-hero-strong` - already warm, keep as is
+**Enhancement:** Add `dots-atmosphere` class for side depth
 
-2. **Conclusion Bar**
-   - Strong visual emphasis
-   - Orange gradient background
-   - Larger text weight
-   - Feels like a system alert/summary
+### 2.2 "Jauna pieeja" Section (Lines 260-384)
 
-3. **Background**
-   - Subtle grid pattern
-   - Warm gray tint differentiating from adjacent sections
+**Current Background:** `bg-gradient-to-b from-background via-muted/30 to-background`  
+**New Background:** `bg-warm-peach dots-radial-right`
 
----
+**Visual Replacement (MAJOR CHANGE):**
 
-### Section 5: "Kads ir NEOLab risinajums?" (Solution Steps)
+Replace the rotating circle diagram (Lines 283-337) with a dashboard-style visual similar to PerformanceReklama page:
 
-**Current Issues:** Has arrows which should be removed, needs more glow/depth
+```text
+New Visual Structure:
++----------------------------------+
+|  Performance Dashboard Header    |
+|----------------------------------|
+|  +--------+  +--------+         |
+|  | KPI 1  |  | KPI 2  |         |
+|  | +85%   |  | 24/7   |         |
+|  +--------+  +--------+         |
+|  +--------+  +--------+         |
+|  | KPI 3  |  | KPI 4  |         |
+|  | 4.2x   |  | 98%    |         |
+|  +--------+  +--------+         |
+|----------------------------------|
+|  [===========] Mini chart        |
++----------------------------------+
+```
 
-**Changes:**
-1. **Remove ChevronRight Arrows**
-   - Replace with glowing state indicators
+Components:
+- Glass card container with header
+- 4 KPI metric blocks showing improvement stats
+- Mini bar chart at bottom
+- Status indicators with animations
 
-2. **Enhanced Step Cards**
-   - Add subtle glow on hover (not just movement)
-   - Pulsing connection line between steps
-   - Each step shows "active" state on hover
+### 2.3 "Digitalie risinajumi" Section (Lines 386-436)
 
-3. **Visual Connector**
-   - Animated vertical line with flowing particles
-   - Orange gradient intensity increases toward active step
+**Current Background:** `bg-muted/40`  
+**New Background:** `bg-gradient-to-b from-muted/30 via-background to-muted/30 dots-atmosphere`
 
----
+Add subtle warm gradient instead of flat gray.
 
-### Section 6: "Pakalpojumu virzieni" (Services)
+### 2.4 "Izaicinajumi" Section (Lines 438-491)
 
-**Current Issues:** Cards are too small, need more presence
+**Current Background:** `bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30`  
+**Enhancement:** Keep diagnostic feel but add warmer tint:
+`bg-gradient-to-b from-[hsl(30_20%_95%)] via-[hsl(28_25%_93%)] to-[hsl(30_20%_95%)]`
 
-**Changes:**
-1. **Larger Block Size**
-   - Increase padding from p-6/p-8 to p-8/p-10
-   - Larger icons (w-16 h-16 containers)
+### 2.5 "NEOLab risinajums" Section (Lines 493-568)
 
-2. **Enhanced Hover States**
-   - Lift + glow + gradient shift
-   - Reveal subtle secondary visual element (decorative pattern)
-   - Orange accent line at bottom expands more dramatically
+**Current Background:** `bg-background`  
+**New Background:** `bg-warm-peach` with subtle dots-radial-right
 
-3. **Block Structure**
-   - Add subtle internal divider between icon/title and description
-   - Improved typography hierarchy
+### 2.6 "Pakalpojumu virzieni" Section (Lines 570-636)
 
----
+**Current Background:** `bg-muted/30`  
+**New Background:** `bg-gradient-to-b from-background via-muted/40 to-background dots-atmosphere`
 
-### Section 7: NEO Brand Block
+### 2.7 "NEO Brand" Section (Lines 638-685)
 
-**Current Issues:** Needs dictionary/etymology feel, not just branding
+**Current Background:** `bg-background`  
+**New Background:** Keep minimal but add very subtle warm tint: `bg-[hsl(35_20%_98%)]`
 
-**Changes:**
-1. **Typography Layout**
-   - "Neo" - bold, large
-   - Below: "new, young" - smaller, italic
-   - Etymology block:
-     ```
-     Etymology:
-     From Ancient Greek νέος (neos, "new, young")
-     Prefix: neo-
-     ```
+### 2.8 "Ka mes stradajam" Section (Lines 687-778)
 
-2. **Visual Treatment**
-   - Academic/dictionary entry style
-   - Subtle serif-like formatting for etymology
-   - Minimal surrounding decoration
-   - Light border or rule lines
+**Current Background:** `bg-muted/40`  
+**New Background:** `bg-warm-peach` - apply the warm gradient treatment
 
-3. **Animated Element**
-   - Keep gradient underline animation
-   - Make it subtler, more sophisticated
+### 2.9 Final CTA Section (Lines 780-837)
+
+**Current:** Already has strong orange warmth - KEEP AS IS
+This is the reference that user likes.
 
 ---
 
-### Section 8: "Ka mes stradajam" (How We Work)
+## Phase 3: "Jauna pieeja" Visual Rebuild
 
-**Current Issues:** Vertical list, could be more roadmap-like
+### Current Visual (Lines 271-348)
 
-**Changes:**
-1. **Roadmap Style**
-   - Consider horizontal layout on desktop
-   - Connected steps with visible progression
-   - Color gradient from left to right (light orange to deep orange)
+A rotating circle with orbiting icons - described as "bad, off-centered"
 
-2. **Step Design**
-   - Numbered circles with gradient fills
-   - Step cards with hover highlight
-   - Connecting lines between steps
+### New Visual Design
 
-3. **Updated Step Labels** (per requirements)
-   - Sakotnējais audits
-   - Analize
-   - Prioritates un plans
-   - Ieviesana
-   - Optimizacija
+Create a dashboard card similar to PerformanceReklama (Lines 104-142):
 
----
-
-### Section 9: Final CTA
-
-**Current Issues:** Needs stronger orange presence
-
-**Changes:**
-1. **Background Enhancement**
-   - Stronger orange gradient (from-primary/15 instead of /10)
-   - Add subtle radial glow at center
-   - Gentle animated gradient movement
-
-2. **Typography**
-   - Larger headline
-   - Better contrast for readability
-
-3. **CTA Button**
-   - Maximum prominence
-   - Strong shadow
-   - Subtle hover animation
-
----
-
-## Phase 4: Global Style Adjustments
-
-### Changes to `src/index.css`
-
-1. **New Background Tokens**
-   - Add `--gradient-hero-strong` with more contrast
-   - Add `--surface-dashboard` for module-like elements
-
-2. **Enhanced Card Styles**
-   - Add `.card-dashboard` class for structural blocks
-   - Add `.card-diagnostic` for challenge/warning style
-
-3. **Motion Utilities**
-   - Add `.glow-pulse` for subtle pulsing glow
-   - Add `.data-flow` for animated connection lines
+```jsx
+<div className="glass-warm rounded-2xl p-8 md:p-10 shadow-card">
+  {/* Header */}
+  <div className="flex items-center justify-between mb-8">
+    <span className="font-semibold text-lg">System Overview</span>
+    <div className="flex items-center gap-2">
+      <div className="status-dot" />
+      <span className="text-sm text-muted-foreground">Active</span>
+    </div>
+  </div>
+  
+  {/* 4 KPI blocks */}
+  <div className="grid grid-cols-2 gap-6 mb-8">
+    {/* Block 1: Process Efficiency */}
+    <div className="bg-card rounded-xl p-5 border border-border">
+      <div className="text-sm text-muted-foreground mb-2">Procesu efektivitāte</div>
+      <div className="text-2xl font-bold text-primary">+85%</div>
+    </div>
+    {/* Block 2: 24/7 Monitoring */}
+    <div className="bg-card rounded-xl p-5 border border-border">
+      <div className="text-sm text-muted-foreground mb-2">Monitorings</div>
+      <div className="text-2xl font-bold text-primary">24/7</div>
+    </div>
+    {/* Block 3: ROI */}
+    <div className="bg-card rounded-xl p-5 border border-border">
+      <div className="text-sm text-muted-foreground mb-2">Vidējais ROI</div>
+      <div className="text-2xl font-bold text-primary">4.2x</div>
+    </div>
+    {/* Block 4: Client Success */}
+    <div className="bg-card rounded-xl p-5 border border-border">
+      <div className="text-sm text-muted-foreground mb-2">Klientu apmierinātība</div>
+      <div className="text-2xl font-bold text-primary">98%</div>
+    </div>
+  </div>
+  
+  {/* Mini chart */}
+  <div className="h-24 bg-muted rounded-xl flex items-end justify-around p-3">
+    {/* Animated bars */}
+  </div>
+</div>
+```
 
 ---
 
-## Technical Considerations
+## Phase 4: Side Dot Pattern Implementation
 
-### Files Modified
-- `src/components/layout/Header.tsx` - Header enhancement
-- `src/pages/Index.tsx` - Complete homepage rebuild
-- `src/index.css` - New utility classes and tokens
+### Visual Reference (Second Uploaded Image)
 
-### Files NOT Modified
-- All other pages (SeoGeo, AiAutomatizacija, AiLab, etc.)
-- Footer (already working well)
-- LanguageContext (no changes needed)
+The reference shows subtle gray dots in a radial/wave pattern fading from the right edge. These add depth without distracting from content.
 
-### Responsive Behavior
-- Desktop: Full visual impact, horizontal roadmap, large system visual
-- Tablet: Slightly reduced visual scale, maintain dashboard feel
-- Mobile: Stacked layouts, preserved visual hierarchy, readable spacing
+### Implementation
 
-### Performance Notes
-- SVG-based system visual (no heavy images)
-- CSS animations only (no heavy JS)
-- Lazy loading for below-fold sections via ScrollReveal
+Add the `dots-atmosphere` or `dots-radial-right` class to key sections:
+- Hero section
+- "Jauna pieeja" section
+- "NEOLab risinajums" section
+- "Pakalpojumu virzieni" section
+
+The dots will be:
+- Very subtle (6-10% opacity)
+- Gray-toned to match the reference
+- Fade out toward center using CSS mask
+- Only visible on sides, not overlapping content
 
 ---
 
-## Summary of Visual Direction
+## Files Modified
 
-| Element | Current | After |
-|---------|---------|-------|
-| Header | Blends in, small | Authority, glass surface |
-| Hero | Empty, subtle | Dominant system visual |
-| Sections | Floating cards | Dashboard modules |
-| Spacing | Inconsistent | Compact, intentional |
-| Contrast | Too white | Warm cream, tinted panels |
-| Interactions | Basic hover | Glow, lift, depth |
-| Overall | Generic SaaS | Premium AI Lab |
+| File | Changes |
+|------|---------|
+| `src/index.css` | Add new atmospheric CSS classes: `.bg-warm-peach`, `.dots-atmosphere`, `.dots-radial-right` |
+| `src/pages/Index.tsx` | Update section backgrounds, replace rotating circle with dashboard visual |
+
+## Files NOT Modified
+
+- All other pages (SeoGeo, AiAutomatizacija, PerformanceReklama, etc.)
+- Header, Footer, Layout components
+- No structural changes to content or copy
+
+---
+
+## Visual Before/After Summary
+
+| Section | Before | After |
+|---------|--------|-------|
+| Hero | Warm but no side depth | Add dot patterns on sides |
+| Jauna pieeja | Cold gradient, bad circle | Warm peach + dashboard visual + dots |
+| Digitalie risinajumi | Flat gray | Warmer gradient + dots |
+| Izaicinajumi | Gray gradient | Warmer peach tint |
+| NEOLab risinajums | Plain white | Warm peach + dots |
+| Pakalpojumu virzieni | Flat muted | Gradient + dots |
+| Ka mes stradajam | Flat muted | Warm peach gradient |
+| Final CTA | Already warm | Keep as is (reference) |
+
+---
+
+## Technical Notes
+
+1. **Performance:** All effects use pure CSS (gradients, pseudo-elements, masks) - no additional JavaScript
+2. **Responsiveness:** Dot patterns will be hidden or reduced on mobile via media queries
+3. **Accessibility:** Dots are purely decorative with `pointer-events: none`
+4. **Text Readability:** All atmospheric elements are behind content with proper z-index layering
 
