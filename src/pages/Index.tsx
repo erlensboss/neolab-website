@@ -525,7 +525,7 @@ export default function Index() {
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 {t(
-                  "Mēs risinājumus pielāgojam konkrētai uzņēmuma situācijai, esošajiem procesiem un biznesa mērķiem.",
+                  "NEOLab risinājumi tiek pielāgoti konkrētai uzņēmuma situācijai, esošajiem procesiem un biznesa mērķiem.",
                   "We adapt solutions to the specific company situation, existing processes, and business goals.",
                 )}
               </p>
