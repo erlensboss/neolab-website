@@ -265,7 +265,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 2: Jauna pieeja (Control Panel Style) ========== */}
-      <section className="relative py-16 md:py-24 bg-warm-peach dots-radial-right overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-warm-peach dots-radial-right overflow-hidden">
         {/* Subtle grid extending beyond */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
@@ -377,7 +377,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 3: Digitālie risinājumi (Dashboard Blocks) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(32_22%_95%)] via-[hsl(30_18%_93%)] to-[hsl(32_22%_95%)] dots-atmosphere">
+      <section className="relative py-10 md:py-14 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(40 15% 97%) 0%, hsl(38 12% 95%) 100%)' }}>
         {/* Full-bleed background panel */}
         <div className="absolute inset-0 border-y border-border/40" />
         
@@ -429,7 +429,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 4: Izaicinājumi (Diagnostic Panel) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(30_20%_94%)] via-[hsl(28_25%_91%)] to-[hsl(30_20%_94%)] dots-atmosphere">
+      <section className="relative py-10 md:py-14 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 95%) 0%, hsl(28 25% 92%) 100%)' }}>
         {/* Grid background */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
@@ -484,7 +484,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 5: NEOLab risinājums (Glow States, No Arrows) ========== */}
-      <section className="relative py-16 md:py-24 bg-warm-peach-light dots-radial-right">
+      <section className="relative py-10 md:py-16 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(38 12% 96%) 0%, hsl(35 15% 94%) 100%)' }}>
         {/* Subtle grid background */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
@@ -561,7 +561,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 6: Pakalpojumu virzieni (Larger Cards) ========== */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[hsl(35_18%_96%)] via-[hsl(32_22%_94%)] to-[hsl(35_18%_96%)] dots-both-sides">
+      <section className="relative py-12 md:py-16 section-divider-top section-dots" style={{ background: 'linear-gradient(180deg, hsl(32 22% 94%) 0%, hsl(28 28% 91%) 100%)' }}>
         {/* Border frame */}
         <div className="absolute inset-0 border-y border-border/30" />
         
@@ -580,7 +580,7 @@ export default function Index() {
               <ScrollReveal key={service.id} delay={i * 0.1}>
                 <Link to={service.path} className="group block h-full">
                   <motion.div 
-                    className="h-full p-8 md:p-10 rounded-2xl bg-background border border-border relative overflow-hidden"
+                    className="h-full p-8 md:p-10 rounded-2xl bg-background border border-border/60 relative overflow-hidden shadow-[inset_0_0_0_1px_hsla(25,15%,88%,0.4)]"
                     whileHover={{ 
                       y: -8,
                       boxShadow: "0 20px 60px hsla(21, 90%, 48%, 0.18)"
@@ -629,7 +629,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 7: NEO Brand Block (Dictionary/Etymology) ========== */}
-      <section className="relative py-14 md:py-20 overflow-hidden">
+      <section className="relative py-10 md:py-14 overflow-hidden section-dots">
         {/* Rich warm background with radial glows */}
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(35_22%_96%)] via-[hsl(30_28%_93%)] to-[hsl(25_32%_90%)]" />
         
@@ -691,7 +691,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 8: Kā mēs strādājam (Horizontal Roadmap) ========== */}
-      <section className="relative py-16 md:py-24 bg-warm-peach dots-atmosphere overflow-hidden">
+      <section className="relative py-12 md:py-16 section-divider-top overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(38 18% 96%) 0%, hsl(32 22% 93%) 100%)' }}>
         {/* Border frame */}
         <div className="absolute inset-0 border-y border-border/30" />
         
@@ -784,7 +784,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 9: Final CTA — Strong Orange ========== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-14 md:py-20 section-divider-top overflow-hidden">
         {/* Strong orange gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />

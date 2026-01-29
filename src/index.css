@@ -404,8 +404,8 @@
   .card-dashboard {
     @apply bg-background rounded-2xl p-6 md:p-8 relative overflow-hidden;
     background: var(--surface-dashboard);
-    box-shadow: var(--shadow-dashboard);
-    border: 1px solid hsla(21 90% 48% / 0.08);
+    box-shadow: var(--shadow-dashboard), inset 0 0 0 1px hsla(25 20% 85% / 0.3);
+    border: 1px solid hsla(25 15% 88% / 0.5);
     backdrop-filter: blur(8px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -661,6 +661,73 @@
     right: -80px;
     mask-image: radial-gradient(ellipse 80% 70% at 100% 50%, black 0%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse 80% 70% at 100% 50%, black 0%, transparent 70%);
+  }
+
+  /* ========== SECTION DOTS — UNIFIED PATTERN ========== */
+  /* Subtle dot pattern for both sides of sections */
+  .section-dots {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-dots::before,
+  .section-dots::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      hsla(25, 15%, 75%, 0.06) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 20px 20px;
+  }
+
+  .section-dots::before {
+    left: 0;
+    mask-image: linear-gradient(to right, black 0%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, transparent 80%);
+  }
+
+  .section-dots::after {
+    right: 0;
+    mask-image: linear-gradient(to left, black 0%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to left, black 0%, transparent 80%);
+  }
+
+  @media (max-width: 768px) {
+    .section-dots::before,
+    .section-dots::after {
+      display: none;
+    }
+  }
+
+  /* ========== SECTION DIVIDER TOP ========== */
+  /* Subtle horizontal divider at top of sections */
+  .section-divider-top {
+    position: relative;
+  }
+
+  .section-divider-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(25, 20%, 80%, 0.4) 20%,
+      hsla(25, 20%, 80%, 0.5) 50%,
+      hsla(25, 20%, 80%, 0.4) 80%,
+      transparent 100%
+    );
+    z-index: 1;
   }
 
   /* Hide dots on mobile for cleaner look */
