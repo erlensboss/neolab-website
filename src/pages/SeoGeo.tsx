@@ -60,7 +60,7 @@ export default function SeoGeo() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Premium Hero ========== */}
-      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[70vh] flex items-center">
+      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center py-12 md:py-0">
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Gradient mesh */}
@@ -100,7 +100,7 @@ export default function SeoGeo() {
         </div>
         
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
             <div className="max-w-2xl">
               <ScrollReveal>
@@ -108,14 +108,14 @@ export default function SeoGeo() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 text-foreground">
                   SEO un GEO optimizācija{" "}
                   <span className="text-gradient-orange">uzņēmumiem</span>
                 </h1>
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-10">
+                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6 md:mb-10">
                   Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā digitālajai redzamībai.
                 </p>
               </ScrollReveal>
@@ -136,18 +136,18 @@ export default function SeoGeo() {
             <ScrollReveal delay={0.2} direction="right">
               <div className="relative">
                 {/* Main visual container */}
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-primary/10 shadow-2xl">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-8 border border-primary/10 shadow-xl md:shadow-2xl">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center justify-between mb-5 md:mb-8">
                     <div className="flex items-center gap-3">
                       <motion.div 
-                        className="w-10 h-10 rounded-xl bg-gradient-orange flex items-center justify-center"
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-orange flex items-center justify-center"
                         animate={{ rotate: [0, 5, -5, 0] }}
                         transition={{ duration: 4, repeat: Infinity }}
                       >
-                        <Search className="w-5 h-5 text-white" />
+                        <Search className="w-4 h-4 md:w-5 md:h-5 text-white" />
                       </motion.div>
-                      <span className="font-semibold text-foreground">Redzamības sistēma</span>
+                      <span className="font-semibold text-sm md:text-base text-foreground">Redzamības sistēma</span>
                     </div>
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-primary/20" />
@@ -157,16 +157,17 @@ export default function SeoGeo() {
                   </div>
                   
                   {/* Visual cards grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
                     {/* SEO Card */}
                     <motion.div 
-                      className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-5 border border-primary/20"
+                      className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl md:rounded-2xl p-3 md:p-5 border border-primary/20"
                       whileHover={{ y: -2 }}
                     >
-                      <div className="flex items-center gap-2 mb-3">
-                        <Globe className="w-5 h-5 text-primary" />
+                      <div className="flex items-center gap-1.5 md:gap-2 mb-2 md:mb-3">
+                        <Globe className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                         <span className="font-medium text-sm text-foreground">SEO</span>
                       </div>
+
                       <div className="space-y-2">
                         <div className="h-2 bg-primary/30 rounded-full w-full" />
                         <div className="h-2 bg-primary/20 rounded-full w-4/5" />
@@ -176,11 +177,11 @@ export default function SeoGeo() {
                     
                     {/* GEO Card */}
                     <motion.div 
-                      className="bg-gradient-to-br from-amber-400/5 to-amber-400/10 rounded-2xl p-5 border border-amber-400/20"
+                      className="bg-gradient-to-br from-amber-400/5 to-amber-400/10 rounded-xl md:rounded-2xl p-3 md:p-5 border border-amber-400/20"
                       whileHover={{ y: -2 }}
                     >
-                      <div className="flex items-center gap-2 mb-3">
-                        <Bot className="w-5 h-5 text-amber-600" />
+                      <div className="flex items-center gap-1.5 md:gap-2 mb-2 md:mb-3">
+                        <Bot className="w-4 h-4 md:w-5 md:h-5 text-amber-600" />
                         <span className="font-medium text-sm text-foreground">GEO</span>
                       </div>
                       <div className="space-y-2">
@@ -192,17 +193,17 @@ export default function SeoGeo() {
                   </div>
                   
                   {/* Results indicator */}
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-200/50">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-green-200/50">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <motion.div 
-                          className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center"
+                          className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-green-500/20 flex items-center justify-center"
                           animate={{ scale: [1, 1.1, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
                         >
-                          <TrendingUp className="w-4 h-4 text-green-600" />
+                          <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-green-600" />
                         </motion.div>
-                        <span className="text-sm font-medium text-green-700">Sistēmiska izaugsme</span>
+                        <span className="text-xs md:text-sm font-medium text-green-700">Sistēmiska izaugsme</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <motion.div 
@@ -261,7 +262,7 @@ export default function SeoGeo() {
             </div>
           </ScrollReveal>
           
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-8 md:mb-12">
             {/* SEO Card */}
             <ScrollReveal delay={0.1}>
               <motion.div
@@ -270,23 +271,23 @@ export default function SeoGeo() {
                 className="relative group h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   {/* Header with icon */}
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                     <motion.div 
-                      className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
                       whileHover={{ rotate: 5 }}
                     >
-                      <Search className="w-8 h-8 text-white" />
+                      <Search className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground">SEO</h3>
-                      <span className="text-sm text-primary font-medium">Meklētājprogrammu optimizācija</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">SEO</h3>
+                      <span className="text-xs md:text-sm text-primary font-medium">Meklētājprogrammu optimizācija</span>
                     </div>
                   </div>
                   
                   {/* Content */}
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
                     SEO optimizācija nodrošina uzņēmuma redzamību tradicionālajās meklētājprogrammās, galvenokārt Google, uzlabojot mājaslapas tehnisko kvalitāti, saturu un struktūru. Tā palīdz piesaistīt stabilu, ilgtermiņa organisko datplūsmu.
                   </p>
                   
@@ -330,14 +331,14 @@ export default function SeoGeo() {
                 className="relative group h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-400/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-amber-300/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-amber-300/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   {/* Header with icon */}
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                     <motion.div 
-                      className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg"
                       whileHover={{ rotate: -5 }}
                     >
-                      <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-6 h-6 md:w-8 md:h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="12" cy="12" r="10" />
                         <path d="M12 2a10 10 0 0 0 0 20" />
                         <path d="M2 12h20" />
@@ -345,13 +346,13 @@ export default function SeoGeo() {
                       </svg>
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground">GEO</h3>
-                      <span className="text-sm text-amber-600 font-medium">Ģeneratīvā meklēšanas optimizācija</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">GEO</h3>
+                      <span className="text-xs md:text-sm text-amber-600 font-medium">Ģeneratīvā meklēšanas optimizācija</span>
                     </div>
                   </div>
                   
                   {/* Content */}
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
                     GEO optimizācija ir nākamais solis meklēšanas attīstībā. Tā fokusējas uz redzamību mākslīgā intelekta balstītos meklējumos un ģeneratīvajās atbildēs, kurās informācija tiek apkopota un interpretēta, nevis vienkārši parādīta kā saišu saraksts.
                   </p>
                   
@@ -395,33 +396,33 @@ export default function SeoGeo() {
               className="relative max-w-4xl mx-auto"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-amber-400/10 to-primary/10 rounded-2xl blur-lg" />
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-primary/20 text-center">
-                <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10 border border-primary/20 text-center">
+                <div className="flex items-center justify-center gap-2 md:gap-4 mb-4 md:mb-6 flex-wrap">
                   <motion.div 
-                    className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-orange flex items-center justify-center"
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
-                    <Search className="w-5 h-5 text-white" />
+                    <Search className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </motion.div>
-                  <div className="text-3xl text-primary font-light">+</div>
+                  <div className="text-2xl md:text-3xl text-primary font-light">+</div>
                   <motion.div 
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center"
                     animate={{ rotate: [360, 0] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
-                    <Globe className="w-5 h-5 text-white" />
+                    <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </motion.div>
-                  <div className="text-3xl text-primary font-light">=</div>
+                  <div className="text-2xl md:text-3xl text-primary font-light">=</div>
                   <motion.div 
-                    className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-amber-500 flex items-center justify-center"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-primary to-amber-500 flex items-center justify-center"
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <TrendingUp className="w-5 h-5 text-white" />
+                    <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </motion.div>
                 </div>
-                <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-2xl text-foreground font-medium leading-relaxed">
                   Apvienojot SEO un GEO, uzņēmums veido redzamību gan <span className="text-primary font-semibold">šodienas</span>, gan <span className="text-amber-600 font-semibold">nākotnes</span> meklēšanas vidēs.
                 </p>
               </div>
@@ -482,7 +483,7 @@ export default function SeoGeo() {
           </ScrollReveal>
           
           {/* Results grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[
               {
                 icon: Eye,
@@ -531,15 +532,15 @@ export default function SeoGeo() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`} />
                   
                   {/* Card */}
-                  <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
+                  <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-8 border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
                     {/* Icon with animated background */}
-                    <div className="relative mb-6">
+                    <div className="relative mb-4 md:mb-6">
                       <motion.div 
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}
+                        className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}
                         whileHover={{ rotate: 5, scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
-                        <item.icon className="w-8 h-8 text-white" />
+                        <item.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                       </motion.div>
                       {/* Pulse ring */}
                       <motion.div
@@ -550,12 +551,12 @@ export default function SeoGeo() {
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed flex-1">{item.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-4">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">{item.description}</p>
                     
                     {/* Bottom accent line */}
-                    <motion.div 
-                      className={`mt-6 h-1 rounded-full bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    <motion.div
+                      className={`mt-4 md:mt-6 h-1 rounded-full bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
@@ -642,7 +643,7 @@ export default function SeoGeo() {
           </ScrollReveal>
           
           {/* Case study cards */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {[
               {
                 industry: "E-komercija",
@@ -690,22 +691,22 @@ export default function SeoGeo() {
                   {/* Card */}
                   <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col overflow-hidden">
                     {/* Header with icon and industry */}
-                    <div className={`bg-gradient-to-br ${caseStudy.bgGradient} p-6 border-b border-primary/5`}>
-                      <div className="flex items-center gap-4">
+                    <div className={`bg-gradient-to-br ${caseStudy.bgGradient} p-4 md:p-6 border-b border-primary/5`}>
+                      <div className="flex items-center gap-3 md:gap-4">
                         <motion.div 
-                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${caseStudy.gradient} flex items-center justify-center shadow-lg`}
+                          className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${caseStudy.gradient} flex items-center justify-center shadow-lg`}
                           whileHover={{ rotate: 5, scale: 1.1 }}
                         >
-                          <caseStudy.icon className="w-7 h-7 text-white" />
+                          <caseStudy.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                         </motion.div>
-                        <span className="font-bold text-lg text-foreground">{caseStudy.industry}</span>
+                        <span className="font-bold text-base md:text-lg text-foreground">{caseStudy.industry}</span>
                       </div>
                     </div>
                     
                     {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col">
+                    <div className="p-4 md:p-6 flex-1 flex flex-col">
                       {/* Situācija */}
-                      <div className="mb-5">
+                      <div className="mb-4 md:mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
                             <AlertCircle className="w-3.5 h-3.5 text-red-500" />
@@ -867,7 +868,7 @@ export default function SeoGeo() {
           </ScrollReveal>
           
           {/* Services Grid - 3x2 layout */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
             {[
               {
                 icon: Search,
@@ -938,22 +939,22 @@ export default function SeoGeo() {
                       transition={{ duration: 0.6, delay: service.delay }}
                     />
                     
-                    <div className="p-7 flex-1 flex flex-col">
+                    <div className="p-5 md:p-7 flex-1 flex flex-col">
                       {/* Header with number and icon */}
-                      <div className="flex items-start justify-between mb-5">
+                      <div className="flex items-start justify-between mb-4 md:mb-5">
                         <motion.div 
-                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                          className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                           whileHover={{ rotate: 5, scale: 1.05 }}
                         >
-                          <service.icon className="w-6 h-6 text-white" />
+                          <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                         </motion.div>
-                        <span className={`text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}>
+                        <span className={`text-3xl md:text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}>
                           {service.number}
                         </span>
                       </div>
                       
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-base md:text-lg font-bold text-foreground mb-2 md:mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
                       
@@ -963,7 +964,7 @@ export default function SeoGeo() {
                       </p>
                       
                       {/* Bottom visual indicator */}
-                      <div className="mt-5 pt-4 border-t border-gray-100">
+                      <div className="mt-4 md:mt-5 pt-3 md:pt-4 border-t border-gray-100">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
                           <motion.div 
                             className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.accent}`}
@@ -991,17 +992,17 @@ export default function SeoGeo() {
               {/* Glow behind CTA */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-orange-500/10 to-amber-400/10 rounded-3xl blur-2xl" />
               
-              <div className="relative bg-gradient-to-br from-white via-white to-orange-50/50 rounded-3xl p-8 md:p-12 border border-primary/10 shadow-xl overflow-hidden">
+              <div className="relative bg-gradient-to-br from-white via-white to-orange-50/50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border border-primary/10 shadow-xl overflow-hidden">
                 {/* Decorative corner elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-400/5 to-transparent rounded-tr-full" />
                 
-                <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div className="relative flex flex-col lg:flex-row items-center justify-between gap-5 md:gap-8">
                   <div className="text-center lg:text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 md:mb-3">
                       Katrs solis ir pielāgots <span className="text-gradient-orange">jūsu situācijai</span>
                     </h3>
-                    <p className="text-muted-foreground text-lg max-w-xl">
+                    <p className="text-muted-foreground text-base md:text-lg max-w-xl">
                       Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.
                     </p>
                   </div>
@@ -1075,9 +1076,9 @@ export default function SeoGeo() {
           </ScrollReveal>
           
           {/* Vertical Roadmap */}
-          <div className="max-w-4xl mx-auto relative">
+          <div className="max-w-4xl mx-auto relative px-2 md:px-0">
             {/* Central vertical line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
               <motion.div 
                 className="w-full h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400"
                 initial={{ scaleY: 0 }}
@@ -1132,9 +1133,9 @@ export default function SeoGeo() {
               },
             ].map((step, index) => (
               <ScrollReveal key={step.number} delay={step.delay}>
-                <div className={`relative flex items-start gap-6 md:gap-12 mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div className={`relative flex items-start gap-4 md:gap-12 mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Node point on the line */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
@@ -1142,8 +1143,8 @@ export default function SeoGeo() {
                       transition={{ delay: step.delay + 0.2, type: "spring", stiffness: 300 }}
                       className="relative"
                     >
-                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
-                        <step.icon className="w-7 h-7 text-white" />
+                      <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
+                        <step.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                       </div>
                       {/* Pulse ring */}
                       <motion.div
@@ -1220,8 +1221,8 @@ export default function SeoGeo() {
                   transition={{ delay: 0.7, type: "spring" }}
                   className="relative z-10"
                 >
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
-                    <CheckCircle2 className="w-10 h-10 text-white" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
+                    <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <motion.div
                     className="absolute inset-0 rounded-full bg-green-400 opacity-30"
@@ -1266,7 +1267,7 @@ export default function SeoGeo() {
           
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {[
                 {
                   icon: Globe,
@@ -1304,19 +1305,19 @@ export default function SeoGeo() {
                     value={`item-${index}`} 
                     className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
                   >
-                    <AccordionTrigger className="px-5 py-4 hover:no-underline group">
-                      <div className="flex items-center gap-4 text-left">
-                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
-                          <faq.icon className="w-5 h-5 text-white" />
+                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
+                      <div className="flex items-center gap-3 md:gap-4 text-left">
+                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
-                        <span className="font-medium text-foreground/90 group-hover:text-primary transition-colors duration-300">
+                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
                           {faq.question}
                         </span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-5 pb-5">
-                      <div className="pl-14">
-                        <p className="text-muted-foreground leading-relaxed">
+                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
+                      <div className="pl-11 md:pl-14">
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
@@ -1363,7 +1364,7 @@ export default function SeoGeo() {
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
                 Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas reālas izaugsmes iespējas.
               </p>
             </ScrollReveal>
