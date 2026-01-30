@@ -502,41 +502,106 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 3: Benefits ========== */}
-      <section className="section-warm section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-5 gap-16 items-center">
-            <div className="lg:col-span-2">
-              <ScrollReveal>
-                <span className="chip mb-6 inline-block text-sm">Ieguvumi</span>
-                <h2 className="mb-8 text-foreground">
-                  Ko jūs <span className="text-gradient-orange">iegūstat</span>
+      {/* ========== SECTION 3: Ready AI Solutions ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Subtle warm background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background-warm/50 via-background to-background" />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-5xl mx-auto">
+            {/* Header */}
+            <ScrollReveal>
+              <div className="text-center mb-10 md:mb-14">
+                <span className="chip mb-6 inline-block text-sm">
+                  <CheckCircle2 className="w-4 h-4 inline mr-2" />
+                  Gatavi risinājumi
+                </span>
+                <h2 className="text-foreground mb-6">
+                  Pārbaudīti un gatavi <span className="text-gradient-orange">AI risinājumi</span>
                 </h2>
-                <p className="text-muted-foreground text-lg mb-10">
-                  Automatizācija nav izdevums — tā ir investīcija, 
-                  kas atmaksājas katru dienu.
+                <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
+                  NEOLab piedāvā vairākus pārbaudītus AI automatizācijas risinājumus, kuri jau ir izmantoti reālās situācijās un kurus iespējams ieviest salīdzinoši ātri.
                 </p>
-                <Link to="/bezmaksas-konsultacija">
-                  <Button variant="hero" size="lg">
-                    Novērtēt potenciālu
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-              </ScrollReveal>
-            </div>
-
-            <div className="lg:col-span-3">
-              <div className="grid sm:grid-cols-2 gap-6">
-                {benefits.map((benefit, index) => (
-                  <ScrollReveal key={benefit} delay={index * 0.1} direction="right">
-                    <div className="flex items-center gap-4 bg-card rounded-xl p-6 border border-border hover-lift">
-                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                      <span className="text-foreground text-lg">{benefit}</span>
-                    </div>
-                  </ScrollReveal>
-                ))}
               </div>
-            </div>
+            </ScrollReveal>
+            
+            {/* Main content card */}
+            <ScrollReveal delay={0.2}>
+              <div className="bg-card/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border shadow-neo">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                  {/* Left side - text */}
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6">
+                      Šie risinājumi ir piemēroti uzņēmumiem, kuri:
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      {[
+                        { icon: Zap, text: "Vēlas ātru rezultātu" },
+                        { icon: Settings, text: "Meklē konkrētu problēmu risinājumu" },
+                        { icon: Layers, text: "Nevēlas sākt no nulles" }
+                      ].map((item, i) => (
+                        <motion.div
+                          key={item.text}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                          className="flex items-center gap-4"
+                        >
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <item.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </div>
+                          <span className="text-foreground text-base md:text-lg font-medium">{item.text}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    <div className="mt-8">
+                      <Link to="/bezmaksas-konsultacija">
+                        <Button variant="hero" size="lg">
+                          Uzzināt vairāk
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Right side - visual indicator */}
+                  <div className="relative">
+                    <div className="bg-gradient-to-br from-primary/5 to-amber-50/50 rounded-2xl p-6 md:p-8 border border-primary/10">
+                      {/* Status indicators */}
+                      <div className="space-y-4">
+                        {[
+                          { label: "Testēts praksē", status: "Apstiprināts" },
+                          { label: "Ātra ieviešana", status: "1-2 nedēļas" },
+                          { label: "Dokumentēts process", status: "Pilnībā" }
+                        ].map((item, i) => (
+                          <motion.div
+                            key={item.label}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 + i * 0.1 }}
+                            className="flex items-center justify-between bg-white/80 rounded-xl p-4 border border-border/50"
+                          >
+                            <span className="text-muted-foreground text-sm md:text-base">{item.label}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                              <span className="text-foreground font-medium text-sm md:text-base">{item.status}</span>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Bottom badge */}
+                      <div className="mt-6 flex items-center justify-center gap-2 text-primary">
+                        <Brain className="w-5 h-5" />
+                        <span className="font-medium text-sm">NEOLab pārbaudīti risinājumi</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
