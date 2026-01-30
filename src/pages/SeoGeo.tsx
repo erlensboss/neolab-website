@@ -23,26 +23,6 @@ const diagnosticsSteps = [
   { icon: BarChart3, label: "Ranku analīze", description: "Esošās pozīcijas" },
 ];
 
-const scenarios = [
-  {
-    title: "E-komercija",
-    problem: "Produktu lapas neindeksējas pareizi",
-    solution: "Tehniskā optimizācija + strukturēti dati",
-    result: "3x organiskais trafiks",
-  },
-  {
-    title: "Lokāls bizness",
-    problem: "Neatrodami meklētājos savā pilsētā",
-    solution: "GEO optimizācija + GMB stratēģija",
-    result: "Top 3 lokālajos rezultātos",
-  },
-  {
-    title: "B2B pakalpojumi",
-    problem: "Augsts bounce rate, zems engagement",
-    solution: "Satura pārstrukturēšana + piltuves būvēšana",
-    result: "45% lead pieaugums",
-  },
-];
 
 const geoFeatures = [
   "Google My Business optimizācija",
@@ -483,47 +463,224 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 3: Scenarios ========== */}
-      <section className="section-warm bg-atmosphere">
-        <div className="container-neo section-padding relative z-10">
-          <SectionHeading
-            chip="Scenāriji"
-            title="Reālas situācijas. Reāli rezultāti."
-            className="mb-20"
-          />
-
-          <div className="grid lg:grid-cols-3 gap-10">
-            {scenarios.map((scenario, index) => (
-              <ScrollReveal key={scenario.title} delay={index * 0.15}>
-                <div className="card-neo h-full flex flex-col">
-                  <span className="chip mb-6 text-sm">{scenario.title}</span>
+      {/* ========== SECTION 4: Experience & Achievements ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Dynamic gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
+        
+        {/* Mesh gradient overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `
+              radial-gradient(ellipse 60% 40% at 30% 30%, hsl(21 90% 48%) 0px, transparent 50%),
+              radial-gradient(ellipse 50% 50% at 70% 70%, hsl(32 90% 55%) 0px, transparent 50%)
+            `,
+          }}
+        />
+        
+        {/* Subtle grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        
+        {/* Floating orbs */}
+        <motion.div
+          className="absolute top-16 right-[20%] w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/10 blur-2xl"
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-24 left-[15%] w-32 h-32 rounded-full bg-gradient-to-tl from-amber-400/10 to-primary/10 blur-2xl"
+          animate={{ y: [0, 15, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-14 md:mb-20">
+              <span className="chip mb-6 inline-block text-sm">Pieredze</span>
+              <h2 className="text-foreground max-w-3xl mx-auto">
+                Mūsu <span className="text-gradient-orange">pieredze</span> un sasniegumi
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* Case study cards */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                industry: "E-komercija",
+                icon: "🛒",
+                gradient: "from-primary to-orange-500",
+                bgGradient: "from-primary/5 to-orange-500/5",
+                situation: "Interneta veikals ar 2000+ produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija gandrīz nulle.",
+                solution: "Veicām pilnu tehnisko auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām kategorizācijas stratēģiju.",
+                result: "+340%",
+                resultLabel: "organiskā trafika pieaugums",
+                delay: 0.1,
+              },
+              {
+                industry: "Lokāls pakalpojums",
+                icon: "📍",
+                gradient: "from-orange-500 to-amber-500",
+                bgGradient: "from-orange-500/5 to-amber-500/5",
+                situation: "Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti neatrada uzņēmumu, meklējot \"būvniecība + pilsēta\".",
+                solution: "Optimizējām Google My Business profilu, izveidojām lokālā satura stratēģiju un nodrošinājām NAP konsistenci visās platformās.",
+                result: "Top 3",
+                resultLabel: "lokālajos rezultātos",
+                delay: 0.2,
+              },
+              {
+                industry: "B2B pakalpojumi",
+                icon: "💼",
+                gradient: "from-amber-500 to-yellow-500",
+                bgGradient: "from-amber-500/5 to-yellow-500/5",
+                situation: "Konsultāciju uzņēmums saņēma daudz apmeklētāju, bet maz pieprasījumu. Augsts bounce rate, lietotāji aizgāja bez darbības.",
+                solution: "Pārstrukturējām saturu uz lietotāja vajadzībām, izveidojām skaidru konversijas piltuvi un optimizējām galvenās piezemēšanās lapas.",
+                result: "+180%",
+                resultLabel: "vairāk kvalificētu pieprasījumu",
+                delay: 0.3,
+              },
+            ].map((caseStudy, index) => (
+              <ScrollReveal key={caseStudy.industry} delay={caseStudy.delay}>
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="relative group h-full"
+                >
+                  {/* Glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${caseStudy.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`} />
                   
-                  <div className="space-y-6 flex-1">
-                    <div>
-                      <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
-                        Problēma
+                  {/* Card */}
+                  <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                    {/* Header with icon and industry */}
+                    <div className={`bg-gradient-to-br ${caseStudy.bgGradient} p-6 border-b border-primary/5`}>
+                      <div className="flex items-center gap-4">
+                        <motion.div 
+                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${caseStudy.gradient} flex items-center justify-center shadow-lg`}
+                          whileHover={{ rotate: 5, scale: 1.1 }}
+                        >
+                          <span className="text-2xl">{caseStudy.icon}</span>
+                        </motion.div>
+                        <span className="font-bold text-lg text-foreground">{caseStudy.industry}</span>
                       </div>
-                      <p className="text-foreground text-lg">{scenario.problem}</p>
                     </div>
                     
-                    <div className="border-l-2 border-primary/30 pl-5">
-                      <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">
-                        Risinājums
+                    {/* Content */}
+                    <div className="p-6 flex-1 flex flex-col">
+                      {/* Situācija */}
+                      <div className="mb-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
+                            <span className="text-red-500 text-xs">❗</span>
+                          </div>
+                          <span className="text-sm font-semibold text-red-600 uppercase tracking-wider">Situācija</span>
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.situation}</p>
                       </div>
-                      <p className="text-foreground text-lg">{scenario.solution}</p>
+                      
+                      {/* Arrow connector */}
+                      <div className="flex justify-center my-2">
+                        <motion.div
+                          animate={{ y: [0, 3, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          <svg className="w-5 h-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </motion.div>
+                      </div>
+                      
+                      {/* Risinājums */}
+                      <div className="mb-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                            <span className="text-blue-500 text-xs">🔧</span>
+                          </div>
+                          <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Risinājums</span>
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.solution}</p>
+                      </div>
+                      
+                      {/* Arrow connector */}
+                      <div className="flex justify-center my-2">
+                        <motion.div
+                          animate={{ y: [0, 3, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                        >
+                          <svg className="w-5 h-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </motion.div>
+                      </div>
+                      
+                      {/* Rezultāts */}
+                      <div className="mt-auto">
+                        <div className={`bg-gradient-to-br ${caseStudy.bgGradient} rounded-2xl p-5 border border-primary/10`}>
+                          <div className="flex items-center gap-2 mb-2">
+                            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                              <span className="text-green-500 text-xs">✓</span>
+                            </div>
+                            <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">Rezultāts</span>
+                          </div>
+                          <motion.div
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: caseStudy.delay + 0.3, type: "spring" }}
+                          >
+                            <span className={`text-4xl font-bold bg-gradient-to-r ${caseStudy.gradient} bg-clip-text text-transparent`}>
+                              {caseStudy.result}
+                            </span>
+                            <p className="text-muted-foreground text-sm mt-1">{caseStudy.resultLabel}</p>
+                          </motion.div>
+                        </div>
+                      </div>
                     </div>
                     
-                    <div className="bg-primary/5 rounded-xl p-6">
-                      <div className="text-sm font-medium text-primary uppercase tracking-wider mb-2">
-                        Rezultāts
-                      </div>
-                      <p className="text-3xl font-bold text-primary">{scenario.result}</p>
-                    </div>
+                    {/* Bottom accent */}
+                    <motion.div 
+                      className={`h-1 bg-gradient-to-r ${caseStudy.gradient}`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: caseStudy.delay + 0.2 }}
+                    />
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             ))}
           </div>
+          
+          {/* Bottom visual connector */}
+          <ScrollReveal delay={0.4}>
+            <div className="mt-16 flex justify-center">
+              <motion.div
+                className="flex items-center gap-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-orange-500 flex items-center justify-center shadow-lg"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <TrendingUp className="w-5 h-5 text-white" />
+                </motion.div>
+                <span className="text-muted-foreground font-medium">Jūsu veiksmes stāsts var būt nākamais</span>
+              </motion.div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
