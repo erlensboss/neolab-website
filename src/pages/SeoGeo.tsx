@@ -59,57 +59,168 @@ const geoFeatures = [
 export default function SeoGeo() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Diagnosis First ========== */}
-      <section className="bg-gradient-hero bg-atmosphere">
+      {/* ========== SECTION 1: Premium Hero ========== */}
+      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[70vh] flex items-center">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient mesh */}
+          <div 
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage: `
+                radial-gradient(ellipse 80% 60% at 70% 40%, hsl(21 90% 48%) 0px, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 20% 60%, hsl(32 90% 55%) 0px, transparent 50%)
+              `,
+            }}
+          />
+          
+          {/* Subtle grid pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `
+                linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 80px",
+            }}
+          />
+          
+          {/* Floating orbs */}
+          <motion.div
+            className="absolute top-1/4 right-[15%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/5 blur-3xl"
+            animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 left-[10%] w-48 h-48 rounded-full bg-gradient-to-tl from-amber-400/10 to-primary/5 blur-3xl"
+            animate={{ y: [0, 20, 0], scale: [1, 1.15, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+        
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-5 gap-16 items-start">
-            {/* Left: Diagnostic intro */}
-            <div className="lg:col-span-2">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Content */}
+            <div className="max-w-2xl">
               <ScrollReveal>
-                <span className="chip-outline mb-8 inline-block text-sm">Diagnostika vispirms</span>
+                <span className="chip mb-6 inline-block text-sm">SEO & GEO</span>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.1}>
-                <h1 className="mb-8 text-foreground">
-                  SEO bez <span className="text-gradient-orange">minēšanas</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground">
+                  SEO un GEO optimizācija{" "}
+                  <span className="text-gradient-orange">uzņēmumiem</span>
                 </h1>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.2}>
-                <p className="text-xl text-muted-foreground mb-10">
-                  Pirms jebkādas optimizācijas — pilna sistēmas diagnoze. 
-                  Mēs nedarām SEO "jo tā vajag". Mēs zinām, kāpēc katrs solis ir nepieciešams.
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-10">
+                  Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā digitālajai redzamībai.
                 </p>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.3}>
-                <Link to="/bezmaksas-konsultacija">
-                  <Button variant="hero" size="lg">
-                    Saņemt bezmaksas auditu
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/bezmaksas-konsultacija">
+                    <Button variant="hero" size="lg">
+                      Sākt ar bezmaksas auditu
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
               </ScrollReveal>
             </div>
-
-            {/* Right: Diagnostic steps */}
-            <div className="lg:col-span-3">
-              <div className="space-y-6">
-                {diagnosticsSteps.map((step, index) => (
-                  <ScrollReveal key={step.label} delay={0.2 + index * 0.1} direction="right">
-                    <div className="glass-warm rounded-2xl p-7 flex items-center gap-6 hover-lift">
-                      <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-9 h-9 text-primary" />
+            
+            {/* Right: Visual system */}
+            <ScrollReveal delay={0.2} direction="right">
+              <div className="relative">
+                {/* Main visual container */}
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-primary/10 shadow-2xl">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-3">
+                      <motion.div 
+                        className="w-10 h-10 rounded-xl bg-gradient-orange flex items-center justify-center"
+                        animate={{ rotate: [0, 5, -5, 0] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                      >
+                        <Search className="w-5 h-5 text-white" />
+                      </motion.div>
+                      <span className="font-semibold text-foreground">Redzamības sistēma</span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-primary/20" />
+                      <div className="w-3 h-3 rounded-full bg-amber-400/30" />
+                      <div className="w-3 h-3 rounded-full bg-green-400/30" />
+                    </div>
+                  </div>
+                  
+                  {/* Visual cards grid */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    {/* SEO Card */}
+                    <motion.div 
+                      className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-5 border border-primary/20"
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <Globe className="w-5 h-5 text-primary" />
+                        <span className="font-medium text-sm text-foreground">SEO</span>
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-xl text-foreground">{step.label}</h4>
-                        <p className="text-muted-foreground">{step.description}</p>
+                      <div className="space-y-2">
+                        <div className="h-2 bg-primary/30 rounded-full w-full" />
+                        <div className="h-2 bg-primary/20 rounded-full w-4/5" />
+                        <div className="h-2 bg-primary/10 rounded-full w-3/5" />
                       </div>
-                      <div className="text-6xl font-bold text-primary/10">
-                        {String(index + 1).padStart(2, "0")}
+                    </motion.div>
+                    
+                    {/* GEO Card */}
+                    <motion.div 
+                      className="bg-gradient-to-br from-amber-400/5 to-amber-400/10 rounded-2xl p-5 border border-amber-400/20"
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <Bot className="w-5 h-5 text-amber-600" />
+                        <span className="font-medium text-sm text-foreground">GEO</span>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-2 bg-amber-400/30 rounded-full w-full" />
+                        <div className="h-2 bg-amber-400/20 rounded-full w-3/4" />
+                        <div className="h-2 bg-amber-400/10 rounded-full w-1/2" />
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Results indicator */}
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-200/50">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <motion.div 
+                          className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center"
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          <TrendingUp className="w-4 h-4 text-green-600" />
+                        </motion.div>
+                        <span className="text-sm font-medium text-green-700">Sistēmiska izaugsme</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <motion.div 
+                          className="w-2 h-2 rounded-full bg-green-400"
+                          animate={{ opacity: [0.5, 1, 0.5] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        />
+                        <span className="text-xs text-green-600 font-medium">Aktīvs</span>
                       </div>
                     </div>
-                  </ScrollReveal>
-                ))}
+                  </div>
+                </div>
+                
+                {/* Decorative corner elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/10 blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-gradient-to-tl from-amber-400/10 to-primary/10 blur-2xl" />
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
