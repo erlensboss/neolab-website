@@ -1198,7 +1198,7 @@ export default function SeoGeo() {
                         <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
                           <faq.icon className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                        <span className="font-medium text-foreground/90 group-hover:text-primary transition-colors duration-300">
                           {faq.question}
                         </span>
                       </div>
