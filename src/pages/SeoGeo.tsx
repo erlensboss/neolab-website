@@ -21,11 +21,22 @@ import {
   Briefcase,
   AlertCircle,
   Wrench,
-  CheckCircle
+  CheckCircle,
+  Clock,
+  Users,
+  Zap,
+  MessageSquare,
+  ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const diagnosticsSteps = [
   { icon: Layers, label: "Tehniskais audits", description: "Pilna vietnes analīze" },
@@ -1142,56 +1153,67 @@ export default function SeoGeo() {
             </div>
           </ScrollReveal>
           
-          {/* FAQ Grid */}
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                question: "Vai GEO aizvieto SEO?",
-                answer: "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
-              },
-              {
-                question: "Cik ilgā laikā SEO sāk dot rezultātus?",
-                answer: "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
-              },
-              {
-                question: "Vai SEO un GEO ir piemērots mazākiem uzņēmumiem?",
-                answer: "Jā, ja pieeja ir pielāgota uzņēmuma apjomam, mērķiem un resursiem.",
-              },
-              {
-                question: "Vai SEO var apvienot ar Google Ads?",
-                answer: "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
-              },
-              {
-                question: "Ar ko sākas sadarbība ar NEOLab?",
-                answer: "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
-              },
-            ].map((faq, index) => (
-              <ScrollReveal key={index} delay={index * 0.05}>
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="group"
-                >
-                  <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      {/* Question indicator */}
-                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                        <span className="text-primary font-bold text-sm">?</span>
-                      </div>
-                      
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+          {/* FAQ Accordion */}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {[
+                {
+                  icon: Globe,
+                  question: "Vai GEO aizvieto SEO?",
+                  answer: "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
+                  gradient: "from-primary to-orange-500",
+                },
+                {
+                  icon: Clock,
+                  question: "Cik ilgā laikā SEO sāk dot rezultātus?",
+                  answer: "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
+                  gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: Users,
+                  question: "Vai SEO un GEO ir piemērots mazākiem uzņēmumiem?",
+                  answer: "Jā, ja pieeja ir pielāgota uzņēmuma apjomam, mērķiem un resursiem.",
+                  gradient: "from-amber-500 to-yellow-500",
+                },
+                {
+                  icon: Zap,
+                  question: "Vai SEO var apvienot ar Google Ads?",
+                  answer: "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
+                  gradient: "from-yellow-500 to-amber-400",
+                },
+                {
+                  icon: MessageSquare,
+                  question: "Ar ko sākas sadarbība ar NEOLab?",
+                  answer: "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
+                  gradient: "from-amber-400 to-primary",
+                },
+              ].map((faq, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                  >
+                    <AccordionTrigger className="px-5 py-4 hover:no-underline group">
+                      <div className="flex items-center gap-4 text-left">
+                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                           {faq.question}
-                        </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        </span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-5 pb-5">
+                      <div className="pl-14">
+                        <p className="text-muted-foreground leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </ScrollReveal>
-            ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                </ScrollReveal>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
