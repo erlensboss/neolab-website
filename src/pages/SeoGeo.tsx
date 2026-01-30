@@ -695,7 +695,232 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: GEO Optimization — CENTERED & ALIGNED ========== */}
+      {/* ========== SECTION 5: NEOLab Solution — PREMIUM CONVERSION BLOCK ========== */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Premium background with depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/30" />
+        
+        {/* Subtle geometric pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 25% 25%, hsl(21 90% 48%) 1px, transparent 1px),
+              radial-gradient(circle at 75% 75%, hsl(21 90% 48%) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+        
+        {/* Accent line at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        
+        {/* Floating accents */}
+        <motion.div
+          className="absolute top-32 left-[5%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-32 right-[8%] w-72 h-72 rounded-full bg-gradient-to-tl from-amber-400/5 to-transparent blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <div className="container-neo relative z-10">
+          {/* Premium Header */}
+          <ScrollReveal>
+            <div className="text-center mb-16 md:mb-20">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 mb-6"
+              >
+                <div className="w-8 h-[2px] bg-gradient-to-r from-transparent to-primary" />
+                <span className="text-sm font-semibold text-primary uppercase tracking-widest">Metodika</span>
+                <div className="w-8 h-[2px] bg-gradient-to-l from-transparent to-primary" />
+              </motion.div>
+              <h2 className="text-foreground max-w-4xl mx-auto mb-6">
+                Kāds ir <span className="text-gradient-orange">NEOLab</span> risinājums
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, balstoties uz auditu, prioritātēm un pakāpenisku ieviešanu.
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          {/* Services Grid - 3x2 layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+            {[
+              {
+                icon: Search,
+                number: "01",
+                title: "SEO audits un situācijas izvērtējums",
+                description: "Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra un esošā redzamība meklējumos, lai noteiktu galvenās optimizācijas iespējas.",
+                accent: "from-primary to-orange-500",
+                delay: 0.1,
+              },
+              {
+                icon: Settings,
+                number: "02",
+                title: "Tehniskā SEO optimizācija",
+                description: "Tiek sakārtoti tehniskie aspekti, kas ietekmē meklētājprogrammu uztveri un lietotāja pieredzi, tostarp lapas ātrums, struktūra un indeksācija.",
+                accent: "from-orange-500 to-amber-500",
+                delay: 0.15,
+              },
+              {
+                icon: FileText,
+                number: "03",
+                title: "Satura un atslēgvārdu struktūra",
+                description: "Tiek veidota loģiska satura struktūra, kas balstīta lietotāju meklēšanas paradumos un uzņēmuma mērķos, nodrošinot saprotamu informācijas plūsmu.",
+                accent: "from-amber-500 to-yellow-500",
+                delay: 0.2,
+              },
+              {
+                icon: Target,
+                number: "04",
+                title: "Keyword list veidošana",
+                description: "Tiek izstrādāts strukturēts atslēgvārdu saraksts, kas sadalīts pa lapām un meklēšanas nolūkiem, lai novērstu kanibalizāciju un palielinātu efektivitāti.",
+                accent: "from-yellow-500 to-amber-400",
+                delay: 0.25,
+              },
+              {
+                icon: Globe,
+                number: "05",
+                title: "GEO mājaslapas audits",
+                description: "Tiek izvērtēts, kā mājaslapa un tās saturs tiek uztverts AI balstītās meklēšanas vidēs un ģeneratīvajās atbildēs.",
+                accent: "from-amber-400 to-orange-500",
+                delay: 0.3,
+              },
+              {
+                icon: Rocket,
+                number: "06",
+                title: "GEO stratēģijas izveide",
+                description: "Balstoties auditā, tiek izstrādāta GEO stratēģija, kas palīdz uzlabot redzamību jaunās paaudzes meklēšanas kanālos.",
+                accent: "from-orange-500 to-primary",
+                delay: 0.35,
+              },
+            ].map((service, index) => (
+              <ScrollReveal key={service.number} delay={service.delay}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="group relative h-full"
+                >
+                  {/* Hover glow */}
+                  <div className={`absolute -inset-2 bg-gradient-to-br ${service.accent} rounded-3xl blur-xl opacity-0 group-hover:opacity-15 transition-all duration-500`} />
+                  
+                  {/* Card */}
+                  <div className="relative bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col overflow-hidden">
+                    {/* Top accent line */}
+                    <motion.div 
+                      className={`h-1 bg-gradient-to-r ${service.accent}`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: service.delay }}
+                    />
+                    
+                    <div className="p-7 flex-1 flex flex-col">
+                      {/* Header with number and icon */}
+                      <div className="flex items-start justify-between mb-5">
+                        <motion.div 
+                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                          whileHover={{ rotate: 5, scale: 1.05 }}
+                        >
+                          <service.icon className="w-6 h-6 text-white" />
+                        </motion.div>
+                        <span className={`text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}>
+                          {service.number}
+                        </span>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-lg font-bold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                        {service.description}
+                      </p>
+                      
+                      {/* Bottom visual indicator */}
+                      <div className="mt-5 pt-4 border-t border-gray-100">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <motion.div 
+                            className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.accent}`}
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                          />
+                          <span className="group-hover:text-primary transition-colors duration-300">Iekļauts pakalpojumā</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+          
+          {/* Premium CTA Block */}
+          <ScrollReveal delay={0.4}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* Glow behind CTA */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-orange-500/10 to-amber-400/10 rounded-3xl blur-2xl" />
+              
+              <div className="relative bg-gradient-to-br from-white via-white to-orange-50/50 rounded-3xl p-8 md:p-12 border border-primary/10 shadow-xl overflow-hidden">
+                {/* Decorative corner elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-400/5 to-transparent rounded-tr-full" />
+                
+                <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
+                  <div className="text-center lg:text-left">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                      Katrs solis ir pielāgots <span className="text-gradient-orange">jūsu situācijai</span>
+                    </h3>
+                    <p className="text-muted-foreground text-lg max-w-xl">
+                      Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.
+                    </p>
+                  </div>
+                  
+                  <Link to="/bezmaksas-konsultacija" className="flex-shrink-0">
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button variant="hero" size="lg" className="shadow-lg hover:shadow-xl transition-all duration-300 text-base px-8">
+                        Sākt ar bezmaksas auditu
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </div>
+                
+                {/* Animated progress dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {[0, 1, 2, 3, 4, 5].map((i) => (
+                    <motion.div
+                      key={i}
+                      className="w-1.5 h-1.5 rounded-full bg-primary/30"
+                      animate={{ opacity: [0.3, 1, 0.3] }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: GEO Optimization — CENTERED & ALIGNED ========== */}
       <section className="section-offwhite grid-full-bleed">
         <div className="container-neo section-padding relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
