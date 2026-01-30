@@ -15,7 +15,11 @@ import {
   Settings,
   CheckCircle2,
   Layers,
-  BarChart3
+  BarChart3,
+  Sparkles,
+  Target,
+  Puzzle,
+  Handshake
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -710,24 +714,195 @@ export default function AiAutomatizacija() {
             ))}
           </div>
           
-          {/* Bottom note */}
-          <ScrollReveal delay={0.6}>
-            <div className="mt-12 md:mt-16 text-center">
-              <p className="text-muted-foreground mb-6">
-                Nepieciešams pielāgots risinājums? Mēs varam izveidot arī individuālu sistēmu.
-              </p>
-              <Link to="/bezmaksas-konsultacija">
-                <Button variant="outline" size="lg" className="border-primary/30 hover:border-primary hover:bg-primary/5">
-                  Apspriest individuālu risinājumu
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
-      {/* ========== SECTION 5: CTA ========== */}
+      {/* ========== SECTION 5: Personalized Solutions ========== */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Premium background with warm gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-orange-50 to-amber-50/80" />
+        
+        {/* Animated gradient orbs */}
+        <motion.div
+          className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/20 to-amber-300/20 blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            opacity: [0.4, 0.6, 0.4]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-amber-200/30 to-primary/15 blur-3xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            x: [0, -30, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Subtle pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(21 90% 48%) 1px, transparent 0)`,
+            backgroundSize: "32px 32px"
+          }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Main content grid */}
+            <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+              
+              {/* Left: Visual - Custom Solution Builder */}
+              <ScrollReveal delay={0.1}>
+                <div className="relative">
+                  {/* Glow behind card */}
+                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-amber-300/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                  
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-primary/30 shadow-2xl"
+                  >
+                    {/* Header with personalization indicator */}
+                    <div className="flex items-center justify-between mb-8 pb-6 border-b border-primary/10">
+                      <div className="flex items-center gap-4">
+                        <motion.div 
+                          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-orange-500 to-amber-400 flex items-center justify-center shadow-lg"
+                          animate={{ rotate: [0, 5, -5, 0] }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <Sparkles className="w-7 h-7 text-white" />
+                        </motion.div>
+                        <div>
+                          <h4 className="font-bold text-foreground text-lg">Jūsu Risinājums</h4>
+                          <span className="text-sm text-primary font-medium">Veidots tieši jums</span>
+                        </div>
+                      </div>
+                      <motion.div 
+                        className="flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-sm font-medium text-primary">Personalizēts</span>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Building blocks visualization */}
+                    <div className="space-y-4 mb-8">
+                      {[
+                        { icon: Target, label: "Jūsu mērķi", value: "Definēti", color: "from-primary to-orange-400" },
+                        { icon: Puzzle, label: "Jūsu procesi", value: "Integrēti", color: "from-amber-400 to-orange-500" },
+                        { icon: Settings, label: "Jūsu sistēmas", value: "Savienoti", color: "from-orange-500 to-primary" },
+                      ].map((block, i) => (
+                        <motion.div
+                          key={block.label}
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 + i * 0.15 }}
+                          className="flex items-center gap-4 bg-gradient-to-r from-muted/50 to-transparent rounded-xl p-4 border border-border/50"
+                        >
+                          <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${block.color} flex items-center justify-center shadow-md`}>
+                            <block.icon className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <span className="text-foreground font-medium">{block.label}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-primary" />
+                            <span className="text-sm text-primary font-medium">{block.value}</span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* Bottom result indicator */}
+                    <motion.div 
+                      className="bg-gradient-to-r from-primary/10 via-amber-50 to-primary/10 rounded-2xl p-5 border border-primary/20"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 }}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange">
+                          <Handshake className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground">Ilgtermiņa partnerība</p>
+                          <p className="text-sm text-muted-foreground">Stabils risinājums ar atbalstu</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </ScrollReveal>
+              
+              {/* Right: Content */}
+              <ScrollReveal delay={0.2}>
+                <div className="lg:pl-4">
+                  <span className="chip mb-6 inline-block text-sm">
+                    <Sparkles className="w-4 h-4 inline mr-2" />
+                    Individuāli risinājumi
+                  </span>
+                  
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                    Personalizēta <span className="text-gradient-orange">AI risinājumu</span> izstrāde
+                  </h2>
+                  
+                  <div className="space-y-5 mb-8">
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                      NEOLab izstrādā AI risinājumus, kas tiek būvēti konkrētam uzņēmumam un tā procesiem.
+                    </p>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      Mēs veidojam pilnīgi jaunus un īpatnējus risinājumus dažādos gadījumos. AI automatizācijām nav jābūt vienpusīgam — mēs prioritizējam klienta vēlmes un vajadzības, attiecīgi pielāgojamies, lai klients sasniegtu labākos rezultātus.
+                    </p>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      Risinājumi tiek integrēti esošajā sistēmu vidē un paredzēti stabilai, ilgtermiņa lietošanai.
+                    </p>
+                  </div>
+                  
+                  {/* Key benefits */}
+                  <div className="flex flex-wrap gap-3 mb-10">
+                    {[
+                      "Būvēts jums",
+                      "Integrēts ar esošo",
+                      "Ilgtermiņa atbalsts"
+                    ].map((benefit, i) => (
+                      <motion.div
+                        key={benefit}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5 + i * 0.1 }}
+                        className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/20 shadow-sm"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium text-foreground">{benefit}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* CTA */}
+                  <Link to="/bezmaksas-konsultacija">
+                    <Button variant="hero" size="lg" className="text-base md:text-lg px-8 py-6 shadow-xl">
+                      Apspriest savu risinājumu
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: CTA ========== */}
       <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
