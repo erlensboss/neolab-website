@@ -44,12 +44,6 @@ const geoFeatures = [
   "Strukturēti dati lokālajam biznesam",
 ];
 
-const metrics = [
-  { metric: "Organiskais trafiks", icon: TrendingUp, description: "Apmeklētāju plūsma no meklētājiem" },
-  { metric: "Keyword pozīcijas", icon: Search, description: "Ranki mērķa atslēgvārdiem" },
-  { metric: "Konversijas no SEO", icon: Target, description: "Leads un pārdošanas" },
-  { metric: "Domēna autoritāte", icon: BarChart3, description: "Vietnes uzticamība" },
-];
 
 export default function SeoGeo() {
   return (
@@ -1132,53 +1126,126 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: Metrics — LARGER CARD BLOCKS ========== */}
-      <section className="section-warm section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <SectionHeading
-            chip="Analītika"
-            title="Ko mēs sekojam"
-            description="Ne tukši skaitļi. Metrikas, kas tiešām ietekmē jūsu biznesu."
-            className="mb-20 text-center mx-auto"
-            align="center"
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {metrics.map((item, index) => (
-              <ScrollReveal key={item.metric} delay={index * 0.1}>
-                <div className="card-neo text-center h-full">
-                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <item.icon className="w-10 h-10 text-primary" />
+      {/* ========== SECTION 7: FAQ ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Simple clean background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="chip mb-4 inline-block text-sm">FAQ</span>
+              <h2 className="text-foreground">
+                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* FAQ Grid */}
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                question: "Vai GEO aizvieto SEO?",
+                answer: "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
+              },
+              {
+                question: "Cik ilgā laikā SEO sāk dot rezultātus?",
+                answer: "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
+              },
+              {
+                question: "Vai SEO un GEO ir piemērots mazākiem uzņēmumiem?",
+                answer: "Jā, ja pieeja ir pielāgota uzņēmuma apjomam, mērķiem un resursiem.",
+              },
+              {
+                question: "Vai SEO var apvienot ar Google Ads?",
+                answer: "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
+              },
+              {
+                question: "Ar ko sākas sadarbība ar NEOLab?",
+                answer: "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
+              },
+            ].map((faq, index) => (
+              <ScrollReveal key={index} delay={index * 0.05}>
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="group"
+                >
+                  <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      {/* Question indicator */}
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                        <span className="text-primary font-bold text-sm">?</span>
+                      </div>
+                      
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                          {faq.question}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="font-semibold text-xl mb-3 text-foreground">{item.metric}</h4>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
+                </motion.div>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 6: CTA ========== */}
-      <section className="bg-gradient-hero section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+      {/* ========== SECTION 8: Final CTA ========== */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Dynamic background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
+        
+        {/* Subtle pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        
+        {/* Floating accents */}
+        <motion.div
+          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-8 text-foreground">
-                Gatavi uzlabot <span className="text-gradient-orange">organisko redzamību</span>?
+              <h2 className="text-foreground mb-6">
+                Sper soļus <span className="text-gradient-orange">jaunajā digitālajā laikmetā</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-xl text-muted-foreground mb-10">
-                Bezmaksas audits parādīs, kur jūsu vietne zaudē pozīcijas un ko darīt tālāk.
+              <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+                Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas reālas izaugsmes iespējas.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Pieprasīt SEO auditu
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
+                  <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
+                    Uzzini kā attīstīties
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </motion.div>
               </Link>
             </ScrollReveal>
           </div>
