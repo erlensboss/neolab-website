@@ -606,37 +606,124 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: Philosophy ========== */}
-      <section className="section-offwhite grid-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <ScrollReveal>
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-primary/10 mb-10">
-                <Brain className="w-12 h-12 text-primary" />
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="mb-8 text-foreground">
-                Mēs būvējam <span className="text-gradient-orange">mašīnas</span>, nevis skriptus
+      {/* ========== SECTION 4: AI Automation Offerings ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background-warm/30 to-background" />
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px'
+          }}
+        />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12 md:mb-16">
+              <span className="chip mb-6 inline-block text-sm">
+                <Workflow className="w-4 h-4 inline mr-2" />
+                Piedāvājumi
+              </span>
+              <h2 className="text-foreground mb-4">
+                NEOLab AI automatizācijas <span className="text-gradient-orange">piedāvājumi</span>
               </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto">
-                Katrs automatizācijas projekts ir unikāls. Mēs sākam ar jūsu procesu izpratni, 
-                ne ar gatavu risinājumu. Rezultāts — sistēma, kas aug līdzi jūsu biznesam.
-              </p>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap justify-center gap-4">
-                {["Zapier", "Make", "n8n", "Custom API", "OpenAI"].map((tool) => (
-                  <span key={tool} className="px-5 py-3 bg-muted rounded-xl text-base font-medium text-foreground">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>
+          
+          {/* Products Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                icon: MessageSquare,
+                title: "LinkedIn Content System",
+                description: "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu. Samazina laiku satura plānošanai un palīdz uzturēt konsekventu komunikāciju.",
+                link: "/ai-automatizacija/linkedin-content-system",
+                accent: "from-primary to-orange-400"
+              },
+              {
+                icon: Users,
+                title: "Lead Capture Agent",
+                description: "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus. Palīdz nepazaudēt pieprasījumus un samazināt manuālu iesaisti.",
+                link: "/ai-automatizacija/lead-capture-agent",
+                accent: "from-amber-400 to-orange-500"
+              },
+              {
+                icon: Zap,
+                title: "Speed-to-Lead System",
+                description: "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus. Palīdz būt pirmajiem, kas atbild.",
+                link: "/ai-automatizacija/speed-to-lead",
+                accent: "from-orange-500 to-red-400"
+              },
+              {
+                icon: Layers,
+                title: "Client Onboarding System",
+                description: "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā. Samazina haosu sadarbības sākumā.",
+                link: "/ai-automatizacija/client-onboarding",
+                accent: "from-primary to-amber-500"
+              },
+              {
+                icon: MessageSquare,
+                title: "Customer Support Chatbot",
+                description: "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
+                link: "/ai-automatizacija/support-chatbot",
+                accent: "from-amber-500 to-primary"
+              }
+            ].map((product, index) => (
+              <ScrollReveal key={product.title} delay={0.1 + index * 0.1}>
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group h-full"
+                >
+                  <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-border shadow-neo h-full flex flex-col hover:shadow-neo-lg hover:border-primary/20 transition-all duration-300">
+                    {/* Icon */}
+                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${product.accent} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
+                      <product.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
+                      {product.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
+                      {product.description}
+                    </p>
+                    
+                    {/* CTA */}
+                    <Link 
+                      to={product.link}
+                      className="inline-flex items-center gap-2 text-primary font-medium text-sm md:text-base group-hover:gap-3 transition-all duration-300"
+                    >
+                      Uzzināt vairāk
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            ))}
           </div>
+          
+          {/* Bottom note */}
+          <ScrollReveal delay={0.6}>
+            <div className="mt-12 md:mt-16 text-center">
+              <p className="text-muted-foreground mb-6">
+                Nepieciešams pielāgots risinājums? Mēs varam izveidot arī individuālu sistēmu.
+              </p>
+              <Link to="/bezmaksas-konsultacija">
+                <Button variant="outline" size="lg" className="border-primary/30 hover:border-primary hover:bg-primary/5">
+                  Apspriest individuālu risinājumu
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
