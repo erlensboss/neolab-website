@@ -1193,26 +1193,56 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 8: CTA ========== */}
-      <section className="bg-gradient-hero section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+      {/* ========== SECTION 8: Final CTA ========== */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Dynamic background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
+        
+        {/* Subtle pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        
+        {/* Floating accents */}
+        <motion.div
+          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-8 text-foreground">
-                Gatavi <span className="text-gradient-orange">automatizēt</span>?
+              <h2 className="text-foreground mb-6">
+                Sāc ar skaidrību, <span className="text-gradient-orange">nevis rīkiem</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-xl text-muted-foreground mb-10">
-                Konsultācijā identificēsim jūsu lielākās automatizācijas iespējas.
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
+                AI automatizācija sākas ar izpratni par to, kur uzņēmumā tā dod reālu ieguvumu.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Sākt automatizācijas ceļu
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
+                  <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
+                    Uzzini kā attīstīties
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </motion.div>
               </Link>
             </ScrollReveal>
           </div>
