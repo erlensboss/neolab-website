@@ -920,167 +920,214 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 6: GEO Optimization — CENTERED & ALIGNED ========== */}
-      <section className="section-offwhite grid-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* GEO Map Visual — CENTERED & LARGER */}
-            <ScrollReveal>
-              <div className="relative">
-                <div className="aspect-square w-full max-w-lg mx-auto bg-card rounded-2xl p-8 relative overflow-hidden border border-border shadow-card">
-                  {/* Grid background */}
-                  <div 
-                    className="absolute inset-0 opacity-[0.08]"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
-                        linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
-                      `,
-                      backgroundSize: "30px 30px",
-                    }}
-                  />
-                  
-                  {/* SVG centered visualization */}
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300">
-                    {/* Radius circles - perfectly centered */}
-                    <motion.circle
-                      cx="150" cy="150" r="40"
-                      fill="hsl(21 90% 48% / 0.1)"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="2"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                    />
-                    <motion.circle
-                      cx="150" cy="150" r="75"
-                      fill="none"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="1.5"
-                      strokeDasharray="6 4"
-                      opacity="0.4"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    />
-                    <motion.circle
-                      cx="150" cy="150" r="110"
-                      fill="none"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="1"
-                      strokeDasharray="4 6"
-                      opacity="0.25"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                    />
-                    
-                    {/* Connection lines from center to locations */}
-                    {[
-                      { x: 60, y: 60 },
-                      { x: 240, y: 70 },
-                      { x: 70, y: 220 },
-                      { x: 230, y: 210 },
-                    ].map((loc, i) => (
-                      <motion.line
-                        key={i}
-                        x1="150" y1="150" x2={loc.x} y2={loc.y}
-                        stroke="hsl(21 90% 48%)"
-                        strokeWidth="1.5"
-                        strokeDasharray="4 3"
-                        opacity="0.35"
-                        initial={{ pathLength: 0 }}
-                        whileInView={{ pathLength: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.7 + i * 0.1 }}
-                      />
-                    ))}
-                  </svg>
-                  
-                  {/* Central main location pin */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, type: "spring" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  >
-                    <div className="relative">
-                      <div className="w-18 h-18 md:w-20 md:h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                        <MapPin className="w-10 h-10 text-primary-foreground" />
-                      </div>
-                      <motion.div
-                        animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute inset-0 rounded-full bg-primary/30"
-                      />
-                    </div>
-                  </motion.div>
-                  
-                  {/* Secondary location nodes - symmetrically positioned */}
-                  {[
-                    { x: "18%", y: "18%" },
-                    { x: "78%", y: "20%" },
-                    { x: "20%", y: "72%" },
-                    { x: "75%", y: "68%" },
-                  ].map((loc, i) => (
+      {/* ========== SECTION 6: Collaboration Roadmap — VERTICAL FLOW ========== */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Premium background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-orange-50/30" />
+        
+        {/* Subtle dot pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "32px 32px",
+          }}
+        />
+        
+        {/* Side accent lines */}
+        <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
+        <div className="absolute right-0 top-1/3 bottom-1/3 w-1 bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-16 md:mb-20">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 mb-6"
+              >
+                <div className="w-8 h-[2px] bg-gradient-to-r from-transparent to-primary" />
+                <span className="text-sm font-semibold text-primary uppercase tracking-widest">Process</span>
+                <div className="w-8 h-[2px] bg-gradient-to-l from-transparent to-primary" />
+              </motion.div>
+              <h2 className="text-foreground max-w-3xl mx-auto">
+                Kā notiek <span className="text-gradient-orange">sadarbība</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* Vertical Roadmap */}
+          <div className="max-w-4xl mx-auto relative">
+            {/* Central vertical line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
+              <motion.div 
+                className="w-full h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                style={{ transformOrigin: "top" }}
+              />
+            </div>
+            
+            {/* Roadmap steps */}
+            {[
+              {
+                number: "01",
+                icon: Search,
+                title: "Sākotnējais audits un izvērtējums",
+                description: "Sadarbība sākas ar mājaslapas, esošās redzamības un konkurentu analīzi, lai noteiktu pašreizējo situāciju un galvenās iespējas.",
+                gradient: "from-primary to-orange-500",
+                delay: 0.1,
+              },
+              {
+                number: "02",
+                icon: Target,
+                title: "Prioritātes un stratēģija",
+                description: "Tiek noteiktas prioritātes un izstrādāta individuāla SEO/GEO stratēģija, kas atbilst uzņēmuma mērķiem un resursiem.",
+                gradient: "from-orange-500 to-amber-500",
+                delay: 0.2,
+              },
+              {
+                number: "03",
+                icon: Settings,
+                title: "Pakāpeniska ieviešana",
+                description: "Optimizācijas darbi tiek ieviesti pakāpeniski — tehniskie labojumi, satura uzlabojumi un strukturālās izmaiņas.",
+                gradient: "from-amber-500 to-yellow-500",
+                delay: 0.3,
+              },
+              {
+                number: "04",
+                icon: BarChart3,
+                title: "Uzraudzība un analīze",
+                description: "Rezultāti tiek nepārtraukti uzraudzīti un analizēti, izmantojot profesionālus rīkus un skaidrus atskaites.",
+                gradient: "from-yellow-500 to-amber-400",
+                delay: 0.4,
+              },
+              {
+                number: "05",
+                icon: TrendingUp,
+                title: "Nepārtraukta uzlabošana",
+                description: "Notiek nepārtraukta uzlabošana, balstoties datos un rezultātos. Stratēģija tiek pielāgota tirgus izmaiņām.",
+                gradient: "from-amber-400 to-primary",
+                delay: 0.5,
+              },
+            ].map((step, index) => (
+              <ScrollReveal key={step.number} delay={step.delay}>
+                <div className={`relative flex items-start gap-6 md:gap-12 mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                  {/* Node point on the line */}
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
-                      key={i}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
-                      style={{ left: loc.x, top: loc.y }}
-                      className="absolute"
+                      transition={{ delay: step.delay + 0.2, type: "spring", stiffness: 300 }}
+                      className="relative"
                     >
-                      <div className="w-10 h-10 rounded-full bg-card border-2 border-primary/40 flex items-center justify-center shadow-neo">
-                        <div className="w-3 h-3 rounded-full bg-primary" />
+                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
+                        <step.icon className="w-7 h-7 text-white" />
+                      </div>
+                      {/* Pulse ring */}
+                      <motion.div
+                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.gradient} opacity-30`}
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+                        transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
+                      />
+                    </motion.div>
+                  </div>
+                  
+                  {/* Content card - alternating sides on desktop */}
+                  <div className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                      className="group relative"
+                    >
+                      {/* Glow effect */}
+                      <div className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`} />
+                      
+                      <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                        {/* Number badge */}
+                        <div className="flex items-start justify-between mb-4">
+                          <span className={`text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}>
+                            {step.number}
+                          </span>
+                          {/* Arrow indicator pointing to center */}
+                          <div className={`hidden md:block w-4 h-4 ${index % 2 === 0 ? 'rotate-0' : 'rotate-180'}`}>
+                            <svg className="w-full h-full text-primary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                        
+                        {/* Progress indicator */}
+                        <div className="mt-4 pt-3 border-t border-gray-100">
+                          <div className="flex items-center gap-2">
+                            <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
+                              <motion.div 
+                                className={`h-full bg-gradient-to-r ${step.gradient}`}
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "100%" }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: step.delay + 0.3 }}
+                              />
+                            </div>
+                            <CheckCircle2 className="w-4 h-4 text-green-500 opacity-60" />
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
-                  ))}
+                  </div>
                   
-                  {/* Radius label */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1 }}
-                    className="absolute bottom-6 right-6 bg-card/90 backdrop-blur-sm px-4 py-3 rounded-xl border border-border"
-                  >
-                    <span className="text-sm font-medium text-foreground">5 km rādiuss</span>
-                  </motion.div>
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden md:block md:w-[calc(50%-4rem)]" />
                 </div>
+              </ScrollReveal>
+            ))}
+            
+            {/* End node - Success indicator */}
+            <ScrollReveal delay={0.6}>
+              <div className="relative flex justify-center mt-8">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7, type: "spring" }}
+                  className="relative z-10"
+                >
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
+                    <CheckCircle2 className="w-10 h-10 text-white" />
+                  </div>
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-green-400 opacity-30"
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.div>
               </div>
             </ScrollReveal>
-
-            {/* GEO content */}
-            <div className="flex flex-col justify-center">
-              <ScrollReveal>
-                <span className="chip mb-6 inline-block text-sm">
-                  <Globe className="w-4 h-4 inline mr-1" />
-                  GEO Optimizācija
-                </span>
-                <h2 className="mb-8 text-foreground">Esiet atrasti tur, kur tas svarīgi</h2>
-                <p className="text-muted-foreground text-lg mb-10">
-                  Lokālā meklēšana ir īpaša disciplīna. Mēs palīdzam jums dominēt 
-                  savā ģeogrāfiskajā zonā — no Google Maps līdz lokāliem rezultātiem.
-                </p>
-              </ScrollReveal>
-              
-              <ScrollReveal delay={0.2}>
-                <div className="grid grid-cols-2 gap-4">
-                  {geoFeatures.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+            
+            {/* Final success message */}
+            <ScrollReveal delay={0.7}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mt-8"
+              >
+                <p className="text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
+                <p className="text-muted-foreground">Stabila un pieaugoša redzamība</p>
+              </motion.div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
