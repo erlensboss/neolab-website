@@ -317,59 +317,188 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 2: Visual Workflow Builder ========== */}
-      <section className="section-offwhite bg-atmosphere">
-        <div className="container-neo section-padding">
-          <SectionHeading
-            chip="Sistēmas būvēšana"
-            title="No manuāla līdz automatizētam"
-            description="Katrs modulis ir kā LEGO klucis — savienojams ar citiem, veidojot pilnu sistēmu."
-            className="mb-20"
-          />
-
-          <div className="relative max-w-6xl mx-auto">
-            {/* Input trigger */}
-            <ScrollReveal className="mb-10 text-center">
-              <div className="inline-flex items-center gap-4 bg-primary text-primary-foreground px-8 py-4 rounded-2xl shadow-orange">
-                <Zap className="w-6 h-6" />
-                <span className="font-semibold text-lg">Trigeris</span>
-                <span className="text-primary-foreground/70">Jauns lead, forma, e-pasts...</span>
-              </div>
-            </ScrollReveal>
-
-            {/* Workflow steps */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-              {automationModules.map((module, index) => (
-                <ScrollReveal key={module.title} delay={0.2 + index * 0.15}>
-                  <div className="card-neo h-full">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                        <module.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <span className={`
-                        text-sm px-3 py-1.5 rounded-full
-                        ${module.complexity === "Vienkārši" ? "bg-green-100 text-green-700" : ""}
-                        ${module.complexity === "Vidēji" ? "bg-yellow-100 text-yellow-700" : ""}
-                        ${module.complexity === "Kompleksi" ? "bg-primary/10 text-primary" : ""}
-                      `}>
-                        {module.complexity}
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-lg mb-3 text-foreground">{module.title}</h4>
-                    <p className="text-muted-foreground">{module.description}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
+      {/* ========== SECTION 2: What is AI Automation ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Dynamic background with gradient mesh */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50/50" />
+        <div 
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 30%, hsl(21 90% 48%) 0px, transparent 50%),
+              radial-gradient(circle at 80% 70%, hsl(32 90% 55%) 0px, transparent 50%)
+            `,
+          }}
+        />
+        
+        {/* Animated grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-10 md:mb-14">
+              <span className="chip mb-6 inline-block text-sm">Pamati</span>
+              <h2 className="text-foreground max-w-3xl mx-auto">
+                Kas ir <span className="text-gradient-orange">AI automatizācija</span>
+              </h2>
             </div>
-
-            {/* Output */}
-            <ScrollReveal delay={0.8} className="mt-10 text-center">
-              <div className="inline-flex items-center gap-4 glass-warm px-8 py-4 rounded-2xl">
-                <Settings className="w-6 h-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
-                <span className="font-medium text-lg text-foreground">Automatizēts rezultāts</span>
-              </div>
+          </ScrollReveal>
+          
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-stretch">
+            {/* Main Definition Card */}
+            <ScrollReveal delay={0.1}>
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative group h-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  {/* Header with icon */}
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <motion.div 
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
+                      whileHover={{ rotate: 5 }}
+                    >
+                      <Brain className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">Definīcija</h3>
+                      <span className="text-xs md:text-sm text-primary font-medium">Mākslīgā intelekta risinājumi</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
+                    AI automatizācija ir uzņēmuma procesu uzlabošana, izmantojot mākslīgā intelekta tehnoloģijas, lai noteiktas darbības notiktu <span className="text-foreground font-medium">ātrāk, precīzāk</span> un ar <span className="text-foreground font-medium">mazāku cilvēka iesaisti</span>.
+                  </p>
+                  
+                  {/* Visual element - process flow mockup */}
+                  <div className="bg-muted/50 rounded-xl p-4 border border-border/50">
+                    <div className="flex items-center justify-between gap-2 md:gap-4">
+                      {[
+                        { icon: Database, label: "Dati" },
+                        { icon: Workflow, label: "Process" },
+                        { icon: Brain, label: "AI" },
+                        { icon: Zap, label: "Rezultāts" }
+                      ].map((item, i) => (
+                        <div key={item.label} className="flex flex-col items-center gap-1 flex-1">
+                          <motion.div 
+                            className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 + i * 0.1 }}
+                          >
+                            <item.icon className={`w-5 h-5 md:w-6 md:h-6 ${i === 3 ? 'text-white' : 'text-primary'}`} />
+                          </motion.div>
+                          <span className="text-xs text-muted-foreground hidden sm:block">{item.label}</span>
+                          {i < 3 && (
+                            <motion.div 
+                              className="absolute hidden md:block"
+                              style={{ left: `calc(${(i + 1) * 25}% - 8px)`, top: '50%' }}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    {/* Connection lines */}
+                    <div className="flex items-center justify-center gap-0 mt-2 px-4">
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-primary/30 to-primary/50 rounded" />
+                      <ArrowRight className="w-4 h-4 text-primary/50 mx-1" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-primary/50 to-primary/70 rounded" />
+                      <ArrowRight className="w-4 h-4 text-primary/70 mx-1" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-primary/70 to-primary rounded" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </ScrollReveal>
+            
+            {/* Use Cases & Key Point Card */}
+            <ScrollReveal delay={0.2}>
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative group h-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-400/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-amber-300/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  {/* Header with icon */}
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <motion.div 
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg"
+                      whileHover={{ rotate: -5 }}
+                    >
+                      <Layers className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">Pielietojumi</h3>
+                      <span className="text-xs md:text-sm text-amber-600 font-medium">Praktiski scenāriji</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
+                    AI automatizācija var ietvert datu apstrādi, informācijas plūsmu starp sistēmām, klientu komunikāciju, satura veidošanu vai iekšējo procesu vadību.
+                  </p>
+                  
+                  {/* Use case icons grid */}
+                  <div className="grid grid-cols-2 gap-3 mb-6 flex-1">
+                    {[
+                      { icon: Mail, label: "E-pasti" },
+                      { icon: MessageSquare, label: "Komunikācija" },
+                      { icon: FileSpreadsheet, label: "Datu apstrāde" },
+                      { icon: RefreshCcw, label: "Procesu vadība" }
+                    ].map((item, i) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.6 + i * 0.1 }}
+                        className="flex items-center gap-2 bg-amber-50/80 rounded-lg p-3 border border-amber-100"
+                      >
+                        <item.icon className="w-4 h-4 md:w-5 md:h-5 text-amber-600" />
+                        <span className="text-sm text-foreground font-medium">{item.label}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* Key insight box */}
+                  <div className="bg-gradient-to-r from-primary/5 to-amber-50 rounded-xl p-4 border border-primary/10">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <p className="text-sm md:text-base text-foreground leading-relaxed">
+                        <span className="font-semibold">Svarīgākais:</span> AI tiek pielietots tur, kur tas reāli atvieglo darbu un dod praktisku ieguvumu.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </ScrollReveal>
           </div>
+          
+          {/* Bottom note */}
+          <ScrollReveal delay={0.4}>
+            <div className="mt-8 md:mt-12 text-center">
+              <div className="inline-flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-border/50">
+                <Settings className="w-5 h-5 text-primary" />
+                <span className="text-muted-foreground text-sm md:text-base">
+                  AI automatizācija nav viens konkrēts rīks — tā ir <span className="text-foreground font-medium">pieeja</span>, kā tehnoloģijas tiek izmantotas uzņēmuma ikdienas darbā.
+                </span>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
