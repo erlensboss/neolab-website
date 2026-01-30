@@ -1194,40 +1194,40 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 8: Final CTA ========== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-14 md:py-20 lg:py-28 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
         
-        {/* Subtle pattern */}
+        {/* Subtle pattern - smaller on mobile */}
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
+            backgroundSize: "30px 30px",
           }}
         />
         
-        {/* Floating accents */}
+        {/* Floating accents - smaller and repositioned for mobile */}
         <motion.div
-          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
+          className="absolute top-10 md:top-20 left-[5%] md:left-[10%] w-32 md:w-48 h-32 md:h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl md:blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
+          className="absolute bottom-10 md:bottom-20 right-[5%] md:right-[15%] w-40 md:w-56 h-40 md:h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-2xl md:blur-3xl"
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-5 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-foreground mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight">
                 Sāc ar skaidrību, <span className="text-gradient-orange">nevis rīkiem</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 lg:mb-10 leading-relaxed px-2 md:px-0">
                 AI automatizācija sākas ar izpratni par to, kur uzņēmumā tā dod reālu ieguvumu.
               </p>
             </ScrollReveal>
@@ -1238,9 +1238,9 @@ export default function AiAutomatizacija() {
                   whileTap={{ scale: 0.98 }}
                   className="inline-block"
                 >
-                  <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <Button variant="hero" size="lg" className="md:text-lg md:px-8 md:py-6 shadow-xl hover:shadow-2xl transition-all duration-300">
                     Uzzini kā attīstīties
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
                 </motion.div>
               </Link>
