@@ -91,11 +91,11 @@ export default function AiAutomatizacija() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: CENTERED Hero with AI System Visual ========== */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[75vh] sm:min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden py-8 sm:py-0">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background-warm/30 to-background" />
         
-        {/* Grid pattern */}
+        {/* Grid pattern - smaller on mobile */}
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -103,13 +103,13 @@ export default function AiAutomatizacija() {
               linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
               linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px'
+            backgroundSize: '40px 40px'
           }}
         />
         
-        {/* Floating orbs */}
+        {/* Floating orbs - smaller on mobile */}
         <motion.div
-          className="absolute top-20 right-[15%] w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/10 blur-3xl"
+          className="absolute top-10 sm:top-20 right-[5%] sm:right-[15%] w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 rounded-full bg-primary/10 blur-2xl sm:blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3]
@@ -117,7 +117,7 @@ export default function AiAutomatizacija() {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 left-[10%] w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/15 blur-3xl"
+          className="absolute bottom-10 sm:bottom-20 left-[5%] sm:left-[10%] w-40 sm:w-64 md:w-80 h-40 sm:h-64 md:h-80 rounded-full bg-primary/15 blur-2xl sm:blur-3xl"
           animate={{ 
             scale: [1.1, 1, 1.1],
             opacity: [0.4, 0.2, 0.4]
@@ -125,19 +125,19 @@ export default function AiAutomatizacija() {
           transition={{ duration: 6, repeat: Infinity }}
         />
         
-        <div className="container-neo section-padding relative z-10">
+        <div className="container-neo section-padding relative z-10 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             {/* Centered Hero Content */}
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
               <ScrollReveal>
-                <span className="chip-outline mb-6 md:mb-8 inline-block text-sm">
-                  <Brain className="w-4 h-4 inline mr-2" />
+                <span className="chip-outline mb-4 sm:mb-6 md:mb-8 inline-block text-xs sm:text-sm">
+                  <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
                   Mākslīgais intelekts
                 </span>
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 text-foreground leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 text-foreground leading-tight px-2 sm:px-0">
                   AI automatizācijas –{" "}
                   <span className="text-gradient-orange">jaunās paaudzes</span>
                   <br className="hidden sm:block" />
@@ -146,14 +146,14 @@ export default function AiAutomatizacija() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-8 md:mb-12 px-4">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
                   Pārbaudīti mākslīgā intelekta risinājumi, kas palīdz uzņēmumiem sakārtot procesus, samazināt manuālo darbu un strādāt efektīvāk
                 </p>
               </ScrollReveal>
               
               <ScrollReveal delay={0.3}>
                 <Link to="/bezmaksas-konsultacija">
-                  <Button variant="hero" size="lg" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6">
+                  <Button variant="hero" size="default" className="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6">
                     Sākt ar bezmaksas konsultāciju
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
@@ -164,26 +164,26 @@ export default function AiAutomatizacija() {
             {/* AI System Visual - Neural Network Dashboard */}
             <ScrollReveal delay={0.4}>
               <div className="relative max-w-5xl mx-auto">
-                <div className="bg-card/90 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 border border-border shadow-neo-lg">
+                <div className="bg-card/90 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-12 border border-border shadow-neo-lg">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-6 md:mb-8 pb-4 md:pb-6 border-b border-border/50">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange">
-                        <Brain className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8 pb-3 sm:pb-4 md:pb-6 border-b border-border/50">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <Brain className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-sm md:text-base">AI Sistēma</h3>
-                        <p className="text-xs md:text-sm text-muted-foreground">Automatizācijas centrs</p>
+                        <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">AI Sistēma</h3>
+                        <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Automatizācijas centrs</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-primary animate-pulse" />
-                      <span className="text-xs md:text-sm text-muted-foreground hidden sm:inline">Aktīvs</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground hidden xs:inline">Aktīvs</span>
                     </div>
                   </div>
                   
                   {/* Neural Network Visualization */}
-                  <div className="relative h-48 md:h-64 mb-6 md:mb-8">
+                  <div className="relative h-36 sm:h-48 md:h-64 mb-4 sm:mb-6 md:mb-8">
                     {/* Connection lines SVG */}
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 200">
                       {/* Layer 1 to Layer 2 connections */}
@@ -306,7 +306,7 @@ export default function AiAutomatizacija() {
                   </div>
                   
                   {/* Metrics Row */}
-                  <div className="grid grid-cols-3 gap-3 md:gap-6">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
                     {[
                       { label: "Procesu automatizēti", value: "85%", icon: Workflow },
                       { label: "Laika ietaupījums", value: "10h+", icon: Clock },
@@ -317,11 +317,11 @@ export default function AiAutomatizacija() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4 + i * 0.1 }}
-                        className="bg-muted/50 rounded-xl p-3 md:p-4 text-center"
+                        className="bg-muted/50 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center"
                       >
-                        <metric.icon className="w-4 h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2" />
-                        <p className="text-lg md:text-2xl font-bold text-foreground">{metric.value}</p>
-                        <p className="text-xs text-muted-foreground hidden sm:block">{metric.label}</p>
+                        <metric.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2" />
+                        <p className="text-sm sm:text-lg md:text-2xl font-bold text-foreground">{metric.value}</p>
+                        <p className="text-[9px] sm:text-xs text-muted-foreground hidden xs:block">{metric.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -518,23 +518,23 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 3: Ready AI Solutions ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Subtle warm background */}
         <div className="absolute inset-0 bg-gradient-to-b from-background-warm/50 via-background to-background" />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Header */}
             <ScrollReveal>
-              <div className="text-center mb-10 md:mb-14">
-                <span className="chip mb-6 inline-block text-sm">
-                  <CheckCircle2 className="w-4 h-4 inline mr-2" />
+              <div className="text-center mb-8 sm:mb-10 md:mb-14">
+                <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
                   Gatavi risinājumi
                 </span>
-                <h2 className="text-foreground mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
                   Pārbaudīti un gatavi <span className="text-gradient-orange">AI risinājumi</span>
                 </h2>
-                <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
+                <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-2">
                   NEOLab piedāvā vairākus pārbaudītus AI automatizācijas risinājumus, kuri jau ir izmantoti reālās situācijās un kurus iespējams ieviest salīdzinoši ātri.
                 </p>
               </div>
@@ -542,15 +542,15 @@ export default function AiAutomatizacija() {
             
             {/* Main content card */}
             <ScrollReveal delay={0.2}>
-              <div className="bg-card/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border shadow-neo">
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="bg-card/80 backdrop-blur-sm rounded-xl sm:rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-10 border border-border shadow-neo">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
                   {/* Left side - text */}
                   <div>
-                    <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-4 sm:mb-6">
                       Šie risinājumi ir piemēroti uzņēmumiem, kuri:
                     </h3>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {[
                         { icon: Zap, text: "Vēlas ātru rezultātu" },
                         { icon: Settings, text: "Meklē konkrētu problēmu risinājumu" },
@@ -561,19 +561,19 @@ export default function AiAutomatizacija() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.3 + i * 0.1 }}
-                          className="flex items-center gap-4"
+                          className="flex items-center gap-3 sm:gap-4"
                         >
-                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                            <item.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <item.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />
                           </div>
-                          <span className="text-foreground text-base md:text-lg font-medium">{item.text}</span>
+                          <span className="text-foreground text-sm sm:text-base md:text-lg font-medium">{item.text}</span>
                         </motion.div>
                       ))}
                     </div>
                     
-                    <div className="mt-8">
+                    <div className="mt-6 sm:mt-8">
                       <Link to="/bezmaksas-konsultacija">
-                        <Button variant="hero" size="lg">
+                        <Button variant="hero" size="default" className="sm:text-base">
                           Uzzināt vairāk
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -582,10 +582,10 @@ export default function AiAutomatizacija() {
                   </div>
                   
                   {/* Right side - visual indicator */}
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-primary/5 to-amber-50/50 rounded-2xl p-6 md:p-8 border border-primary/10">
+                  <div className="relative mt-6 md:mt-0">
+                    <div className="bg-gradient-to-br from-primary/5 to-amber-50/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-primary/10">
                       {/* Status indicators */}
-                      <div className="space-y-4">
+                      <div className="space-y-3 sm:space-y-4">
                         {[
                           { label: "Testēts praksē", status: "Apstiprināts" },
                           { label: "Ātra ieviešana", status: "1-2 nedēļas" },
@@ -596,21 +596,21 @@ export default function AiAutomatizacija() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 + i * 0.1 }}
-                            className="flex items-center justify-between bg-white/80 rounded-xl p-4 border border-border/50"
+                            className="flex items-center justify-between bg-white/80 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border/50"
                           >
-                            <span className="text-muted-foreground text-sm md:text-base">{item.label}</span>
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                              <span className="text-foreground font-medium text-sm md:text-base">{item.status}</span>
+                            <span className="text-muted-foreground text-xs sm:text-sm md:text-base">{item.label}</span>
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse" />
+                              <span className="text-foreground font-medium text-xs sm:text-sm md:text-base">{item.status}</span>
                             </div>
                           </motion.div>
                         ))}
                       </div>
                       
                       {/* Bottom badge */}
-                      <div className="mt-6 flex items-center justify-center gap-2 text-primary">
-                        <Brain className="w-5 h-5" />
-                        <span className="font-medium text-sm">NEOLab pārbaudīti risinājumi</span>
+                      <div className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-primary">
+                        <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="font-medium text-xs sm:text-sm">NEOLab pārbaudīti risinājumi</span>
                       </div>
                     </div>
                   </div>
@@ -622,7 +622,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 4: AI Automation Offerings ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background-warm/30 to-background" />
         <div 
@@ -632,26 +632,26 @@ export default function AiAutomatizacija() {
               linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
               linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
             `,
-            backgroundSize: '80px 80px'
+            backgroundSize: '60px 60px'
           }}
         />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-4 sm:px-6">
           {/* Header */}
           <ScrollReveal>
-            <div className="text-center mb-12 md:mb-16">
-              <span className="chip mb-6 inline-block text-sm">
-                <Workflow className="w-4 h-4 inline mr-2" />
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
+                <Workflow className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
                 Piedāvājumi
               </span>
-              <h2 className="text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
                 NEOLab AI automatizācijas <span className="text-gradient-orange">piedāvājumi</span>
               </h2>
             </div>
           </ScrollReveal>
           
           {/* Products Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 icon: MessageSquare,
@@ -689,35 +689,35 @@ export default function AiAutomatizacija() {
                 accent: "from-amber-500 to-primary"
               }
             ].map((product, index) => (
-              <ScrollReveal key={product.title} delay={0.1 + index * 0.1}>
+              <ScrollReveal key={product.title} delay={0.05 + index * 0.05}>
                 <motion.div
-                  whileHover={{ y: -6 }}
+                  whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="group h-full"
                 >
-                  <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-border shadow-neo h-full flex flex-col hover:shadow-neo-lg hover:border-primary/20 transition-all duration-300">
+                  <div className="relative bg-card/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-border shadow-neo h-full flex flex-col hover:shadow-neo-lg hover:border-primary/20 transition-all duration-300">
                     {/* Icon */}
-                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${product.accent} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
-                      <product.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${product.accent} flex items-center justify-center mb-3 sm:mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300`}>
+                      <product.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-2 sm:mb-3">
                       {product.title}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
+                    <p className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 flex-1">
                       {product.description}
                     </p>
                     
                     {/* CTA */}
                     <Link 
                       to={product.link}
-                      className="inline-flex items-center gap-2 text-primary font-medium text-sm md:text-base group-hover:gap-3 transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-primary font-medium text-xs sm:text-sm md:text-base group-hover:gap-3 transition-all duration-300"
                     >
                       Uzzināt vairāk
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </Link>
                   </div>
                 </motion.div>
@@ -729,25 +729,25 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 5: Personalized Solutions ========== */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-14 sm:py-20 md:py-32 overflow-hidden">
         {/* Premium background with warm gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-orange-50 to-amber-50/80" />
         
-        {/* Animated gradient orbs */}
+        {/* Animated gradient orbs - smaller on mobile */}
         <motion.div
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/20 to-amber-300/20 blur-3xl"
+          className="absolute top-0 left-[10%] sm:left-1/4 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] rounded-full bg-gradient-to-br from-primary/20 to-amber-300/20 blur-2xl sm:blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
-            x: [0, 50, 0],
+            x: [0, 30, 0],
             opacity: [0.4, 0.6, 0.4]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-amber-200/30 to-primary/15 blur-3xl"
+          className="absolute bottom-0 right-[10%] sm:right-1/4 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] rounded-full bg-gradient-to-br from-amber-200/30 to-primary/15 blur-2xl sm:blur-3xl"
           animate={{ 
             scale: [1.1, 1, 1.1],
-            x: [0, -30, 0],
+            x: [0, -20, 0],
             opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -758,54 +758,54 @@ export default function AiAutomatizacija() {
           className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, hsl(21 90% 48%) 1px, transparent 0)`,
-            backgroundSize: "32px 32px"
+            backgroundSize: "24px 24px"
           }}
         />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            {/* Main content grid */}
-            <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+            {/* Main content grid - stack on mobile */}
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-center">
               
               {/* Left: Visual - Custom Solution Builder */}
-              <ScrollReveal delay={0.1}>
+              <ScrollReveal delay={0.1} className="order-2 lg:order-1">
                 <div className="relative">
-                  {/* Glow behind card */}
-                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-amber-300/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                  {/* Glow behind card - smaller on mobile */}
+                  <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-primary/30 via-amber-300/20 to-primary/20 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-60" />
                   
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-primary/30 shadow-2xl"
+                    className="relative bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-10 border border-primary/30 shadow-xl sm:shadow-2xl"
                   >
                     {/* Header with personalization indicator */}
-                    <div className="flex items-center justify-between mb-8 pb-6 border-b border-primary/10">
-                      <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-between mb-5 sm:mb-8 pb-4 sm:pb-6 border-b border-primary/10">
+                      <div className="flex items-center gap-2 sm:gap-4">
                         <motion.div 
-                          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-orange-500 to-amber-400 flex items-center justify-center shadow-lg"
+                          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary via-orange-500 to-amber-400 flex items-center justify-center shadow-lg"
                           animate={{ rotate: [0, 5, -5, 0] }}
                           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         >
-                          <Sparkles className="w-7 h-7 text-white" />
+                          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                         </motion.div>
                         <div>
-                          <h4 className="font-bold text-foreground text-lg">Jūsu Risinājums</h4>
-                          <span className="text-sm text-primary font-medium">Veidots tieši jums</span>
+                          <h4 className="font-bold text-foreground text-sm sm:text-base md:text-lg">Jūsu Risinājums</h4>
+                          <span className="text-xs sm:text-sm text-primary font-medium">Veidots tieši jums</span>
                         </div>
                       </div>
                       <motion.div 
-                        className="flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2"
+                        className="hidden xs:flex items-center gap-1.5 sm:gap-2 bg-primary/10 rounded-full px-2 sm:px-4 py-1 sm:py-2"
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-                        <span className="text-sm font-medium text-primary">Personalizēts</span>
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-xs sm:text-sm font-medium text-primary">Personalizēts</span>
                       </motion.div>
                     </div>
                     
                     {/* Building blocks visualization */}
-                    <div className="space-y-4 mb-8">
+                    <div className="space-y-3 sm:space-y-4 mb-5 sm:mb-8">
                       {[
                         { icon: Target, label: "Jūsu mērķi", value: "Definēti", color: "from-primary to-orange-400" },
                         { icon: Puzzle, label: "Jūsu procesi", value: "Integrēti", color: "from-amber-400 to-orange-500" },
@@ -813,20 +813,20 @@ export default function AiAutomatizacija() {
                       ].map((block, i) => (
                         <motion.div
                           key={block.label}
-                          initial={{ opacity: 0, x: -30 }}
+                          initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.3 + i * 0.15 }}
-                          className="flex items-center gap-4 bg-gradient-to-r from-muted/50 to-transparent rounded-xl p-4 border border-border/50"
+                          className="flex items-center gap-3 sm:gap-4 bg-gradient-to-r from-muted/50 to-transparent rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border/50"
                         >
-                          <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${block.color} flex items-center justify-center shadow-md`}>
-                            <block.icon className="w-5 h-5 text-white" />
+                          <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-gradient-to-br ${block.color} flex items-center justify-center shadow-md flex-shrink-0`}>
+                            <block.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <span className="text-foreground font-medium">{block.label}</span>
+                          <div className="flex-1 min-w-0">
+                            <span className="text-foreground font-medium text-sm sm:text-base">{block.label}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-primary" />
-                            <span className="text-sm text-primary font-medium">{block.value}</span>
+                          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+                            <span className="text-xs sm:text-sm text-primary font-medium">{block.value}</span>
                           </div>
                         </motion.div>
                       ))}
@@ -834,18 +834,18 @@ export default function AiAutomatizacija() {
                     
                     {/* Bottom result indicator */}
                     <motion.div 
-                      className="bg-gradient-to-r from-primary/10 via-amber-50 to-primary/10 rounded-2xl p-5 border border-primary/20"
+                      className="bg-gradient-to-r from-primary/10 via-amber-50 to-primary/10 rounded-lg sm:rounded-2xl p-3 sm:p-5 border border-primary/20"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 }}
                     >
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange">
-                          <Handshake className="w-6 h-6 text-white" />
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange flex-shrink-0">
+                          <Handshake className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-foreground">Ilgtermiņa partnerība</p>
-                          <p className="text-sm text-muted-foreground">Stabils risinājums ar atbalstu</p>
+                          <p className="font-semibold text-foreground text-sm sm:text-base">Ilgtermiņa partnerība</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground">Stabils risinājums ar atbalstu</p>
                         </div>
                       </div>
                     </motion.div>
@@ -854,33 +854,33 @@ export default function AiAutomatizacija() {
               </ScrollReveal>
               
               {/* Right: Content */}
-              <ScrollReveal delay={0.2}>
+              <ScrollReveal delay={0.2} className="order-1 lg:order-2">
                 <div className="lg:pl-4">
-                  <span className="chip mb-6 inline-block text-sm">
-                    <Sparkles className="w-4 h-4 inline mr-2" />
+                  <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
                     Individuāli risinājumi
                   </span>
                   
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
                     Personalizēta <span className="text-gradient-orange">AI risinājumu</span> izstrāde
                   </h2>
                   
-                  <div className="space-y-5 mb-8">
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
                       NEOLab izstrādā AI risinājumus, kas tiek būvēti konkrētam uzņēmumam un tā procesiem.
                     </p>
                     
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       Mēs veidojam pilnīgi jaunus un īpatnējus risinājumus dažādos gadījumos. AI automatizācijām nav jābūt vienpusīgam — mēs prioritizējam klienta vēlmes un vajadzības, attiecīgi pielāgojamies, lai klients sasniegtu labākos rezultātus.
                     </p>
                     
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       Risinājumi tiek integrēti esošajā sistēmu vidē un paredzēti stabilai, ilgtermiņa lietošanai.
                     </p>
                   </div>
                   
                   {/* Key benefits */}
-                  <div className="flex flex-wrap gap-3 mb-10">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-10">
                     {[
                       "Būvēts jums",
                       "Integrēts ar esošo",
@@ -891,19 +891,19 @@ export default function AiAutomatizacija() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + i * 0.1 }}
-                        className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/20 shadow-sm"
+                        className="flex items-center gap-1.5 sm:gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 border border-primary/20 shadow-sm"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium text-foreground">{benefit}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
+                        <span className="text-xs sm:text-sm font-medium text-foreground">{benefit}</span>
                       </motion.div>
                     ))}
                   </div>
                   
                   {/* CTA */}
                   <Link to="/bezmaksas-konsultacija">
-                    <Button variant="hero" size="lg" className="text-base md:text-lg px-8 py-6 shadow-xl">
+                    <Button variant="hero" size="default" className="text-sm sm:text-base md:text-lg sm:px-8 sm:py-6 shadow-xl">
                       Apspriest savu risinājumu
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                   </Link>
                 </div>
@@ -914,7 +914,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 6: How We Work - Roadmap ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-white" />
         
@@ -923,25 +923,25 @@ export default function AiAutomatizacija() {
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
+            backgroundSize: "40px 40px",
           }}
         />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-4 sm:px-6">
           {/* Header */}
           <ScrollReveal>
-            <div className="text-center mb-12 md:mb-16">
-              <span className="chip mb-4 inline-block text-sm">Process</span>
-              <h2 className="text-foreground">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <span className="chip mb-3 sm:mb-4 inline-block text-xs sm:text-sm">Process</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 Kā mēs <span className="text-gradient-orange">strādājam</span>
               </h2>
             </div>
           </ScrollReveal>
           
           {/* Vertical Roadmap */}
-          <div className="max-w-4xl mx-auto relative px-2 md:px-0">
+          <div className="max-w-4xl mx-auto relative px-1 sm:px-2 md:px-0">
             {/* Central vertical line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
+            <div className="absolute left-5 sm:left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
               <motion.div 
                 className="w-full h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400"
                 initial={{ scaleY: 0 }}
@@ -996,9 +996,9 @@ export default function AiAutomatizacija() {
               },
             ].map((step, index) => (
               <ScrollReveal key={step.number} delay={step.delay}>
-                <div className={`relative flex items-start gap-4 md:gap-12 mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div className={`relative flex items-start gap-3 sm:gap-4 md:gap-12 mb-8 sm:mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Node point on the line */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                  <div className="absolute left-5 sm:left-6 md:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
@@ -1006,8 +1006,8 @@ export default function AiAutomatizacija() {
                       transition={{ delay: step.delay + 0.2, type: "spring", stiffness: 300 }}
                       className="relative"
                     >
-                      <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
-                        <step.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
+                        <step.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 text-white" />
                       </div>
                       {/* Pulse ring */}
                       <motion.div
@@ -1019,19 +1019,19 @@ export default function AiAutomatizacija() {
                   </div>
                   
                   {/* Content card - alternating sides on desktop */}
-                  <div className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                  <div className={`ml-20 sm:ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                     <motion.div
                       whileHover={{ y: -4 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       className="group relative"
                     >
                       {/* Glow effect */}
-                      <div className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`} />
+                      <div className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`} />
                       
-                      <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                      <div className="relative bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
                         {/* Number badge */}
-                        <div className="flex items-start justify-between mb-4">
-                          <span className={`text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}>
+                        <div className="flex items-start justify-between mb-3 sm:mb-4">
+                          <span className={`text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}>
                             {step.number}
                           </span>
                           {/* Arrow indicator pointing to center */}
@@ -1042,15 +1042,15 @@ export default function AiAutomatizacija() {
                           </div>
                         </div>
                         
-                        <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors duration-300">
                           {step.title}
                         </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                           {step.description}
                         </p>
                         
                         {/* Progress indicator */}
-                        <div className="mt-4 pt-3 border-t border-gray-100">
+                        <div className="mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-gray-100">
                           <div className="flex items-center gap-2">
                             <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
                               <motion.div 
@@ -1061,7 +1061,7 @@ export default function AiAutomatizacija() {
                                 transition={{ duration: 0.8, delay: step.delay + 0.3 }}
                               />
                             </div>
-                            <CheckCircle2 className="w-4 h-4 text-green-500 opacity-60" />
+                            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 opacity-60" />
                           </div>
                         </div>
                       </div>
@@ -1076,7 +1076,7 @@ export default function AiAutomatizacija() {
             
             {/* End node - Success indicator */}
             <ScrollReveal delay={0.6}>
-              <div className="relative flex justify-center mt-8">
+              <div className="relative flex justify-center mt-6 sm:mt-8">
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -1084,8 +1084,8 @@ export default function AiAutomatizacija() {
                   transition={{ delay: 0.7, type: "spring" }}
                   className="relative z-10"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
-                    <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
+                    <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <motion.div
                     className="absolute inset-0 rounded-full bg-green-400 opacity-30"
@@ -1102,10 +1102,10 @@ export default function AiAutomatizacija() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-center mt-8"
+                className="text-center mt-6 sm:mt-8"
               >
-                <p className="text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
-                <p className="text-muted-foreground">Stabila un efektīva automatizācija</p>
+                <p className="text-base sm:text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
+                <p className="text-sm sm:text-base text-muted-foreground">Stabila un efektīva automatizācija</p>
               </motion.div>
             </ScrollReveal>
           </div>
@@ -1113,16 +1113,16 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 7: FAQ ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
         
-        <div className="container-neo relative z-10">
+        <div className="container-neo relative z-10 px-4 sm:px-6">
           {/* Header */}
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <span className="chip mb-4 inline-block text-sm">FAQ</span>
-              <h2 className="text-foreground">
+            <div className="text-center mb-8 sm:mb-12">
+              <span className="chip mb-3 sm:mb-4 inline-block text-xs sm:text-sm">FAQ</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
               </h2>
             </div>
@@ -1130,7 +1130,7 @@ export default function AiAutomatizacija() {
           
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+            <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
               {[
                 {
                   icon: Cog,
@@ -1163,24 +1163,24 @@ export default function AiAutomatizacija() {
                   gradient: "from-amber-400 to-primary",
                 },
               ].map((faq, index) => (
-                <ScrollReveal key={index} delay={index * 0.05}>
+                <ScrollReveal key={index} delay={index * 0.03}>
                   <AccordionItem 
                     value={`item-${index}`} 
-                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                    className="bg-white rounded-lg sm:rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
                   >
-                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
-                      <div className="flex items-center gap-3 md:gap-4 text-left">
-                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
-                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    <AccordionTrigger className="px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 hover:no-underline group">
+                      <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 text-left">
+                        <div className={`w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                         </div>
-                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
+                        <span className="font-medium text-xs sm:text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
                           {faq.question}
                         </span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
-                      <div className="pl-11 md:pl-14">
-                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                    <AccordionContent className="px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5">
+                      <div className="pl-9 sm:pl-11 md:pl-14">
+                        <p className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
