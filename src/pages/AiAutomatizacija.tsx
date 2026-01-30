@@ -75,116 +75,244 @@ const systemNodes = [
 export default function AiAutomatizacija() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: CENTERED Hero with System Visual ========== */}
-      <section className="bg-gradient-hero min-h-[90vh] flex items-center relative overflow-hidden bg-atmosphere">
+      {/* ========== SECTION 1: CENTERED Hero with AI System Visual ========== */}
+      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background-warm/30 to-background" />
+        
+        {/* Grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+        
+        {/* Floating orbs */}
+        <motion.div
+          className="absolute top-20 right-[15%] w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/10 blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-20 left-[10%] w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/15 blur-3xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [0.4, 0.2, 0.4]
+          }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
+        
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-6xl mx-auto">
-            {/* Centered content */}
-            <div className="text-center mb-16">
+            {/* Centered Hero Content */}
+            <div className="text-center mb-12 md:mb-16">
               <ScrollReveal>
-                <span className="chip-outline mb-8 inline-block text-sm">Problēma</span>
+                <span className="chip-outline mb-6 md:mb-8 inline-block text-sm">
+                  <Brain className="w-4 h-4 inline mr-2" />
+                  Mākslīgais intelekts
+                </span>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.1}>
-                <h1 className="mb-8 text-foreground">
-                  Jūsu komanda tērē laiku <span className="text-gradient-orange">robotu darbam</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 text-foreground leading-tight">
+                  AI automatizācijas –{" "}
+                  <span className="text-gradient-orange">jaunās paaudzes</span>
+                  <br className="hidden sm:block" />
+                  {" "}risinājums uzņēmumiem
                 </h1>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.2}>
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10">
-                  AI automatizācija nav par cilvēku aizstāšanu. Tā ir par to, lai 
-                  cilvēki varētu darīt to, ko roboti nevar — domāt, radīt, risināt problēmas.
+                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-8 md:mb-12 px-4">
+                  Pārbaudīti mākslīgā intelekta risinājumi, kas palīdz uzņēmumiem sakārtot procesus, samazināt manuālo darbu un strādāt efektīvāk
                 </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.3}>
+                <Link to="/bezmaksas-konsultacija">
+                  <Button variant="hero" size="lg" className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6">
+                    Sākt ar bezmaksas konsultāciju
+                    <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
+                  </Button>
+                </Link>
               </ScrollReveal>
             </div>
             
-            {/* System Visual - centered workflow diagram */}
-            <ScrollReveal delay={0.3}>
-              <div className="relative max-w-4xl mx-auto mb-16">
-                <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-10 md:p-12 border border-border shadow-card">
-                  {/* Flow visualization */}
-                  <svg className="w-full h-40" viewBox="0 0 400 80">
-                    {/* Connection lines */}
-                    <motion.path
-                      d="M 50 40 L 140 40"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="2"
-                      strokeDasharray="6 4"
-                      fill="none"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                    />
-                    <motion.path
-                      d="M 180 40 L 260 40"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="2"
-                      strokeDasharray="6 4"
-                      fill="none"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 1, delay: 0.7 }}
-                    />
-                    <motion.path
-                      d="M 300 40 L 370 40"
-                      stroke="hsl(21 90% 48%)"
-                      strokeWidth="2"
-                      strokeDasharray="6 4"
-                      fill="none"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 1, delay: 0.9 }}
-                    />
-                    
-                    {/* Arrow heads */}
-                    <motion.polygon
-                      points="370,40 360,35 360,45"
-                      fill="hsl(21 90% 48%)"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.2 }}
-                    />
-                  </svg>
+            {/* AI System Visual - Neural Network Dashboard */}
+            <ScrollReveal delay={0.4}>
+              <div className="relative max-w-5xl mx-auto">
+                <div className="bg-card/90 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 border border-border shadow-neo-lg">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-6 md:mb-8 pb-4 md:pb-6 border-b border-border/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <Brain className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground text-sm md:text-base">AI Sistēma</h3>
+                        <p className="text-xs md:text-sm text-muted-foreground">Automatizācijas centrs</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-xs md:text-sm text-muted-foreground hidden sm:inline">Aktīvs</span>
+                    </div>
+                  </div>
                   
-                  {/* Nodes overlay - positioned to match SVG coordinates */}
-                  <div className="absolute inset-0 flex items-center">
-                    {[
-                      { icon: Zap, label: "Trigeris", delay: 0.3, position: "12.5%" },      // x=50 out of 400 = 12.5%
-                      { icon: Layers, label: "Process", delay: 0.5, position: "40%" },     // x=160 out of 400 = 40%
-                      { icon: Brain, label: "AI", delay: 0.7, position: "70%" },           // x=280 out of 400 = 70%
-                      { icon: BarChart3, label: "Rezultāts", delay: 0.9, position: "92.5%" }, // x=370 out of 400 = 92.5%
-                    ].map((node, i) => (
+                  {/* Neural Network Visualization */}
+                  <div className="relative h-48 md:h-64 mb-6 md:mb-8">
+                    {/* Connection lines SVG */}
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 200">
+                      {/* Layer 1 to Layer 2 connections */}
+                      {[30, 70, 110].map((y1, i) => (
+                        [60, 100, 140].map((y2, j) => (
+                          <motion.line
+                            key={`l1-${i}-${j}`}
+                            x1="80" y1={y1} x2="200" y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.5 + (i + j) * 0.1 }}
+                          />
+                        ))
+                      ))}
+                      
+                      {/* Layer 2 to Layer 3 connections */}
+                      {[60, 100, 140].map((y1, i) => (
+                        [70, 130].map((y2, j) => (
+                          <motion.line
+                            key={`l2-${i}-${j}`}
+                            x1="200" y1={y1} x2="320" y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.8 + (i + j) * 0.1 }}
+                          />
+                        ))
+                      ))}
+                      
+                      {/* Layer 3 to Output */}
+                      {[70, 130].map((y1, i) => (
+                        <motion.line
+                          key={`l3-${i}`}
+                          x1="320" y1={y1} x2="430" y2={100}
+                          stroke="hsl(21 90% 48%)"
+                          strokeWidth="2"
+                          strokeOpacity="0.5"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 1, delay: 1.1 + i * 0.1 }}
+                        />
+                      ))}
+                    </svg>
+                    
+                    {/* Neural Network Nodes */}
+                    <div className="absolute inset-0 flex items-center">
+                      {/* Input Layer */}
+                      <div className="absolute left-[12%] md:left-[14%] flex flex-col gap-4 md:gap-6 -translate-y-2">
+                        {[
+                          { icon: Mail, label: "E-pasts" },
+                          { icon: Database, label: "Dati" },
+                          { icon: Users, label: "Leads" }
+                        ].map((node, i) => (
+                          <motion.div
+                            key={node.label}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 + i * 0.1, type: "spring" }}
+                            className="flex items-center gap-2"
+                          >
+                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-muted flex items-center justify-center">
+                              <node.icon className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
+                            </div>
+                            <span className="text-xs text-muted-foreground hidden md:inline">{node.label}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Hidden Layer 1 */}
+                      <div className="absolute left-[38%] md:left-[40%] flex flex-col gap-4 md:gap-5 -translate-y-1">
+                        {[Workflow, Settings, Layers].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center"
+                          >
+                            <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Hidden Layer 2 */}
+                      <div className="absolute left-[60%] md:left-[63%] flex flex-col gap-6 md:gap-8">
+                        {[Brain, Zap].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.9 + i * 0.1, type: "spring" }}
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/20 flex items-center justify-center"
+                          >
+                            <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Output Node */}
                       <motion.div
-                        key={node.label}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 1.2, type: "spring" }}
+                        className="absolute right-[10%] md:right-[12%] flex items-center gap-3"
+                      >
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-orange shadow-orange flex items-center justify-center">
+                          <BarChart3 className="w-7 h-7 md:w-8 md:h-8 text-primary-foreground" />
+                        </div>
+                        <div className="hidden md:block">
+                          <p className="text-sm font-medium text-foreground">Rezultāts</p>
+                          <p className="text-xs text-muted-foreground">Optimizēts</p>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                  
+                  {/* Metrics Row */}
+                  <div className="grid grid-cols-3 gap-3 md:gap-6">
+                    {[
+                      { label: "Procesu automatizēti", value: "85%", icon: Workflow },
+                      { label: "Laika ietaupījums", value: "10h+", icon: Clock },
+                      { label: "Efektivitātes pieaugums", value: "3x", icon: Zap }
+                    ].map((metric, i) => (
+                      <motion.div
+                        key={metric.label}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: node.delay }}
-                        className="absolute flex flex-col items-center -translate-x-1/2"
-                        style={{ left: node.position }}
+                        transition={{ delay: 1.4 + i * 0.1 }}
+                        className="bg-muted/50 rounded-xl p-3 md:p-4 text-center"
                       >
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${i === 3 ? 'bg-gradient-orange shadow-orange' : 'bg-primary/10'}`}>
-                          <node.icon className={`w-8 h-8 ${i === 3 ? 'text-primary-foreground' : 'text-primary'}`} />
-                        </div>
-                        <span className="text-sm font-medium text-foreground mt-3">{node.label}</span>
+                        <metric.icon className="w-4 h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2" />
+                        <p className="text-lg md:text-2xl font-bold text-foreground">{metric.value}</p>
+                        <p className="text-xs text-muted-foreground hidden sm:block">{metric.label}</p>
                       </motion.div>
                     ))}
                   </div>
                 </div>
               </div>
             </ScrollReveal>
-            
-            {/* Problem cards - grid below */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {manualProblems.map((item, index) => (
-                <ScrollReveal key={index} delay={0.4 + index * 0.1}>
-                  <div className="flex items-center gap-5 bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover-lift">
-                    <div className="w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-7 h-7 text-destructive" />
-                    </div>
-                    <span className="text-foreground">{item.text}</span>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
           </div>
         </div>
       </section>
