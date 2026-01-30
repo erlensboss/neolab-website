@@ -98,23 +98,7 @@ export default function BezmaksasKonsultacija() {
                         </div>
                       </div>
                     </div>
-                  </ScrollReveal>
-                </div>
-                <ScrollReveal delay={0.4}>
-                    <div className="hidden lg:block">
-                      <div className="glass-warm rounded-xl p-6 border border-border/50">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                            <Calendar className="w-6 h-6 text-primary-foreground" />
-                          </div>
-                          <div>
-                            <div className="font-semibold">Ātra atbilde</div>
-                            <div className="text-sm text-muted-foreground">Parasti atbildam 24h laikā</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollReveal>
+                </ScrollReveal>
                 </div>
 
                 {/* Right: Form */}
