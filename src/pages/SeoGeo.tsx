@@ -10,7 +10,18 @@ import {
   CheckCircle2,
   Target,
   Globe,
-  TrendingUp
+  TrendingUp,
+  Eye,
+  Settings,
+  PieChart,
+  Bot,
+  Rocket,
+  ShoppingCart,
+  Building2,
+  Briefcase,
+  AlertCircle,
+  Wrench,
+  CheckCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -358,35 +369,35 @@ export default function SeoGeo() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: "👁️",
+                icon: Eye,
                 title: "Stabilāka redzamība",
                 description: "Uzņēmums kļūst atrodams meklējumos brīdī, kad potenciālie klienti aktīvi meklē risinājumus. Redzamība vairs nav atkarīga no īstermiņa reklāmas budžetiem vai kampaņu intensitātes.",
                 gradient: "from-primary to-orange-500",
                 delay: 0.1,
               },
               {
-                icon: "🔧",
+                icon: Settings,
                 title: "Sakārtota digitālā struktūra",
                 description: "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte. Tas pozitīvi ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
                 gradient: "from-orange-500 to-amber-500",
                 delay: 0.15,
               },
               {
-                icon: "📊",
+                icon: PieChart,
                 title: "Skaidrība par to, kas strādā",
                 description: "Uzņēmums saprot, kādi vaicājumi piesaista apmeklētājus, kā viņi nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
                 gradient: "from-amber-500 to-yellow-500",
                 delay: 0.2,
               },
               {
-                icon: "🤖",
+                icon: Bot,
                 title: "Redzamība arī AI meklējumos",
                 description: "GEO optimizācija paplašina klātbūtni jaunās meklēšanas platformās un AI ģenerētajās atbildēs, kur lietotāji sagaida koncentrētu un uzticamu informāciju.",
                 gradient: "from-yellow-500 to-amber-400",
                 delay: 0.25,
               },
               {
-                icon: "🚀",
+                icon: Rocket,
                 title: "Ilgtermiņa izaugsmes pamats",
                 description: "SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.",
                 gradient: "from-amber-400 to-primary",
@@ -412,7 +423,7 @@ export default function SeoGeo() {
                         whileHover={{ rotate: 5, scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
-                        <span className="text-3xl">{item.icon}</span>
+                        <item.icon className="w-8 h-8 text-white" />
                       </motion.div>
                       {/* Pulse ring */}
                       <motion.div
@@ -519,7 +530,7 @@ export default function SeoGeo() {
             {[
               {
                 industry: "E-komercija",
-                icon: "🛒",
+                icon: ShoppingCart,
                 gradient: "from-primary to-orange-500",
                 bgGradient: "from-primary/5 to-orange-500/5",
                 situation: "Interneta veikals ar 2000+ produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija gandrīz nulle.",
@@ -530,7 +541,7 @@ export default function SeoGeo() {
               },
               {
                 industry: "Lokāls pakalpojums",
-                icon: "📍",
+                icon: Building2,
                 gradient: "from-orange-500 to-amber-500",
                 bgGradient: "from-orange-500/5 to-amber-500/5",
                 situation: "Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti neatrada uzņēmumu, meklējot \"būvniecība + pilsēta\".",
@@ -541,7 +552,7 @@ export default function SeoGeo() {
               },
               {
                 industry: "B2B pakalpojumi",
-                icon: "💼",
+                icon: Briefcase,
                 gradient: "from-amber-500 to-yellow-500",
                 bgGradient: "from-amber-500/5 to-yellow-500/5",
                 situation: "Konsultāciju uzņēmums saņēma daudz apmeklētāju, bet maz pieprasījumu. Augsts bounce rate, lietotāji aizgāja bez darbības.",
@@ -569,7 +580,7 @@ export default function SeoGeo() {
                           className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${caseStudy.gradient} flex items-center justify-center shadow-lg`}
                           whileHover={{ rotate: 5, scale: 1.1 }}
                         >
-                          <span className="text-2xl">{caseStudy.icon}</span>
+                          <caseStudy.icon className="w-7 h-7 text-white" />
                         </motion.div>
                         <span className="font-bold text-lg text-foreground">{caseStudy.industry}</span>
                       </div>
@@ -581,7 +592,7 @@ export default function SeoGeo() {
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-                            <span className="text-red-500 text-xs">❗</span>
+                            <AlertCircle className="w-3.5 h-3.5 text-red-500" />
                           </div>
                           <span className="text-sm font-semibold text-red-600 uppercase tracking-wider">Situācija</span>
                         </div>
@@ -604,7 +615,7 @@ export default function SeoGeo() {
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-                            <span className="text-blue-500 text-xs">🔧</span>
+                            <Wrench className="w-3.5 h-3.5 text-blue-500" />
                           </div>
                           <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Risinājums</span>
                         </div>
@@ -628,7 +639,7 @@ export default function SeoGeo() {
                         <div className={`bg-gradient-to-br ${caseStudy.bgGradient} rounded-2xl p-5 border border-primary/10`}>
                           <div className="flex items-center gap-2 mb-2">
                             <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                              <span className="text-green-500 text-xs">✓</span>
+                              <CheckCircle className="w-3.5 h-3.5 text-green-500" />
                             </div>
                             <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">Rezultāts</span>
                           </div>
