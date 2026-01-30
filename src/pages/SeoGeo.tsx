@@ -323,43 +323,163 @@ export default function SeoGeo() {
         </div>
       </section>
 
-      {/* ========== SECTION 3: SEO System Layers ========== */}
-      <section className="section-offwhite section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <SectionHeading
-            chip="Sistēmas pieeja"
-            title="SEO kā slāņu sistēma"
-            description="Katrs slānis būvējas uz iepriekšējā. Nav shortcut — ir process."
-            className="mb-20 max-w-3xl"
-          />
-
-          <div className="max-w-4xl mx-auto">
+      {/* ========== SECTION 3: Results System ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Dynamic background */}
+        <div className="absolute inset-0 bg-gradient-to-tl from-amber-50/80 via-white to-orange-50/60" />
+        
+        {/* Animated mesh gradient */}
+        <div 
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: `
+              radial-gradient(ellipse 80% 50% at 20% 40%, hsl(21 90% 48%) 0px, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 80% 60%, hsl(32 90% 55%) 0px, transparent 50%)
+            `,
+          }}
+        />
+        
+        {/* Subtle grid */}
+        <div 
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+            `,
+            backgroundSize: "50px 50px",
+          }}
+        />
+        
+        {/* Floating decorative elements */}
+        <motion.div
+          className="absolute top-20 left-[10%] w-32 h-32 rounded-full bg-gradient-to-br from-primary/5 to-amber-400/5 blur-2xl"
+          animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-[15%] w-40 h-40 rounded-full bg-gradient-to-tl from-amber-400/5 to-primary/5 blur-2xl"
+          animate={{ y: [0, 20, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-14 md:mb-20">
+              <span className="chip mb-6 inline-block text-sm">Sistēma</span>
+              <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
+                Rezultāts nav viens cipars. Tā ir <span className="text-gradient-orange">sistēma</span>, kas sāk strādāt uzņēmuma labā.
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* Results grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { layer: "Rezultāti", color: "bg-primary", desc: "Rankings, trafiks, konversijas" },
-              { layer: "Saturs", color: "bg-primary/80", desc: "Stratēģisks, mērķēts, vērtīgs" },
-              { layer: "Struktūra", color: "bg-primary/60", desc: "Saites, hierarhija, UX" },
-              { layer: "Tehnika", color: "bg-primary/40", desc: "Ātrums, crawlability, indexing" },
-              { layer: "Pamati", color: "bg-primary/20", desc: "Audits, izpēte, stratēģija" },
+              {
+                icon: "👁️",
+                title: "Stabilāka redzamība",
+                description: "Uzņēmums kļūst atrodams meklējumos brīdī, kad potenciālie klienti aktīvi meklē risinājumus. Redzamība vairs nav atkarīga no īstermiņa reklāmas budžetiem vai kampaņu intensitātes.",
+                gradient: "from-primary to-orange-500",
+                delay: 0.1,
+              },
+              {
+                icon: "🔧",
+                title: "Sakārtota digitālā struktūra",
+                description: "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte. Tas pozitīvi ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
+                gradient: "from-orange-500 to-amber-500",
+                delay: 0.15,
+              },
+              {
+                icon: "📊",
+                title: "Skaidrība par to, kas strādā",
+                description: "Uzņēmums saprot, kādi vaicājumi piesaista apmeklētājus, kā viņi nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
+                gradient: "from-amber-500 to-yellow-500",
+                delay: 0.2,
+              },
+              {
+                icon: "🤖",
+                title: "Redzamība arī AI meklējumos",
+                description: "GEO optimizācija paplašina klātbūtni jaunās meklēšanas platformās un AI ģenerētajās atbildēs, kur lietotāji sagaida koncentrētu un uzticamu informāciju.",
+                gradient: "from-yellow-500 to-amber-400",
+                delay: 0.25,
+              },
+              {
+                icon: "🚀",
+                title: "Ilgtermiņa izaugsmes pamats",
+                description: "SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.",
+                gradient: "from-amber-400 to-primary",
+                delay: 0.3,
+                featured: true,
+              },
             ].map((item, index) => (
-              <ScrollReveal key={item.layer} delay={index * 0.1}>
+              <ScrollReveal key={item.title} delay={item.delay}>
                 <motion.div
-                  initial={{ scaleX: 0.8 + index * 0.05 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  className={`
-                    ${item.color} rounded-2xl mb-3 p-8 text-center
-                    ${index < 3 ? "text-primary-foreground" : "text-foreground"}
-                  `}
-                  style={{ marginLeft: `${index * 2}%`, marginRight: `${index * 2}%` }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className={`relative group h-full ${item.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
                 >
-                  <div className="font-semibold text-xl">{item.layer}</div>
-                  <div className={`text-base ${index < 3 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                    {item.desc}
+                  {/* Glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`} />
+                  
+                  {/* Card */}
+                  <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
+                    {/* Icon with animated background */}
+                    <div className="relative mb-6">
+                      <motion.div 
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}
+                        whileHover={{ rotate: 5, scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        <span className="text-3xl">{item.icon}</span>
+                      </motion.div>
+                      {/* Pulse ring */}
+                      <motion.div
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.gradient} opacity-30`}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
+                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed flex-1">{item.description}</p>
+                    
+                    {/* Bottom accent line */}
+                    <motion.div 
+                      className={`mt-6 h-1 rounded-full bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: item.delay + 0.2 }}
+                    />
                   </div>
                 </motion.div>
               </ScrollReveal>
             ))}
           </div>
+          
+          {/* Visual connector at bottom */}
+          <ScrollReveal delay={0.4}>
+            <div className="mt-16 flex justify-center">
+              <motion.div
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-amber-500"
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                  />
+                ))}
+              </motion.div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
