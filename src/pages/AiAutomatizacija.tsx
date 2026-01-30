@@ -19,11 +19,22 @@ import {
   Sparkles,
   Target,
   Puzzle,
-  Handshake
+  Handshake,
+  Search,
+  TrendingUp,
+  Cog,
+  Eye,
+  Wrench
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const manualProblems = [
   { icon: Clock, text: "Stundas pavadītas atkārtojošos uzdevumos" },
@@ -902,7 +913,287 @@ export default function AiAutomatizacija() {
         </div>
       </section>
 
-      {/* ========== SECTION 6: CTA ========== */}
+      {/* ========== SECTION 6: How We Work - Roadmap ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-white" />
+        
+        {/* Subtle pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12 md:mb-16">
+              <span className="chip mb-4 inline-block text-sm">Process</span>
+              <h2 className="text-foreground">
+                Kā mēs <span className="text-gradient-orange">strādājam</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* Vertical Roadmap */}
+          <div className="max-w-4xl mx-auto relative px-2 md:px-0">
+            {/* Central vertical line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
+              <motion.div 
+                className="w-full h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                style={{ transformOrigin: "top" }}
+              />
+            </div>
+            
+            {/* Roadmap steps */}
+            {[
+              {
+                number: "01",
+                icon: Search,
+                title: "Izvērtējam uzņēmuma situāciju un procesus",
+                description: "Sākam ar rūpīgu esošo procesu un sistēmu analīzi, lai saprastu, kur automatizācija var dot vislielāko vērtību.",
+                gradient: "from-primary to-orange-500",
+                delay: 0.1,
+              },
+              {
+                number: "02",
+                icon: Target,
+                title: "Nosakām, kur AI dod lielāko praktisko ieguvumu",
+                description: "Identificējam konkrētus procesus un uzdevumus, kurus automatizējot, tiks sasniegts būtiskākais laika un resursu ietaupījums.",
+                gradient: "from-orange-500 to-amber-500",
+                delay: 0.2,
+              },
+              {
+                number: "03",
+                icon: Settings,
+                title: "Izvēlamies gatavu risinājumu vai veidojam pielāgotu",
+                description: "Atkarībā no vajadzībām piedāvājam jau pārbaudītu risinājumu vai izstrādājam individuālu sistēmu uzņēmuma specifiskajām prasībām.",
+                gradient: "from-amber-500 to-yellow-500",
+                delay: 0.3,
+              },
+              {
+                number: "04",
+                icon: Cog,
+                title: "Ieviešam un integrējam sistēmās",
+                description: "Nodrošinām pilnu ieviešanu un integrāciju ar esošajām sistēmām, lai automatizācija darbotos bez traucējumiem.",
+                gradient: "from-yellow-500 to-amber-400",
+                delay: 0.4,
+              },
+              {
+                number: "05",
+                icon: TrendingUp,
+                title: "Uzraugām un pielāgojam pēc reālas lietošanas",
+                description: "Nepārtraukti uzraugām risinājuma darbību un veicam pielāgojumus, balstoties reālās lietošanas datos un atgriezeniskajā saitē.",
+                gradient: "from-amber-400 to-primary",
+                delay: 0.5,
+              },
+            ].map((step, index) => (
+              <ScrollReveal key={step.number} delay={step.delay}>
+                <div className={`relative flex items-start gap-4 md:gap-12 mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                  {/* Node point on the line */}
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: step.delay + 0.2, type: "spring", stiffness: 300 }}
+                      className="relative"
+                    >
+                      <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
+                        <step.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+                      </div>
+                      {/* Pulse ring */}
+                      <motion.div
+                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.gradient} opacity-30`}
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+                        transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
+                      />
+                    </motion.div>
+                  </div>
+                  
+                  {/* Content card - alternating sides on desktop */}
+                  <div className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                      className="group relative"
+                    >
+                      {/* Glow effect */}
+                      <div className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`} />
+                      
+                      <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                        {/* Number badge */}
+                        <div className="flex items-start justify-between mb-4">
+                          <span className={`text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}>
+                            {step.number}
+                          </span>
+                          {/* Arrow indicator pointing to center */}
+                          <div className={`hidden md:block w-4 h-4 ${index % 2 === 0 ? 'rotate-0' : 'rotate-180'}`}>
+                            <svg className="w-full h-full text-primary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                        
+                        {/* Progress indicator */}
+                        <div className="mt-4 pt-3 border-t border-gray-100">
+                          <div className="flex items-center gap-2">
+                            <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
+                              <motion.div 
+                                className={`h-full bg-gradient-to-r ${step.gradient}`}
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "100%" }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: step.delay + 0.3 }}
+                              />
+                            </div>
+                            <CheckCircle2 className="w-4 h-4 text-green-500 opacity-60" />
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden md:block md:w-[calc(50%-4rem)]" />
+                </div>
+              </ScrollReveal>
+            ))}
+            
+            {/* End node - Success indicator */}
+            <ScrollReveal delay={0.6}>
+              <div className="relative flex justify-center mt-8">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7, type: "spring" }}
+                  className="relative z-10"
+                >
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-xl">
+                    <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </div>
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-green-400 opacity-30"
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.div>
+              </div>
+            </ScrollReveal>
+            
+            {/* Final success message */}
+            <ScrollReveal delay={0.7}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mt-8"
+              >
+                <p className="text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
+                <p className="text-muted-foreground">Stabila un efektīva automatizācija</p>
+              </motion.div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 7: FAQ ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Simple clean background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="chip mb-4 inline-block text-sm">FAQ</span>
+              <h2 className="text-foreground">
+                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* FAQ Accordion */}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+              {[
+                {
+                  icon: Cog,
+                  question: "Vai AI automatizācija nozīmē sarežģītu ieviešanu?",
+                  answer: "Nē. Risinājumi tiek veidoti tā, lai tie būtu saprotami un pakāpeniski ieviešami.",
+                  gradient: "from-primary to-orange-500",
+                },
+                {
+                  icon: TrendingUp,
+                  question: "Vai AI risinājumus var pielāgot uzņēmuma izaugsmei?",
+                  answer: "Jā. Automatizācijas tiek veidotas elastīgi, lai tās varētu paplašināt vai mainīt.",
+                  gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: Users,
+                  question: "Vai AI aizvieto darbiniekus?",
+                  answer: "AI automatizācija palīdz samazināt rutīnas darbus, nevis aizvietot cilvēkus.",
+                  gradient: "from-amber-500 to-yellow-500",
+                },
+                {
+                  icon: Layers,
+                  question: "Vai risinājumus var integrēt ar esošajām sistēmām?",
+                  answer: "Jā. Mēs strādājam ar dažādām platformām un sistēmām.",
+                  gradient: "from-yellow-500 to-amber-400",
+                },
+                {
+                  icon: MessageSquare,
+                  question: "Ar ko sākas sadarbība ar NEOLab?",
+                  answer: "Ar sarunu un uzņēmuma situācijas izvērtējumu.",
+                  gradient: "from-amber-400 to-primary",
+                },
+              ].map((faq, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                  >
+                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
+                      <div className="flex items-center gap-3 md:gap-4 text-left">
+                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        </div>
+                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
+                          {faq.question}
+                        </span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
+                      <div className="pl-11 md:pl-14">
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </ScrollReveal>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 8: CTA ========== */}
       <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
