@@ -708,47 +708,23 @@ export default function SeoGeo() {
                       {/* Situācija */}
                       <div className="mb-4 md:mb-5">
                         <div className="flex items-center gap-2 mb-2">
-                          <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-                            <AlertCircle className="w-3.5 h-3.5 text-red-500" />
+                          <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
+                            <AlertCircle className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
-                          <span className="text-sm font-semibold text-red-600 uppercase tracking-wider">Situācija</span>
+                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Situācija</span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.situation}</p>
-                      </div>
-                      
-                      {/* Arrow connector */}
-                      <div className="flex justify-center my-2">
-                        <motion.div
-                          animate={{ y: [0, 3, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          <svg className="w-5 h-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                          </svg>
-                        </motion.div>
                       </div>
                       
                       {/* Risinājums */}
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
-                          <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-                            <Wrench className="w-3.5 h-3.5 text-blue-500" />
+                          <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
+                            <Wrench className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
-                          <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Risinājums</span>
+                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Risinājums</span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.solution}</p>
-                      </div>
-                      
-                      {/* Arrow connector */}
-                      <div className="flex justify-center my-2">
-                        <motion.div
-                          animate={{ y: [0, 3, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                        >
-                          <svg className="w-5 h-5 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                          </svg>
-                        </motion.div>
                       </div>
                       
                       {/* Rezultāts */}
