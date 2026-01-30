@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import LogoBlack from "@/assets/logo-black.svg";
+import LogoOrange from "@/assets/logo-orange.svg";
 
 const navItems = [
   { labelLv: "SEO & GEO", labelEn: "SEO & GEO", path: "/seo-un-geo" },
@@ -43,7 +43,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo — Enlarged */}
           <Link to="/" className="flex items-center">
-            <img src={LogoBlack} alt="NEOLab" className="h-8 md:h-10" />
+            <img src={LogoOrange} alt="NEOLab" className="h-8 md:h-10" />
           </Link>
 
           {/* Desktop Navigation — Better spacing */}
