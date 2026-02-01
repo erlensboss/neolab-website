@@ -580,34 +580,63 @@ export default function ParMums() {
                   style={{ background: 'linear-gradient(135deg, hsl(25 80% 55% / 0.3), hsl(35 70% 60% / 0.15))' }}
                 />
                 
-                {/* Header with icon */}
-                <div className="flex items-start justify-between mb-6 relative z-10">
-                  <div className="flex items-center gap-3">
-                    <span className="w-10 h-1 rounded-full bg-gradient-to-r from-primary to-orange-400" />
-                    <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
-                      background: 'linear-gradient(90deg, hsl(25 80% 45%), hsl(35 75% 50%))',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent'
-                    }}>Misija</span>
-                  </div>
-                  
-                  <motion.div
-                    animate={{ rotate: [0, 5, 0, -5, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0"
-                    style={{
-                      background: 'linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 80% 50%) 100%)',
-                      boxShadow: '0 15px 40px -10px hsl(25 80% 50% / 0.5)'
-                    }}
-                  >
-                    <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </motion.div>
+                {/* Icon at top right */}
+                <motion.div
+                  animate={{ rotate: [0, 5, 0, -5, 0] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-8 right-8 w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center shadow-xl z-10"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 80% 50%) 100%)',
+                    boxShadow: '0 15px 40px -10px hsl(25 80% 50% / 0.5)'
+                  }}
+                >
+                  <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </motion.div>
+                
+                {/* MISIJA label aligned with icon */}
+                <div className="flex items-center gap-3 pt-2 md:pt-4 relative z-10">
+                  <span className="w-10 h-1 rounded-full bg-gradient-to-r from-primary to-orange-400" />
+                  <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
+                    background: 'linear-gradient(90deg, hsl(25 80% 45%), hsl(35 75% 50%))',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}>Misija</span>
                 </div>
                 
-                {/* Content */}
-                <div className="relative z-10 flex-1 flex flex-col">
+                {/* Rotating circles visual - fills empty space */}
+                <div className="flex-1 flex items-center justify-center py-6 relative z-10">
+                  <div className="relative w-40 h-40 md:w-48 md:h-48">
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 border-2 border-dashed border-primary/30 rounded-full"
+                    />
+                    <motion.div
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-4 border-2 border-dashed border-primary/20 rounded-full"
+                    />
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-8 border-2 border-dashed border-orange-300/25 rounded-full"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div 
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange"
+                      >
+                        <Lightbulb className="w-8 h-8 md:w-10 md:h-10 text-primary-foreground" />
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content at bottom */}
+                <div className="relative z-10">
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
                     <span style={{
                       background: 'linear-gradient(135deg, hsl(25 75% 40%) 0%, hsl(20 70% 35%) 100%)',
@@ -616,11 +645,11 @@ export default function ParMums() {
                     }}>Optimizēt</span> digitālos procesus
                   </h3>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-5">
                     Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās <span className="text-foreground font-medium">paātrina ikdienišķus procesus</span>.
                   </p>
                   
-                  <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 mt-auto">
+                  <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80">
                     <p className="text-sm text-muted-foreground italic">
                       "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt — <span className="font-medium text-foreground">nevis jārada sarežģītība</span>."
                     </p>
