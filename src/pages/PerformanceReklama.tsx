@@ -1,99 +1,90 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  TrendingUp, 
-  Target, 
-  BarChart3, 
-  ArrowRight,
-  AlertTriangle,
-  Eye,
-  DollarSign,
-  PieChart,
-  Activity,
-  Gauge,
-  MousePointer,
-  ShoppingCart
-} from "lucide-react";
+import { TrendingUp, Target, BarChart3, ArrowRight, AlertTriangle, Eye, DollarSign, PieChart, Activity, Gauge, MousePointer, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-
-const controlProblems = [
-  "Nezināt, kura kampaņa tiešām nes peļņu",
-  "Aģentūras atskaites, ko neviens nesaprot",
-  "Budžets, kas iztukšojas bez skaidra ROI",
-  "A/B testi bez reāla mācīšanās",
-];
-
-const platforms = [
-  { name: "Meta Ads", icon: Eye },
-  { name: "Google Ads", icon: Target },
-  { name: "LinkedIn Ads", icon: MousePointer },
-  { name: "TikTok Ads", icon: Activity },
-];
-
-const signals = [
-  { label: "CTR", value: "2.4%", trend: "up", color: "text-green-600" },
-  { label: "CPA", value: "€12.50", trend: "down", color: "text-green-600" },
-  { label: "ROAS", value: "4.2x", trend: "up", color: "text-green-600" },
-  { label: "Conv. Rate", value: "3.8%", trend: "up", color: "text-green-600" },
-];
-
-const approach = [
-  {
-    icon: PieChart,
-    title: "Atribūcijas modelēšana",
-    description: "Ziniet precīzi, kura saskarsme noveda pie pirkuma",
-  },
-  {
-    icon: Gauge,
-    title: "Real-time monitorings",
-    description: "Signāli, kas brīdina pirms budžets ir iztērēts",
-  },
-  {
-    icon: DollarSign,
-    title: "Budžeta optimizācija",
-    description: "Dinamiska pārdale uz labāk strādājošiem kanāliem",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Pilna piltuve",
-    description: "No apzināšanās līdz pirkumam — viss redzams",
-  },
-];
-
+const controlProblems = ["Nezināt, kura kampaņa tiešām nes peļņu", "Aģentūras atskaites, ko neviens nesaprot", "Budžets, kas iztukšojas bez skaidra ROI", "A/B testi bez reāla mācīšanās"];
+const platforms = [{
+  name: "Meta Ads",
+  icon: Eye
+}, {
+  name: "Google Ads",
+  icon: Target
+}, {
+  name: "LinkedIn Ads",
+  icon: MousePointer
+}, {
+  name: "TikTok Ads",
+  icon: Activity
+}];
+const signals = [{
+  label: "CTR",
+  value: "2.4%",
+  trend: "up",
+  color: "text-green-600"
+}, {
+  label: "CPA",
+  value: "€12.50",
+  trend: "down",
+  color: "text-green-600"
+}, {
+  label: "ROAS",
+  value: "4.2x",
+  trend: "up",
+  color: "text-green-600"
+}, {
+  label: "Conv. Rate",
+  value: "3.8%",
+  trend: "up",
+  color: "text-green-600"
+}];
+const approach = [{
+  icon: PieChart,
+  title: "Atribūcijas modelēšana",
+  description: "Ziniet precīzi, kura saskarsme noveda pie pirkuma"
+}, {
+  icon: Gauge,
+  title: "Real-time monitorings",
+  description: "Signāli, kas brīdina pirms budžets ir iztērēts"
+}, {
+  icon: DollarSign,
+  title: "Budžeta optimizācija",
+  description: "Dinamiska pārdale uz labāk strādājošiem kanāliem"
+}, {
+  icon: ShoppingCart,
+  title: "Pilna piltuve",
+  description: "No apzināšanās līdz pirkumam — viss redzams"
+}];
 export default function PerformanceReklama() {
-  return (
-    <div className="overflow-hidden">
+  return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
       <section className="relative overflow-hidden">
         {/* Enhanced background with layered gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-amber-50/60 to-white" />
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-            backgroundSize: '32px 32px'
-          }}
-        />
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+        backgroundSize: '32px 32px'
+      }} />
         
         {/* Floating gradient orbs */}
-        <motion.div
-          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/15 to-amber-300/10 blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.4, 0.6, 0.4]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-amber-200/20 to-orange-300/10 blur-3xl"
-          animate={{ 
-            scale: [1, 1.15, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
+        <motion.div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/15 to-amber-300/10 blur-3xl" animate={{
+        scale: [1, 1.1, 1],
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />
+        <motion.div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-amber-200/20 to-orange-300/10 blur-3xl" animate={{
+        scale: [1, 1.15, 1],
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 1
+      }} />
         
         {/* Accent line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
@@ -109,16 +100,18 @@ export default function PerformanceReklama() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.1] lg:text-7xl">
                   Maksas reklāmu{" "}
                   <span className="relative inline-block">
                     <span className="text-gradient-orange">pārvalde</span>
-                    <motion.span 
-                      className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 0.8, duration: 0.6 }}
-                    />
+                    <motion.span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full" initial={{
+                    scaleX: 0
+                  }} animate={{
+                    scaleX: 1
+                  }} transition={{
+                    delay: 0.8,
+                    duration: 0.6
+                  }} />
                   </span>
                 </h1>
               </ScrollReveal>
@@ -143,16 +136,19 @@ export default function PerformanceReklama() {
               {/* Trust indicators */}
               <ScrollReveal delay={0.4}>
                 <div className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-border/50">
-                  {[
-                    { value: "4.8x", label: "Vidējais ROAS" },
-                    { value: "65%+", label: "Efektivitātes pieaugums" },
-                    { value: "92%", label: "Klientu saglabāšana" },
-                  ].map((stat, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
+                  {[{
+                  value: "4.8x",
+                  label: "Vidējais ROAS"
+                }, {
+                  value: "65%+",
+                  label: "Efektivitātes pieaugums"
+                }, {
+                  value: "92%",
+                  label: "Klientu saglabāšana"
+                }].map((stat, idx) => <div key={idx} className="flex items-center gap-2">
                       <span className="text-2xl font-bold text-primary">{stat.value}</span>
                       <span className="text-sm text-muted-foreground">{stat.label}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </ScrollReveal>
             </div>
@@ -166,34 +162,33 @@ export default function PerformanceReklama() {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-6 mb-8">
-                  {signals.map((signal, index) => (
-                    <motion.div
-                      key={signal.label}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      className="bg-card rounded-xl p-5 border border-border"
-                    >
+                  {signals.map((signal, index) => <motion.div key={signal.label} initial={{
+                  opacity: 0,
+                  y: 10
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  delay: 0.5 + index * 0.1
+                }} className="bg-card rounded-xl p-5 border border-border">
                       <div className="text-sm text-muted-foreground mb-2">{signal.label}</div>
                       <div className={`text-2xl font-bold ${signal.color}`}>
                         {signal.value}
                         <TrendingUp className="w-5 h-5 inline ml-2" />
                       </div>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
                 
                 {/* Mini chart placeholder */}
                 <div className="h-32 bg-muted rounded-xl flex items-end justify-around p-3">
-                  {[40, 65, 45, 80, 60, 90, 75].map((h, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ delay: 0.8 + i * 0.05, duration: 0.5 }}
-                      className="w-8 bg-gradient-to-t from-primary to-primary/60 rounded-t"
-                    />
-                  ))}
+                  {[40, 65, 45, 80, 60, 90, 75].map((h, i) => <motion.div key={i} initial={{
+                  height: 0
+                }} animate={{
+                  height: `${h}%`
+                }} transition={{
+                  delay: 0.8 + i * 0.05,
+                  duration: 0.5
+                }} className="w-8 bg-gradient-to-t from-primary to-primary/60 rounded-t" />)}
                 </div>
               </div>
             </ScrollReveal>
@@ -210,14 +205,12 @@ export default function PerformanceReklama() {
           </ScrollReveal>
           
           <div className="flex flex-wrap justify-center gap-10">
-            {platforms.map((platform, index) => (
-              <ScrollReveal key={platform.name} delay={index * 0.1}>
+            {platforms.map((platform, index) => <ScrollReveal key={platform.name} delay={index * 0.1}>
                 <div className="flex items-center gap-4 px-8 py-5 bg-card rounded-2xl border border-border shadow-neo">
                   <platform.icon className="w-8 h-8 text-primary" />
                   <span className="font-medium text-lg">{platform.name}</span>
                 </div>
-              </ScrollReveal>
-            ))}
+              </ScrollReveal>)}
           </div>
         </div>
       </section>
@@ -225,28 +218,20 @@ export default function PerformanceReklama() {
       {/* ========== SECTION 3: Our Approach (Signal-Based) ========== */}
       <section className="section-warm bg-atmosphere">
         <div className="container-neo section-padding relative z-10">
-          <SectionHeading
-            chip="Pieeja"
-            title="Signālu vadīta performance"
-            description="Mēs nesekojam tikai skaitļiem. Mēs sekojam signāliem, kas prognozē rezultātus."
-            className="mb-20"
-          />
+          <SectionHeading chip="Pieeja" title="Signālu vadīta performance" description="Mēs nesekojam tikai skaitļiem. Mēs sekojam signāliem, kas prognozē rezultātus." className="mb-20" />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {approach.map((item, index) => (
-              <ScrollReveal key={item.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="card-bordered h-full"
-                >
+            {approach.map((item, index) => <ScrollReveal key={item.title} delay={index * 0.1}>
+                <motion.div whileHover={{
+              y: -4
+            }} className="card-bordered h-full">
                   <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-gradient-orange flex items-center justify-center mb-8 shadow-orange">
                     <item.icon className="w-9 h-9 text-primary-foreground" />
                   </div>
                   <h4 className="font-semibold text-lg mb-3">{item.title}</h4>
                   <p className="text-muted-foreground">{item.description}</p>
                 </motion.div>
-              </ScrollReveal>
-            ))}
+              </ScrollReveal>)}
           </div>
         </div>
       </section>
@@ -265,18 +250,21 @@ export default function PerformanceReklama() {
             </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-10">
-              {[
-                { label: "Vidējais ROAS", value: "4.8x" },
-                { label: "Budžeta efektivitāte", value: "+65%" },
-                { label: "Klientu saglabāšana", value: "92%" },
-              ].map((stat, index) => (
-                <ScrollReveal key={stat.label} delay={index * 0.1}>
+              {[{
+              label: "Vidējais ROAS",
+              value: "4.8x"
+            }, {
+              label: "Budžeta efektivitāte",
+              value: "+65%"
+            }, {
+              label: "Klientu saglabāšana",
+              value: "92%"
+            }].map((stat, index) => <ScrollReveal key={stat.label} delay={index * 0.1}>
                   <div className="text-center p-8 bg-card rounded-2xl border border-border">
                     <div className="text-5xl font-bold text-primary mb-3">{stat.value}</div>
                     <div className="text-muted-foreground">{stat.label}</div>
                   </div>
-                </ScrollReveal>
-              ))}
+                </ScrollReveal>)}
             </div>
           </div>
         </div>
@@ -307,6 +295,5 @@ export default function PerformanceReklama() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }
