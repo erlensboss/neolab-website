@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { TrendingUp, Target, BarChart3, ArrowRight, AlertTriangle, Eye, DollarSign, PieChart, Activity, Gauge, MousePointer, ShoppingCart, Compass, Search, Video, Users, Zap, Settings, Play, Building2, Globe } from "lucide-react";
+import { TrendingUp, Target, BarChart3, ArrowRight, AlertTriangle, Eye, DollarSign, PieChart, Activity, Gauge, MousePointer, ShoppingCart, Compass, Search, Video, Users, Zap, Settings, Play, Building2, Globe, Layers, Wallet, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 const controlProblems = ["Nezināt, kura kampaņa tiešām nes peļņu", "Aģentūras atskaites, ko neviens nesaprot", "Budžets, kas iztukšojas bez skaidra ROI", "A/B testi bez reāla mācīšanās"];
 const platforms = [{
   name: "Meta Ads",
@@ -1034,26 +1040,131 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
-      {/* ========== SECTION 6: CTA ========== */}
-      <section className="bg-gradient-hero section-full-bleed">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+      {/* ========== SECTION 6: FAQ ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Simple clean background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="chip mb-4 inline-block text-sm">FAQ</span>
+              <h2 className="text-foreground">
+                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* FAQ Accordion */}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+              {[
+                {
+                  icon: Layers,
+                  question: "Vai jāizmanto visi reklāmas kanāli?",
+                  answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
+                  gradient: "from-primary to-orange-500",
+                },
+                {
+                  icon: Wallet,
+                  question: "Kas apmaksā reklāmas budžetu?",
+                  answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
+                  gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: ClipboardCheck,
+                  question: "Vai iespējams audits esošām kampaņām?",
+                  answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
+                  gradient: "from-amber-500 to-yellow-500",
+                },
+                {
+                  icon: TrendingUp,
+                  question: "Vai performance reklāmu var apvienot ar SEO?",
+                  answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
+                  gradient: "from-yellow-500 to-primary",
+                },
+              ].map((faq, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                  >
+                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
+                      <div className="flex items-center gap-3 md:gap-4 text-left">
+                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        </div>
+                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
+                          {faq.question}
+                        </span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
+                      <div className="pl-11 md:pl-14">
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </ScrollReveal>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 7: CTA ========== */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Dynamic background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
+        
+        {/* Subtle pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        
+        {/* Floating accents */}
+        <motion.div
+          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-8">
-                Atgūstiet <span className="text-gradient-orange">kontroli</span> pār reklāmas budžetu
+              <h2 className="text-foreground mb-6">
+                Sāc ar skaidru <span className="text-gradient-orange">reklāmas stratēģiju</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-xl text-muted-foreground mb-10">
-                Bezmaksas audits parādīs, kur jūsu budžets strādā un kur tas aizplūst.
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
+                Maksas reklāma strādā tikai tad, ja ir skaidrs mērķis, struktūra un mērījumi.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Pieprasīt performance auditu
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
+                  <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
+                    Uzzini kā attīstīties
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </motion.div>
               </Link>
             </ScrollReveal>
           </div>
