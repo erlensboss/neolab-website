@@ -268,6 +268,67 @@ export default function PerformanceReklama() {
               </motion.div>
             </ScrollReveal>
 
+            {/* Visual Metrics Panel - fills empty space */}
+            <ScrollReveal delay={0.18} className="lg:row-span-2">
+              <div className="relative h-full p-6 md:p-7 rounded-2xl bg-gradient-to-b from-foreground/[0.03] to-muted/50 border border-border overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.015]" style={{
+                  backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+                  backgroundSize: '16px 16px'
+                }} />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Rezultātu pārskats</span>
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  </div>
+
+                  {/* Mini funnel visualization */}
+                  <div className="space-y-3 mb-6">
+                    {[
+                      { label: "Impressions", value: "124K", width: "100%", color: "from-primary/20 to-primary/10" },
+                      { label: "Clicks", value: "8.2K", width: "65%", color: "from-primary/30 to-primary/15" },
+                      { label: "Leads", value: "1.4K", width: "40%", color: "from-primary/50 to-primary/25" },
+                      { label: "Sales", value: "312", width: "25%", color: "from-primary/70 to-primary/40" }
+                    ].map((item, idx) => (
+                      <motion.div 
+                        key={item.label}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 + idx * 0.1 }}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-16 text-xs text-muted-foreground">{item.label}</div>
+                        <div className="flex-1 h-6 bg-muted/50 rounded overflow-hidden">
+                          <motion.div 
+                            className={`h-full bg-gradient-to-r ${item.color} rounded flex items-center justify-end pr-2`}
+                            initial={{ width: 0 }}
+                            animate={{ width: item.width }}
+                            transition={{ delay: 0.7 + idx * 0.15, duration: 0.5 }}
+                          >
+                            <span className="text-xs font-semibold text-foreground/80">{item.value}</span>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Key metric */}
+                  <div className="pt-4 border-t border-border/50">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <div className="text-xs text-muted-foreground mb-1">Konversijas likme</div>
+                        <div className="text-2xl font-bold text-primary">3.8%</div>
+                      </div>
+                      <div className="flex items-center gap-1 text-green-600 text-sm font-medium">
+                        <TrendingUp className="w-4 h-4" />
+                        +24%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
             {/* Benefit 4 */}
             <ScrollReveal delay={0.2}>
               <motion.div 
@@ -286,7 +347,7 @@ export default function PerformanceReklama() {
             </ScrollReveal>
 
             {/* Benefit 5 - Featured bottom card */}
-            <ScrollReveal delay={0.25} className="lg:col-span-2">
+            <ScrollReveal delay={0.25} className="md:col-span-2 lg:col-span-2">
               <motion.div 
                 whileHover={{ y: -3 }} 
                 className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/80 to-muted/40 border border-border overflow-hidden group"
