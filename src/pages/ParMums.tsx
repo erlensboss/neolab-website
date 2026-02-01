@@ -4,6 +4,7 @@ import { ArrowRight, Lightbulb, Target, Zap, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 
 const values = [
   {
@@ -38,34 +39,104 @@ const timeline = [
 export default function ParMums() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Philosophy (Not Team Grid) ========== */}
-      <section className="bg-gradient-hero bg-atmosphere">
+      {/* ========== SECTION 1: Hero - Trust Building ========== */}
+      <section className="bg-gradient-to-b from-slate-50 via-white to-orange-50/30 relative overflow-hidden">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+        
         <div className="container-neo section-padding relative z-10">
-          <div className="max-w-5xl">
-            <ScrollReveal>
-              <span className="chip-outline mb-8 inline-block text-sm">Par mums</span>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h1 className="mb-10">
-                Mēs esam <span className="text-gradient-orange">sistēmu domātāji</span>,
-                <br />
-                nevis tipiskas aģentūras
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl">
-                NEOLab ir jauna veida digitālā aģentūra. Mēs neticam standarta 
-                risinājumiem, jo katrs bizness ir unikāls. Mēs būvējam personalizētas 
-                sistēmas, kas aug līdzi jūsu ambīcijām.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.3}>
-              <p className="text-xl text-foreground/80">
-                Jauni. Gudri. Neatlaidīgi. Profesionāli. Unikāli.
-              </p>
-            </ScrollReveal>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[70vh]">
+            
+            {/* Left: Content */}
+            <div className="lg:col-span-6 order-2 lg:order-1">
+              <ScrollReveal>
+                <span className="chip-outline mb-6 inline-block text-sm">Par mums</span>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.1}>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-foreground">
+                  Mēs esam <span className="text-gradient-orange">sistēmu domātāji</span>, nevis sistēmas sekotāji.
+                </h1>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.2}>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  NEOLab ir vieta, kur digitālā attīstība tiek veidota apzināti, ar izpratni un skatu uz nākotni.
+                </p>
+              </ScrollReveal>
+              
+              {/* Trust indicators */}
+              <ScrollReveal delay={0.3}>
+                <div className="flex flex-wrap gap-4 mt-10">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Profesionāla pieeja</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Pielāgoti risinājumi</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Ilgtermiņa partnerība</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+            
+            {/* Right: Logo Visual */}
+            <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center lg:justify-end">
+              <ScrollReveal delay={0.15} direction="right">
+                <div className="relative">
+                  {/* Outer glow ring */}
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      opacity: [0.3, 0.5, 0.3]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-primary/20 via-orange-200/30 to-transparent blur-2xl"
+                  />
+                  
+                  {/* Main logo container */}
+                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100">
+                    {/* Decorative corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-3xl" />
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-3xl" />
+                    
+                    {/* Logo */}
+                    <motion.img
+                      src={logoSecondaryOrange}
+                      alt="NEOLab"
+                      className="w-48 h-auto md:w-64 lg:w-72"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    />
+                    
+                    {/* Subtle floating elements */}
+                    <motion.div
+                      animate={{ y: [-5, 5, -5] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/10 backdrop-blur-sm"
+                    />
+                    <motion.div
+                      animate={{ y: [5, -5, 5] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-orange-200/50 backdrop-blur-sm"
+                    />
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
+        
+        {/* Bottom gradient divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </section>
 
       {/* ========== SECTION 2: Values (Visual Blocks) ========== */}
