@@ -1320,26 +1320,120 @@ export default function ParMums() {
       </section>
 
       {/* ========== SECTION 8: CTA ========== */}
-      <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="relative overflow-hidden py-24 md:py-32" style={{
+        background: "linear-gradient(135deg, hsl(25 75% 50%) 0%, hsl(22 80% 45%) 40%, hsl(18 85% 40%) 100%)"
+      }}>
+        {/* Decorative elements */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.35, 0.2] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-[10%] w-96 h-96 rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(30 90% 60% / 0.3), transparent 60%)" }}
+        />
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-0 right-[5%] w-80 h-80 rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(40 85% 65% / 0.25), transparent 60%)" }}
+        />
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 1px)`,
+          backgroundSize: "32px 32px"
+        }} />
+
+        <div className="container-neo px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
             <ScrollReveal>
-              <h2 className="mb-6">
-                Gatavi <span className="text-gradient-orange">sarunāties</span>?
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <p className="text-lg text-muted-foreground mb-8">
-                Mēs vienmēr priecājamies satikt jaunus cilvēkus ar interesantām idejām.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Sākt sarunu
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
+              <motion.div
+                className="relative rounded-3xl p-10 md:p-14 lg:p-16 text-center overflow-hidden"
+                style={{
+                  background: "linear-gradient(145deg, hsl(0 0% 100% / 0.12) 0%, hsl(30 50% 90% / 0.08) 100%)",
+                  backdropFilter: "blur(16px)",
+                  boxShadow: "0 25px 60px -15px hsl(0 0% 0% / 0.25), 0 0 0 1px hsl(0 0% 100% / 0.15), inset 0 2px 0 hsl(0 0% 100% / 0.2)"
+                }}
+                whileHover={{
+                  boxShadow: "0 30px 70px -15px hsl(0 0% 0% / 0.35), 0 0 0 1px hsl(40 80% 70% / 0.3), inset 0 2px 0 hsl(0 0% 100% / 0.25)",
+                  y: -6
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                {/* Animated corner accents */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-6 right-6 w-20 h-20 rounded-full border border-dashed border-white/20"
+                />
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="absolute bottom-6 left-6 w-16 h-16 rounded-full border border-dashed border-white/15"
+                />
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <motion.p 
+                    className="text-lg md:text-xl text-white/80 leading-relaxed mb-6 max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    Mēdz teikt – ja vēlies ilgāk justies jauns, pulcē sev apkārt jauniešus.
+                  </motion.p>
+
+                  <motion.p 
+                    className="text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    Līdzīgi ir ar tehnoloģijām. Ja meklē jaunākus, efektīvākus un jēgpilnus mākslīgā intelekta un digitālos risinājumus —{" "}
+                    <span className="text-white font-medium">strādā ar NEOLab</span>.
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <Link to="/bezmaksas-konsultacija">
+                      <motion.div
+                        whileHover={{ scale: 1.05, y: -3 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="inline-flex items-center gap-3 px-8 py-4 rounded-xl cursor-pointer group"
+                        style={{
+                          background: "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(35 30% 95%) 100%)",
+                          boxShadow: "0 15px 40px -10px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(0 0% 100% / 0.3)"
+                        }}
+                      >
+                        <span className="font-bold text-lg" style={{
+                          background: "linear-gradient(90deg, hsl(25 80% 45%), hsl(18 85% 38%))",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent"
+                        }}>
+                          Sazināties ar NEOLab
+                        </span>
+                        <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+                      </motion.div>
+                    </Link>
+                  </motion.div>
+                </div>
+
+                {/* Floating decorative elements */}
+                <motion.div
+                  animate={{ y: [0, -10, 0], opacity: [0.1, 0.2, 0.1] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/2 left-8 -translate-y-1/2 w-2 h-16 rounded-full"
+                  style={{ background: "linear-gradient(to bottom, transparent, hsl(40 80% 70% / 0.3), transparent)" }}
+                />
+                <motion.div
+                  animate={{ y: [0, 10, 0], opacity: [0.1, 0.2, 0.1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute top-1/2 right-8 -translate-y-1/2 w-2 h-20 rounded-full"
+                  style={{ background: "linear-gradient(to bottom, transparent, hsl(30 85% 65% / 0.25), transparent)" }}
+                />
+              </motion.div>
             </ScrollReveal>
           </div>
         </div>
