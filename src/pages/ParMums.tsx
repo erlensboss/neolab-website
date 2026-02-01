@@ -996,22 +996,61 @@ export default function ParMums() {
 
       {/* ========== SECTION 6: Mūsu Komanda (Team) ========== */}
       <section className="relative overflow-hidden py-20 md:py-28" style={{
-        background: "linear-gradient(180deg, hsl(30 40% 97%) 0%, hsl(35 35% 96%) 50%, hsl(30 45% 95%) 100%)"
+        background: "linear-gradient(180deg, hsl(25 60% 94%) 0%, hsl(28 50% 92%) 50%, hsl(30 55% 93%) 100%)"
       }}>
-        {/* Subtle decorative elements */}
-        <div className="absolute top-10 left-[10%] w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-10 right-[10%] w-56 h-56 rounded-full bg-orange-300/8 blur-3xl" />
+        {/* Vibrant decorative orbs */}
+        <motion.div 
+          animate={{ x: [0, 20, 0], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 left-[5%] w-72 h-72 rounded-full blur-3xl"
+          style={{ background: "linear-gradient(135deg, hsl(25 80% 60% / 0.25), hsl(30 70% 55% / 0.15))" }}
+        />
+        <motion.div 
+          animate={{ x: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full blur-3xl"
+          style={{ background: "linear-gradient(135deg, hsl(350 50% 60% / 0.15), hsl(25 70% 55% / 0.2))" }}
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.35, 0.2] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(25 70% 55% / 0.2), transparent 70%)" }}
+        />
 
         <div className="container-neo px-6">
-          <div className="max-w-5xl mx-auto">
-            {/* Header */}
-            <ScrollReveal>
-              <div className="text-center mb-12">
+          <ScrollReveal>
+            <motion.div 
+              className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden"
+              style={{
+                background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 35% 98%) 50%, hsl(25 40% 96%) 100%)",
+                boxShadow: "0 25px 60px -15px hsl(25 60% 45% / 0.2), 0 0 0 1px hsl(25 50% 90% / 0.6), inset 0 2px 0 hsl(0 0% 100% / 0.9)"
+              }}
+              whileHover={{
+                boxShadow: "0 30px 70px -15px hsl(25 70% 50% / 0.3), 0 0 0 1px hsl(25 60% 85% / 0.8), inset 0 2px 0 hsl(0 0% 100% / 0.9)",
+                y: -4
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {/* Corner accent glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 opacity-60 pointer-events-none">
+                <div className="absolute top-8 right-8 w-40 h-40 rounded-full blur-3xl" style={{
+                  background: "linear-gradient(135deg, hsl(25 80% 60% / 0.3), hsl(30 70% 55% / 0.15))"
+                }} />
+              </div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 opacity-40 pointer-events-none">
+                <div className="absolute bottom-6 left-6 w-32 h-32 rounded-full blur-2xl" style={{
+                  background: "linear-gradient(135deg, hsl(350 50% 60% / 0.2), hsl(25 60% 55% / 0.1))"
+                }} />
+              </div>
+
+              {/* Header */}
+              <div className="text-center mb-12 relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                   <Users className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-primary">Komanda</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   Mūsu{" "}
                   <span style={{
                     background: "linear-gradient(90deg, hsl(25 80% 50%), hsl(30 70% 45%))",
@@ -1021,15 +1060,13 @@ export default function ParMums() {
                     komanda
                   </span>
                 </h2>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+                <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                   NEOLab veido jaunieši ar interesi par tehnoloģijām, mākslīgo intelektu un digitālo attīstību.
                 </p>
               </div>
-            </ScrollReveal>
 
-            {/* Team Grid */}
-            <ScrollReveal delay={0.1}>
-              <div className="flex flex-wrap justify-center gap-8">
+              {/* Team Grid */}
+              <div className="flex flex-wrap justify-center gap-10 relative z-10">
                 {teamMembers.map((member, index) => (
                   <motion.div
                     key={member.name}
@@ -1037,28 +1074,33 @@ export default function ParMums() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className="relative group"
+                    whileHover={{ y: -10, scale: 1.05 }}
+                    className="relative group cursor-pointer"
                   >
                     <div 
-                      className="relative rounded-2xl p-6 md:p-8 text-center w-64"
+                      className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 transition-all duration-300"
                       style={{
-                        background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 25% 98%) 100%)",
-                        boxShadow: "0 15px 40px -12px hsl(25 50% 50% / 0.12), 0 0 0 1px hsl(25 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)"
+                        background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 30% 98%) 100%)",
+                        boxShadow: "0 15px 40px -12px hsl(25 50% 50% / 0.15), 0 0 0 1px hsl(25 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)"
                       }}
                     >
                       {/* Hover glow effect */}
-                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
-                        boxShadow: "0 20px 50px -15px hsl(25 70% 50% / 0.25)"
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none" style={{
+                        boxShadow: "0 25px 60px -15px hsl(25 75% 50% / 0.35), inset 0 0 0 2px hsl(25 70% 60% / 0.2)"
+                      }} />
+                      
+                      {/* Bottom accent line on hover */}
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-1 rounded-full transition-all duration-300" style={{
+                        background: "linear-gradient(90deg, hsl(25 80% 55%), hsl(30 70% 50%))"
                       }} />
 
                       {/* Avatar with placeholder */}
-                      <div className="relative mx-auto mb-5">
+                      <div className="relative mx-auto mb-6">
                         <div className="relative">
-                          <Avatar className="w-24 h-24 mx-auto border-4 border-white shadow-lg">
+                          <Avatar className="w-28 h-28 md:w-32 md:h-32 mx-auto border-4 border-white shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
                             <AvatarImage src="" alt={member.name} />
                             <AvatarFallback 
-                              className="text-xl font-bold"
+                              className="text-2xl md:text-3xl font-bold"
                               style={{
                                 background: "linear-gradient(135deg, hsl(25 70% 55%) 0%, hsl(30 80% 50%) 100%)",
                                 color: "white"
@@ -1071,14 +1113,20 @@ export default function ParMums() {
                           <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute -inset-2 rounded-full border-2 border-dashed border-primary/20"
+                            className="absolute -inset-3 rounded-full border-2 border-dashed border-primary/25 group-hover:border-primary/40 transition-colors duration-300"
+                          />
+                          {/* Pulse effect on hover */}
+                          <motion.div
+                            className="absolute -inset-4 rounded-full border border-primary/0 group-hover:border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
                           />
                         </div>
                       </div>
 
                       {/* Name & Role */}
-                      <h4 className="text-lg font-semibold text-foreground mb-1">{member.name}</h4>
-                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                      <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{member.name}</h4>
+                      <p className="text-base text-muted-foreground">{member.role}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -1089,33 +1137,32 @@ export default function ParMums() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="relative"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="relative cursor-pointer"
                 >
                   <div 
-                    className="relative rounded-2xl p-6 md:p-8 text-center w-64 border-2 border-dashed border-primary/20"
+                    className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 border-2 border-dashed border-primary/25 hover:border-primary/40 transition-all duration-300"
                     style={{
-                      background: "linear-gradient(145deg, hsl(30 30% 98% / 0.5) 0%, hsl(35 25% 96% / 0.3) 100%)"
+                      background: "linear-gradient(145deg, hsl(30 30% 98% / 0.6) 0%, hsl(35 25% 96% / 0.4) 100%)"
                     }}
                   >
-                    <div className="mx-auto mb-5">
-                      <div className="w-24 h-24 mx-auto rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center bg-primary/5">
-                        <Users className="w-8 h-8 text-primary/40" />
+                    <div className="mx-auto mb-6">
+                      <div className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center bg-primary/5">
+                        <Users className="w-10 h-10 text-primary/40" />
                       </div>
                     </div>
-                    <h4 className="text-lg font-semibold text-foreground/50 mb-1">Jaunais dalībnieks</h4>
-                    <p className="text-sm text-muted-foreground/70">Komanda aug...</p>
+                    <h4 className="text-xl md:text-2xl font-semibold text-foreground/50 mb-2">Jaunais dalībnieks</h4>
+                    <p className="text-base text-muted-foreground/70">Komanda aug...</p>
                   </div>
                 </motion.div>
               </div>
-            </ScrollReveal>
 
-            {/* Bottom note */}
-            <ScrollReveal delay={0.2}>
-              <p className="text-center text-muted-foreground mt-10 max-w-xl mx-auto italic">
+              {/* Bottom note */}
+              <p className="text-center text-muted-foreground mt-12 max-w-xl mx-auto italic relative z-10">
                 Komanda aug pakāpeniski, balstoties zināšanās, praksē un kopīgā domāšanā.
               </p>
-            </ScrollReveal>
-          </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
