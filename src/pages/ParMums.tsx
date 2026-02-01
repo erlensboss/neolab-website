@@ -531,7 +531,335 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: Thinking Block (Visual) ========== */}
+      {/* ========== SECTION 4: Mission, Vision, Values Collage ========== */}
+      <section className="relative overflow-hidden py-20 md:py-28" style={{
+        background: 'linear-gradient(180deg, hsl(30 25% 96%) 0%, hsl(35 35% 94%) 40%, hsl(28 40% 95%) 100%)'
+      }}>
+        {/* Connecting gradient overlay */}
+        <div className="absolute inset-0 opacity-50" style={{
+          background: 'radial-gradient(ellipse 80% 60% at 20% 30%, hsl(25 70% 60% / 0.08) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 80% 70%, hsl(350 60% 60% / 0.06) 0%, transparent 50%)'
+        }} />
+        
+        {/* Decorative connection lines */}
+        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+        <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-400/10 to-transparent" />
+        
+        <div className="container-neo relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <span className="chip mb-4 inline-block">Mūsu pamati</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Kas <span className="text-gradient-orange">virza</span> NEOLab
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* 3 Block Collage */}
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 max-w-7xl mx-auto">
+            
+            {/* BLOCK 1: Mission - Large left block */}
+            <ScrollReveal delay={0.1} className="lg:col-span-5 lg:row-span-2">
+              <motion.div
+                whileHover={{ y: -8, scale: 1.01 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative h-full min-h-[420px] lg:min-h-[520px] rounded-3xl overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(145deg, hsl(25 85% 98%) 0%, hsl(30 70% 96%) 50%, hsl(35 60% 94%) 100%)',
+                  boxShadow: '0 25px 60px -15px hsl(25 70% 50% / 0.18), 0 0 0 1px hsl(25 50% 90% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.8)'
+                }}
+              >
+                {/* Animated glow orb */}
+                <motion.div
+                  animate={{ 
+                    x: [0, 20, 0],
+                    y: [0, -15, 0],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-8 right-8 w-48 h-48 rounded-full blur-3xl"
+                  style={{ background: 'linear-gradient(135deg, hsl(25 80% 55% / 0.3), hsl(35 70% 60% / 0.15))' }}
+                />
+                
+                {/* Icon container */}
+                <div className="absolute top-8 right-8">
+                  <motion.div
+                    animate={{ rotate: [0, 5, 0, -5, 0] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
+                    style={{
+                      background: 'linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 80% 50%) 100%)',
+                      boxShadow: '0 15px 40px -10px hsl(25 80% 50% / 0.5)'
+                    }}
+                  >
+                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </motion.div>
+                </div>
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="w-10 h-1 rounded-full bg-gradient-to-r from-primary to-orange-400" />
+                    <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
+                      background: 'linear-gradient(90deg, hsl(25 80% 45%), hsl(35 75% 50%))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}>Misija</span>
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-bold mb-5 leading-tight">
+                    <span style={{
+                      background: 'linear-gradient(135deg, hsl(25 75% 40%) 0%, hsl(20 70% 35%) 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}>Optimizēt</span> digitālos procesus
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās <span className="text-foreground font-medium">paātrina ikdienišķus procesus</span>.
+                  </p>
+                  
+                  <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80">
+                    <p className="text-sm text-muted-foreground italic">
+                      "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt — <span className="font-medium text-foreground">nevis jārada sarežģītība</span>."
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Connection dots to next block */}
+                <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 flex-col gap-2 z-20">
+                  {[0, 1, 2].map((i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.8, 0.4] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                      className="w-2 h-2 rounded-full bg-primary/50"
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </ScrollReveal>
+            
+            {/* RIGHT COLUMN - 2 stacked blocks */}
+            <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-8">
+              
+              {/* BLOCK 2: Vision - Top right */}
+              <ScrollReveal delay={0.2}>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="relative rounded-3xl overflow-hidden group"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(340 30% 97%) 0%, hsl(350 40% 95%) 50%, hsl(25 35% 96%) 100%)',
+                    boxShadow: '0 20px 50px -15px hsl(350 50% 50% / 0.12), 0 0 0 1px hsl(350 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.8)'
+                  }}
+                >
+                  {/* Glow effect */}
+                  <motion.div
+                    animate={{ 
+                      x: [0, -15, 0],
+                      opacity: [0.3, 0.5, 0.3]
+                    }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-0 left-1/3 w-64 h-40 rounded-full blur-3xl"
+                    style={{ background: 'linear-gradient(135deg, hsl(350 60% 65% / 0.2), hsl(25 50% 60% / 0.1))' }}
+                  />
+                  
+                  <div className="p-8 md:p-10">
+                    <div className="flex items-start justify-between gap-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-4">
+                          <motion.div
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            className="w-12 h-12 rounded-xl flex items-center justify-center"
+                            style={{
+                              background: 'linear-gradient(135deg, hsl(350 65% 60%) 0%, hsl(25 70% 55%) 100%)',
+                              boxShadow: '0 10px 30px -8px hsl(350 60% 50% / 0.4)'
+                            }}
+                          >
+                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                          </motion.div>
+                          <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
+                            background: 'linear-gradient(90deg, hsl(350 60% 50%), hsl(25 65% 50%))',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent'
+                          }}>Vīzija</span>
+                        </div>
+                        
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
+                          AI un tehnoloģijas —{' '}
+                          <span style={{
+                            background: 'linear-gradient(135deg, hsl(350 55% 45%) 0%, hsl(25 60% 45%) 100%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent'
+                          }}>atbildīgi, gudri, ilgtspējīgi</span>
+                        </h3>
+                        
+                        <p className="text-muted-foreground leading-relaxed">
+                          Veidot vidi, kur mākslīgais intelekts tiek izmantots ar skatu tālāk par šodienas vajadzībām — fokusējoties uz <span className="text-foreground font-medium">risinājumiem nākotnei</span>.
+                        </p>
+                      </div>
+                      
+                      {/* Abstract visual */}
+                      <div className="hidden md:block flex-shrink-0">
+                        <div className="relative w-28 h-28">
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 rounded-full border-2 border-dashed"
+                            style={{ borderColor: 'hsl(350 50% 70% / 0.4)' }}
+                          />
+                          <motion.div
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-3 rounded-full border"
+                            style={{ borderColor: 'hsl(25 50% 65% / 0.3)' }}
+                          />
+                          <div className="absolute inset-6 rounded-full flex items-center justify-center" style={{
+                            background: 'linear-gradient(135deg, hsl(350 50% 85% / 0.6), hsl(25 40% 90% / 0.4))'
+                          }}>
+                            <span className="text-2xl">🔮</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Connection to bottom block */}
+                  <div className="hidden lg:flex absolute -bottom-4 left-1/2 -translate-x-1/2 flex-row gap-2 z-20">
+                    {[0, 1, 2].map((i) => (
+                      <motion.div
+                        key={i}
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.8, 0.4] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: 'hsl(350 50% 60% / 0.5)' }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+              
+              {/* BLOCK 3: Values - Bottom right */}
+              <ScrollReveal delay={0.3}>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="relative rounded-3xl overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(145deg, hsl(45 40% 97%) 0%, hsl(40 50% 95%) 50%, hsl(30 45% 94%) 100%)',
+                    boxShadow: '0 20px 50px -15px hsl(40 60% 50% / 0.15), 0 0 0 1px hsl(40 50% 90% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.8)'
+                  }}
+                >
+                  {/* Subtle glow */}
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                      opacity: [0.2, 0.4, 0.2]
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-0 right-1/4 w-56 h-40 rounded-full blur-3xl"
+                    style={{ background: 'linear-gradient(135deg, hsl(40 70% 60% / 0.2), hsl(25 60% 55% / 0.1))' }}
+                  />
+                  
+                  <div className="p-8 md:p-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <motion.div
+                        animate={{ rotate: [0, 10, 0, -10, 0] }}
+                        transition={{ duration: 6, repeat: Infinity }}
+                        className="w-12 h-12 rounded-xl flex items-center justify-center"
+                        style={{
+                          background: 'linear-gradient(135deg, hsl(40 75% 50%) 0%, hsl(30 80% 45%) 100%)',
+                          boxShadow: '0 10px 30px -8px hsl(40 70% 45% / 0.4)'
+                        }}
+                      >
+                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </motion.div>
+                      <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
+                        background: 'linear-gradient(90deg, hsl(40 70% 40%), hsl(30 65% 45%))',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent'
+                      }}>Vērtības</span>
+                    </div>
+                    
+                    {/* Values grid */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {[
+                        { 
+                          title: "Izpratne pirms rīkiem", 
+                          desc: "Mēs nesākam ar platformām — mēs sākam ar saprašanu.",
+                          accent: "hsl(25 80% 50%)"
+                        },
+                        { 
+                          title: "Ilgtermiņa domāšana", 
+                          desc: "Strādājam uz stabilu attīstību, nevis ātriem risinājumiem.",
+                          accent: "hsl(350 60% 55%)"
+                        },
+                        { 
+                          title: "Atbildība", 
+                          desc: "Katrs risinājums — ar apziņu par tā ietekmi.",
+                          accent: "hsl(40 70% 45%)"
+                        },
+                        { 
+                          title: "Nepārtraukta attīstība", 
+                          desc: "Mācāmies, testējam un pilnveidojamies praksē.",
+                          accent: "hsl(200 60% 45%)"
+                        }
+                      ].map((value, i) => (
+                        <motion.div
+                          key={value.title}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 + i * 0.1 }}
+                          className="p-4 rounded-xl bg-white/70 backdrop-blur-sm border border-white/80 hover:bg-white/90 transition-colors"
+                        >
+                          <div className="flex items-center gap-2 mb-2">
+                            <div 
+                              className="w-2 h-2 rounded-full"
+                              style={{ background: value.accent }}
+                            />
+                            <h4 className="font-semibold text-sm" style={{
+                              background: `linear-gradient(90deg, ${value.accent}, hsl(30 60% 40%))`,
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent'
+                            }}>{value.title}</h4>
+                          </div>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{value.desc}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            </div>
+          </div>
+          
+          {/* Bottom connecting element */}
+          <div className="flex justify-center mt-12">
+            <motion.div
+              animate={{ 
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="flex items-center gap-3"
+            >
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+              <div className="w-3 h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-lg" />
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 5: Thinking Block (Visual) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
         <div className="container-neo section-padding">
           <div className="max-w-4xl mx-auto">
