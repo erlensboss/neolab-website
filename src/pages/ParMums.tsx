@@ -1,31 +1,31 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Lightbulb, Target, Zap, Users } from "lucide-react";
+import { ArrowRight, Lightbulb, Sparkles, Brain, Rocket, Heart, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 
-const values = [
+const roadmapItems = [
   {
-    icon: Lightbulb,
-    title: "Sistēmiska domāšana",
-    description: "Mēs neredzam atsevišķus taktiskus gājienus. Mēs redzam pilnu ainu un būvējam sistēmas.",
+    icon: Brain,
+    title: "AI Laboratorija",
+    description: "Attīstām jaunus AI risinājumus dažādām uzņēmumu vajadzībām — no praktiskiem risinājumiem līdz nestandarta idejām.",
   },
   {
-    icon: Target,
-    title: "Rezultātu fokuss",
-    description: "Nav svarīgi, cik skaisti izskatās atskaite. Svarīgi ir tas, kas mainās biznesā.",
+    icon: Sparkles,
+    title: "Jauna paaudze",
+    description: "Mēs esam tehnoloģiju un algoritmu paaudze, kas digitālajā vidē orientējas intuitīvi un ātri apgūst jauno.",
   },
   {
-    icon: Zap,
-    title: "AI ar mērķi",
-    description: "Mēs neizmantojam AI tāpēc, ka tas ir modē. Mēs to izmantojam tur, kur tas tiešām palīdz.",
+    icon: Rocket,
+    title: "Dabiska izpratne",
+    description: "Jaunākās tehnoloģijas mums ir dabiska ikdienas sastāvdaļa — mēs esam uzauguši digitālajā pasaulē.",
   },
   {
-    icon: Users,
-    title: "Partnerība, ne pakalpojums",
-    description: "Mēs neesam vendor. Mēs esam komandas paplašinājums, kas ieguldās jūsu panākumos.",
+    icon: Heart,
+    title: "Degsme un attīstība",
+    description: "Jaunība mums nav tikai vecums. Tā ir zinātkāre un nepārtraukts izsalkums pēc izaugsmes.",
   },
 ];
 
@@ -230,8 +230,47 @@ export default function ParMums() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       </section>
 
-      {/* ========== SECTION 2: Values (Visual Blocks) ========== */}
+      {/* ========== SECTION 2: NEOLab Story ========== */}
       <section className="section-offwhite section-full-bleed">
+        <div className="container-neo section-padding relative z-10">
+          <SectionHeading
+            chip="Stāsts"
+            title="NEOLab stāsts"
+            className="mb-16"
+          />
+
+          <div className="max-w-4xl mx-auto space-y-8">
+            <ScrollReveal>
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed">
+                NEOLab ir mākslīgā intelekta laboratorija, kurā attīstām jaunus AI risinājumus dažādām uzņēmumu vajadzībām — sākot ar praktiskiem digitāliem risinājumiem un beidzot ar nestandarta idejām, kas praksē izrādās pārsteidzoši efektīvas.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.1}>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                NEOLab veido jaunu ekspertu komanda ar dabīgu izpratni par mākslīgā intelekta tehnoloģiju pārvaldību un izstrādi. Mēs esam tehnoloģiju un algoritmu paaudze, kas digitālajā vidē orientējas intuitīvi, ātri apgūst jauno un spēj pielāgoties straujām pārmaiņām.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.2}>
+              <div className="glass-warm rounded-2xl p-6 md:p-8 border-l-4 border-primary">
+                <p className="text-lg text-foreground italic">
+                  "Jaunība mums nav tikai vecums. Tā ir degsme, zinātkāre un nepārtraukts izsalkums pēc attīstības. Mēs esam uzauguši digitālajā pasaulē, un jaunākās tehnoloģijas mums ir dabiska ikdienas sastāvdaļa."
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 3: Zigzag Roadmap ========== */}
+      <section className="section-warm relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, hsl(25 80% 50%) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+        
         <div className="container-neo section-padding relative z-10">
           <SectionHeading
             chip="Vērtības"
@@ -239,31 +278,112 @@ export default function ParMums() {
             className="mb-20"
           />
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <ScrollReveal key={value.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="card-neo h-full"
-                >
-                  <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-gradient-orange flex items-center justify-center mb-8 shadow-orange">
-                    <value.icon className="w-9 h-9 text-primary-foreground" />
+          {/* Zigzag Roadmap */}
+          <div className="max-w-5xl mx-auto relative">
+            {/* Central flowing line - visible on desktop */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
+              <motion.div
+                initial={{ height: "0%" }}
+                whileInView={{ height: "100%" }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="w-full bg-gradient-to-b from-primary via-primary/60 to-primary/20"
+              />
+            </div>
+
+            {roadmapItems.map((item, index) => {
+              const isLeft = index % 2 === 0;
+              const Icon = item.icon;
+              
+              return (
+                <ScrollReveal key={item.title} delay={index * 0.15}>
+                  <div className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-0 mb-16 last:mb-0 ${isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                    
+                    {/* Content Card */}
+                    <div className={`w-full lg:w-[45%] ${isLeft ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:text-left'}`}>
+                      <motion.div
+                        whileHover={{ y: -4, scale: 1.02 }}
+                        className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 relative group"
+                        style={{
+                          boxShadow: '0 10px 40px -15px hsl(25 80% 50% / 0.15)'
+                        }}
+                      >
+                        {/* Hover glow */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        
+                        {/* Mobile icon */}
+                        <div className="lg:hidden w-14 h-14 rounded-xl bg-gradient-orange flex items-center justify-center mb-4 shadow-orange">
+                          <Icon className="w-7 h-7 text-primary-foreground" />
+                        </div>
+                        
+                        <h3 className="text-xl md:text-2xl font-semibold mb-3 relative">{item.title}</h3>
+                        <p className="text-muted-foreground text-base md:text-lg relative">{item.description}</p>
+                        
+                        {/* Connector line to center - desktop */}
+                        <div className={`hidden lg:block absolute top-1/2 ${isLeft ? 'right-0 translate-x-full' : 'left-0 -translate-x-full'} w-12 h-px`}>
+                          <motion.div
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            className={`w-full h-full bg-gradient-to-r ${isLeft ? 'from-primary/40 to-primary' : 'from-primary to-primary/40'}`}
+                            style={{ transformOrigin: isLeft ? 'left' : 'right' }}
+                          />
+                        </div>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Center Checkpoint - Desktop */}
+                    <div className="hidden lg:flex w-[10%] justify-center relative z-10">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.2, type: "spring" }}
+                        viewport={{ once: true }}
+                        className="relative"
+                      >
+                        {/* Pulse ring */}
+                        <motion.div
+                          animate={{ 
+                            scale: [1, 1.5, 1],
+                            opacity: [0.5, 0, 0.5]
+                          }}
+                          transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                          className="absolute inset-0 rounded-full bg-primary/30"
+                        />
+                        
+                        {/* Icon container */}
+                        <div className="w-16 h-16 rounded-full bg-gradient-orange flex items-center justify-center shadow-xl relative"
+                          style={{
+                            boxShadow: '0 0 30px hsl(25 80% 50% / 0.4), 0 10px 20px -5px hsl(25 80% 50% / 0.3)'
+                          }}
+                        >
+                          <Icon className="w-8 h-8 text-primary-foreground" />
+                        </div>
+                        
+                        {/* Step number */}
+                        <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-white border-2 border-primary flex items-center justify-center text-xs font-bold text-primary shadow-md">
+                          {index + 1}
+                        </div>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Empty space for alignment */}
+                    <div className="hidden lg:block w-[45%]" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
-                  <p className="text-muted-foreground text-lg">{value.description}</p>
-                </motion.div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 3: Timeline / Story ========== */}
-      <section className="section-warm">
+      {/* ========== SECTION 4: Timeline / Journey ========== */}
+      <section className="section-offwhite">
         <div className="container-neo section-padding">
           <SectionHeading
-            chip="Stāsts"
-            title="Mūsu ceļš"
+            chip="Ceļš"
+            title="Mūsu attīstība"
             className="mb-16"
           />
 
