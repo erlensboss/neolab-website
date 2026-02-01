@@ -217,10 +217,9 @@ export default function PerformanceReklama() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {/* Benefit 1 - Featured large card */}
             <ScrollReveal delay={0.05} className="lg:col-span-2">
-              <motion.div 
-                whileHover={{ y: -3 }} 
-                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/8 via-primary/4 to-transparent border border-primary/15 overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -3
+            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/8 via-primary/4 to-transparent border border-primary/15 overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
@@ -236,10 +235,9 @@ export default function PerformanceReklama() {
 
             {/* Benefit 2 */}
             <ScrollReveal delay={0.1}>
-              <motion.div 
-                whileHover={{ y: -3 }} 
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -3
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-amber-100 to-transparent rounded-full opacity-60" />
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-amber-200/50">
@@ -253,10 +251,9 @@ export default function PerformanceReklama() {
 
             {/* Benefit 3 */}
             <ScrollReveal delay={0.15}>
-              <motion.div 
-                whileHover={{ y: -3 }} 
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -3
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-green-100 to-transparent rounded-full opacity-60" />
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-green-200/50">
@@ -272,9 +269,9 @@ export default function PerformanceReklama() {
             <ScrollReveal delay={0.18} className="lg:row-span-2">
               <div className="relative h-full p-6 md:p-7 rounded-2xl bg-gradient-to-b from-foreground/[0.03] to-muted/50 border border-border overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.015]" style={{
-                  backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-                  backgroundSize: '16px 16px'
-                }} />
+                backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+                backgroundSize: '16px 16px'
+              }} />
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-5">
@@ -284,32 +281,49 @@ export default function PerformanceReklama() {
 
                   {/* Mini funnel visualization */}
                   <div className="space-y-3 mb-6">
-                    {[
-                      { label: "Impressions", value: "124K", width: "100%", color: "from-primary/20 to-primary/10" },
-                      { label: "Clicks", value: "8.2K", width: "65%", color: "from-primary/30 to-primary/15" },
-                      { label: "Leads", value: "1.4K", width: "40%", color: "from-primary/50 to-primary/25" },
-                      { label: "Sales", value: "312", width: "25%", color: "from-primary/70 to-primary/40" }
-                    ].map((item, idx) => (
-                      <motion.div 
-                        key={item.label}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5 + idx * 0.1 }}
-                        className="flex items-center gap-3"
-                      >
+                    {[{
+                    label: "Impressions",
+                    value: "124K",
+                    width: "100%",
+                    color: "from-primary/20 to-primary/10"
+                  }, {
+                    label: "Clicks",
+                    value: "8.2K",
+                    width: "65%",
+                    color: "from-primary/30 to-primary/15"
+                  }, {
+                    label: "Leads",
+                    value: "1.4K",
+                    width: "40%",
+                    color: "from-primary/50 to-primary/25"
+                  }, {
+                    label: "Sales",
+                    value: "312",
+                    width: "25%",
+                    color: "from-primary/70 to-primary/40"
+                  }].map((item, idx) => <motion.div key={item.label} initial={{
+                    opacity: 0,
+                    x: -10
+                  }} animate={{
+                    opacity: 1,
+                    x: 0
+                  }} transition={{
+                    delay: 0.5 + idx * 0.1
+                  }} className="flex items-center gap-3">
                         <div className="w-16 text-xs text-muted-foreground">{item.label}</div>
                         <div className="flex-1 h-6 bg-muted/50 rounded overflow-hidden">
-                          <motion.div 
-                            className={`h-full bg-gradient-to-r ${item.color} rounded flex items-center justify-end pr-2`}
-                            initial={{ width: 0 }}
-                            animate={{ width: item.width }}
-                            transition={{ delay: 0.7 + idx * 0.15, duration: 0.5 }}
-                          >
+                          <motion.div className={`h-full bg-gradient-to-r ${item.color} rounded flex items-center justify-end pr-2`} initial={{
+                        width: 0
+                      }} animate={{
+                        width: item.width
+                      }} transition={{
+                        delay: 0.7 + idx * 0.15,
+                        duration: 0.5
+                      }}>
                             <span className="text-xs font-semibold text-foreground/80">{item.value}</span>
                           </motion.div>
                         </div>
-                      </motion.div>
-                    ))}
+                      </motion.div>)}
                   </div>
 
                   {/* Key metric */}
@@ -331,10 +345,9 @@ export default function PerformanceReklama() {
 
             {/* Benefit 4 */}
             <ScrollReveal delay={0.2}>
-              <motion.div 
-                whileHover={{ y: -3 }} 
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -3
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-blue-100 to-transparent rounded-full opacity-60" />
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-blue-200/50">
@@ -348,10 +361,9 @@ export default function PerformanceReklama() {
 
             {/* Benefit 5 - Featured bottom card */}
             <ScrollReveal delay={0.25} className="md:col-span-2 lg:col-span-2">
-              <motion.div 
-                whileHover={{ y: -3 }} 
-                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/80 to-muted/40 border border-border overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -3
+            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/80 to-muted/40 border border-border overflow-hidden group">
                 <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-br-full" />
                 <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-primary/10">
@@ -369,9 +381,7 @@ export default function PerformanceReklama() {
           {/* Bottom statement */}
           <ScrollReveal delay={0.3}>
             <div className="mt-12 md:mt-16 pt-10 border-t border-border/60">
-              <p className="text-lg md:text-xl font-medium text-center text-foreground/80">
-                Maksas reklāma nav par redzamību — <span className="text-primary font-semibold">bet par rezultātu.</span>
-              </p>
+              
             </div>
           </ScrollReveal>
         </div>
