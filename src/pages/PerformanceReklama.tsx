@@ -541,21 +541,26 @@ export default function PerformanceReklama() {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/40 to-white" />
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '28px 28px'
-        }} />
+        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+        backgroundSize: '28px 28px'
+      }} />
         
         {/* Accent orbs */}
-        <motion.div 
-          className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-bl from-primary/8 to-transparent blur-3xl"
-          animate={{ opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-20 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-amber-200/10 to-transparent blur-3xl"
-          animate={{ opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
+        <motion.div className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-bl from-primary/8 to-transparent blur-3xl" animate={{
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />
+        <motion.div className="absolute bottom-20 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-amber-200/10 to-transparent blur-3xl" animate={{
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 2
+      }} />
 
         <div className="container-neo relative z-10">
           {/* Section header */}
@@ -572,43 +577,44 @@ export default function PerformanceReklama() {
             
             {/* Offering 1 - Strategy (Featured) */}
             <ScrollReveal delay={0.05} className="lg:col-span-2">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group">
                 {/* Decorative visual */}
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 w-32 h-32 md:w-40 md:h-40">
                   <div className="relative w-full h-full">
                     {/* Compass visual */}
-                    <motion.div 
-                      className="absolute inset-0 rounded-full border-2 border-primary/20"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.div 
-                      className="absolute inset-3 rounded-full border border-primary/15"
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                    />
+                    <motion.div className="absolute inset-0 rounded-full border-2 border-primary/20" animate={{
+                    rotate: 360
+                  }} transition={{
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }} />
+                    <motion.div className="absolute inset-3 rounded-full border border-primary/15" animate={{
+                    rotate: -360
+                  }} transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }} />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                         <Compass className="w-8 h-8 md:w-10 md:h-10 text-primary" />
                       </div>
                     </div>
                     {/* Direction dots */}
-                    {[0, 90, 180, 270].map((deg) => (
-                      <motion.div 
-                        key={deg}
-                        className="absolute w-2 h-2 rounded-full bg-primary/40"
-                        style={{
-                          top: '50%',
-                          left: '50%',
-                          transform: `rotate(${deg}deg) translateY(-50px) translate(-50%, -50%)`
-                        }}
-                        animate={{ opacity: [0.4, 1, 0.4] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: deg / 360 }}
-                      />
-                    ))}
+                    {[0, 90, 180, 270].map(deg => <motion.div key={deg} className="absolute w-2 h-2 rounded-full bg-primary/40" style={{
+                    top: '50%',
+                    left: '50%',
+                    transform: `rotate(${deg}deg) translateY(-50px) translate(-50%, -50%)`
+                  }} animate={{
+                    opacity: [0.4, 1, 0.4]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: deg / 360
+                  }} />)}
                   </div>
                 </div>
                 
@@ -630,25 +636,25 @@ export default function PerformanceReklama() {
 
             {/* Offering 2 - Google Ads */}
             <ScrollReveal delay={0.1}>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 {/* Google visual */}
                 <div className="absolute top-4 right-4 w-20 h-20">
                   <div className="relative w-full h-full">
-                    <motion.div 
-                      className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 border border-blue-200/50 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
+                    <motion.div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 border border-blue-200/50 flex items-center justify-center" whileHover={{
+                    scale: 1.05
+                  }}>
                       <Search className="w-8 h-8 text-blue-600" />
                     </motion.div>
                     {/* Search pulse */}
-                    <motion.div 
-                      className="absolute -inset-2 rounded-xl border border-blue-300/30"
-                      animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
+                    <motion.div className="absolute -inset-2 rounded-xl border border-blue-300/30" animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.5, 0, 0.5]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} />
                   </div>
                 </div>
                 
@@ -670,22 +676,33 @@ export default function PerformanceReklama() {
 
             {/* Offering 3 - Meta Ads */}
             <ScrollReveal delay={0.15}>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 {/* Meta visual */}
                 <div className="absolute top-4 right-4 w-20 h-20">
                   <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.div 
-                      className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-purple-100 to-pink-50 border border-purple-200/50"
-                      animate={{ rotate: [0, 5, -5, 0] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                    />
+                    <motion.div className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-purple-100 to-pink-50 border border-purple-200/50" animate={{
+                    rotate: [0, 5, -5, 0]
+                  }} transition={{
+                    duration: 4,
+                    repeat: Infinity
+                  }} />
                     <Users className="w-7 h-7 text-purple-600 relative z-10" />
                     {/* Audience dots */}
-                    <motion.div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-pink-400" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-                    <motion.div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-purple-400" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+                    <motion.div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-pink-400" animate={{
+                    scale: [1, 1.2, 1]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} />
+                    <motion.div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-purple-400" animate={{
+                    scale: [1, 1.2, 1]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 0.5
+                  }} />
                   </div>
                 </div>
                 
@@ -706,32 +723,37 @@ export default function PerformanceReklama() {
 
             {/* Offering 4 - TikTok Ads */}
             <ScrollReveal delay={0.2}>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 {/* TikTok visual */}
                 <div className="absolute top-4 right-4 w-20 h-20">
                   <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.div 
-                      className="absolute w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-100 to-pink-50 border border-cyan-200/50"
-                      animate={{ rotate: [0, 3, -3, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
+                    <motion.div className="absolute w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-100 to-pink-50 border border-cyan-200/50" animate={{
+                    rotate: [0, 3, -3, 0]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }} />
                     <Play className="w-7 h-7 text-foreground relative z-10" />
                     {/* Music notes */}
-                    <motion.div 
-                      className="absolute -top-2 right-0 text-cyan-500 text-xs"
-                      animate={{ y: [-2, 2, -2], opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
+                    <motion.div className="absolute -top-2 right-0 text-cyan-500 text-xs" animate={{
+                    y: [-2, 2, -2],
+                    opacity: [0.5, 1, 0.5]
+                  }} transition={{
+                    duration: 1.5,
+                    repeat: Infinity
+                  }}>
                       ♪
                     </motion.div>
-                    <motion.div 
-                      className="absolute -bottom-1 -right-2 text-pink-500 text-xs"
-                      animate={{ y: [2, -2, 2], opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                    >
+                    <motion.div className="absolute -bottom-1 -right-2 text-pink-500 text-xs" animate={{
+                    y: [2, -2, 2],
+                    opacity: [0.5, 1, 0.5]
+                  }} transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: 0.3
+                  }}>
                       ♫
                     </motion.div>
                   </div>
@@ -754,18 +776,40 @@ export default function PerformanceReklama() {
 
             {/* Offering 5 - Microsoft Ads */}
             <ScrollReveal delay={0.25}>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
                 {/* Microsoft visual */}
                 <div className="absolute top-4 right-4 w-20 h-20">
                   <div className="relative w-full h-full flex items-center justify-center">
                     <div className="grid grid-cols-2 gap-1">
-                      <motion.div className="w-6 h-6 rounded bg-blue-500" animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity }} />
-                      <motion.div className="w-6 h-6 rounded bg-green-500" animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity, delay: 0.2 }} />
-                      <motion.div className="w-6 h-6 rounded bg-amber-500" animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity, delay: 0.4 }} />
-                      <motion.div className="w-6 h-6 rounded bg-red-500" animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity, delay: 0.6 }} />
+                      <motion.div className="w-6 h-6 rounded bg-blue-500" animate={{
+                      opacity: [0.7, 1, 0.7]
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity
+                    }} />
+                      <motion.div className="w-6 h-6 rounded bg-green-500" animate={{
+                      opacity: [0.7, 1, 0.7]
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 0.2
+                    }} />
+                      <motion.div className="w-6 h-6 rounded bg-amber-500" animate={{
+                      opacity: [0.7, 1, 0.7]
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 0.4
+                    }} />
+                      <motion.div className="w-6 h-6 rounded bg-red-500" animate={{
+                      opacity: [0.7, 1, 0.7]
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 0.6
+                    }} />
                     </div>
                   </div>
                 </div>
@@ -787,57 +831,57 @@ export default function PerformanceReklama() {
 
             {/* Offering 6 - Conversion Setup (Featured) */}
             <ScrollReveal delay={0.3} className="lg:col-span-2">
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-green-50/80 via-emerald-50/50 to-white border border-green-200/50 overflow-hidden group"
-              >
+              <motion.div whileHover={{
+              y: -4
+            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-green-50/80 via-emerald-50/50 to-white border border-green-200/50 overflow-hidden group">
                 {/* Conversion visual */}
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 w-32 h-32 md:w-36 md:h-36">
                   <div className="relative w-full h-full">
                     {/* Data flow visualization */}
-                    <motion.div 
-                      className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center"
-                      animate={{ y: [0, 4, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
+                    <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center" animate={{
+                    y: [0, 4, 0]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity
+                  }}>
                       <Globe className="w-5 h-5 text-green-600" />
                     </motion.div>
                     
                     {/* Flow lines */}
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-                      <motion.path
-                        d="M50 25 L50 45 L30 55"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="1.5"
-                        fill="none"
-                        strokeDasharray="5,5"
-                        animate={{ strokeDashoffset: [0, -10] }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      />
-                      <motion.path
-                        d="M50 25 L50 45 L70 55"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth="1.5"
-                        fill="none"
-                        strokeDasharray="5,5"
-                        animate={{ strokeDashoffset: [0, -10] }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      />
+                      <motion.path d="M50 25 L50 45 L30 55" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" strokeDasharray="5,5" animate={{
+                      strokeDashoffset: [0, -10]
+                    }} transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }} />
+                      <motion.path d="M50 25 L50 45 L70 55" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" strokeDasharray="5,5" animate={{
+                      strokeDashoffset: [0, -10]
+                    }} transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }} />
                     </svg>
                     
                     {/* Bottom nodes */}
-                    <motion.div 
-                      className="absolute bottom-4 left-1 w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    >
+                    <motion.div className="absolute bottom-4 left-1 w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center" animate={{
+                    scale: [1, 1.1, 1]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 0.5
+                  }}>
                       <BarChart3 className="w-4 h-4 text-primary" />
                     </motion.div>
-                    <motion.div 
-                      className="absolute bottom-4 right-1 w-8 h-8 rounded-lg bg-green-100 border border-green-300 flex items-center justify-center"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                    >
+                    <motion.div className="absolute bottom-4 right-1 w-8 h-8 rounded-lg bg-green-100 border border-green-300 flex items-center justify-center" animate={{
+                    scale: [1, 1.1, 1]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 1
+                  }}>
                       <Target className="w-4 h-4 text-green-600" />
                     </motion.div>
                   </div>
@@ -867,16 +911,17 @@ export default function PerformanceReklama() {
         {/* Warm gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-amber-50/40 to-white" />
         <div className="absolute inset-0 opacity-[0.015]" style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '32px 32px'
-        }} />
+        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+        backgroundSize: '32px 32px'
+      }} />
         
         {/* Decorative side accents */}
-        <motion.div 
-          className="absolute top-1/4 -left-20 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl"
-          animate={{ opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
+        <motion.div className="absolute top-1/4 -left-20 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl" animate={{
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity
+      }} />
 
         <div className="container-neo relative z-10">
           {/* Section header - centered */}
@@ -887,7 +932,7 @@ export default function PerformanceReklama() {
               <span className="text-gradient-orange">pieeja</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas.
+              NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas. Mūsu darbs sākas ar:    
             </p>
           </ScrollReveal>
 
@@ -896,10 +941,7 @@ export default function PerformanceReklama() {
             {/* Intro statement */}
             <ScrollReveal delay={0.1}>
               <div className="text-center mb-12 md:mb-16">
-                <p className="text-xl md:text-2xl font-medium text-foreground">
-                  Darbs nesākas ar kampaņu palaišanu. <br className="hidden md:block" />
-                  <span className="text-muted-foreground">Tas sākas ar:</span>
-                </p>
+                
               </div>
             </ScrollReveal>
 
@@ -909,48 +951,41 @@ export default function PerformanceReklama() {
               <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
               
               {/* Animated flow dots */}
-              <motion.div 
-                className="hidden lg:block absolute top-[60px] left-[10%] w-3 h-3 rounded-full bg-primary"
-                animate={{ 
-                  x: ["0%", "800%", "0%"],
-                  opacity: [0, 1, 1, 1, 0]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
+              <motion.div className="hidden lg:block absolute top-[60px] left-[10%] w-3 h-3 rounded-full bg-primary" animate={{
+              x: ["0%", "800%", "0%"],
+              opacity: [0, 1, 1, 1, 0]
+            }} transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} />
 
               {/* Steps grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
-                {[
-                  {
-                    step: "01",
-                    title: "Mērķu izpratne",
-                    description: "Uzņēmuma biznesa mērķu un izaugsmes prioritāšu izpratne",
-                    icon: Target,
-                  },
-                  {
-                    step: "02", 
-                    title: "Piedāvājuma izvērtēšana",
-                    description: "Produkta vai pakalpojuma konkurētspējas un pozicionējuma analīze",
-                    icon: Eye,
-                  },
-                  {
-                    step: "03",
-                    title: "Auditorijas analīze",
-                    description: "Mērķauditorijas un konkurences padziļināta izpēte",
-                    icon: Users,
-                  },
-                  {
-                    step: "04",
-                    title: "KPI noteikšana",
-                    description: "Skaidru, izmērāmu mērķu un panākumu kritēriju definēšana",
-                    icon: BarChart3,
-                  },
-                ].map((item, idx) => (
-                  <ScrollReveal key={item.step} delay={0.15 + idx * 0.1}>
-                    <motion.div 
-                      whileHover={{ y: -6 }}
-                      className="relative group"
-                    >
+                {[{
+                step: "01",
+                title: "Mērķu izpratne",
+                description: "Uzņēmuma biznesa mērķu un izaugsmes prioritāšu izpratne",
+                icon: Target
+              }, {
+                step: "02",
+                title: "Piedāvājuma izvērtēšana",
+                description: "Produkta vai pakalpojuma konkurētspējas un pozicionējuma analīze",
+                icon: Eye
+              }, {
+                step: "03",
+                title: "Auditorijas analīze",
+                description: "Mērķauditorijas un konkurences padziļināta izpēte",
+                icon: Users
+              }, {
+                step: "04",
+                title: "KPI noteikšana",
+                description: "Skaidru, izmērāmu mērķu un panākumu kritēriju definēšana",
+                icon: BarChart3
+              }].map((item, idx) => <ScrollReveal key={item.step} delay={0.15 + idx * 0.1}>
+                    <motion.div whileHover={{
+                  y: -6
+                }} className="relative group">
                       {/* Step indicator - circle on timeline */}
                       <div className="hidden lg:flex absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-card border-2 border-primary/30 items-center justify-center z-10 group-hover:border-primary/60 transition-colors">
                         <span className="text-xs font-bold text-primary">{idx + 1}</span>
@@ -973,8 +1008,7 @@ export default function PerformanceReklama() {
                         <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                       </div>
                     </motion.div>
-                  </ScrollReveal>
-                ))}
+                  </ScrollReveal>)}
               </div>
             </div>
 
