@@ -417,7 +417,7 @@ export default function AiLab() {
             }}>
                 <p className="text-white/70 italic" style={{
                 textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.2)"
-              }}>Fokusējamies uz izpr</p>
+              }}>Fokusējamies uz izpratni un izaugsmi.</p>
               </div>
             </div>
           </ScrollReveal>
