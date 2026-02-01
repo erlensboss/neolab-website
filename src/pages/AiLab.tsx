@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, Hexagon, Triangle, Circle, Square, Shield, Users, Brain, Target } from "lucide-react";
+import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, Hexagon, Triangle, Circle, Square, Shield, Users, Brain, Target, HelpCircle, Clock, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 const experiments = [{
   id: "exp-001",
   title: "Prognozējošā analītika",
@@ -626,27 +632,102 @@ export default function AiLab() {
         }} />
       </section>
 
-      {/* ========== SECTION 5: Contact CTA ========== */}
+      {/* ========== SECTION 5: FAQ ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Simple clean background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+        
+        <div className="container-neo relative z-10">
+          {/* Header */}
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="chip mb-4 inline-block text-sm">FAQ</span>
+              <h2 className="text-foreground">
+                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+          
+          {/* FAQ Accordion */}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+              {[
+                {
+                  icon: HelpCircle,
+                  question: "Vai AI Lab ir pakalpojums?",
+                  answer: "Nē. AI Lab nav pakalpojums un nav produkts. Tā ir attīstības vide un iniciatīva.",
+                  gradient: "from-primary to-orange-500",
+                },
+                {
+                  icon: Layers,
+                  question: "Vai AI Lab aizvieto AI automatizācijas pakalpojumus?",
+                  answer: "Nē. AI Lab pastāv paralēli un kalpo kā pieredzes un izpētes bāze.",
+                  gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: Clock,
+                  question: "Kad AI Lab pieeja ir īpaši nozīmīga?",
+                  answer: "Ja nepieciešama dziļāka izpratne par tehnoloģijām, nestandarta risinājumi vai ilgtermiņa skatījums uz AI attīstību.",
+                  gradient: "from-amber-500 to-yellow-500",
+                },
+                {
+                  icon: Users,
+                  question: "Vai AI Lab ir atvērts visiem?",
+                  answer: "AI Lab veidojas pakāpeniski. Šobrīd tas ir attīstības stadijā, un dalība notiek ar atlasi.",
+                  gradient: "from-yellow-500 to-amber-400",
+                },
+              ].map((faq, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                  >
+                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
+                      <div className="flex items-center gap-3 md:gap-4 text-left">
+                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
+                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        </div>
+                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
+                          {faq.question}
+                        </span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
+                      <div className="pl-11 md:pl-14">
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </ScrollReveal>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: Contact CTA ========== */}
       <section className="bg-gradient-hero">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 text-sm text-primary mb-6">
                 <Rocket className="w-4 h-4" />
-                <span>Interese par sadarbību?</span>
+                <span>Seko līdzi attīstībai</span>
               </div>
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
               <h2 className="mb-6 text-foreground">
-                Sazināties ar <span className="text-gradient-orange">NEOLab</span>
+                AI Lab aug. <span className="text-gradient-orange">Tāpat kā cilvēki, kas to veido.</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
               <p className="text-lg text-muted-foreground mb-8">
-                Ja jūs interesē agrīna piekļuve mūsu eksperimentiem vai 
-                vēlaties būt beta testētājs — sazinieties.
+                Ja tevi interesē mākslīgais intelekts, tehnoloģijas un digitālā domāšana, 
+                seko līdzi NEOLab attīstībai vai sazinies ar mums.
               </p>
             </ScrollReveal>
             
