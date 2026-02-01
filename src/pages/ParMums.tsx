@@ -393,7 +393,143 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 3: Thinking Block (Visual) ========== */}
+      {/* ========== SECTION 3: Neo Etymology Block ========== */}
+      <section className="relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, hsl(35 30% 97%) 0%, hsl(30 40% 95%) 50%, hsl(25 50% 93%) 100%)'
+      }}>
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        
+        {/* Floating color accents */}
+        <motion.div
+          animate={{ 
+            x: [0, 20, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 right-[15%] w-48 h-48 rounded-full bg-gradient-to-br from-orange-400/20 to-amber-300/10 blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            x: [0, -15, 0],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 left-[10%] w-64 h-64 rounded-full bg-gradient-to-tr from-rose-400/15 to-orange-300/10 blur-3xl"
+        />
+        
+        <div className="container-neo section-padding relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <ScrollReveal>
+              <div className="relative">
+                {/* Dictionary-style entry card */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-white/60 shadow-xl" style={{
+                  boxShadow: '0 25px 80px -20px hsl(25 60% 50% / 0.15), 0 0 0 1px hsl(25 60% 90% / 0.5)'
+                }}>
+                  {/* Decorative corner accents */}
+                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/30 rounded-tl-lg" />
+                  <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary/30 rounded-tr-lg" />
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-primary/30 rounded-bl-lg" />
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/30 rounded-br-lg" />
+                  
+                  {/* Header with word */}
+                  <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-8 mb-8 pb-6 border-b border-border/50">
+                    <div className="flex items-baseline gap-4">
+                      <motion.h2 
+                        className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                        style={{
+                          background: 'linear-gradient(135deg, hsl(25 80% 50%) 0%, hsl(35 90% 55%) 50%, hsl(15 75% 55%) 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        }}
+                      >
+                        Neo
+                      </motion.h2>
+                      <span className="text-2xl md:text-3xl text-muted-foreground font-light">/ˈniːoʊ/</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">latīņu val.</span>
+                      <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 text-sm font-medium">prefikss</span>
+                    </div>
+                  </div>
+                  
+                  {/* Definition */}
+                  <div className="space-y-6">
+                    <div className="flex gap-4">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center text-white font-bold text-sm shadow-lg">1</span>
+                      <div>
+                        <p className="text-xl md:text-2xl text-foreground leading-relaxed">
+                          <span className="italic text-primary font-medium">jauns</span> — Vārds Neo latīņu valodā nozīmē jauns.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-4">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">2</span>
+                      <div>
+                        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                          Tas simbolizē gan <span className="text-foreground font-medium">jaunākās digitālās un mākslīgā intelekta tehnoloģijas</span>, gan mūsu attieksmi — enerģiju, maksimālismu un gatavību pielāgoties digitālās pasaules pārmaiņām.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Paradigm statement */}
+                  <motion.div 
+                    className="mt-10 pt-8 border-t border-border/50"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="flex-1 h-px bg-gradient-to-r from-primary/40 via-orange-400/40 to-amber-500/40" />
+                      <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Paradigma</span>
+                      <div className="flex-1 h-px bg-gradient-to-l from-primary/40 via-orange-400/40 to-amber-500/40" />
+                    </div>
+                    <p className="text-center text-xl md:text-2xl font-medium" style={{
+                      background: 'linear-gradient(90deg, hsl(25 70% 45%) 0%, hsl(35 80% 50%) 50%, hsl(15 65% 50%) 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}>
+                      Šī ir mūsu paaudzes digitālā paradigma.
+                    </p>
+                  </motion.div>
+                </div>
+                
+                {/* Floating decorative elements */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -right-4 md:-right-8 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 shadow-xl flex items-center justify-center"
+                  style={{ boxShadow: '0 15px 40px -10px hsl(35 80% 50% / 0.4)' }}
+                >
+                  <span className="text-white text-2xl md:text-3xl font-bold">N</span>
+                </motion.div>
+                
+                <motion.div
+                  animate={{ 
+                    y: [0, 8, 0],
+                    rotate: [0, -3, 0]
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute -bottom-3 -left-3 md:-left-6 w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-rose-400 to-orange-400 shadow-lg flex items-center justify-center"
+                  style={{ boxShadow: '0 12px 30px -8px hsl(15 70% 50% / 0.4)' }}
+                >
+                  <span className="text-white text-lg md:text-xl font-bold">∞</span>
+                </motion.div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 4: Thinking Block (Visual) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
         <div className="container-neo section-padding">
           <div className="max-w-4xl mx-auto">
