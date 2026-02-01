@@ -355,50 +355,137 @@ export default function AiLab() {
           </div>
         </div>
         
-        {/* Bottom fade */}
+        {/* Bottom fade to lighter section */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+          style={{
+            background: `linear-gradient(to top, hsl(25 70% 55%) 0%, transparent 100%)`
+          }}
+        />
+      </section>
+
+      {/* ========== SECTION 3: Ko mēs darām — Lighter inverted style ========== */}
+      <section 
+        className="relative overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, hsl(25 70% 55%) 0%, hsl(23 65% 52%) 50%, hsl(21 60% 48%) 100%)`,
+        }}
+      >
+        {/* Subtle stars - sparser here */}
+        <div className="absolute inset-0 pointer-events-none">
+          {Array.from({ length: 15 }, (_, i) => (
+            <motion.div
+              key={`star-s3-${i}`}
+              className="absolute rounded-full bg-white"
+              style={{ 
+                left: `${Math.random() * 100}%`, 
+                top: `${Math.random() * 100}%`,
+                width: Math.random() * 1 + 0.5,
+                height: Math.random() * 1 + 0.5,
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.3, 0.15, 0.3, 0] }}
+              transition={{
+                duration: 6 + Math.random() * 3,
+                delay: Math.random() * 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Top border accent */}
+        <div 
+          className="absolute top-0 left-0 right-0 h-px"
+          style={{ background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.2) 50%, transparent 100%)` }}
+        />
+
+        <div className="container-neo section-padding relative z-10">
+          {/* Header */}
+          <ScrollReveal className="text-center mb-16">
+            <div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-6"
+              style={{ boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.15)" }}
+            >
+              <Cpu className="w-4 h-4 text-white/80" />
+              <span className="text-sm font-medium text-white/80">Mūsu darbība</span>
+            </div>
+            <h2 
+              className="text-white"
+              style={{ textShadow: "0 4px 25px hsla(0, 0%, 0%, 0.3)" }}
+            >
+              Ko mēs darām <span className="text-white/60">AI Lab ietvaros</span>
+            </h2>
+          </ScrollReveal>
+
+          {/* Activity cards - clean grid with white accents */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { icon: Sparkles, text: "Pētām jaunus AI rīkus un platformas" },
+              { icon: Cpu, text: "Testējam automatizācijas un datu apstrādes scenārijus" },
+              { icon: Lightbulb, text: "Veidojam prototipus un eksperimentālus risinājumus" },
+              { icon: Zap, text: "Analizējam, kas strādā praksē un kas ne" },
+              { icon: FlaskConical, text: "Krājam pieredzi, nevis tikai zināšanas" },
+            ].map((item, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="relative p-6 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm"
+                  style={{ boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.15)" }}
+                >
+                  {/* White accent line at top */}
+                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                  
+                  <div className="flex items-start gap-4">
+                    <div 
+                      className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center"
+                    >
+                      <item.icon className="w-6 h-6 text-white/90" />
+                    </div>
+                    <p 
+                      className="text-white/90 text-base leading-relaxed pt-2"
+                      style={{ textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.3)" }}
+                    >
+                      {item.text}
+                    </p>
+                  </div>
+                </motion.div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Bottom note */}
+          <ScrollReveal delay={0.5}>
+            <div className="max-w-2xl mx-auto text-center">
+              <div 
+                className="inline-block px-6 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"
+                style={{ boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.1)" }}
+              >
+                <p 
+                  className="text-white/70 italic"
+                  style={{ textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.2)" }}
+                >
+                  Fokuss nav uz perfektiem rezultātiem, bet uz izpratni un progresu.
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+        
+        {/* Bottom fade to next section */}
         <div 
           className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
           style={{
             background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
           }}
         />
-      </section>
-
-      {/* ========== SECTION 3: Philosophy ========== */}
-      <section className="section-offwhite grid-overlay-subtle">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <ScrollReveal>
-              <div className="w-20 h-20 rounded-2xl bg-gradient-orange flex items-center justify-center mx-auto mb-8 shadow-orange">
-                <Lightbulb className="w-10 h-10 text-primary-foreground" />
-              </div>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.1}>
-              <h2 className="mb-6 text-foreground">
-                Mēs nedarām to, ko visi citi
-              </h2>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.2}>
-              <p className="text-lg text-muted-foreground mb-8">
-                AI Lab ir vieta, kur mēs riskējam, mācāmies un atklājam. 
-                Katrs eksperiments var kļūt par nākamo lielo risinājumu — vai palikt 
-                kā mācību stunda. Abos gadījumos — progress.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap justify-center gap-4">
-                {["Prototipēšana", "A/B testēšana", "Mašīnmācīšanās", "NLP", "Computer Vision"].map((tag) => (
-                  <span key={tag} className="chip-outline">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
+        
+        {/* Bottom border accent */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-px z-10"
+          style={{ background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.15) 50%, transparent 100%)` }}
+        />
       </section>
 
       {/* ========== SECTION 4: Contact CTA ========== */}
