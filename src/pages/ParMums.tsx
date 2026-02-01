@@ -1319,25 +1319,55 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 8: CTA ========== */}
-      <section className="bg-gradient-hero">
-        <div className="container-neo section-padding">
+      {/* ========== SECTION 8: CTA — Strong Orange (Homepage Style) ========== */}
+      <section className="relative py-14 md:py-20 section-divider-top overflow-hidden">
+        {/* Strong orange gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+
+        {/* Radial glow at center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+
+        {/* Corner accents */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl" />
+
+        {/* Subtle animated gradient */}
+        <motion.div
+          className="absolute inset-0 opacity-30"
+          animate={{
+            background: [
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+            ],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="mb-6">
-                Gatavi <span className="text-gradient-orange">sarunāties</span>?
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Mēdz teikt – ja vēlies ilgāk justies <span className="text-gradient-orange">jauns</span>, pulcē sev apkārt jauniešus.
               </h2>
             </ScrollReveal>
+
             <ScrollReveal delay={0.1}>
-              <p className="text-lg text-muted-foreground mb-8">
-                Mēs vienmēr priecājamies satikt jaunus cilvēkus ar interesantām idejām.
+              <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Līdzīgi ir ar tehnoloģijām. Ja meklē jaunākus, efektīvākus un jēgpilnus mākslīgā intelekta un digitālos risinājumus, strādā ar NEOLab.
               </p>
             </ScrollReveal>
+
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button variant="hero" size="xl">
-                  Sākt sarunu
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="shadow-orange-strong hover:shadow-orange-hover text-lg px-12 py-8"
+                >
+                  Sazināties ar NEOLab
+                  <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
               </Link>
             </ScrollReveal>
