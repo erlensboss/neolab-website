@@ -1,40 +1,171 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Lightbulb, Target, Zap, Users } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
+import { useRef } from "react";
 
-const values = [
+const storyCheckpoints = [
   {
-    icon: Lightbulb,
-    title: "Sistēmiska domāšana",
-    description: "Mēs neredzam atsevišķus taktiskus gājienus. Mēs redzam pilnu ainu un būvējam sistēmas.",
+    icon: Sparkles,
+    title: "Laboratorija",
+    content: "NEOLab ir mākslīgā intelekta laboratorija, kurā attīstām jaunus AI risinājumus dažādām uzņēmumu vajadzībām - sākot ar praktiskiem digitāliem risinājumiem un beidzot ar nestandarta idejām, kas praksē izrādās pārsteidzoši efektīvas.",
+    gradient: "from-orange-400 to-amber-500",
+    bgGlow: "hsl(25 80% 50% / 0.15)"
   },
   {
-    icon: Target,
-    title: "Rezultātu fokuss",
-    description: "Nav svarīgi, cik skaisti izskatās atskaite. Svarīgi ir tas, kas mainās biznesā.",
+    icon: Rocket,
+    title: "Komanda",
+    content: "NEOLab veido jaunu ekspertu komanda ar dabīgu izpratni par mākslīgā intelekta tehnoloģiju pārvaldību un izstrādi. Mēs esam tehnoloģiju un algoritmu paaudze, kas digitālajā vidē orientējas intuitīvi, ātri apgūst jauno un spēj pielāgoties straujām pārmaiņām.",
+    gradient: "from-primary to-orange-500",
+    bgGlow: "hsl(25 70% 55% / 0.12)"
   },
   {
-    icon: Zap,
-    title: "AI ar mērķi",
-    description: "Mēs neizmantojam AI tāpēc, ka tas ir modē. Mēs to izmantojam tur, kur tas tiešām palīdz.",
-  },
-  {
-    icon: Users,
-    title: "Partnerība, ne pakalpojums",
-    description: "Mēs neesam vendor. Mēs esam komandas paplašinājums, kas ieguldās jūsu panākumos.",
-  },
+    icon: Heart,
+    title: "Degsme",
+    content: "Jaunība mums nav tikai vecums. Tā ir degsme, zinātkāre un nepārtraukts izsalkums pēc attīstības. Mēs esam uzauguši digitālajā pasaulē, un jaunākās tehnoloģijas mums ir dabiska ikdienas sastāvdaļa.",
+    gradient: "from-rose-400 to-orange-400",
+    bgGlow: "hsl(15 70% 55% / 0.12)"
+  }
 ];
 
-const timeline = [
-  { year: "2024", event: "NEOLab dibināšana ar skaidru misiju — mainīt to, kā aģentūras strādā" },
-  { year: "2024", event: "Pirmie klienti — pierādījums, ka pieeja strādā" },
-  { year: "2025", event: "AI Lab izveide — eksperimentālā nodaļa nākotnes risinājumiem" },
-  { year: "Nākotne", event: "Turpinām būvēt sistēmas, kas maina biznesa spēli" },
-];
+// Animated Roadmap Checkpoint Component
+function RoadmapCheckpoint({ 
+  checkpoint, 
+  index, 
+  isLeft, 
+  isLast 
+}: { 
+  checkpoint: typeof storyCheckpoints[0]; 
+  index: number; 
+  isLeft: boolean; 
+  isLast: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  return (
+    <div ref={ref} className="relative">
+      {/* Connecting road line */}
+      {!isLast && (
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={isInView ? { scaleY: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="absolute left-1/2 top-24 -translate-x-1/2 w-1 h-32 md:h-40 origin-top"
+          style={{
+            background: 'linear-gradient(to bottom, hsl(25 80% 55% / 0.4), hsl(25 80% 55% / 0.1))'
+          }}
+        />
+      )}
+      
+      {/* Main checkpoint row */}
+      <div className={`grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-12 items-center mb-16 md:mb-24`}>
+        
+        {/* Left content or spacer */}
+        <div className={`${isLeft ? 'order-1' : 'order-1 md:order-3'}`}>
+          {isLeft && (
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-border/50 relative overflow-hidden"
+              style={{
+                boxShadow: `0 20px 50px -15px ${checkpoint.bgGlow}`
+              }}
+            >
+              {/* Glow effect */}
+              <div 
+                className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-50"
+                style={{ background: checkpoint.bgGlow }}
+              />
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 relative z-10">{checkpoint.title}</h3>
+              <p className="text-muted-foreground leading-relaxed relative z-10">{checkpoint.content}</p>
+            </motion.div>
+          )}
+        </div>
+        
+        {/* Center checkpoint node */}
+        <div className="order-first md:order-2 flex justify-center">
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={isInView ? { scale: 1, rotate: 0 } : {}}
+            transition={{ 
+              duration: 0.6, 
+              type: "spring",
+              stiffness: 200,
+              damping: 15
+            }}
+            className="relative"
+          >
+            {/* Pulse rings */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.4, 1],
+                opacity: [0.4, 0, 0.4]
+              }}
+              transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+              className={`absolute inset-0 rounded-full bg-gradient-to-br ${checkpoint.gradient}`}
+            />
+            <motion.div
+              animate={{ 
+                scale: [1, 1.6, 1],
+                opacity: [0.2, 0, 0.2]
+              }}
+              transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 + 0.3 }}
+              className={`absolute inset-0 rounded-full bg-gradient-to-br ${checkpoint.gradient}`}
+            />
+            
+            {/* Main node */}
+            <div 
+              className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${checkpoint.gradient} flex items-center justify-center shadow-xl`}
+              style={{
+                boxShadow: `0 10px 40px -10px ${checkpoint.bgGlow.replace('0.15', '0.5').replace('0.12', '0.5')}`
+              }}
+            >
+              <checkpoint.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+            </div>
+            
+            {/* Step number */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full text-xs font-bold text-primary shadow-md border border-primary/20"
+            >
+              {index + 1}/{storyCheckpoints.length}
+            </motion.div>
+          </motion.div>
+        </div>
+        
+        {/* Right content or spacer */}
+        <div className={`${isLeft ? 'order-3 hidden md:block' : 'order-3 md:order-1'}`}>
+          {!isLeft && (
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-border/50 relative overflow-hidden"
+              style={{
+                boxShadow: `0 20px 50px -15px ${checkpoint.bgGlow}`
+              }}
+            >
+              {/* Glow effect */}
+              <div 
+                className="absolute top-0 left-0 w-32 h-32 rounded-full blur-3xl opacity-50"
+                style={{ background: checkpoint.bgGlow }}
+              />
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 relative z-10">{checkpoint.title}</h3>
+              <p className="text-muted-foreground leading-relaxed relative z-10">{checkpoint.content}</p>
+            </motion.div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ParMums() {
   return (
@@ -230,67 +361,39 @@ export default function ParMums() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       </section>
 
-      {/* ========== SECTION 2: Values (Visual Blocks) ========== */}
-      <section className="section-offwhite section-full-bleed">
+      {/* ========== SECTION 2: NEOLab Story Roadmap ========== */}
+      <section className="section-offwhite section-full-bleed relative overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-20 left-[5%] w-40 h-40 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-20 right-[5%] w-60 h-60 rounded-full bg-orange-300/10 blur-3xl" />
+        
         <div className="container-neo section-padding relative z-10">
           <SectionHeading
-            chip="Vērtības"
-            title="Kas mūs vada"
+            chip="Stāsts"
+            title="NEOLab stāsts"
             className="mb-20"
           />
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <ScrollReveal key={value.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="card-neo h-full"
-                >
-                  <div className="w-18 h-18 md:w-20 md:h-20 rounded-2xl bg-gradient-orange flex items-center justify-center mb-8 shadow-orange">
-                    <value.icon className="w-9 h-9 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
-                  <p className="text-muted-foreground text-lg">{value.description}</p>
-                </motion.div>
-              </ScrollReveal>
-            ))}
+          {/* Roadmap */}
+          <div className="max-w-5xl mx-auto">
+            {storyCheckpoints.map((checkpoint, index) => {
+              const isLeft = index % 2 === 0;
+              
+              return (
+                <RoadmapCheckpoint
+                  key={checkpoint.title}
+                  checkpoint={checkpoint}
+                  index={index}
+                  isLeft={isLeft}
+                  isLast={index === storyCheckpoints.length - 1}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 3: Timeline / Story ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
-          <SectionHeading
-            chip="Stāsts"
-            title="Mūsu ceļš"
-            className="mb-16"
-          />
-
-          <div className="max-w-2xl mx-auto">
-            {timeline.map((item, index) => (
-              <ScrollReveal key={index} delay={index * 0.15}>
-                <div className="flex gap-6 mb-8 last:mb-0">
-                  <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-sm flex-shrink-0">
-                      {item.year === "Nākotne" ? "→" : item.year.slice(2)}
-                    </div>
-                    {index < timeline.length - 1 && (
-                      <div className="w-px h-full bg-primary/20 mt-2" />
-                    )}
-                  </div>
-                  <div className="pt-2.5 pb-8">
-                    <div className="text-sm font-medium text-primary mb-1">{item.year}</div>
-                    <p className="text-foreground">{item.event}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: Thinking Block (Visual) ========== */}
+      {/* ========== SECTION 3: Thinking Block (Visual) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
         <div className="container-neo section-padding">
           <div className="max-w-4xl mx-auto">
@@ -337,7 +440,7 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: CTA ========== */}
+      {/* ========== SECTION 4: CTA ========== */}
       <section className="bg-gradient-hero">
         <div className="container-neo section-padding">
           <div className="max-w-3xl mx-auto text-center">
