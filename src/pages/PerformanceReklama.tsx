@@ -65,42 +65,99 @@ const approach = [
 export default function PerformanceReklama() {
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: Loss of Control ========== */}
-      <section className="bg-gradient-hero bg-atmosphere">
-        <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
+      <section className="relative overflow-hidden">
+        {/* Enhanced background with layered gradients */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-amber-50/60 to-white" />
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+            backgroundSize: '32px 32px'
+          }}
+        />
+        
+        {/* Floating gradient orbs */}
+        <motion.div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/15 to-amber-300/10 blur-3xl"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.4, 0.6, 0.4]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-amber-200/20 to-orange-300/10 blur-3xl"
+          animate={{ 
+            scale: [1, 1.15, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        
+        {/* Accent line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+
+        <div className="container-neo py-20 md:py-28 lg:py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <ScrollReveal>
-                <span className="chip-outline mb-8 inline-flex items-center gap-2 text-sm">
-                  <AlertTriangle className="w-4 h-4" />
-                  Kontroles zudums
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6">
+                  <BarChart3 className="w-4 h-4" />
+                  Performance Marketing
                 </span>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.1}>
-                <h1 className="mb-8">
-                  Reklāmas budžets bez <span className="text-gradient-orange">kontroles</span>?
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
+                  Maksas reklāmu{" "}
+                  <span className="relative inline-block">
+                    <span className="text-gradient-orange">pārvalde</span>
+                    <motion.span 
+                      className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.8, duration: 0.6 }}
+                    />
+                  </span>
                 </h1>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.2}>
-                <p className="text-xl text-muted-foreground mb-10">
-                  Performance reklāma nav par tērēšanu — tā ir par ieguldījumu ar skaidru atdevi. 
-                  Mēs atgriežam kontroli jūsu rokās.
+                <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
+                  Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.
                 </p>
               </ScrollReveal>
               
-              <ul className="space-y-4 mb-10">
-                {controlProblems.map((problem, index) => (
-                  <ScrollReveal key={index} delay={0.3 + index * 0.1}>
-                    <li className="flex items-start gap-4 text-foreground/80 text-lg">
-                      <div className="w-2 h-2 rounded-full bg-destructive mt-2.5" />
-                      {problem}
-                    </li>
-                  </ScrollReveal>
-                ))}
-              </ul>
+              <ScrollReveal delay={0.3}>
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/bezmaksas-konsultacija">
+                    <Button variant="hero" size="lg" className="group">
+                      Sākt sadarbību
+                      <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </ScrollReveal>
+              
+              {/* Trust indicators */}
+              <ScrollReveal delay={0.4}>
+                <div className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-border/50">
+                  {[
+                    { value: "4.8x", label: "Vidējais ROAS" },
+                    { value: "65%+", label: "Efektivitātes pieaugums" },
+                    { value: "92%", label: "Klientu saglabāšana" },
+                  ].map((stat, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <span className="text-2xl font-bold text-primary">{stat.value}</span>
+                      <span className="text-sm text-muted-foreground">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
             </div>
 
-            {/* Dashboard preview */}
+            {/* Dashboard preview - UNCHANGED */}
             <ScrollReveal delay={0.2} direction="right">
               <div className="glass-warm rounded-2xl p-8 md:p-10 shadow-card">
                 <div className="flex items-center justify-between mb-8">
