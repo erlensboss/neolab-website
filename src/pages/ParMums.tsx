@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart, Users } from "lucide-react";
+import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart, Users, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -1166,7 +1166,150 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: CTA ========== */}
+      {/* ========== SECTION 7: AI Lab kā pamats ========== */}
+      <section className="relative overflow-hidden py-20 md:py-28" style={{
+        background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`
+      }}>
+        {/* Deep space overlay */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 100% 100% at 30% 20%, hsl(25 90% 50% / 0.15), transparent 50%),
+                       radial-gradient(ellipse 80% 80% at 70% 80%, hsl(15 70% 35% / 0.2), transparent 50%)`
+        }} />
+
+        {/* Subtle twinkling stars */}
+        {Array.from({ length: 25 }, (_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-white"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: Math.random() * 1.5 + 0.5,
+              height: Math.random() * 1.5 + 0.5,
+            }}
+            animate={{
+              opacity: [0, 0.6, 0.3, 0.6, 0]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              delay: Math.random() * 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+
+        {/* Floating glow orbs */}
+        <motion.div
+          animate={{ x: [0, 30, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 left-[10%] w-80 h-80 rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(25 90% 55% / 0.25), transparent 60%)" }}
+        />
+        <motion.div
+          animate={{ x: [0, -20, 0], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 right-[10%] w-72 h-72 rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(15 80% 45% / 0.3), transparent 60%)" }}
+        />
+
+        <div className="container-neo px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <ScrollReveal>
+              <motion.div
+                className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden"
+                style={{
+                  background: "linear-gradient(145deg, hsl(0 0% 100% / 0.08) 0%, hsl(25 50% 80% / 0.05) 100%)",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0 25px 60px -15px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(0 0% 100% / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.15)"
+                }}
+                whileHover={{
+                  boxShadow: "0 30px 70px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(25 70% 60% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.2)",
+                  y: -4
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                {/* Animated icon */}
+                <div className="absolute top-8 right-8 md:top-10 md:right-10">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="relative"
+                  >
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-dashed border-white/20" />
+                  </motion.div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center"
+                      style={{
+                        background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
+                        boxShadow: "0 8px 30px -5px hsl(25 80% 50% / 0.5)"
+                      }}
+                    >
+                      <FlaskConical className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <span className="text-sm font-medium text-white/90">Pamats</span>
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    AI Lab kā{" "}
+                    <span style={{
+                      background: "linear-gradient(90deg, hsl(40 95% 70%), hsl(25 90% 65%))",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent"
+                    }}>
+                      pamats
+                    </span>
+                  </h2>
+
+                  <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-4">
+                    NEOLab darbības pamatā ir AI Lab – iekšējā attīstības vide, kur tiek pētītas un testētas jaunākās tehnoloģijas.
+                  </p>
+
+                  <p className="text-base md:text-lg text-white/60 leading-relaxed mb-8">
+                    Tas ļauj mums strādāt ar pārbaudītām pieejām un neveidot klientu projektus kā eksperimentus.
+                  </p>
+
+                  <Link to="/ai-lab">
+                    <motion.div
+                      whileHover={{ scale: 1.03, x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-3 px-6 py-3 rounded-xl cursor-pointer group"
+                      style={{
+                        background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
+                        boxShadow: "0 10px 30px -8px hsl(25 80% 45% / 0.5)"
+                      }}
+                    >
+                      <span className="font-semibold text-white">Iepazīsti AI Lab</span>
+                      <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+                    </motion.div>
+                  </Link>
+                </div>
+
+                {/* Decorative floating icon */}
+                <motion.img
+                  src={iconWhite}
+                  alt=""
+                  className="absolute bottom-6 right-6 w-16 h-16 md:w-24 md:h-24 opacity-10"
+                  animate={{ rotate: [0, 10, 0, -10, 0], y: [0, -5, 0] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </motion.div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 8: CTA ========== */}
       <section className="bg-gradient-hero">
         <div className="container-neo section-padding">
           <div className="max-w-3xl mx-auto text-center">
