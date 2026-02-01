@@ -392,24 +392,25 @@ export default function PerformanceReklama() {
         {/* Warm welcoming background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-amber-50/40 to-white" />
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }} />
+        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+        backgroundSize: '24px 24px'
+      }} />
         
         {/* Warm glow orb */}
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-gradient-to-br from-primary/8 to-amber-200/5 blur-3xl"
-          animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.7, 0.5] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-gradient-to-br from-primary/8 to-amber-200/5 blur-3xl" animate={{
+        scale: [1, 1.05, 1],
+        opacity: [0.5, 0.7, 0.5]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />
 
         <div className="container-neo relative z-10">
           {/* Section header */}
           <ScrollReveal className="max-w-3xl mb-14 md:mb-20">
             <span className="chip mb-4 inline-block">Jūsu situācija</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Kādiem uzņēmumiem un kādos gadījumos maksas reklāma ir piemērota
-            </h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Kādiem uzņēmumiem maksas reklāma ir vajadzīga?</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Maksas reklāma vislabāk strādā uzņēmumiem, kuri zina, ko piedāvā, un vēlas redzēt atdevi no reklāmas budžeta.
             </p>
@@ -425,26 +426,35 @@ export default function PerformanceReklama() {
                   </p>
                   
                   <div className="space-y-5">
-                    {[
-                      { text: "Uzņēmumam ir konkrēts pakalpojums vai produkts", icon: Target },
-                      { text: "Nepieciešams ātri piesaistīt pieprasījumu", icon: TrendingUp },
-                      { text: "Tirgū jau notiek aktīva meklēšana vai interese", icon: Eye },
-                      { text: "Ir vēlme testēt jaunu piedāvājumu vai virzienu", icon: Activity },
-                      { text: "Ir noteikts un kontrolējams reklāmas budžets", icon: DollarSign },
-                    ].map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 + idx * 0.08 }}
-                        className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-transparent border-l-3 border-primary/40 hover:border-primary/70 hover:from-primary/8 transition-all duration-300"
-                      >
+                    {[{
+                    text: "Uzņēmumam ir konkrēts pakalpojums vai produkts",
+                    icon: Target
+                  }, {
+                    text: "Nepieciešams ātri piesaistīt pieprasījumu",
+                    icon: TrendingUp
+                  }, {
+                    text: "Tirgū jau notiek aktīva meklēšana vai interese",
+                    icon: Eye
+                  }, {
+                    text: "Ir vēlme testēt jaunu piedāvājumu vai virzienu",
+                    icon: Activity
+                  }, {
+                    text: "Ir noteikts un kontrolējams reklāmas budžets",
+                    icon: DollarSign
+                  }].map((item, idx) => <motion.div key={idx} initial={{
+                    opacity: 0,
+                    x: -20
+                  }} animate={{
+                    opacity: 1,
+                    x: 0
+                  }} transition={{
+                    delay: 0.3 + idx * 0.08
+                  }} className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-transparent border-l-3 border-primary/40 hover:border-primary/70 hover:from-primary/8 transition-all duration-300">
                         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                           <item.icon className="w-5 h-5 text-primary" />
                         </div>
                         <span className="text-foreground font-medium pt-2">{item.text}</span>
-                      </motion.div>
-                    ))}
+                      </motion.div>)}
                   </div>
                 </div>
               </ScrollReveal>
@@ -454,10 +464,9 @@ export default function PerformanceReklama() {
             <div className="lg:col-span-5 flex flex-col gap-6">
               {/* Target segments card */}
               <ScrollReveal delay={0.2}>
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="relative rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/15 p-8 md:p-10 overflow-hidden"
-                >
+                <motion.div whileHover={{
+                y: -3
+              }} className="relative rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/15 p-8 md:p-10 overflow-hidden">
                   {/* Decorative corner */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/15 to-transparent rounded-bl-full" />
                   
@@ -465,22 +474,29 @@ export default function PerformanceReklama() {
                     <h3 className="text-xl font-semibold mb-5">Īpaši efektīva maksas reklāma:</h3>
                     
                     <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { label: "Pakalpojumu uzņēmumiem", color: "from-primary/20 to-primary/10" },
-                        { label: "E-komercijai", color: "from-amber-100 to-amber-50" },
-                        { label: "B2B segmentam", color: "from-blue-100/80 to-blue-50/50" },
-                        { label: "Lokāliem pakalpojumiem", color: "from-green-100/80 to-green-50/50" },
-                      ].map((segment, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.5 + idx * 0.1 }}
-                          className={`px-4 py-3 rounded-xl bg-gradient-to-br ${segment.color} border border-border/50 text-center`}
-                        >
+                      {[{
+                      label: "Pakalpojumu uzņēmumiem",
+                      color: "from-primary/20 to-primary/10"
+                    }, {
+                      label: "E-komercijai",
+                      color: "from-amber-100 to-amber-50"
+                    }, {
+                      label: "B2B segmentam",
+                      color: "from-blue-100/80 to-blue-50/50"
+                    }, {
+                      label: "Lokāliem pakalpojumiem",
+                      color: "from-green-100/80 to-green-50/50"
+                    }].map((segment, idx) => <motion.div key={idx} initial={{
+                      opacity: 0,
+                      scale: 0.95
+                    }} animate={{
+                      opacity: 1,
+                      scale: 1
+                    }} transition={{
+                      delay: 0.5 + idx * 0.1
+                    }} className={`px-4 py-3 rounded-xl bg-gradient-to-br ${segment.color} border border-border/50 text-center`}>
                           <span className="text-sm font-medium text-foreground">{segment.label}</span>
-                        </motion.div>
-                      ))}
+                        </motion.div>)}
                     </div>
                   </div>
                 </motion.div>
@@ -488,14 +504,13 @@ export default function PerformanceReklama() {
 
               {/* Welcoming CTA card */}
               <ScrollReveal delay={0.3}>
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="relative rounded-2xl bg-foreground/[0.03] border border-border p-8 md:p-10 overflow-hidden flex-1"
-                >
+                <motion.div whileHover={{
+                y: -3
+              }} className="relative rounded-2xl bg-foreground/[0.03] border border-border p-8 md:p-10 overflow-hidden flex-1">
                   <div className="absolute inset-0 opacity-[0.02]" style={{
-                    backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-                    backgroundSize: '20px 20px'
-                  }} />
+                  backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+                  backgroundSize: '20px 20px'
+                }} />
                   
                   <div className="relative z-10 h-full flex flex-col">
                     <div className="flex items-center gap-3 mb-5">
