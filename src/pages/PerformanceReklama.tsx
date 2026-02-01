@@ -196,22 +196,123 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
-      {/* ========== SECTION 2: Platforms ========== */}
-      <section className="section-offwhite section-full-bleed">
-        <div className="container-neo section-padding-sm relative z-10">
-          <ScrollReveal className="text-center mb-14">
-            <span className="chip mb-6 inline-block text-sm">Platformas</span>
-            <h3>Mēs strādājam ar</h3>
+      {/* ========== SECTION 2: Benefits of Paid Advertising ========== */}
+      <section className="relative overflow-hidden py-16 md:py-24 lg:py-28">
+        {/* Subtle background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/30 to-white" />
+        
+        <div className="container-neo relative z-10">
+          {/* Section header */}
+          <ScrollReveal className="max-w-3xl mb-14 md:mb-20">
+            <span className="chip mb-4 inline-block">Priekšrocības</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Kādas ir maksas reklāmas priekšrocības
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Maksas reklāma ļauj uzņēmumam piesaistīt klientus brīdī, kad viņiem jau ir interese vai vajadzība. Tā balstās datos, nevis minējumos, un ļauj skaidri redzēt, kas strādā un kas nē.
+            </p>
           </ScrollReveal>
-          
-          <div className="flex flex-wrap justify-center gap-10">
-            {platforms.map((platform, index) => <ScrollReveal key={platform.name} delay={index * 0.1}>
-                <div className="flex items-center gap-4 px-8 py-5 bg-card rounded-2xl border border-border shadow-neo">
-                  <platform.icon className="w-8 h-8 text-primary" />
-                  <span className="font-medium text-lg">{platform.name}</span>
+
+          {/* Benefits grid - asymmetric professional layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {/* Benefit 1 - Featured large card */}
+            <ScrollReveal delay={0.05} className="lg:col-span-2">
+              <motion.div 
+                whileHover={{ y: -3 }} 
+                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/8 via-primary/4 to-transparent border border-primary/15 overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                    <Target className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold mb-3">Pieprasījuma piesaiste ar augstu pirkuma nodomu</h3>
+                  <p className="text-muted-foreground">Sasniedziet klientus tieši tajā brīdī, kad viņi meklē jūsu produktu vai pakalpojumu.</p>
                 </div>
-              </ScrollReveal>)}
+                {/* Accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+              </motion.div>
+            </ScrollReveal>
+
+            {/* Benefit 2 */}
+            <ScrollReveal delay={0.1}>
+              <motion.div 
+                whileHover={{ y: -3 }} 
+                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
+              >
+                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-amber-100 to-transparent rounded-full opacity-60" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-amber-200/50">
+                    <DollarSign className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Pilnīga budžeta un izmaksu kontrole</h3>
+                  <p className="text-sm text-muted-foreground">Jūs izlemjat, cik tērēt, un redzat katru centu.</p>
+                </div>
+              </motion.div>
+            </ScrollReveal>
+
+            {/* Benefit 3 */}
+            <ScrollReveal delay={0.15}>
+              <motion.div 
+                whileHover={{ y: -3 }} 
+                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
+              >
+                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-green-100 to-transparent rounded-full opacity-60" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-green-200/50">
+                    <BarChart3 className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Izmērāmi rezultāti un skaidri KPI</h3>
+                  <p className="text-sm text-muted-foreground">Katrs klikšķis, konversija un pārdošana ir izsekojama.</p>
+                </div>
+              </motion.div>
+            </ScrollReveal>
+
+            {/* Benefit 4 */}
+            <ScrollReveal delay={0.2}>
+              <motion.div 
+                whileHover={{ y: -3 }} 
+                className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
+              >
+                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-blue-100 to-transparent rounded-full opacity-60" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-blue-200/50">
+                    <Activity className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Iespēja ātri testēt piedāvājumus</h3>
+                  <p className="text-sm text-muted-foreground">A/B testēšana, lai atrastu labāko ziņojumu un piedāvājumu.</p>
+                </div>
+              </motion.div>
+            </ScrollReveal>
+
+            {/* Benefit 5 - Featured bottom card */}
+            <ScrollReveal delay={0.25} className="lg:col-span-2">
+              <motion.div 
+                whileHover={{ y: -3 }} 
+                className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/80 to-muted/40 border border-border overflow-hidden group"
+              >
+                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-br-full" />
+                <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-primary/10">
+                    <TrendingUp className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2">Elastība starp dažādiem reklāmas kanāliem</h3>
+                    <p className="text-muted-foreground">Pārslēdzieties starp Meta, Google, LinkedIn un citiem kanāliem atkarībā no rezultātiem.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </ScrollReveal>
           </div>
+
+          {/* Bottom statement */}
+          <ScrollReveal delay={0.3}>
+            <div className="mt-12 md:mt-16 pt-10 border-t border-border/60">
+              <p className="text-lg md:text-xl font-medium text-center text-foreground/80">
+                Maksas reklāma nav par redzamību — <span className="text-primary font-semibold">bet par rezultātu.</span>
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
