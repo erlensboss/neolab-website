@@ -562,7 +562,7 @@ export default function ParMums() {
               <motion.div
                 whileHover={{ y: -8, scale: 1.01 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative h-full min-h-[420px] lg:min-h-[520px] rounded-3xl overflow-hidden group"
+                className="relative h-full rounded-3xl overflow-hidden group p-8 md:p-10 flex flex-col"
                 style={{
                   background: 'linear-gradient(145deg, hsl(25 85% 98%) 0%, hsl(30 70% 96%) 50%, hsl(35 60% 94%) 100%)',
                   boxShadow: '0 25px 60px -15px hsl(25 70% 50% / 0.18), 0 0 0 1px hsl(25 50% 90% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.8)'
@@ -576,30 +576,13 @@ export default function ParMums() {
                     scale: [1, 1.1, 1]
                   }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-8 right-8 w-48 h-48 rounded-full blur-3xl"
+                  className="absolute top-8 right-8 w-48 h-48 rounded-full blur-3xl pointer-events-none"
                   style={{ background: 'linear-gradient(135deg, hsl(25 80% 55% / 0.3), hsl(35 70% 60% / 0.15))' }}
                 />
                 
-                {/* Icon container */}
-                <div className="absolute top-8 right-8">
-                  <motion.div
-                    animate={{ rotate: [0, 5, 0, -5, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
-                    style={{
-                      background: 'linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 80% 50%) 100%)',
-                      boxShadow: '0 15px 40px -10px hsl(25 80% 50% / 0.5)'
-                    }}
-                  >
-                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </motion.div>
-                </div>
-                
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-                  <div className="flex items-center gap-3 mb-4">
+                {/* Header with icon */}
+                <div className="flex items-start justify-between mb-6 relative z-10">
+                  <div className="flex items-center gap-3">
                     <span className="w-10 h-1 rounded-full bg-gradient-to-r from-primary to-orange-400" />
                     <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{
                       background: 'linear-gradient(90deg, hsl(25 80% 45%), hsl(35 75% 50%))',
@@ -608,7 +591,24 @@ export default function ParMums() {
                     }}>Misija</span>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold mb-5 leading-tight">
+                  <motion.div
+                    animate={{ rotate: [0, 5, 0, -5, 0] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0"
+                    style={{
+                      background: 'linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 80% 50%) 100%)',
+                      boxShadow: '0 15px 40px -10px hsl(25 80% 50% / 0.5)'
+                    }}
+                  >
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </motion.div>
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
                     <span style={{
                       background: 'linear-gradient(135deg, hsl(25 75% 40%) 0%, hsl(20 70% 35%) 100%)',
                       WebkitBackgroundClip: 'text',
@@ -620,7 +620,7 @@ export default function ParMums() {
                     Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās <span className="text-foreground font-medium">paātrina ikdienišķus procesus</span>.
                   </p>
                   
-                  <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80">
+                  <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 mt-auto">
                     <p className="text-sm text-muted-foreground italic">
                       "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt — <span className="font-medium text-foreground">nevis jārada sarežģītība</span>."
                     </p>
