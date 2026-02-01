@@ -862,7 +862,145 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: CTA ========== */}
+      {/* ========== SECTION 5: NEOLab Approach - Process Flow ========== */}
+      <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
+        {/* Warm gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-amber-50/40 to-white" />
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        
+        {/* Decorative side accents */}
+        <motion.div 
+          className="absolute top-1/4 -left-20 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl"
+          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+
+        <div className="container-neo relative z-10">
+          {/* Section header - centered */}
+          <ScrollReveal className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+            <span className="chip mb-4 inline-block">Mūsu pieeja</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              NEOLab maksas reklāmu{" "}
+              <span className="text-gradient-orange">pieeja</span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas.
+            </p>
+          </ScrollReveal>
+
+          {/* Horizontal process flow - different style */}
+          <div className="max-w-5xl mx-auto">
+            {/* Intro statement */}
+            <ScrollReveal delay={0.1}>
+              <div className="text-center mb-12 md:mb-16">
+                <p className="text-xl md:text-2xl font-medium text-foreground">
+                  Darbs nesākas ar kampaņu palaišanu. <br className="hidden md:block" />
+                  <span className="text-muted-foreground">Tas sākas ar:</span>
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Horizontal timeline flow */}
+            <div className="relative">
+              {/* Connection line - horizontal on desktop */}
+              <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+              
+              {/* Animated flow dots */}
+              <motion.div 
+                className="hidden lg:block absolute top-[60px] left-[10%] w-3 h-3 rounded-full bg-primary"
+                animate={{ 
+                  x: ["0%", "800%", "0%"],
+                  opacity: [0, 1, 1, 1, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Steps grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+                {[
+                  {
+                    step: "01",
+                    title: "Mērķu izpratne",
+                    description: "Uzņēmuma biznesa mērķu un izaugsmes prioritāšu izpratne",
+                    icon: Target,
+                  },
+                  {
+                    step: "02", 
+                    title: "Piedāvājuma izvērtēšana",
+                    description: "Produkta vai pakalpojuma konkurētspējas un pozicionējuma analīze",
+                    icon: Eye,
+                  },
+                  {
+                    step: "03",
+                    title: "Auditorijas analīze",
+                    description: "Mērķauditorijas un konkurences padziļināta izpēte",
+                    icon: Users,
+                  },
+                  {
+                    step: "04",
+                    title: "KPI noteikšana",
+                    description: "Skaidru, izmērāmu mērķu un panākumu kritēriju definēšana",
+                    icon: BarChart3,
+                  },
+                ].map((item, idx) => (
+                  <ScrollReveal key={item.step} delay={0.15 + idx * 0.1}>
+                    <motion.div 
+                      whileHover={{ y: -6 }}
+                      className="relative group"
+                    >
+                      {/* Step indicator - circle on timeline */}
+                      <div className="hidden lg:flex absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-card border-2 border-primary/30 items-center justify-center z-10 group-hover:border-primary/60 transition-colors">
+                        <span className="text-xs font-bold text-primary">{idx + 1}</span>
+                      </div>
+                      
+                      {/* Card */}
+                      <div className="mt-0 lg:mt-10 p-6 md:p-7 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/30 h-full">
+                        {/* Mobile step number */}
+                        <div className="flex lg:hidden items-center gap-3 mb-4">
+                          <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">{item.step}</span>
+                          <div className="flex-1 h-px bg-gradient-to-r from-primary/20 to-transparent" />
+                        </div>
+                        
+                        {/* Icon */}
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                          <item.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        
+                        <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+
+            {/* Result statement */}
+            <ScrollReveal delay={0.5}>
+              <div className="mt-14 md:mt-20 relative">
+                <div className="max-w-2xl mx-auto text-center p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20">
+                  {/* Arrow indicator */}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-primary rotate-90" />
+                  </div>
+                  
+                  <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
+                    Tikai pēc tam tiek izvēlēti piemērotākie{" "}
+                    <span className="text-primary font-semibold">reklāmas kanāli</span>{" "}
+                    un{" "}
+                    <span className="text-primary font-semibold">kampaņu struktūra</span>.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: CTA ========== */}
       <section className="bg-gradient-hero section-full-bleed">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
