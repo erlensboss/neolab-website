@@ -559,10 +559,11 @@ export default function PerformanceReklama() {
 
         <div className="container-neo relative z-10">
           {/* Section header */}
-          <ScrollReveal className="max-w-3xl mb-14 md:mb-20">
+          <ScrollReveal className="max-w-3xl mx-auto text-center mb-14 md:mb-20">
             <span className="chip mb-4 inline-block">Piedāvājumi</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              NEOLab maksas reklāmu piedāvājumi
+              NEOLab maksas reklāmu{" "}
+              <span className="text-gradient-orange">piedāvājumi</span>
             </h2>
           </ScrollReveal>
 
