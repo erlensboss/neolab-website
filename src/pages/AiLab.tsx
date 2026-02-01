@@ -39,11 +39,11 @@ const experiments = [
   },
 ];
 
-// Scientific data point component
+// Inverted data point - white on orange
 function DataPoint({ x, y, delay }: { x: number; y: number; delay: number }) {
   return (
     <motion.div
-      className="absolute w-1 h-1 bg-primary/60"
+      className="absolute w-1 h-1 bg-white/60"
       style={{ left: `${x}%`, top: `${y}%` }}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ 
@@ -52,24 +52,6 @@ function DataPoint({ x, y, delay }: { x: number; y: number; delay: number }) {
       }}
       transition={{
         duration: 4,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-}
-
-// Scientific grid cell
-function GridCell({ x, y, delay }: { x: number; y: number; delay: number }) {
-  return (
-    <motion.div
-      className="absolute w-8 h-8 border border-primary/5"
-      style={{ left: `${x}%`, top: `${y}%` }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 0.3, 0.1, 0.3, 0] }}
-      transition={{
-        duration: 6,
         delay,
         repeat: Infinity,
         ease: "easeInOut",
@@ -104,223 +86,214 @@ export default function AiLab() {
   }, [mouseX, mouseY]);
 
   // Generate random data points
-  const dataPoints = Array.from({ length: 25 }, (_, i) => ({
+  const dataPoints = Array.from({ length: 30 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
     delay: Math.random() * 5,
   }));
 
-  // Grid cells for scientific aesthetic
-  const gridCells = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: (i % 4) * 25 + 5,
-    y: Math.floor(i / 4) * 30 + 10,
-    delay: Math.random() * 3,
-  }));
-
   return (
     <div className="overflow-hidden">
-      {/* ========== SECTION 1: UNIQUE Scientific Lab Hero — CENTERED ========== */}
+      {/* ========== SECTION 1: INVERTED Hero — Orange Background, White Typography ========== */}
       <section 
         ref={containerRef}
-        className="min-h-[90vh] relative overflow-hidden"
+        className="min-h-[95vh] relative overflow-hidden"
         style={{
-          background: `linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 20% 96%) 50%, hsl(30 15% 94%) 100%)`,
+          background: `linear-gradient(160deg, hsl(21 90% 48%) 0%, hsl(18 85% 42%) 40%, hsl(15 80% 35%) 100%)`,
         }}
       >
-        {/* Scientific grid pattern — different from main site */}
+        {/* Subtle dark overlay for depth */}
         <div 
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse 80% 60% at 50% 30%, transparent 0%, hsla(15 80% 25% / 0.3) 100%)`,
+          }}
+        />
+
+        {/* Inverted grid pattern — white lines on orange */}
+        <div 
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `
-              linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px),
-              linear-gradient(hsl(21 90% 48%) 0.5px, transparent 0.5px),
-              linear-gradient(90deg, hsl(21 90% 48%) 0.5px, transparent 0.5px)
+              linear-gradient(hsla(0 0% 100% / 1) 1px, transparent 1px),
+              linear-gradient(90deg, hsla(0 0% 100% / 1) 1px, transparent 1px),
+              linear-gradient(hsla(0 0% 100% / 0.5) 0.5px, transparent 0.5px),
+              linear-gradient(90deg, hsla(0 0% 100% / 0.5) 0.5px, transparent 0.5px)
             `,
-            backgroundSize: "100px 100px, 100px 100px, 20px 20px, 20px 20px",
+            backgroundSize: "120px 120px, 120px 120px, 24px 24px, 24px 24px",
           }}
         />
         
-        {/* Animated data points */}
+        {/* Animated white data points */}
         <div className="absolute inset-0 pointer-events-none">
           {dataPoints.map((point) => (
             <DataPoint key={point.id} x={point.x} y={point.y} delay={point.delay} />
           ))}
         </div>
         
-        {/* Scientific shapes — UNIQUE to AI Lab */}
+        {/* Geometric shapes — white on orange */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-          {/* Hexagonal grid pattern */}
-          {[1, 2, 3].map((ring) => (
+          {/* Rotating rings */}
+          {[1, 2, 3, 4].map((ring) => (
             <motion.circle
               key={ring}
               cx="50%"
               cy="50%"
-              r={80 * ring}
+              r={60 + ring * 50}
               fill="none"
-              stroke="hsl(21 90% 48%)"
+              stroke="hsla(0, 0%, 100%, 0.08)"
               strokeWidth="0.5"
-              strokeDasharray={`${ring * 3} ${ring * 6}`}
+              strokeDasharray={`${ring * 8} ${ring * 16}`}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.08, rotate: ring % 2 === 0 ? 360 : -360 }}
+              animate={{ opacity: 1, rotate: ring % 2 === 0 ? 360 : -360 }}
               transition={{ 
-                opacity: { duration: 2, delay: ring * 0.3 },
-                rotate: { duration: 60 * ring, repeat: Infinity, ease: "linear" }
+                opacity: { duration: 2, delay: ring * 0.2 },
+                rotate: { duration: 80 * ring, repeat: Infinity, ease: "linear" }
               }}
             />
           ))}
           
-          {/* Signal wave lines */}
-          {[0, 1, 2, 3, 4].map((i) => (
+          {/* Horizontal scan lines */}
+          {[0, 1, 2, 3].map((i) => (
             <motion.line
-              key={`wave-${i}`}
+              key={`scan-h-${i}`}
               x1="0%"
-              y1={`${20 + i * 15}%`}
+              y1={`${15 + i * 20}%`}
               x2="100%"
-              y2={`${20 + i * 15}%`}
-              stroke="hsl(21 90% 48%)"
-              strokeWidth="0.5"
-              strokeDasharray="2 8"
-              initial={{ strokeDashoffset: 0 }}
-              animate={{ strokeDashoffset: i % 2 === 0 ? -100 : 100 }}
-              transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear" }}
-              opacity="0.06"
-            />
-          ))}
-          
-          {/* Vertical scan lines */}
-          {[0, 1, 2].map((i) => (
-            <motion.line
-              key={`scan-${i}`}
-              x1={`${25 + i * 25}%`}
-              y1="0%"
-              x2={`${25 + i * 25}%`}
-              y2="100%"
-              stroke="hsl(21 90% 48%)"
+              y2={`${15 + i * 20}%`}
+              stroke="hsla(0, 0%, 100%, 0.04)"
               strokeWidth="1"
-              initial={{ opacity: 0, y1: "0%" }}
-              animate={{ opacity: [0, 0.1, 0], y1: ["0%", "100%", "0%"] }}
-              transition={{ duration: 8, delay: i * 2, repeat: Infinity, ease: "linear" }}
+              strokeDasharray="4 12"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: i % 2 === 0 ? -200 : 200 }}
+              transition={{ duration: 20 + i * 3, repeat: Infinity, ease: "linear" }}
             />
           ))}
         </svg>
         
-        {/* Cursor-reactive scientific elements */}
+        {/* Cursor-reactive floating elements — white/translucent */}
         <motion.div
           className="absolute hidden lg:block"
           style={{
-            left: useTransform(springX, [0, 1], ["15%", "25%"]),
-            top: useTransform(springY, [0, 1], ["20%", "30%"]),
+            left: useTransform(springX, [0, 1], ["10%", "20%"]),
+            top: useTransform(springY, [0, 1], ["15%", "25%"]),
           }}
         >
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           >
-            <Hexagon className="w-12 h-12 text-primary/15 stroke-1" />
+            <Hexagon className="w-16 h-16 text-white/10 stroke-[0.5]" />
           </motion.div>
         </motion.div>
         
         <motion.div
           className="absolute hidden lg:block"
           style={{
-            right: useTransform(springX, [0, 1], ["20%", "10%"]),
-            top: useTransform(springY, [0, 1], ["25%", "15%"]),
+            right: useTransform(springX, [0, 1], ["15%", "8%"]),
+            top: useTransform(springY, [0, 1], ["20%", "12%"]),
           }}
         >
           <motion.div
             animate={{ rotate: -360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           >
-            <Triangle className="w-10 h-10 text-primary/12 stroke-1" />
+            <Triangle className="w-12 h-12 text-white/8 stroke-[0.5]" />
           </motion.div>
         </motion.div>
         
         <motion.div
           className="absolute hidden lg:block"
           style={{
-            left: useTransform(springX, [0, 1], ["20%", "30%"]),
-            bottom: useTransform(springY, [0, 1], ["25%", "35%"]),
+            left: useTransform(springX, [0, 1], ["15%", "25%"]),
+            bottom: useTransform(springY, [0, 1], ["20%", "30%"]),
           }}
         >
           <motion.div
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ scale: [1, 1.3, 1], opacity: [0.08, 0.15, 0.08] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Square className="w-8 h-8 text-primary/10 stroke-1" />
+            <Square className="w-10 h-10 text-white/10 stroke-[0.5]" />
           </motion.div>
         </motion.div>
         
-        {/* Central lab element — CENTERED composition */}
+        {/* Central lab icon — inverted: white bg, orange icon */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block pointer-events-none"
           style={{
-            x: useTransform(springX, [0, 1], [-10, 10]),
-            y: useTransform(springY, [0, 1], [-10, 10]),
+            x: useTransform(springX, [0, 1], [-15, 15]),
+            y: useTransform(springY, [0, 1], [-15, 15]),
           }}
         >
           <div className="relative">
-            {/* Outer rings */}
+            {/* Outer glow rings */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-20 border border-dashed border-primary/10 rounded-full"
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-24 border border-dashed border-white/10 rounded-full"
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-12 border border-primary/15 rounded-full"
+              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-16 border border-white/15 rounded-full"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/50" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 rounded-full bg-white/50" />
             </motion.div>
             
-            {/* Central flask */}
+            {/* Central flask — inverted colors */}
             <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="w-24 h-24 rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-28 h-28 rounded-2xl bg-white flex items-center justify-center"
+              style={{
+                boxShadow: "0 20px 60px hsla(0, 0%, 0%, 0.3), 0 0 100px hsla(0, 0%, 100%, 0.15)"
+              }}
             >
-              <FlaskConical className="w-12 h-12 text-primary-foreground" />
+              <FlaskConical className="w-14 h-14 text-primary" />
             </motion.div>
           </div>
         </motion.div>
 
-        {/* CENTERED Hero Content */}
-        <div className="container-neo section-padding relative z-10 flex items-center justify-center min-h-[90vh]">
-          <div className="max-w-3xl mx-auto text-center">
+        {/* Hero Content — White text on orange */}
+        <div className="container-neo section-padding relative z-10 flex items-center justify-center min-h-[95vh]">
+          <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/80 backdrop-blur-sm mb-8">
-                <FlaskConical className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Eksperimentāla telpa</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-10">
+                <FlaskConical className="w-4 h-4 text-white" />
+                <span className="text-sm font-medium text-white/90">Inovatīva jauniešu AI laboratorija</span>
               </div>
             </ScrollReveal>
             
             <ScrollReveal delay={0.1}>
-              <h1 className="mb-8">
-                <span className="text-gradient-orange">AI Lab</span>
-                <br />
-                <span className="text-foreground/70">Kur rodas nākotne</span>
+              <h1 className="mb-8 text-white">
+                <span className="block">AI Lab</span>
               </h1>
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground mb-8 max-w-xl mx-auto">
-                Šī nav pakalpojumu lapa. Šī ir vieta, kur mēs eksperimentējam, 
-                testējam un veidojam risinājumus, kas vēl nepastāv tirgū.
+              <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, nevis tikai apspriests teorijā.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="inline-flex items-center gap-3 text-sm text-muted-foreground bg-card/60 backdrop-blur-sm px-4 py-3 rounded-lg border border-border/50">
+              <div className="inline-flex items-center gap-3 text-sm text-white/70 bg-white/5 backdrop-blur-sm px-5 py-3 rounded-xl border border-white/10">
                 <Lock className="w-4 h-4" />
                 <span>Pieejams tikai NEOLab partneriem</span>
               </div>
             </ScrollReveal>
           </div>
         </div>
+        
+        {/* Bottom fade to next section */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+          style={{
+            background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
+          }}
+        />
       </section>
 
       {/* ========== SECTION 2: Current Experiments ========== */}
