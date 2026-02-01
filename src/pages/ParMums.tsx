@@ -1,12 +1,22 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart } from "lucide-react";
+import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 import iconWhite from "@/assets/icon-white.svg";
 import { useRef } from "react";
+
+const teamMembers = [
+  {
+    name: "Erlens Toms Rukers",
+    role: "Projektu vadītājs",
+    initials: "ER",
+  },
+  // Add more team members here as they join
+];
 const storyCheckpoints = [{
   icon: Sparkles,
   title: "Laboratorija",
@@ -984,48 +994,126 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 6: Thinking Block (Visual) ========== */}
-      <section className="section-offwhite grid-overlay-subtle">
-        <div className="container-neo section-padding">
-          <div className="max-w-4xl mx-auto">
+      {/* ========== SECTION 6: Mūsu Komanda (Team) ========== */}
+      <section className="relative overflow-hidden py-20 md:py-28" style={{
+        background: "linear-gradient(180deg, hsl(30 40% 97%) 0%, hsl(35 35% 96%) 50%, hsl(30 45% 95%) 100%)"
+      }}>
+        {/* Subtle decorative elements */}
+        <div className="absolute top-10 left-[10%] w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-10 right-[10%] w-56 h-56 rounded-full bg-orange-300/8 blur-3xl" />
+
+        <div className="container-neo px-6">
+          <div className="max-w-5xl mx-auto">
+            {/* Header */}
             <ScrollReveal>
-              <div className="glass-warm rounded-2xl p-8 md:p-12">
-                <div className="flex flex-col md:flex-row gap-8 items-center">
-                  {/* Visual element */}
-                  <div className="flex-shrink-0">
-                    <div className="relative w-32 h-32">
-                      <motion.div animate={{
-                      rotate: 360
-                    }} transition={{
-                      duration: 30,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }} className="absolute inset-0 border-2 border-dashed border-primary/30 rounded-full" />
-                      <motion.div animate={{
-                      rotate: -360
-                    }} transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }} className="absolute inset-4 border-2 border-dashed border-primary/20 rounded-full" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                          <Lightbulb className="w-6 h-6 text-primary-foreground" />
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                  <Users className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-primary">Komanda</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Mūsu{" "}
+                  <span style={{
+                    background: "linear-gradient(90deg, hsl(25 80% 50%), hsl(30 70% 45%))",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent"
+                  }}>
+                    komanda
+                  </span>
+                </h2>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+                  NEOLab veido jaunieši ar interesi par tehnoloģijām, mākslīgo intelektu un digitālo attīstību.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Team Grid */}
+            <ScrollReveal delay={0.1}>
+              <div className="flex flex-wrap justify-center gap-8">
+                {teamMembers.map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="relative group"
+                  >
+                    <div 
+                      className="relative rounded-2xl p-6 md:p-8 text-center w-64"
+                      style={{
+                        background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 25% 98%) 100%)",
+                        boxShadow: "0 15px 40px -12px hsl(25 50% 50% / 0.12), 0 0 0 1px hsl(25 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)"
+                      }}
+                    >
+                      {/* Hover glow effect */}
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
+                        boxShadow: "0 20px 50px -15px hsl(25 70% 50% / 0.25)"
+                      }} />
+
+                      {/* Avatar with placeholder */}
+                      <div className="relative mx-auto mb-5">
+                        <div className="relative">
+                          <Avatar className="w-24 h-24 mx-auto border-4 border-white shadow-lg">
+                            <AvatarImage src="" alt={member.name} />
+                            <AvatarFallback 
+                              className="text-xl font-bold"
+                              style={{
+                                background: "linear-gradient(135deg, hsl(25 70% 55%) 0%, hsl(30 80% 50%) 100%)",
+                                color: "white"
+                              }}
+                            >
+                              {member.initials}
+                            </AvatarFallback>
+                          </Avatar>
+                          {/* Decorative ring */}
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute -inset-2 rounded-full border-2 border-dashed border-primary/20"
+                          />
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* Text */}
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-4">Mēs domājam sistēmās, nevis kampaņās</h3>
-                    <p className="text-muted-foreground">
-                      Kampaņa ir taktika. Sistēma ir stratēģija. Mēs palīdzam izveidot digitālo infrastruktūru, kas
-                      strādā arī tad, kad jūs guļat. Tas ir mūsu mērķis — būvēt sistēmas, kas rada vērtību ilgtermiņā.
-                    </p>
+                      {/* Name & Role */}
+                      <h4 className="text-lg font-semibold text-foreground mb-1">{member.name}</h4>
+                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                    </div>
+                  </motion.div>
+                ))}
+
+                {/* Placeholder for future team members */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="relative"
+                >
+                  <div 
+                    className="relative rounded-2xl p-6 md:p-8 text-center w-64 border-2 border-dashed border-primary/20"
+                    style={{
+                      background: "linear-gradient(145deg, hsl(30 30% 98% / 0.5) 0%, hsl(35 25% 96% / 0.3) 100%)"
+                    }}
+                  >
+                    <div className="mx-auto mb-5">
+                      <div className="w-24 h-24 mx-auto rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center bg-primary/5">
+                        <Users className="w-8 h-8 text-primary/40" />
+                      </div>
+                    </div>
+                    <h4 className="text-lg font-semibold text-foreground/50 mb-1">Jaunais dalībnieks</h4>
+                    <p className="text-sm text-muted-foreground/70">Komanda aug...</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
+            </ScrollReveal>
+
+            {/* Bottom note */}
+            <ScrollReveal delay={0.2}>
+              <p className="text-center text-muted-foreground mt-10 max-w-xl mx-auto italic">
+                Komanda aug pakāpeniski, balstoties zināšanās, praksē un kopīgā domāšanā.
+              </p>
             </ScrollReveal>
           </div>
         </div>
