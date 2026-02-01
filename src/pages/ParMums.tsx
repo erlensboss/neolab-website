@@ -1170,6 +1170,16 @@ export default function ParMums() {
       <section className="relative overflow-hidden py-20 md:py-28" style={{
         background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`
       }}>
+        {/* Top fade-in gradient from previous section */}
+        <div className="absolute top-0 left-0 right-0 h-32 md:h-48 pointer-events-none" style={{
+          background: "linear-gradient(to bottom, hsl(25 60% 94%) 0%, hsl(25 70% 80% / 0.5) 30%, hsl(21 85% 45% / 0) 100%)"
+        }} />
+
+        {/* Bottom fade-out gradient to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 pointer-events-none" style={{
+          background: "linear-gradient(to top, hsl(30 60% 96%) 0%, hsl(25 70% 70% / 0.4) 30%, hsl(8 60% 20% / 0) 100%)"
+        }} />
+
         {/* Deep space overlay */}
         <div className="absolute inset-0" style={{
           background: `radial-gradient(ellipse 100% 100% at 30% 20%, hsl(25 90% 50% / 0.15), transparent 50%),
