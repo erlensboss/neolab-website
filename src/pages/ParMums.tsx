@@ -888,7 +888,81 @@ export default function ParMums() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: Thinking Block (Visual) ========== */}
+      {/* ========== SECTION 5: Ko NEOLab dod uzņēmumiem ========== */}
+      <section className="relative overflow-hidden py-16 md:py-20" style={{
+        background: 'linear-gradient(180deg, hsl(30 50% 97%) 0%, hsl(35 40% 96%) 100%)'
+      }}>
+        <div className="container-neo px-6">
+          <ScrollReveal>
+            <div 
+              className="max-w-4xl mx-auto rounded-2xl p-8 md:p-10 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(30 30% 98%) 100%)',
+                boxShadow: '0 15px 40px -12px hsl(25 50% 50% / 0.1), 0 0 0 1px hsl(25 40% 90% / 0.5), inset 0 1px 0 hsl(0 0% 100% / 0.9)'
+              }}
+            >
+              {/* Subtle corner accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-40 pointer-events-none">
+                <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-orange-300/10 blur-2xl" />
+              </div>
+              
+              <div className="flex flex-col md:flex-row md:items-start gap-8">
+                {/* Left: Heading */}
+                <div className="md:w-1/3 flex-shrink-0">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span className="text-xs uppercase tracking-[0.15em] font-semibold text-primary">Ieguvumi</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">
+                    Ko NEOLab{' '}
+                    <span style={{
+                      background: 'linear-gradient(90deg, hsl(25 80% 50%), hsl(30 70% 45%))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}>dod</span>{' '}
+                    uzņēmumiem
+                  </h3>
+                </div>
+                
+                {/* Right: List */}
+                <div className="md:w-2/3 flex-1">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[
+                      { text: "Sakārtot digitālos procesus", icon: "📊" },
+                      { text: "Ieviest AI praktiski, ne teorētiski", icon: "🤖" },
+                      { text: "Uzlabot redzamību meklēšanas vidēs", icon: "🔍" },
+                      { text: "Pieņemt pamatotus tehnoloģiskus lēmumus", icon: "⚡" }
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        viewport={{ once: true }}
+                        className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/20 transition-colors"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/15 to-orange-400/10 flex items-center justify-center flex-shrink-0">
+                          <div 
+                            className="w-2.5 h-2.5 rounded-full"
+                            style={{ background: 'linear-gradient(135deg, hsl(25 80% 50%), hsl(30 70% 55%))' }}
+                          />
+                        </div>
+                        <span className="text-sm md:text-base text-foreground/90 font-medium leading-snug">{item.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  <p className="mt-6 text-sm text-muted-foreground italic pl-1 border-l-2 border-primary/30">
+                    Katrs risinājums tiek pielāgots konkrētajai situācijai, nevis balstīts universālās shēmās.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ========== SECTION 6: Thinking Block (Visual) ========== */}
       <section className="section-offwhite grid-overlay-subtle">
         <div className="container-neo section-padding">
           <div className="max-w-4xl mx-auto">
