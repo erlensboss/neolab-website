@@ -40,95 +40,186 @@ export default function ParMums() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Trust Building ========== */}
-      <section className="bg-gradient-to-b from-slate-50 via-white to-orange-50/30 relative overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+      <section className="relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, hsl(30 80% 96%) 0%, hsl(28 70% 94%) 30%, hsl(35 60% 97%) 70%, hsl(30 50% 95%) 100%)'
+      }}>
+        {/* Warm grid pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `linear-gradient(hsl(25 80% 50% / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(25 80% 50% / 0.3) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
         }} />
         
+        {/* Floating accent orbs */}
+        <motion.div
+          animate={{ 
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            opacity: [0.4, 0.6, 0.4]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 to-orange-300/10 blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            x: [0, -20, 0],
+            y: [0, 30, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full bg-gradient-to-tl from-orange-400/15 to-primary/5 blur-3xl"
+        />
+        
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[70vh]">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center min-h-[80vh]">
             
             {/* Left: Content */}
             <div className="lg:col-span-6 order-2 lg:order-1">
               <ScrollReveal>
-                <span className="chip-outline mb-6 inline-block text-sm">Par mums</span>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-8">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  Par mums
+                </span>
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-foreground">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-10 text-foreground">
                   Mēs esam <span className="text-gradient-orange">sistēmu domātāji</span>, nevis sistēmas sekotāji.
                 </h1>
               </ScrollReveal>
               
               <ScrollReveal delay={0.2}>
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                <p className="text-xl md:text-2xl lg:text-[1.7rem] text-muted-foreground leading-relaxed max-w-2xl">
                   NEOLab ir vieta, kur digitālā attīstība tiek veidota apzināti, ar izpratni un skatu uz nākotni.
                 </p>
               </ScrollReveal>
               
               {/* Trust indicators */}
               <ScrollReveal delay={0.3}>
-                <div className="flex flex-wrap gap-4 mt-10">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Profesionāla pieeja</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Pielāgoti risinājumi</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Ilgtermiņa partnerība</span>
-                  </div>
+                <div className="flex flex-wrap gap-6 mt-12">
+                  {[
+                    "Profesionāla pieeja",
+                    "Pielāgoti risinājumi", 
+                    "Ilgtermiņa partnerība"
+                  ].map((text, i) => (
+                    <div key={i} className="flex items-center gap-3 text-base text-foreground/80">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-sm" />
+                      <span className="font-medium">{text}</span>
+                    </div>
+                  ))}
                 </div>
               </ScrollReveal>
             </div>
             
-            {/* Right: Logo Visual */}
+            {/* Right: Animated Logo Visual */}
             <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center lg:justify-end">
               <ScrollReveal delay={0.15} direction="right">
-                <div className="relative">
-                  {/* Outer glow ring */}
+                <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]">
+                  
+                  {/* Outer rotating ring */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20"
+                  />
+                  
+                  {/* Middle pulsing ring */}
                   <motion.div
                     animate={{ 
                       scale: [1, 1.05, 1],
-                      opacity: [0.3, 0.5, 0.3]
+                      opacity: [0.3, 0.6, 0.3]
                     }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-primary/20 via-orange-200/30 to-transparent blur-2xl"
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-8 md:inset-10 rounded-full border border-primary/30"
                   />
                   
-                  {/* Main logo container */}
-                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100">
-                    {/* Decorative corner accents */}
-                    <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-3xl" />
-                    <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-3xl" />
-                    
-                    {/* Logo */}
-                    <motion.img
-                      src={logoSecondaryOrange}
-                      alt="NEOLab"
-                      className="w-48 h-auto md:w-64 lg:w-72"
-                      initial={{ opacity: 0, scale: 0.9 }}
+                  {/* Inner glowing ring */}
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.03, 1],
+                      opacity: [0.4, 0.7, 0.4]
+                    }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    className="absolute inset-16 md:inset-20 rounded-full bg-gradient-to-br from-primary/10 via-orange-300/20 to-transparent blur-sm"
+                  />
+                  
+                  {/* Center logo container */}
+                  <div className="absolute inset-20 md:inset-24 lg:inset-28 flex items-center justify-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.3 }}
-                    />
-                    
-                    {/* Subtle floating elements */}
-                    <motion.div
-                      animate={{ y: [-5, 5, -5] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/10 backdrop-blur-sm"
-                    />
-                    <motion.div
-                      animate={{ y: [5, -5, 5] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-orange-200/50 backdrop-blur-sm"
-                    />
+                      transition={{ duration: 1, delay: 0.4 }}
+                      className="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border border-white/50"
+                      style={{
+                        boxShadow: '0 25px 80px -20px hsl(25 80% 50% / 0.3), 0 10px 30px -10px hsl(25 80% 50% / 0.2)'
+                      }}
+                    >
+                      <motion.img
+                        src={logoSecondaryOrange}
+                        alt="NEOLab"
+                        className="w-24 md:w-32 lg:w-40 h-auto"
+                        animate={{ 
+                          scale: [1, 1.02, 1]
+                        }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    </motion.div>
                   </div>
+                  
+                  {/* Orbiting particles */}
+                  {[0, 1, 2, 3].map((i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ rotate: 360 }}
+                      transition={{ 
+                        duration: 12 + i * 4, 
+                        repeat: Infinity, 
+                        ease: "linear",
+                        delay: i * 0.5
+                      }}
+                      className="absolute inset-0"
+                      style={{ transformOrigin: 'center center' }}
+                    >
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.3, 1],
+                          opacity: [0.6, 1, 0.6]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                        className="absolute rounded-full bg-gradient-to-br from-primary to-orange-400"
+                        style={{
+                          width: i % 2 === 0 ? '14px' : '10px',
+                          height: i % 2 === 0 ? '14px' : '10px',
+                          top: i === 0 ? '5%' : i === 1 ? '50%' : i === 2 ? '85%' : '30%',
+                          left: i === 0 ? '50%' : i === 1 ? '95%' : i === 2 ? '40%' : '2%',
+                          boxShadow: '0 0 20px hsl(25 80% 50% / 0.5)'
+                        }}
+                      />
+                    </motion.div>
+                  ))}
+                  
+                  {/* Energy pulse waves */}
+                  <motion.div
+                    animate={{ 
+                      scale: [0.5, 1.2],
+                      opacity: [0.6, 0]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+                    className="absolute inset-20 md:inset-24 lg:inset-28 rounded-full border-2 border-primary/40"
+                  />
+                  <motion.div
+                    animate={{ 
+                      scale: [0.5, 1.2],
+                      opacity: [0.6, 0]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeOut", delay: 1 }}
+                    className="absolute inset-20 md:inset-24 lg:inset-28 rounded-full border-2 border-primary/40"
+                  />
+                  
+                  {/* Corner accent lines */}
+                  <div className="absolute top-0 left-1/2 w-px h-12 bg-gradient-to-b from-primary/40 to-transparent" />
+                  <div className="absolute bottom-0 left-1/2 w-px h-12 bg-gradient-to-t from-primary/40 to-transparent" />
+                  <div className="absolute left-0 top-1/2 h-px w-12 bg-gradient-to-r from-primary/40 to-transparent" />
+                  <div className="absolute right-0 top-1/2 h-px w-12 bg-gradient-to-l from-primary/40 to-transparent" />
                 </div>
               </ScrollReveal>
             </div>
@@ -136,7 +227,7 @@ export default function ParMums() {
         </div>
         
         {/* Bottom gradient divider */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       </section>
 
       {/* ========== SECTION 2: Values (Visual Blocks) ========== */}
