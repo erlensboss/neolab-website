@@ -193,64 +193,175 @@ export default function AiLab() {
         <div 
           className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
           style={{
-            background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
+            background: `linear-gradient(to top, hsl(18 80% 38%) 0%, transparent 100%)`
           }}
         />
       </section>
 
-      {/* ========== SECTION 2: Current Experiments ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding">
-          <ScrollReveal className="mb-16">
-            <span className="chip mb-4 inline-flex items-center gap-2">
-              <Cpu className="w-3 h-3" />
-              Aktīvie projekti
-            </span>
-            <h2 className="text-foreground">Kas šobrīd notiek laboratorijā</h2>
-          </ScrollReveal>
+      {/* ========== SECTION 2: Kas ir AI Lab? — Inverted Cosmos Style ========== */}
+      <section 
+        className="relative overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, hsl(18 80% 38%) 0%, hsl(15 75% 32%) 50%, hsl(12 70% 28%) 100%)`,
+        }}
+      >
+        {/* Subtle star field continues */}
+        <div className="absolute inset-0 pointer-events-none">
+          {Array.from({ length: 25 }, (_, i) => (
+            <motion.div
+              key={`star-s2-${i}`}
+              className="absolute rounded-full bg-white"
+              style={{ 
+                left: `${Math.random() * 100}%`, 
+                top: `${Math.random() * 100}%`,
+                width: Math.random() * 1.5 + 0.5,
+                height: Math.random() * 1.5 + 0.5,
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.4, 0.2, 0.4, 0] }}
+              transition={{
+                duration: 5 + Math.random() * 3,
+                delay: Math.random() * 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
 
-          <div className="space-y-6">
-            {experiments.map((exp, index) => (
-              <ScrollReveal key={exp.id} delay={index * 0.15}>
-                <motion.div
-                  whileHover={{ x: 4, y: -4 }}
-                  className="glass-warm rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 border border-border/50 transition-shadow duration-300 hover:shadow-card"
+        {/* Nebula glow accents */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(ellipse 50% 40% at 10% 50%, hsla(35 100% 70% / 0.06) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 90% 30%, hsla(21 90% 55% / 0.05) 0%, transparent 70%)
+            `,
+          }}
+        />
+
+        <div className="container-neo section-padding relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Content */}
+            <div>
+              <ScrollReveal>
+                <div 
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm mb-8"
+                  style={{ boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.2)" }}
                 >
-                  <div className="flex-shrink-0">
-                    <motion.div 
-                      className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Sparkles className="w-8 h-8 text-primary" />
-                    </motion.div>
-                  </div>
+                  <FlaskConical className="w-4 h-4 text-white/80" />
+                  <span className="text-sm font-medium text-white/80">Par laboratoriju</span>
+                </div>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.1}>
+                <h2 
+                  className="text-white mb-8"
+                  style={{ textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.4)" }}
+                >
+                  Kas ir <span className="text-white/60">AI Lab</span>?
+                </h2>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.2}>
+                <p 
+                  className="text-lg text-white/85 mb-6 leading-relaxed"
+                  style={{ textShadow: "0 2px 15px hsla(0, 0%, 0%, 0.4)" }}
+                >
+                  AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.
+                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.3}>
+                <p 
+                  className="text-lg text-white/75 mb-6 leading-relaxed"
+                  style={{ textShadow: "0 2px 15px hsla(0, 0%, 0%, 0.4)" }}
+                >
+                  Tā ir vieta, kur jaunieši ar interesi par tehnoloģijām strādā ar reāliem rīkiem, reāliem scenārijiem un reālām problēmām. Attīstoties prasmēs, spējās un domāšanā, šeit top AI un tehnoloģiju risinājumi, kuriem ir praktiska vērtība.
+                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={0.4}>
+                <p 
+                  className="text-base text-white/60 italic"
+                  style={{ textShadow: "0 2px 10px hsla(0, 0%, 0%, 0.3)" }}
+                >
+                  AI Lab tiek veidots ar skatu uz ilgtermiņa attīstību, nevis ātru rezultātu.
+                </p>
+              </ScrollReveal>
+            </div>
+
+            {/* Right: Visual Element — Mysterious orb/constellation */}
+            <ScrollReveal delay={0.2} direction="right">
+              <div className="relative flex items-center justify-center py-12">
+                {/* Central glowing orb */}
+                <motion.div
+                  className="relative"
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Outer glow rings */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-16 md:-inset-20 border border-dashed border-white/8 rounded-full"
+                  />
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-10 md:-inset-14 border border-white/10 rounded-full"
+                  >
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/40" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/40" />
+                    <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/30" />
+                  </motion.div>
                   
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-mono text-muted-foreground">{exp.id}</span>
-                      <span className={`
-                        text-xs px-2 py-1 rounded-full
-                        ${exp.status === "Izstrādē" ? "bg-primary/10 text-primary" : ""}
-                        ${exp.status === "Testēšana" ? "bg-yellow-100 text-yellow-700" : ""}
-                        ${exp.status === "Koncepcija" ? "bg-muted text-muted-foreground" : ""}
-                      `}>
-                        {exp.status}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 text-foreground">{exp.title}</h3>
-                    <p className="text-muted-foreground">{exp.description}</p>
-                  </div>
+                  {/* Inner pulsing ring */}
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -inset-4 md:-inset-6 rounded-full border border-white/20"
+                  />
                   
-                  <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full border border-dashed border-primary/30 flex items-center justify-center">
-                      <Lock className="w-4 h-4 text-muted-foreground" />
-                    </div>
+                  {/* Central orb */}
+                  <div 
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white flex items-center justify-center"
+                    style={{
+                      boxShadow: "0 0 60px hsla(0, 0%, 100%, 0.3), 0 0 120px hsla(21, 90%, 50%, 0.2), inset 0 -4px 20px hsla(0, 0%, 0%, 0.1)"
+                    }}
+                  >
+                    <FlaskConical className="w-10 h-10 md:w-14 md:h-14 text-primary" />
                   </div>
                 </motion.div>
-              </ScrollReveal>
-            ))}
+
+                {/* Floating accent dots */}
+                <motion.div
+                  className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-white/30"
+                  animate={{ y: [-5, 5, -5], opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-white/25"
+                  animate={{ y: [5, -5, 5], opacity: [0.2, 0.5, 0.2] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                <motion.div
+                  className="absolute top-1/3 right-1/3 w-1 h-1 rounded-full bg-white/20"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
+        
+        {/* Bottom fade */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+          style={{
+            background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
+          }}
+        />
       </section>
 
       {/* ========== SECTION 3: Philosophy ========== */}
