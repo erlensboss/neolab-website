@@ -31,6 +31,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Accordion,
   AccordionContent,
@@ -57,6 +58,8 @@ const geoFeatures = [
 
 
 export default function SeoGeo() {
+  const { t, getLocalizedPath } = useLanguage();
+  
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Premium Hero ========== */}
@@ -122,7 +125,7 @@ export default function SeoGeo() {
               
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/bezmaksas-konsultacija">
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg">
                       Sākt ar bezmaksas auditu
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -983,7 +986,7 @@ export default function SeoGeo() {
                     </p>
                   </div>
                   
-                  <Link to="/bezmaksas-konsultacija" className="flex-shrink-0">
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")} className="flex-shrink-0">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -1345,7 +1348,7 @@ export default function SeoGeo() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

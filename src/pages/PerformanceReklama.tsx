@@ -4,6 +4,7 @@ import { TrendingUp, Target, BarChart3, ArrowRight, AlertTriangle, Eye, DollarSi
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Accordion,
   AccordionContent,
@@ -63,6 +64,8 @@ const approach = [{
   description: "No apzināšanās līdz pirkumam — viss redzams"
 }];
 export default function PerformanceReklama() {
+  const { t, getLocalizedPath } = useLanguage();
+  
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
       <section className="relative overflow-hidden">
@@ -130,7 +133,7 @@ export default function PerformanceReklama() {
               
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/bezmaksas-konsultacija">
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg" className="group">
                       Sākt sadarbību
                       <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -528,7 +531,7 @@ export default function PerformanceReklama() {
                       Ja kaut viens no šiem punktiem atbilst jūsu situācijai — maksas reklāma var būt pareizais solis.
                     </p>
                     
-                    <Link to="/bezmaksas-konsultacija">
+                    <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                       <Button variant="default" className="w-full group">
                         Sākt sarunu
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -1154,7 +1157,7 @@ export default function PerformanceReklama() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Search,
   Brain,
@@ -20,7 +21,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 // Service cards data
 const services = [
@@ -117,7 +117,7 @@ const heroFeatures = [
 ];
 
 export default function Index() {
-  const { t, language } = useLanguage();
+  const { t, language, getLocalizedPath } = useLanguage();
 
   return (
     <div className="overflow-hidden">
@@ -155,7 +155,7 @@ export default function Index() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <Link to="/bezmaksas-konsultacija">
+                <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                   <Button
                     variant="hero"
                     size="xl"
@@ -735,7 +735,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service, i) => (
               <ScrollReveal key={service.id} delay={i * 0.1}>
-                <Link to={service.path} className="group block h-full">
+                <Link to={getLocalizedPath(service.path)} className="group block h-full">
                   <motion.div
                     className="h-full p-8 md:p-10 rounded-2xl bg-background border border-border/60 relative overflow-hidden shadow-[inset_0_0_0_1px_hsla(25,15%,88%,0.4)]"
                     whileHover={{
@@ -983,7 +983,7 @@ export default function Index() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <Button
                   variant="hero"
                   size="xl"

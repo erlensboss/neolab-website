@@ -29,6 +29,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Accordion,
   AccordionContent,
@@ -88,6 +89,8 @@ const systemNodes = [
 ];
 
 export default function AiAutomatizacija() {
+  const { t, getLocalizedPath } = useLanguage();
+  
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: CENTERED Hero with AI System Visual ========== */}
@@ -152,7 +155,7 @@ export default function AiAutomatizacija() {
               </ScrollReveal>
               
               <ScrollReveal delay={0.3}>
-                <Link to="/bezmaksas-konsultacija">
+                <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                   <Button variant="hero" size="default" className="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6">
                     Sākt ar bezmaksas konsultāciju
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
@@ -572,7 +575,7 @@ export default function AiAutomatizacija() {
                     </div>
                     
                     <div className="mt-6 sm:mt-8">
-                      <Link to="/bezmaksas-konsultacija">
+                      <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                         <Button variant="hero" size="default" className="sm:text-base">
                           Uzzināt vairāk
                           <ArrowRight className="ml-2 w-4 h-4" />
@@ -900,7 +903,7 @@ export default function AiAutomatizacija() {
                   </div>
                   
                   {/* CTA */}
-                  <Link to="/bezmaksas-konsultacija">
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="default" className="text-sm sm:text-base md:text-lg sm:px-8 sm:py-6 shadow-xl">
                       Apspriest savu risinājumu
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -1232,7 +1235,7 @@ export default function AiAutomatizacija() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

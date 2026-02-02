@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Placeholder blog posts
 const blogPosts = [
@@ -65,6 +66,8 @@ const blogPosts = [
 const categories = ["Visi", "SEO", "AI", "Reklāma", "Stratēģija"];
 
 export default function Blog() {
+  const { t, getLocalizedPath } = useLanguage();
+  
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
@@ -183,7 +186,7 @@ export default function Blog() {
                   Mēs aktīvi strādājam pie satura. Šie raksti drīzumā būs pieejami 
                   ar pilnu tekstu un praktiskām zināšanām.
                 </p>
-                <Link to="/bezmaksas-konsultacija">
+                <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                   <Button variant="hero">
                     Saņemt paziņojumu
                   </Button>
@@ -209,7 +212,7 @@ export default function Blog() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <Button variant="hero" size="xl">
                   Rezervēt konsultāciju
                   <ArrowRight className="ml-2 w-5 h-5" />

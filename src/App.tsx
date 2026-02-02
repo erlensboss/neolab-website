@@ -17,28 +17,43 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Define all routes - both LV and EN versions
+const routes = [
+  { path: "/", element: <Index /> },
+  { path: "/en", element: <Index /> },
+  { path: "/seo-un-geo", element: <SeoGeo /> },
+  { path: "/seo-un-geo/en", element: <SeoGeo /> },
+  { path: "/ai-automatizacija", element: <AiAutomatizacija /> },
+  { path: "/ai-automatizacija/en", element: <AiAutomatizacija /> },
+  { path: "/performance-reklama", element: <PerformanceReklama /> },
+  { path: "/performance-reklama/en", element: <PerformanceReklama /> },
+  { path: "/ai-lab", element: <AiLab /> },
+  { path: "/ai-lab/en", element: <AiLab /> },
+  { path: "/par-mums", element: <ParMums /> },
+  { path: "/par-mums/en", element: <ParMums /> },
+  { path: "/blog", element: <Blog /> },
+  { path: "/blog/en", element: <Blog /> },
+  { path: "/bezmaksas-konsultacija", element: <BezmaksasKonsultacija /> },
+  { path: "/bezmaksas-konsultacija/en", element: <BezmaksasKonsultacija /> },
+];
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <LanguageProvider>
           <Layout>
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/seo-un-geo" element={<SeoGeo />} />
-              <Route path="/ai-automatizacija" element={<AiAutomatizacija />} />
-              <Route path="/performance-reklama" element={<PerformanceReklama />} />
-              <Route path="/ai-lab" element={<AiLab />} />
-              <Route path="/par-mums" element={<ParMums />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
+              {routes.map((route) => (
+                <Route key={route.path} path={route.path} element={route.element} />
+              ))}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
-        </BrowserRouter>
-      </LanguageProvider>
+        </LanguageProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
