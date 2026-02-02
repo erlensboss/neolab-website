@@ -8,14 +8,12 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 import iconWhite from "@/assets/icon-white.svg";
 import { useRef } from "react";
-
-const teamMembers = [
-  {
-    name: "Erlens Toms Rukers",
-    role: "Projektu vadītājs",
-    initials: "ER",
-  },
-  // Add more team members here as they join
+const teamMembers = [{
+  name: "Erlens Toms Rukers",
+  role: "Projektu vadītājs",
+  initials: "ER"
+}
+// Add more team members here as they join
 ];
 const storyCheckpoints = [{
   icon: Sparkles,
@@ -424,7 +422,7 @@ export default function ParMums() {
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text"
                     }}>
-                        Neo
+                        NEO
                       </motion.h2>
                       <span className="text-xl md:text-2xl text-muted-foreground font-light">/ˈniːoʊ/</span>
                       <span className="text-xl md:text-2xl text-muted-foreground">—</span>
@@ -996,52 +994,62 @@ export default function ParMums() {
 
       {/* ========== SECTION 6: Mūsu Komanda (Team) ========== */}
       <section className="relative overflow-hidden py-20 md:py-28" style={{
-        background: "linear-gradient(180deg, hsl(25 60% 94%) 0%, hsl(28 50% 92%) 50%, hsl(30 55% 93%) 100%)"
-      }}>
+      background: "linear-gradient(180deg, hsl(25 60% 94%) 0%, hsl(28 50% 92%) 50%, hsl(30 55% 93%) 100%)"
+    }}>
         {/* Vibrant decorative orbs */}
-        <motion.div 
-          animate={{ x: [0, 20, 0], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-[5%] w-72 h-72 rounded-full blur-3xl"
-          style={{ background: "linear-gradient(135deg, hsl(25 80% 60% / 0.25), hsl(30 70% 55% / 0.15))" }}
-        />
-        <motion.div 
-          animate={{ x: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full blur-3xl"
-          style={{ background: "linear-gradient(135deg, hsl(350 50% 60% / 0.15), hsl(25 70% 55% / 0.2))" }}
-        />
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.35, 0.2] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(25 70% 55% / 0.2), transparent 70%)" }}
-        />
+        <motion.div animate={{
+        x: [0, 20, 0],
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} className="absolute top-10 left-[5%] w-72 h-72 rounded-full blur-3xl" style={{
+        background: "linear-gradient(135deg, hsl(25 80% 60% / 0.25), hsl(30 70% 55% / 0.15))"
+      }} />
+        <motion.div animate={{
+        x: [0, -15, 0],
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full blur-3xl" style={{
+        background: "linear-gradient(135deg, hsl(350 50% 60% / 0.15), hsl(25 70% 55% / 0.2))"
+      }} />
+        <motion.div animate={{
+        scale: [1, 1.1, 1],
+        opacity: [0.2, 0.35, 0.2]
+      }} transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl" style={{
+        background: "radial-gradient(circle, hsl(25 70% 55% / 0.2), transparent 70%)"
+      }} />
 
         <div className="container-neo px-6">
           <ScrollReveal>
-            <motion.div 
-              className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden"
-              style={{
-                background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 35% 98%) 50%, hsl(25 40% 96%) 100%)",
-                boxShadow: "0 25px 60px -15px hsl(25 60% 45% / 0.2), 0 0 0 1px hsl(25 50% 90% / 0.6), inset 0 2px 0 hsl(0 0% 100% / 0.9)"
-              }}
-              whileHover={{
-                boxShadow: "0 30px 70px -15px hsl(25 70% 50% / 0.3), 0 0 0 1px hsl(25 60% 85% / 0.8), inset 0 2px 0 hsl(0 0% 100% / 0.9)",
-                y: -4
-              }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
+            <motion.div className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden" style={{
+            background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 35% 98%) 50%, hsl(25 40% 96%) 100%)",
+            boxShadow: "0 25px 60px -15px hsl(25 60% 45% / 0.2), 0 0 0 1px hsl(25 50% 90% / 0.6), inset 0 2px 0 hsl(0 0% 100% / 0.9)"
+          }} whileHover={{
+            boxShadow: "0 30px 70px -15px hsl(25 70% 50% / 0.3), 0 0 0 1px hsl(25 60% 85% / 0.8), inset 0 2px 0 hsl(0 0% 100% / 0.9)",
+            y: -4
+          }} transition={{
+            duration: 0.4,
+            ease: "easeOut"
+          }}>
               {/* Corner accent glow */}
               <div className="absolute top-0 right-0 w-64 h-64 opacity-60 pointer-events-none">
                 <div className="absolute top-8 right-8 w-40 h-40 rounded-full blur-3xl" style={{
-                  background: "linear-gradient(135deg, hsl(25 80% 60% / 0.3), hsl(30 70% 55% / 0.15))"
-                }} />
+                background: "linear-gradient(135deg, hsl(25 80% 60% / 0.3), hsl(30 70% 55% / 0.15))"
+              }} />
               </div>
               <div className="absolute bottom-0 left-0 w-48 h-48 opacity-40 pointer-events-none">
                 <div className="absolute bottom-6 left-6 w-32 h-32 rounded-full blur-2xl" style={{
-                  background: "linear-gradient(135deg, hsl(350 50% 60% / 0.2), hsl(25 60% 55% / 0.1))"
-                }} />
+                background: "linear-gradient(135deg, hsl(350 50% 60% / 0.2), hsl(25 60% 55% / 0.1))"
+              }} />
               </div>
 
               {/* Header */}
@@ -1053,10 +1061,10 @@ export default function ParMums() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   Mūsu{" "}
                   <span style={{
-                    background: "linear-gradient(90deg, hsl(25 80% 50%), hsl(30 70% 45%))",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent"
-                  }}>
+                  background: "linear-gradient(90deg, hsl(25 80% 50%), hsl(30 70% 45%))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}>
                     komanda
                   </span>
                 </h2>
@@ -1067,60 +1075,61 @@ export default function ParMums() {
 
               {/* Team Grid */}
               <div className="flex flex-wrap justify-center gap-10 relative z-10">
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -10, scale: 1.05 }}
-                    className="relative group cursor-pointer"
-                  >
-                    <div 
-                      className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 transition-all duration-300"
-                      style={{
-                        background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 30% 98%) 100%)",
-                        boxShadow: "0 15px 40px -12px hsl(25 50% 50% / 0.15), 0 0 0 1px hsl(25 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)"
-                      }}
-                    >
+                {teamMembers.map((member, index) => <motion.div key={member.name} initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                delay: index * 0.1
+              }} viewport={{
+                once: true
+              }} whileHover={{
+                y: -10,
+                scale: 1.05
+              }} className="relative group cursor-pointer">
+                    <div className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 transition-all duration-300" style={{
+                  background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 30% 98%) 100%)",
+                  boxShadow: "0 15px 40px -12px hsl(25 50% 50% / 0.15), 0 0 0 1px hsl(25 40% 92% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)"
+                }}>
                       {/* Hover glow effect */}
                       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-400 pointer-events-none" style={{
-                        boxShadow: "0 25px 60px -15px hsl(25 75% 50% / 0.35), inset 0 0 0 2px hsl(25 70% 60% / 0.2)"
-                      }} />
+                    boxShadow: "0 25px 60px -15px hsl(25 75% 50% / 0.35), inset 0 0 0 2px hsl(25 70% 60% / 0.2)"
+                  }} />
                       
                       {/* Bottom accent line on hover */}
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-1 rounded-full transition-all duration-300" style={{
-                        background: "linear-gradient(90deg, hsl(25 80% 55%), hsl(30 70% 50%))"
-                      }} />
+                    background: "linear-gradient(90deg, hsl(25 80% 55%), hsl(30 70% 50%))"
+                  }} />
 
                       {/* Avatar with placeholder */}
                       <div className="relative mx-auto mb-6">
                         <div className="relative">
                           <Avatar className="w-28 h-28 md:w-32 md:h-32 mx-auto border-4 border-white shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
                             <AvatarImage src="" alt={member.name} />
-                            <AvatarFallback 
-                              className="text-2xl md:text-3xl font-bold"
-                              style={{
-                                background: "linear-gradient(135deg, hsl(25 70% 55%) 0%, hsl(30 80% 50%) 100%)",
-                                color: "white"
-                              }}
-                            >
+                            <AvatarFallback className="text-2xl md:text-3xl font-bold" style={{
+                          background: "linear-gradient(135deg, hsl(25 70% 55%) 0%, hsl(30 80% 50%) 100%)",
+                          color: "white"
+                        }}>
                               {member.initials}
                             </AvatarFallback>
                           </Avatar>
                           {/* Decorative ring */}
-                          <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute -inset-3 rounded-full border-2 border-dashed border-primary/25 group-hover:border-primary/40 transition-colors duration-300"
-                          />
+                          <motion.div animate={{
+                        rotate: 360
+                      }} transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }} className="absolute -inset-3 rounded-full border-2 border-dashed border-primary/25 group-hover:border-primary/40 transition-colors duration-300" />
                           {/* Pulse effect on hover */}
-                          <motion.div
-                            className="absolute -inset-4 rounded-full border border-primary/0 group-hover:border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                            animate={{ scale: [1, 1.1, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
+                          <motion.div className="absolute -inset-4 rounded-full border border-primary/0 group-hover:border-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300" animate={{
+                        scale: [1, 1.1, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }} />
                         </div>
                       </div>
 
@@ -1128,24 +1137,26 @@ export default function ParMums() {
                       <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{member.name}</h4>
                       <p className="text-base text-muted-foreground">{member.role}</p>
                     </div>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
 
                 {/* Placeholder for future team members */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  className="relative cursor-pointer"
-                >
-                  <div 
-                    className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 border-2 border-dashed border-primary/25 hover:border-primary/40 transition-all duration-300"
-                    style={{
-                      background: "linear-gradient(145deg, hsl(30 30% 98% / 0.6) 0%, hsl(35 25% 96% / 0.4) 100%)"
-                    }}
-                  >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                delay: 0.2
+              }} viewport={{
+                once: true
+              }} whileHover={{
+                y: -6,
+                scale: 1.02
+              }} className="relative cursor-pointer">
+                  <div className="relative rounded-2xl p-8 md:p-10 text-center w-72 md:w-80 border-2 border-dashed border-primary/25 hover:border-primary/40 transition-all duration-300" style={{
+                  background: "linear-gradient(145deg, hsl(30 30% 98% / 0.6) 0%, hsl(35 25% 96% / 0.4) 100%)"
+                }}>
                     <div className="mx-auto mb-6">
                       <div className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center bg-primary/5">
                         <Users className="w-10 h-10 text-primary/40" />
@@ -1168,96 +1179,98 @@ export default function ParMums() {
 
       {/* ========== SECTION 7: AI Lab kā pamats ========== */}
       <section className="relative overflow-hidden py-20 md:py-28" style={{
-        background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`
-      }}>
+      background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`
+    }}>
         {/* Top fade-in gradient from previous section */}
         <div className="absolute top-0 left-0 right-0 h-32 md:h-48 pointer-events-none" style={{
-          background: "linear-gradient(to bottom, hsl(25 60% 94%) 0%, hsl(25 70% 80% / 0.5) 30%, hsl(21 85% 45% / 0) 100%)"
-        }} />
+        background: "linear-gradient(to bottom, hsl(25 60% 94%) 0%, hsl(25 70% 80% / 0.5) 30%, hsl(21 85% 45% / 0) 100%)"
+      }} />
 
         {/* Bottom fade-out gradient to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 pointer-events-none" style={{
-          background: "linear-gradient(to top, hsl(30 60% 96%) 0%, hsl(25 70% 70% / 0.4) 30%, hsl(8 60% 20% / 0) 100%)"
-        }} />
+        background: "linear-gradient(to top, hsl(30 60% 96%) 0%, hsl(25 70% 70% / 0.4) 30%, hsl(8 60% 20% / 0) 100%)"
+      }} />
 
         {/* Deep space overlay */}
         <div className="absolute inset-0" style={{
-          background: `radial-gradient(ellipse 100% 100% at 30% 20%, hsl(25 90% 50% / 0.15), transparent 50%),
+        background: `radial-gradient(ellipse 100% 100% at 30% 20%, hsl(25 90% 50% / 0.15), transparent 50%),
                        radial-gradient(ellipse 80% 80% at 70% 80%, hsl(15 70% 35% / 0.2), transparent 50%)`
-        }} />
+      }} />
 
         {/* Subtle twinkling stars */}
-        {Array.from({ length: 25 }, (_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: Math.random() * 1.5 + 0.5,
-              height: Math.random() * 1.5 + 0.5,
-            }}
-            animate={{
-              opacity: [0, 0.6, 0.3, 0.6, 0]
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              delay: Math.random() * 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
+        {Array.from({
+        length: 25
+      }, (_, i) => <motion.div key={i} className="absolute rounded-full bg-white" style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        width: Math.random() * 1.5 + 0.5,
+        height: Math.random() * 1.5 + 0.5
+      }} animate={{
+        opacity: [0, 0.6, 0.3, 0.6, 0]
+      }} transition={{
+        duration: 4 + Math.random() * 3,
+        delay: Math.random() * 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />)}
 
         {/* Floating glow orbs */}
-        <motion.div
-          animate={{ x: [0, 30, 0], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-[10%] w-80 h-80 rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(25 90% 55% / 0.25), transparent 60%)" }}
-        />
-        <motion.div
-          animate={{ x: [0, -20, 0], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 right-[10%] w-72 h-72 rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(15 80% 45% / 0.3), transparent 60%)" }}
-        />
+        <motion.div animate={{
+        x: [0, 30, 0],
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} className="absolute top-10 left-[10%] w-80 h-80 rounded-full blur-3xl" style={{
+        background: "radial-gradient(circle, hsl(25 90% 55% / 0.25), transparent 60%)"
+      }} />
+        <motion.div animate={{
+        x: [0, -20, 0],
+        opacity: [0.2, 0.4, 0.2]
+      }} transition={{
+        duration: 12,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} className="absolute bottom-10 right-[10%] w-72 h-72 rounded-full blur-3xl" style={{
+        background: "radial-gradient(circle, hsl(15 80% 45% / 0.3), transparent 60%)"
+      }} />
 
         <div className="container-neo px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
             <ScrollReveal>
-              <motion.div
-                className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden"
-                style={{
-                  background: "linear-gradient(145deg, hsl(0 0% 100% / 0.08) 0%, hsl(25 50% 80% / 0.05) 100%)",
-                  backdropFilter: "blur(12px)",
-                  boxShadow: "0 25px 60px -15px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(0 0% 100% / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.15)"
-                }}
-                whileHover={{
-                  boxShadow: "0 30px 70px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(25 70% 60% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.2)",
-                  y: -4
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
+              <motion.div className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden" style={{
+              background: "linear-gradient(145deg, hsl(0 0% 100% / 0.08) 0%, hsl(25 50% 80% / 0.05) 100%)",
+              backdropFilter: "blur(12px)",
+              boxShadow: "0 25px 60px -15px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(0 0% 100% / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.15)"
+            }} whileHover={{
+              boxShadow: "0 30px 70px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(25 70% 60% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.2)",
+              y: -4
+            }} transition={{
+              duration: 0.4,
+              ease: "easeOut"
+            }}>
                 {/* Animated icon */}
                 <div className="absolute top-8 right-8 md:top-10 md:right-10">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    className="relative"
-                  >
+                  <motion.div animate={{
+                  rotate: 360
+                }} transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} className="relative">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-dashed border-white/20" />
                   </motion.div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center"
-                      style={{
-                        background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
-                        boxShadow: "0 8px 30px -5px hsl(25 80% 50% / 0.5)"
-                      }}
-                    >
+                    <motion.div animate={{
+                    scale: [1, 1.1, 1]
+                  }} transition={{
+                    duration: 3,
+                    repeat: Infinity
+                  }} className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center" style={{
+                    background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
+                    boxShadow: "0 8px 30px -5px hsl(25 80% 50% / 0.5)"
+                  }}>
                       <FlaskConical className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </motion.div>
                   </div>
@@ -1273,10 +1286,10 @@ export default function ParMums() {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                     AI Lab kā{" "}
                     <span style={{
-                      background: "linear-gradient(90deg, hsl(40 95% 70%), hsl(25 90% 65%))",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent"
-                    }}>
+                    background: "linear-gradient(90deg, hsl(40 95% 70%), hsl(25 90% 65%))",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent"
+                  }}>
                       pamats
                     </span>
                   </h2>
@@ -1290,15 +1303,15 @@ export default function ParMums() {
                   </p>
 
                   <Link to="/ai-lab">
-                    <motion.div
-                      whileHover={{ scale: 1.03, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-3 px-6 py-3 rounded-xl cursor-pointer group"
-                      style={{
-                        background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
-                        boxShadow: "0 10px 30px -8px hsl(25 80% 45% / 0.5)"
-                      }}
-                    >
+                    <motion.div whileHover={{
+                    scale: 1.03,
+                    x: 5
+                  }} whileTap={{
+                    scale: 0.98
+                  }} className="inline-flex items-center gap-3 px-6 py-3 rounded-xl cursor-pointer group" style={{
+                    background: "linear-gradient(135deg, hsl(25 90% 55%), hsl(30 85% 50%))",
+                    boxShadow: "0 10px 30px -8px hsl(25 80% 45% / 0.5)"
+                  }}>
                       <span className="font-semibold text-white">Iepazīsti AI Lab</span>
                       <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
                     </motion.div>
@@ -1306,13 +1319,14 @@ export default function ParMums() {
                 </div>
 
                 {/* Decorative floating icon */}
-                <motion.img
-                  src={iconWhite}
-                  alt=""
-                  className="absolute bottom-6 right-6 w-16 h-16 md:w-24 md:h-24 opacity-10"
-                  animate={{ rotate: [0, 10, 0, -10, 0], y: [0, -5, 0] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                />
+                <motion.img src={iconWhite} alt="" className="absolute bottom-6 right-6 w-16 h-16 md:w-24 md:h-24 opacity-10" animate={{
+                rotate: [0, 10, 0, -10, 0],
+                y: [0, -5, 0]
+              }} transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }} />
               </motion.div>
             </ScrollReveal>
           </div>
@@ -1333,17 +1347,13 @@ export default function ParMums() {
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl" />
 
         {/* Subtle animated gradient */}
-        <motion.div
-          className="absolute inset-0 opacity-30"
-          animate={{
-            background: [
-              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 70% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <motion.div className="absolute inset-0 opacity-30" animate={{
+        background: ["radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)", "radial-gradient(circle at 70% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)", "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)"]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }} />
 
         <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -1361,11 +1371,7 @@ export default function ParMums() {
 
             <ScrollReveal delay={0.2}>
               <Link to="/bezmaksas-konsultacija">
-                <Button
-                  variant="hero"
-                  size="xl"
-                  className="shadow-orange-strong hover:shadow-orange-hover text-lg px-12 py-8"
-                >
+                <Button variant="hero" size="xl" className="shadow-orange-strong hover:shadow-orange-hover text-lg px-12 py-8">
                   Sazināties ar NEOLab
                   <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
