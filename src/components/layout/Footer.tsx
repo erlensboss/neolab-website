@@ -17,7 +17,7 @@ const footerLinks = {
 };
 
 export function Footer() {
-  const { language, t } = useLanguage();
+  const { language, t, getLocalizedPath } = useLanguage();
 
   return (
     <footer className="relative border-t border-border bg-background">
@@ -28,7 +28,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {/* Column 1: Logo & Description */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
+            <Link to={getLocalizedPath("/")} className="inline-block mb-4">
               <img src={LogoBlack} alt="NEOLab" className="h-6" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -48,7 +48,7 @@ export function Footer() {
               {footerLinks.services.map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    to={getLocalizedPath(link.path)}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {language === "lv" ? link.labelLv : link.labelEn}
@@ -67,7 +67,7 @@ export function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    to={getLocalizedPath(link.path)}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {language === "lv" ? link.labelLv : link.labelEn}
@@ -88,7 +88,7 @@ export function Footer() {
               <li>Rīga, Latvija</li>
             </ul>
             <Link 
-              to="/bezmaksas-konsultacija"
+              to={getLocalizedPath("/bezmaksas-konsultacija")}
               className="inline-block mt-4 text-primary font-medium text-sm hover:underline"
             >
               {t("Sazināties →", "Get in touch →")}

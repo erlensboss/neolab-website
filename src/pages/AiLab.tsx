@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, Hexagon, Triangle, Circle, Square, Shield, Users, Brain, Target, HelpCircle, Clock, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Accordion,
   AccordionContent,
@@ -56,6 +57,7 @@ function Star({
   }} />;
 }
 export default function AiLab() {
+  const { t, getLocalizedPath } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -732,7 +734,7 @@ export default function AiLab() {
             </ScrollReveal>
             
             <ScrollReveal delay={0.3}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <Button variant="hero" size="xl">
                   Sazināties ar NEOLab
                   <ArrowRight className="ml-2 w-5 h-5" />

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 import iconWhite from "@/assets/icon-white.svg";
 import { useRef } from "react";
@@ -251,6 +252,8 @@ function RoadmapCheckpoint({
   );
 }
 export default function ParMums() {
+  const { t, getLocalizedPath } = useLanguage();
+  
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Trust Building ========== */}
@@ -1807,7 +1810,7 @@ export default function ParMums() {
                     Tas ļauj mums strādāt ar pārbaudītām pieejām un neveidot klientu projektus kā eksperimentus.
                   </p>
 
-                  <Link to="/ai-lab">
+                  <Link to={getLocalizedPath("/ai-lab")}>
                     <motion.div
                       whileHover={{
                         scale: 1.03,
@@ -1896,7 +1899,7 @@ export default function ParMums() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <Link to="/bezmaksas-konsultacija">
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <Button
                   variant="hero"
                   size="xl"

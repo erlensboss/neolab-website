@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const { language, setLanguage, t, getLocalizedPath, getBasePath } = useLanguage();
 
   // Scroll detection for sticky header styling
   useEffect(() => {
@@ -30,6 +31,30 @@ export function Header() {
     handleScroll(); // Check initial state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle language switch with navigation
+  const handleLanguageSwitch = (newLang: "lv" | "en") => {
+    if (newLang === language) return;
+    
+    const currentBasePath = getBasePath(location.pathname);
+    
+    if (newLang === "en") {
+      // Switch to English - add /en suffix
+      const newPath = currentBasePath === "/" ? "/en" : `${currentBasePath}/en`;
+      navigate(newPath);
+    } else {
+      // Switch to Latvian - remove /en suffix
+      navigate(currentBasePath);
+    }
+    
+    setLanguage(newLang);
+  };
+
+  // Check if current path matches nav item
+  const isActivePath = (itemPath: string) => {
+    const currentBasePath = getBasePath(location.pathname);
+    return currentBasePath === itemPath;
+  };
 
   return (
     <header 
@@ -42,19 +67,19 @@ export function Header() {
       <div className="container-neo">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo — Enlarged */}
-          <Link to="/" className="flex items-center">
+          <Link to={getLocalizedPath("/")} className="flex items-center">
             <img src={LogoBlack} alt="NEOLab" className="h-8 md:h-10" />
           </Link>
 
           {/* Desktop Navigation — Better spacing */}
           <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
-              <Link key={item.path} to={item.path}>
+              <Link key={item.path} to={getLocalizedPath(item.path)}>
                 <Button
                   variant="nav"
                   size="sm"
                   className={`px-4 text-sm font-medium ${
-                    location.pathname === item.path
+                    isActivePath(item.path)
                       ? "text-primary bg-primary/5"
                       : ""
                   }`}
@@ -70,7 +95,7 @@ export function Header() {
             {/* Language Toggle — Enhanced */}
             <div className="flex items-center gap-1 text-sm font-medium border border-border rounded-lg p-1 bg-background/80 shadow-sm">
               <button
-                onClick={() => setLanguage("lv")}
+                onClick={() => handleLanguageSwitch("lv")}
                 className={`px-3 py-1.5 rounded-md transition-all ${
                   language === "lv"
                     ? "bg-primary text-primary-foreground shadow-sm"
@@ -80,7 +105,7 @@ export function Header() {
                 LV
               </button>
               <button
-                onClick={() => setLanguage("en")}
+                onClick={() => handleLanguageSwitch("en")}
                 className={`px-3 py-1.5 rounded-md transition-all ${
                   language === "en"
                     ? "bg-primary text-primary-foreground shadow-sm"
@@ -92,7 +117,7 @@ export function Header() {
             </div>
 
             {/* CTA Button — Enhanced with glow */}
-            <Link to="/bezmaksas-konsultacija">
+            <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
               <Button 
                 variant="nav-cta" 
                 size="default" 
@@ -108,7 +133,7 @@ export function Header() {
             {/* Mobile Language Toggle */}
             <div className="flex items-center gap-0.5 text-xs font-medium border border-border rounded-md p-0.5 bg-background/80">
               <button
-                onClick={() => setLanguage("lv")}
+                onClick={() => handleLanguageSwitch("lv")}
                 className={`px-2 py-1 rounded transition-all ${
                   language === "lv"
                     ? "bg-primary text-primary-foreground"
@@ -118,7 +143,7 @@ export function Header() {
                 LV
               </button>
               <button
-                onClick={() => setLanguage("en")}
+                onClick={() => handleLanguageSwitch("en")}
                 className={`px-2 py-1 rounded transition-all ${
                   language === "en"
                     ? "bg-primary text-primary-foreground"
@@ -153,10 +178,10 @@ export function Header() {
               {navItems.map((item) => (
                 <Link
                   key={item.path}
-                  to={item.path}
+                  to={getLocalizedPath(item.path)}
                   onClick={() => setIsOpen(false)}
                   className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
-                    location.pathname === item.path
+                    isActivePath(item.path)
                       ? "bg-primary/10 text-primary"
                       : "text-foreground hover:bg-accent"
                   }`}
@@ -165,7 +190,7 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-3 mt-2 border-t border-border">
-                <Link to="/bezmaksas-konsultacija" onClick={() => setIsOpen(false)}>
+                <Link to={getLocalizedPath("/bezmaksas-konsultacija")} onClick={() => setIsOpen(false)}>
                   <Button variant="hero" size="lg" className="w-full shadow-orange">
                     {t("Pieteikt konsultāciju", "Book Consultation")}
                   </Button>

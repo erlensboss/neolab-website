@@ -12,8 +12,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BezmaksasKonsultacija() {
+  const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
