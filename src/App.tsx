@@ -18,6 +18,8 @@ const AiLab = lazy(() => import("./pages/AiLab"));
 const ParMums = lazy(() => import("./pages/ParMums"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BezmaksasKonsultacija = lazy(() => import("./pages/BezmaksasKonsultacija"));
+const Paldies = lazy(() => import("./pages/Paldies"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Minimal loading fallback to prevent layout shift
@@ -51,6 +53,7 @@ const App = () => (
                 <Route path="/par-mums" element={<ParMums />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
+                <Route path="/paldies" element={<Paldies />} />
                 
                 {/* EN Routes (English slugs under /en) */}
                 <Route path="/en" element={<Index />} />
@@ -61,6 +64,7 @@ const App = () => (
                 <Route path="/en/about" element={<ParMums />} />
                 <Route path="/en/blog" element={<Blog />} />
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
+                <Route path="/en/thank-you" element={<ThankYou />} />
                 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
