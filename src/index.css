@@ -7,9 +7,9 @@
    All colors in HSL format
    
    CRITICAL: Gradients NEVER cover text. Text always has z-index above backgrounds.
+   
+   PERFORMANCE: Fonts loaded via index.html with preload/swap for optimal LCP
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {

@@ -1,11 +1,13 @@
 import { motion, useInView, useReducedMotion, type Transition } from "framer-motion";
 import { useRef, ReactNode, useMemo } from "react";
 
-interface ScrollRevealProps {
+interface LazyScrollRevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
+  /** If true, animation runs immediately without waiting for scroll */
+  immediate?: boolean;
 }
 
 const directions = {
@@ -15,14 +17,21 @@ const directions = {
   right: { x: -20, y: 0 },
 };
 
-export function ScrollReveal({
+/**
+ * Performance-optimized scroll reveal component
+ * - Uses GPU-accelerated transforms only
+ * - Respects reduced motion preferences
+ * - Defers non-critical animations
+ */
+export function LazyScrollReveal({
   children,
   className = "",
   delay = 0,
   direction = "up",
-}: ScrollRevealProps) {
+  immediate = false,
+}: LazyScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const prefersReducedMotion = useReducedMotion();
 
   // Memoize animation config for performance
@@ -46,20 +55,23 @@ export function ScrollReveal({
         y: 0,
       },
       transition: {
-        duration: 0.5,
-        delay,
+        duration: 0.4,
+        delay: immediate ? 0 : delay,
         ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
       } as Transition,
     };
-  }, [prefersReducedMotion, direction, delay]);
+  }, [prefersReducedMotion, direction, delay, immediate]);
+
+  const shouldAnimate = immediate || isInView;
 
   return (
     <motion.div
       ref={ref}
       initial={animationConfig.initial}
-      animate={isInView ? animationConfig.animate : animationConfig.initial}
+      animate={shouldAnimate ? animationConfig.animate : animationConfig.initial}
       transition={animationConfig.transition}
       className={className}
+      style={{ willChange: shouldAnimate ? "auto" : "transform, opacity" }}
     >
       {children}
     </motion.div>
