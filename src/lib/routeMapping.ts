@@ -17,6 +17,7 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
+  { lv: "/paldies", en: "/en/thank-you", labelLv: "Paldies", labelEn: "Thank You" },
 ];
 
 // Get the corresponding route in the other language

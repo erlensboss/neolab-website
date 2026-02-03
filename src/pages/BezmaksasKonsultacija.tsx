@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { 
   Calendar, 
-  CheckCircle2, 
   Clock,
   MessageSquare,
+  CheckCircle2,
   User,
   Mail,
   Building,
@@ -15,8 +16,8 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BezmaksasKonsultacija() {
-  const { t } = useLanguage();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { t, language } = useLanguage();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,8 +27,9 @@ export default function BezmaksasKonsultacija() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
+    // Redirect to thank-you page based on current language
+    const thankYouPath = language === "en" ? "/en/thank-you" : "/paldies";
+    navigate(thankYouPath);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,208 +44,162 @@ export default function BezmaksasKonsultacija() {
       {/* ========== Main Section ========== */}
       <section className="bg-gradient-hero min-h-screen">
         <div className="container-neo section-padding relative z-10">
-          <AnimatePresence mode="wait">
-            {!isSubmitted ? (
-              <motion.div
-                key="form"
-                initial={{ opacity: 1 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="grid lg:grid-cols-2 gap-16 items-start"
-              >
-                {/* Left: Info */}
-                <div className="lg:sticky lg:top-32">
-                  <ScrollReveal>
-                    <span className="chip-outline mb-6 inline-block">Bezmaksas</span>
-                  </ScrollReveal>
-                  <ScrollReveal delay={0.1}>
-                    <h1 className="mb-6">
-                      Sāksim <span className="text-gradient-orange">sarunu</span>
-                    </h1>
-                  </ScrollReveal>
-                  <ScrollReveal delay={0.2}>
-                    <p className="text-lg text-muted-foreground mb-8">
-                      30 minūšu bezmaksas konsultācija, kurā izrunāsim jūsu situāciju 
-                      un redzēsim, vai varam palīdzēt. Bez saistībām.
-                    </p>
-                  </ScrollReveal>
+          <motion.div
+            initial={{ opacity: 1 }}
+            className="grid lg:grid-cols-2 gap-16 items-start"
+          >
+            {/* Left: Info */}
+            <div className="lg:sticky lg:top-32">
+              <ScrollReveal>
+                <span className="chip-outline mb-6 inline-block">
+                  {t("Bezmaksas", "Free")}
+                </span>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1}>
+                <h1 className="mb-6">
+                  {t("Sāksim", "Let's start")} <span className="text-gradient-orange">{t("sarunu", "a conversation")}</span>
+                </h1>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <p className="text-lg text-muted-foreground mb-8">
+                  {t(
+                    "30 minūšu bezmaksas konsultācija, kurā izrunāsim jūsu situāciju un redzēsim, vai varam palīdzēt. Bez saistībām.",
+                    "A 30-minute free consultation where we'll discuss your situation and see if we can help. No strings attached."
+                  )}
+                </p>
+              </ScrollReveal>
 
-                  {/* Benefits */}
-                  <ScrollReveal delay={0.3}>
-                    <div className="space-y-4 mb-8">
-                      {[
-                        { icon: Clock, text: "30 minūtes jūsu biznesam" },
-                        { icon: MessageSquare, text: "Atklāta un godīga saruna" },
-                        { icon: CheckCircle2, text: "Konkrētas idejas, ne tukši solījumi" },
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                            <item.icon className="w-5 h-5 text-primary" />
-                          </div>
-                          <span className="text-foreground">{item.text}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </ScrollReveal>
-
-                  {/* Visual element */}
-                  <ScrollReveal delay={0.4}>
-                    <div className="hidden lg:block">
-                      <div className="glass-warm rounded-xl p-6 border border-border/50">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
-                            <Calendar className="w-6 h-6 text-primary-foreground" />
-                          </div>
-                          <div>
-                            <div className="font-semibold">Ātra atbilde</div>
-                            <div className="text-sm text-muted-foreground">Parasti atbildam 24h laikā</div>
-                          </div>
-                        </div>
+              {/* Benefits */}
+              <ScrollReveal delay={0.3}>
+                <div className="space-y-4 mb-8">
+                  {[
+                    { icon: Clock, textLv: "30 minūtes jūsu biznesam", textEn: "30 minutes for your business" },
+                    { icon: MessageSquare, textLv: "Atklāta un godīga saruna", textEn: "Open and honest conversation" },
+                    { icon: CheckCircle2, textLv: "Konkrētas idejas, ne tukši solījumi", textEn: "Concrete ideas, not empty promises" },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <item.icon className="w-5 h-5 text-primary" />
                       </div>
+                      <span className="text-foreground">{t(item.textLv, item.textEn)}</span>
                     </div>
-                </ScrollReveal>
+                  ))}
                 </div>
+              </ScrollReveal>
 
-                {/* Right: Form */}
-                <ScrollReveal delay={0.2} direction="right">
-                  <div className="card-neo">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Name */}
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          Jūsu vārds *
-                        </label>
-                        <div className="relative">
-                          <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                          <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                            placeholder="Jānis Bērziņš"
-                          />
-                        </div>
+              {/* Visual element */}
+              <ScrollReveal delay={0.4}>
+                <div className="hidden lg:block">
+                  <div className="glass-warm rounded-xl p-6 border border-border/50">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center shadow-orange">
+                        <Calendar className="w-6 h-6 text-primary-foreground" />
                       </div>
-
-                      {/* Email */}
                       <div>
-                        <label className="block text-sm font-medium mb-2">
-                          E-pasts *
-                        </label>
-                        <div className="relative">
-                          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                          <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                            placeholder="janis@uznemums.lv"
-                          />
-                        </div>
+                        <div className="font-semibold">{t("Ātra atbilde", "Quick response")}</div>
+                        <div className="text-sm text-muted-foreground">{t("Parasti atbildam 24h laikā", "We usually respond within 24h")}</div>
                       </div>
-
-                      {/* Company */}
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          Uzņēmums
-                        </label>
-                        <div className="relative">
-                          <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                          <input
-                            type="text"
-                            name="company"
-                            value={formData.company}
-                            onChange={handleChange}
-                            className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                            placeholder="SIA Mans Uzņēmums"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Message */}
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          Ar ko varam palīdzēt? *
-                        </label>
-                        <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
-                          rows={4}
-                          className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
-                          placeholder="Pastāstiet īsi par savu situāciju un mērķiem..."
-                        />
-                      </div>
-
-                      {/* Submit */}
-                      <Button type="submit" variant="hero" size="xl" className="w-full">
-                        Pieteikties konsultācijai
-                        <Send className="ml-2 w-5 h-5" />
-                      </Button>
-
-                      <p className="text-xs text-muted-foreground text-center">
-                        Iesniedzot formu, jūs piekrītat saņemt atbildi uz norādīto e-pastu.
-                      </p>
-                    </form>
-                  </div>
-                </ScrollReveal>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="max-w-2xl mx-auto text-center py-20"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", delay: 0.2 }}
-                  className="w-24 h-24 rounded-full bg-gradient-orange flex items-center justify-center mx-auto mb-8 shadow-orange"
-                >
-                  <CheckCircle2 className="w-12 h-12 text-primary-foreground" />
-                </motion.div>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mb-6"
-                >
-                  Paldies, <span className="text-gradient-orange">{formData.name.split(" ")[0] || "draugs"}</span>!
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-xl text-muted-foreground mb-8"
-                >
-                  Jūsu pieteikums ir saņemts. Mēs sazināsimies ar jums 
-                  tuvāko 24 stundu laikā, lai vienotos par konsultācijas laiku.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="glass-warm rounded-xl p-6 inline-block border border-border/50"
-                >
-                  <div className="flex items-center gap-4">
-                    <Mail className="w-6 h-6 text-primary" />
-                    <div className="text-left">
-                      <div className="text-sm text-muted-foreground">Nosūtīts uz</div>
-                      <div className="font-medium">{formData.email}</div>
                     </div>
                   </div>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Right: Form */}
+            <ScrollReveal delay={0.2} direction="right">
+              <div className="card-neo">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      {t("Jūsu vārds *", "Your name *")}
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        placeholder={t("Jānis Bērziņš", "John Smith")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      {t("E-pasts *", "Email *")}
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        placeholder={t("janis@uznemums.lv", "john@company.com")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      {t("Uzņēmums", "Company")}
+                    </label>
+                    <div className="relative">
+                      <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        placeholder={t("SIA Mans Uzņēmums", "My Company Ltd")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      {t("Ar ko varam palīdzēt? *", "How can we help? *")}
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                      placeholder={t(
+                        "Pastāstiet īsi par savu situāciju un mērķiem...",
+                        "Tell us briefly about your situation and goals..."
+                      )}
+                    />
+                  </div>
+
+                  {/* Submit */}
+                  <Button type="submit" variant="hero" size="xl" className="w-full">
+                    {t("Pieteikties konsultācijai", "Book a consultation")}
+                    <Send className="ml-2 w-5 h-5" />
+                  </Button>
+
+                  <p className="text-xs text-muted-foreground text-center">
+                    {t(
+                      "Iesniedzot formu, jūs piekrītat saņemt atbildi uz norādīto e-pastu.",
+                      "By submitting this form, you agree to receive a reply to the provided email."
+                    )}
+                  </p>
+                </form>
+              </div>
+            </ScrollReveal>
+          </motion.div>
         </div>
       </section>
     </div>
