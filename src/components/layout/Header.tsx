@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -15,46 +15,52 @@ const navItems = [
   { labelLv: "Blog", labelEn: "Blog", path: "/blog" },
 ];
 
-export function Header() {
+// Memoized Header component for performance
+export const Header = memo(function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { language, setLanguage, t, getLocalizedPath, getBasePath } = useLanguage();
 
-  // Scroll detection for sticky header styling
+  // Scroll detection with throttling for performance
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial state
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle language switch with navigation
-  const handleLanguageSwitch = (newLang: "lv" | "en") => {
+  // Handle language switch with navigation - memoized
+  const handleLanguageSwitch = useCallback((newLang: "lv" | "en") => {
     if (newLang === language) return;
     
     const currentBasePath = getBasePath(location.pathname);
     
     if (newLang === "en") {
-      // Switch to English - add /en suffix
       const newPath = currentBasePath === "/" ? "/en" : `${currentBasePath}/en`;
       navigate(newPath);
     } else {
-      // Switch to Latvian - remove /en suffix
       navigate(currentBasePath);
     }
     
     setLanguage(newLang);
-  };
+  }, [language, location.pathname, getBasePath, navigate, setLanguage]);
 
-  // Check if current path matches nav item
-  const isActivePath = (itemPath: string) => {
+  // Check if current path matches nav item - memoized
+  const isActivePath = useCallback((itemPath: string) => {
     const currentBasePath = getBasePath(location.pathname);
     return currentBasePath === itemPath;
-  };
+  }, [location.pathname, getBasePath]);
 
   return (
     <header 
@@ -202,4 +208,4 @@ export function Header() {
       </AnimatePresence>
     </header>
   );
-}
+});
