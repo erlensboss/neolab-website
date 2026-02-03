@@ -29,26 +29,9 @@ const PageLoader = () => (
 
 const queryClient = new QueryClient();
 
-// Define all routes - both LV and EN versions
-const routes = [
-  { path: "/", element: <Index /> },
-  { path: "/en", element: <Index /> },
-  { path: "/seo-un-geo", element: <SeoGeo /> },
-  { path: "/seo-un-geo/en", element: <SeoGeo /> },
-  { path: "/ai-automatizacija", element: <AiAutomatizacija /> },
-  { path: "/ai-automatizacija/en", element: <AiAutomatizacija /> },
-  { path: "/performance-reklama", element: <PerformanceReklama /> },
-  { path: "/performance-reklama/en", element: <PerformanceReklama /> },
-  { path: "/ai-lab", element: <AiLab /> },
-  { path: "/ai-lab/en", element: <AiLab /> },
-  { path: "/par-mums", element: <ParMums /> },
-  { path: "/par-mums/en", element: <ParMums /> },
-  { path: "/blog", element: <Blog /> },
-  { path: "/blog/en", element: <Blog /> },
-  { path: "/bezmaksas-konsultacija", element: <BezmaksasKonsultacija /> },
-  { path: "/bezmaksas-konsultacija/en", element: <BezmaksasKonsultacija /> },
-];
-
+// Define all routes with proper LV and EN paths
+// LV routes use Latvian slugs (default, no prefix)
+// EN routes use English slugs under /en prefix
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -59,9 +42,27 @@ const App = () => (
           <Layout>
             <Suspense fallback={<PageLoader />}>
               <Routes>
-                {routes.map((route) => (
-                  <Route key={route.path} path={route.path} element={route.element} />
-                ))}
+                {/* LV Routes (default) */}
+                <Route path="/" element={<Index />} />
+                <Route path="/seo-un-geo" element={<SeoGeo />} />
+                <Route path="/ai-automatizacija" element={<AiAutomatizacija />} />
+                <Route path="/performance-reklama" element={<PerformanceReklama />} />
+                <Route path="/ai-lab" element={<AiLab />} />
+                <Route path="/par-mums" element={<ParMums />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
+                
+                {/* EN Routes (English slugs under /en) */}
+                <Route path="/en" element={<Index />} />
+                <Route path="/en/seo-and-geo" element={<SeoGeo />} />
+                <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
+                <Route path="/en/performance-ads" element={<PerformanceReklama />} />
+                <Route path="/en/ai-lab" element={<AiLab />} />
+                <Route path="/en/about" element={<ParMums />} />
+                <Route path="/en/blog" element={<Blog />} />
+                <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
+                
+                {/* 404 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

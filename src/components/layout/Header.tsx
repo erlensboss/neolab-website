@@ -1,27 +1,18 @@
 import { useState, useEffect, useCallback, memo } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { navItems, getRouteMapping } from "@/lib/routeMapping";
 import LogoBlack from "@/assets/logo-black.svg";
-
-const navItems = [
-  { labelLv: "SEO & GEO", labelEn: "SEO & GEO", path: "/seo-un-geo" },
-  { labelLv: "AI Automatizācijas", labelEn: "AI Automation", path: "/ai-automatizacija" },
-  { labelLv: "Digitālā reklāma", labelEn: "Digital Advertising", path: "/performance-reklama" },
-  { labelLv: "AI Lab", labelEn: "AI Lab", path: "/ai-lab" },
-  { labelLv: "Par mums", labelEn: "About Us", path: "/par-mums" },
-  { labelLv: "Blog", labelEn: "Blog", path: "/blog" },
-];
 
 // Memoized Header component for performance
 export const Header = memo(function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { language, setLanguage, t, getLocalizedPath, getBasePath } = useLanguage();
+  const { language, switchLanguage, t, getLocalizedPath } = useLanguage();
 
   // Scroll detection with throttling for performance
   useEffect(() => {
@@ -40,27 +31,17 @@ export const Header = memo(function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle language switch with navigation - memoized
+  // Handle language switch - memoized
   const handleLanguageSwitch = useCallback((newLang: "lv" | "en") => {
-    if (newLang === language) return;
-    
-    const currentBasePath = getBasePath(location.pathname);
-    
-    if (newLang === "en") {
-      const newPath = currentBasePath === "/" ? "/en" : `${currentBasePath}/en`;
-      navigate(newPath);
-    } else {
-      navigate(currentBasePath);
-    }
-    
-    setLanguage(newLang);
-  }, [language, location.pathname, getBasePath, navigate, setLanguage]);
+    switchLanguage(newLang);
+  }, [switchLanguage]);
 
   // Check if current path matches nav item - memoized
-  const isActivePath = useCallback((itemPath: string) => {
-    const currentBasePath = getBasePath(location.pathname);
-    return currentBasePath === itemPath;
-  }, [location.pathname, getBasePath]);
+  const isActivePath = useCallback((lvPath: string) => {
+    const mapping = getRouteMapping(location.pathname);
+    if (!mapping) return false;
+    return mapping.lv === lvPath;
+  }, [location.pathname]);
 
   return (
     <header 
@@ -80,12 +61,12 @@ export const Header = memo(function Header() {
           {/* Desktop Navigation — Better spacing */}
           <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
-              <Link key={item.path} to={getLocalizedPath(item.path)}>
+              <Link key={item.lv} to={getLocalizedPath(item.lv)}>
                 <Button
                   variant="nav"
                   size="sm"
                   className={`px-4 text-sm font-medium ${
-                    isActivePath(item.path)
+                    isActivePath(item.lv)
                       ? "text-primary bg-primary/5"
                       : ""
                   }`}
@@ -183,11 +164,11 @@ export const Header = memo(function Header() {
             <nav className="container-neo py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <Link
-                  key={item.path}
-                  to={getLocalizedPath(item.path)}
+                  key={item.lv}
+                  to={getLocalizedPath(item.lv)}
                   onClick={() => setIsOpen(false)}
                   className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
-                    isActivePath(item.path)
+                    isActivePath(item.lv)
                       ? "bg-primary/10 text-primary"
                       : "text-foreground hover:bg-accent"
                   }`}
