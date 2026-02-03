@@ -17,8 +17,13 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
-  { lv: "/paldies", en: "/en/thank-you", labelLv: "Paldies", labelEn: "Thank You" },
 ];
+
+// Thank you pages - not included in main navigation, only accessible after form submission
+export const thankYouRoutes = {
+  lv: "/paldies",
+  en: "/en/thank-you"
+};
 
 // Get the corresponding route in the other language
 export function getAlternateRoute(currentPath: string, targetLang: "lv" | "en"): string {

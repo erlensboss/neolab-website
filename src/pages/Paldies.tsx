@@ -1,10 +1,40 @@
 import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CheckCircle2, Home, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// Session storage key to verify form was submitted
+const FORM_SUBMITTED_KEY = "neolab_form_submitted";
+
+export function setFormSubmitted() {
+  sessionStorage.setItem(FORM_SUBMITTED_KEY, "true");
+}
+
+export function clearFormSubmitted() {
+  sessionStorage.removeItem(FORM_SUBMITTED_KEY);
+}
+
+function wasFormSubmitted(): boolean {
+  return sessionStorage.getItem(FORM_SUBMITTED_KEY) === "true";
+}
+
 export default function Paldies() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Redirect to home if accessed directly without form submission
+  useEffect(() => {
+    if (!wasFormSubmitted()) {
+      navigate("/", { replace: true });
+      return;
+    }
+    
+    // Clear the flag after showing the page (one-time access)
+    // We keep it during the session so refresh still works
+  }, [navigate]);
+
   // Set noindex for thank-you page
   useEffect(() => {
     const existingMeta = document.querySelector('meta[name="robots"]');
@@ -26,6 +56,15 @@ export default function Paldies() {
       }
     };
   }, []);
+
+  // If not submitted, don't render anything (will redirect)
+  if (!wasFormSubmitted()) {
+    return null;
+  }
+
+  const handleGoHome = () => {
+    clearFormSubmitted();
+  };
 
   return (
     <div className="overflow-hidden">
@@ -80,7 +119,7 @@ export default function Paldies() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              <Link to="/">
+              <Link to="/" onClick={handleGoHome}>
                 <Button variant="hero" size="xl">
                   <Home className="mr-2 w-5 h-5" />
                   Atgriezties sākumlapā

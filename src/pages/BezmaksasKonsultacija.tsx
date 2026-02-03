@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { setFormSubmitted } from "./Paldies";
 import { 
   Calendar, 
   Clock,
@@ -27,6 +28,8 @@ export default function BezmaksasKonsultacija() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Mark form as submitted to allow access to thank-you page
+    setFormSubmitted();
     // Redirect to thank-you page based on current language
     const thankYouPath = language === "en" ? "/en/thank-you" : "/paldies";
     navigate(thankYouPath);
