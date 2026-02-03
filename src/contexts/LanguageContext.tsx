@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
+import { createContext, useContext, ReactNode, useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { 
   getLanguageFromPath, 
@@ -25,35 +25,32 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Derive language from URL path
-  const [language, setLanguageState] = useState<Language>(() => {
-    return getLanguageFromPath(window.location.pathname);
-  });
-
-  // Check if current route has a translation
-  const currentRouteExists = getRouteMapping(location.pathname) !== undefined;
-
-  // Sync language with URL changes
-  useEffect(() => {
-    const detectedLang = getLanguageFromPath(location.pathname);
-    if (detectedLang !== language) {
-      setLanguageState(detectedLang);
-    }
-    // Persist preference
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, detectedLang);
+  // URL is the source of truth - derive language directly from pathname
+  const language = useMemo(() => {
+    return getLanguageFromPath(location.pathname);
   }, [location.pathname]);
 
-  // Switch language and navigate to the alternate route
+  // Check if current route has a translation
+  const currentRouteExists = useMemo(() => {
+    return getRouteMapping(location.pathname) !== undefined;
+  }, [location.pathname]);
+
+  // Switch language - IMMEDIATELY navigate to the mapped route
   const switchLanguage = useCallback((targetLang: Language) => {
+    // Don't do anything if already on the target language
     if (targetLang === language) return;
     
+    // Get the alternate route for the current path
     const alternateRoute = getAlternateRoute(location.pathname, targetLang);
-    setLanguageState(targetLang);
+    
+    // Persist preference for future visits
     localStorage.setItem(LANGUAGE_STORAGE_KEY, targetLang);
-    navigate(alternateRoute);
+    
+    // HARD NAVIGATION - immediately navigate to the new route
+    navigate(alternateRoute, { replace: false });
   }, [language, location.pathname, navigate]);
 
-  // Translation helper
+  // Translation helper - uses derived language from URL
   const t = useCallback((lv: string, en: string) => {
     return language === "lv" ? lv : en;
   }, [language]);
@@ -63,14 +60,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return getLocalizedPathUtil(baseLvPath, language);
   }, [language]);
 
+  // Memoize context value to prevent unnecessary re-renders
+  const contextValue = useMemo(() => ({
+    language,
+    switchLanguage,
+    t,
+    getLocalizedPath,
+    currentRouteExists
+  }), [language, switchLanguage, t, getLocalizedPath, currentRouteExists]);
+
   return (
-    <LanguageContext.Provider value={{ 
-      language, 
-      switchLanguage, 
-      t, 
-      getLocalizedPath,
-      currentRouteExists 
-    }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );
