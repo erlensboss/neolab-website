@@ -1,71 +1,76 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { 
+  getLanguageFromPath, 
+  getAlternateRoute, 
+  getLocalizedPath as getLocalizedPathUtil,
+  getRouteMapping 
+} from "@/lib/routeMapping";
 
 type Language = "lv" | "en";
 
 interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
+  switchLanguage: (lang: Language) => void;
   t: (lv: string, en: string) => string;
-  getLocalizedPath: (basePath: string) => string;
-  getBasePath: (path: string) => string;
+  getLocalizedPath: (baseLvPath: string) => string;
+  currentRouteExists: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const LANGUAGE_STORAGE_KEY = "neolab-preferred-language";
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
+  const navigate = useNavigate();
   
-  // Detect language from URL
-  const getLanguageFromPath = (pathname: string): Language => {
-    return pathname.endsWith("/en") ? "en" : "lv";
-  };
-
+  // Derive language from URL path
   const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      return getLanguageFromPath(window.location.pathname);
-    }
-    return "lv";
+    return getLanguageFromPath(window.location.pathname);
   });
 
-  // Update language when URL changes
+  // Check if current route has a translation
+  const currentRouteExists = getRouteMapping(location.pathname) !== undefined;
+
+  // Sync language with URL changes
   useEffect(() => {
     const detectedLang = getLanguageFromPath(location.pathname);
     if (detectedLang !== language) {
       setLanguageState(detectedLang);
     }
+    // Persist preference
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, detectedLang);
   }, [location.pathname]);
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-  };
-
-  const t = (lv: string, en: string) => (language === "lv" ? lv : en);
-
-  // Get localized path (add /en suffix if English)
-  const getLocalizedPath = (basePath: string): string => {
-    // Remove any existing /en suffix first
-    const cleanPath = basePath.endsWith("/en") 
-      ? basePath.slice(0, -3) 
-      : basePath;
+  // Switch language and navigate to the alternate route
+  const switchLanguage = useCallback((targetLang: Language) => {
+    if (targetLang === language) return;
     
-    if (language === "en") {
-      return cleanPath === "/" ? "/en" : `${cleanPath}/en`;
-    }
-    return cleanPath;
-  };
+    const alternateRoute = getAlternateRoute(location.pathname, targetLang);
+    setLanguageState(targetLang);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, targetLang);
+    navigate(alternateRoute);
+  }, [language, location.pathname, navigate]);
 
-  // Get base path without language suffix
-  const getBasePath = (path: string): string => {
-    if (path === "/en") return "/";
-    if (path.endsWith("/en")) {
-      return path.slice(0, -3);
-    }
-    return path;
-  };
+  // Translation helper
+  const t = useCallback((lv: string, en: string) => {
+    return language === "lv" ? lv : en;
+  }, [language]);
+
+  // Get localized path for navigation links
+  const getLocalizedPath = useCallback((baseLvPath: string): string => {
+    return getLocalizedPathUtil(baseLvPath, language);
+  }, [language]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, getLocalizedPath, getBasePath }}>
+    <LanguageContext.Provider value={{ 
+      language, 
+      switchLanguage, 
+      t, 
+      getLocalizedPath,
+      currentRouteExists 
+    }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -1,20 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { footerServiceLinks, footerCompanyLinks } from "@/lib/routeMapping";
 import LogoBlack from "@/assets/logo-black.svg";
-
-const footerLinks = {
-  services: [
-    { labelLv: "SEO & GEO", labelEn: "SEO & GEO", path: "/seo-un-geo" },
-    { labelLv: "AI Automatizācijas", labelEn: "AI Automation", path: "/ai-automatizacija" },
-    { labelLv: "Digitālā reklāma", labelEn: "Digital Advertising", path: "/performance-reklama" },
-    { labelLv: "AI Lab", labelEn: "AI Lab", path: "/ai-lab" },
-  ],
-  company: [
-    { labelLv: "Par mums", labelEn: "About Us", path: "/par-mums" },
-    { labelLv: "Blog", labelEn: "Blog", path: "/blog" },
-    { labelLv: "Kontakti", labelEn: "Contact", path: "/bezmaksas-konsultacija" },
-  ],
-};
 
 export function Footer() {
   const { language, t, getLocalizedPath } = useLanguage();
@@ -45,10 +32,10 @@ export function Footer() {
               {t("Pakalpojumi", "Services")}
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.path}>
+              {footerServiceLinks.map((link) => (
+                <li key={link.lv}>
                   <Link
-                    to={getLocalizedPath(link.path)}
+                    to={getLocalizedPath(link.lv)}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {language === "lv" ? link.labelLv : link.labelEn}
@@ -64,10 +51,10 @@ export function Footer() {
               {t("Uzņēmums", "Company")}
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.path}>
+              {footerCompanyLinks.map((link) => (
+                <li key={link.lv}>
                   <Link
-                    to={getLocalizedPath(link.path)}
+                    to={getLocalizedPath(link.lv)}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
                     {language === "lv" ? link.labelLv : link.labelEn}
