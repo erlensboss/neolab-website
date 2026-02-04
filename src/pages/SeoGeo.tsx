@@ -120,7 +120,7 @@ export default function SeoGeo() {
                 <div className="flex flex-wrap gap-4">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg">
-                      Sākt ar bezmaksas auditu
+                      Sākt ar auditu
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
@@ -493,8 +493,8 @@ export default function SeoGeo() {
             <div className="text-center mb-14 md:mb-20">
               <span className="chip mb-6 inline-block text-sm">Sistēma</span>
               <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
-                Rezultāts nav viens cipars. Tā ir <span className="text-gradient-orange">sistēma</span>, kas sāk strādāt
-                uzņēmuma labā.
+                <span className="text-gradient-orange">SEO</span> un <span className="text-gradient-orange">GEO</span>{" "}
+                nav viens rezultāts, tā ir<span className="text-gradient-orange">sistēma</span>. uzņēmuma labā.
               </h2>
             </div>
           </ScrollReveal>
