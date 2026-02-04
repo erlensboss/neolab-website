@@ -462,8 +462,7 @@ export default function SeoGeo() {
           <ScrollReveal>
             <div className="text-center mb-14 md:mb-20">
               <span className="chip mb-6 inline-block text-sm">Sistēma</span>
-              <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
-                Rezultāts nav viens cipars. Tā ir <span className="text-gradient-orange">Sistēma</span>, kas sāk strādāt
+              <h2 className="text-foreground max-w-4xl mx-auto leading-tight">, nevis viens rezultāts.<span className="text-gradient-orange">Sistēma</span>, kas sāk strādāt
                 uzņēmuma labā.
               </h2>
             </div>
