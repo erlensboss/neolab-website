@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Search,
-  MapPin,
-  BarChart3,
-  FileText,
-  Layers,
+import { 
+  Search, 
+  MapPin, 
+  BarChart3, 
+  FileText, 
+  Layers, 
   ArrowRight,
   CheckCircle2,
   Target,
@@ -26,13 +26,18 @@ import {
   Users,
   Zap,
   MessageSquare,
-  ChevronDown,
+  ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const diagnosticsSteps = [
   { icon: Layers, label: "Tehniskais audits", description: "Pilna vietnes analīze" },
@@ -40,6 +45,7 @@ const diagnosticsSteps = [
   { icon: Target, label: "Konkurentu izpēte", description: "Tirgus pozicionēšana" },
   { icon: BarChart3, label: "Ranku analīze", description: "Esošās pozīcijas" },
 ];
+
 
 const geoFeatures = [
   "Google My Business optimizācija",
@@ -50,9 +56,10 @@ const geoFeatures = [
   "Strukturēti dati lokālajam biznesam",
 ];
 
+
 export default function SeoGeo() {
   const { t, getLocalizedPath } = useLanguage();
-
+  
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Premium Hero ========== */}
@@ -60,7 +67,7 @@ export default function SeoGeo() {
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Gradient mesh */}
-          <div
+          <div 
             className="absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage: `
@@ -69,9 +76,9 @@ export default function SeoGeo() {
               `,
             }}
           />
-
+          
           {/* Subtle grid pattern */}
-          <div
+          <div 
             className="absolute inset-0 opacity-[0.02]"
             style={{
               backgroundImage: `
@@ -81,7 +88,7 @@ export default function SeoGeo() {
               backgroundSize: "80px 80px",
             }}
           />
-
+          
           {/* Floating orbs */}
           <motion.div
             className="absolute top-1/4 right-[15%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/5 blur-3xl"
@@ -94,7 +101,7 @@ export default function SeoGeo() {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-
+        
         <div className="container-neo section-padding relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
@@ -102,32 +109,32 @@ export default function SeoGeo() {
               <ScrollReveal>
                 <span className="chip mb-6 inline-block text-sm">SEO & GEO</span>
               </ScrollReveal>
-
+              
               <ScrollReveal delay={0.1}>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 text-foreground">
-                  SEO un GEO optimizācija <span className="text-gradient-orange">uzņēmumiem</span>
+                  SEO un GEO optimizācija{" "}
+                  <span className="text-gradient-orange">uzņēmumiem</span>
                 </h1>
               </ScrollReveal>
-
+              
               <ScrollReveal delay={0.2}>
                 <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6 md:mb-10">
-                  Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā
-                  digitālajai redzamībai.
+                  Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā digitālajai redzamībai.
                 </p>
               </ScrollReveal>
-
+              
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg">
-                      Sākt ar auditu
+                      Sākt ar bezmaksas auditu
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
                 </div>
               </ScrollReveal>
             </div>
-
+            
             {/* Right: Visual system */}
             <ScrollReveal delay={0.2} direction="right">
               <div className="relative">
@@ -136,7 +143,7 @@ export default function SeoGeo() {
                   {/* Header */}
                   <div className="flex items-center justify-between mb-5 md:mb-8">
                     <div className="flex items-center gap-3">
-                      <motion.div
+                      <motion.div 
                         className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-orange flex items-center justify-center"
                         animate={{ rotate: [0, 5, -5, 0] }}
                         transition={{ duration: 4, repeat: Infinity }}
@@ -151,11 +158,11 @@ export default function SeoGeo() {
                       <div className="w-3 h-3 rounded-full bg-green-400/30" />
                     </div>
                   </div>
-
+                  
                   {/* Visual cards grid */}
                   <div className="grid grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
                     {/* SEO Card */}
-                    <motion.div
+                    <motion.div 
                       className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl md:rounded-2xl p-3 md:p-5 border border-primary/20"
                       whileHover={{ y: -2 }}
                     >
@@ -170,9 +177,9 @@ export default function SeoGeo() {
                         <div className="h-2 bg-primary/10 rounded-full w-3/5" />
                       </div>
                     </motion.div>
-
+                    
                     {/* GEO Card */}
-                    <motion.div
+                    <motion.div 
                       className="bg-gradient-to-br from-amber-400/5 to-amber-400/10 rounded-xl md:rounded-2xl p-3 md:p-5 border border-amber-400/20"
                       whileHover={{ y: -2 }}
                     >
@@ -187,12 +194,12 @@ export default function SeoGeo() {
                       </div>
                     </motion.div>
                   </div>
-
+                  
                   {/* Results indicator */}
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-green-200/50">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <motion.div
+                        <motion.div 
                           className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-green-500/20 flex items-center justify-center"
                           animate={{ scale: [1, 1.1, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
@@ -202,7 +209,7 @@ export default function SeoGeo() {
                         <span className="text-xs md:text-sm font-medium text-green-700">Sistēmiska izaugsme</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <motion.div
+                        <motion.div 
                           className="w-2 h-2 rounded-full bg-green-400"
                           animate={{ opacity: [0.5, 1, 0.5] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
@@ -212,7 +219,7 @@ export default function SeoGeo() {
                     </div>
                   </div>
                 </div>
-
+                
                 {/* Decorative corner elements */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/10 blur-2xl" />
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-gradient-to-tl from-amber-400/10 to-primary/10 blur-2xl" />
@@ -226,7 +233,7 @@ export default function SeoGeo() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Dynamic background with gradient mesh */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50/50" />
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `
@@ -235,9 +242,9 @@ export default function SeoGeo() {
             `,
           }}
         />
-
+        
         {/* Animated grid pattern */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -247,18 +254,17 @@ export default function SeoGeo() {
             backgroundSize: "60px 60px",
           }}
         />
-
+        
         <div className="container-neo relative z-10">
           <ScrollReveal>
             <div className="text-center mb-12 md:mb-16">
               <span className="chip mb-6 inline-block text-sm">Pamati</span>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                Kas ir <span className="text-gradient-orange">SEO</span> un{" "}
-                <span className="text-gradient-orange">GEO</span> optimizācija
+                Kas ir <span className="text-gradient-orange">SEO</span> un <span className="text-gradient-orange">GEO</span> optimizācija
               </h2>
             </div>
           </ScrollReveal>
-
+          
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-8 md:mb-12">
             {/* SEO Card */}
             <ScrollReveal delay={0.1}>
@@ -271,7 +277,7 @@ export default function SeoGeo() {
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   {/* Header with icon */}
                   <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                    <motion.div
+                    <motion.div 
                       className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-orange flex items-center justify-center shadow-orange"
                       whileHover={{ rotate: 5 }}
                     >
@@ -279,19 +285,15 @@ export default function SeoGeo() {
                     </motion.div>
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground">SEO</h3>
-                      <span className="text-xs md:text-sm text-primary font-medium">
-                        Meklētājprogrammu optimizācija
-                      </span>
+                      <span className="text-xs md:text-sm text-primary font-medium">Meklētājprogrammu optimizācija</span>
                     </div>
                   </div>
-
+                  
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                    SEO optimizācija nodrošina uzņēmuma redzamību tradicionālajās meklētājprogrammās, galvenokārt
-                    Google. Tā sakārto mājaslapas tehnisko kvalitāti, saturu un struktūru, lai uzņēmums būtu atrodams
-                    brīdī, kad potenciālie klienti aktīvi meklē risinājumus. SEO veido stabilu, ilgtermiņa organisko
-                    datplūsmu, kas nav atkarīga no īstermiņa reklāmas budžetiem.{" "}
+                    SEO optimizācija nodrošina uzņēmuma redzamību tradicionālajās meklētājprogrammās, galvenokārt Google, uzlabojot mājaslapas tehnisko kvalitāti, saturu un struktūru. Tā palīdz piesaistīt stabilu, ilgtermiņa organisko datplūsmu.
                   </p>
+                  
                   {/* Visual element - search results mockup */}
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-3 mb-3">
@@ -311,10 +313,10 @@ export default function SeoGeo() {
                       </div>
                     </div>
                   </div>
-
+                  
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-6">
-                    {["Google", "Tehnika", "Saturs", "Ilgtermiņš"].map((tag) => (
+                    {["Google", "Tehnika", "Saturs", "Ilgtermiņa"].map((tag) => (
                       <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium">
                         {tag}
                       </span>
@@ -323,7 +325,7 @@ export default function SeoGeo() {
                 </div>
               </motion.div>
             </ScrollReveal>
-
+            
             {/* GEO Card */}
             <ScrollReveal delay={0.2}>
               <motion.div
@@ -335,17 +337,11 @@ export default function SeoGeo() {
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-amber-300/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   {/* Header with icon */}
                   <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                    <motion.div
+                    <motion.div 
                       className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg"
                       whileHover={{ rotate: -5 }}
                     >
-                      <svg
-                        className="w-6 h-6 md:w-8 md:h-8 text-white"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
+                      <svg className="w-6 h-6 md:w-8 md:h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="12" cy="12" r="10" />
                         <path d="M12 2a10 10 0 0 0 0 20" />
                         <path d="M2 12h20" />
@@ -354,23 +350,19 @@ export default function SeoGeo() {
                     </motion.div>
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground">GEO</h3>
-                      <span className="text-xs md:text-sm text-amber-600 font-medium">
-                        Ģeneratīvā meklēšanas optimizācija
-                      </span>
+                      <span className="text-xs md:text-sm text-amber-600 font-medium">Ģeneratīvā meklēšanas optimizācija</span>
                     </div>
                   </div>
-
+                  
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                    GEO optimizācija fokusējas uz redzamību AI balstītos meklējumos un ģeneratīvajās atbildēs, kur
-                    informācija netiek vienkārši parādīta kā saišu saraksts, bet tiek apkopota, interpretēta un
-                    ieteikta. Tā palīdz uzņēmumam būt klātesošam tur, kur lietotāji uzdod jautājumus un sagaida
-                    konkrētas, uzticamas atbildes.{" "}
+                    GEO optimizācija ir nākamais solis meklēšanas attīstībā. Tā fokusējas uz redzamību mākslīgā intelekta balstītos meklējumos un ģeneratīvajās atbildēs, kurās informācija tiek apkopota un interpretēta, nevis vienkārši parādīta kā saišu saraksts.
                   </p>
+                  
                   {/* Visual element - AI answer mockup */}
                   <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-200/50">
                     <div className="flex items-start gap-3">
-                      <motion.div
+                      <motion.div 
                         className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center flex-shrink-0"
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
@@ -384,14 +376,11 @@ export default function SeoGeo() {
                       </div>
                     </div>
                   </div>
-
+                  
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-6">
-                    {["AI", "AI meklēšana", "ChatGPT", "Gemini", "Nākotne"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-amber-100 text-amber-700 text-sm rounded-full font-medium"
-                      >
+                    {["AI meklēšana", "ChatGPT", "Gemini", "Nākotne"].map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-amber-100 text-amber-700 text-sm rounded-full font-medium">
                         {tag}
                       </span>
                     ))}
@@ -400,7 +389,7 @@ export default function SeoGeo() {
               </motion.div>
             </ScrollReveal>
           </div>
-
+          
           {/* Combined value proposition */}
           <ScrollReveal delay={0.3}>
             <motion.div
@@ -412,7 +401,7 @@ export default function SeoGeo() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-amber-400/10 to-primary/10 rounded-2xl blur-lg" />
               <div className="relative bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10 border border-primary/20 text-center">
                 <div className="flex items-center justify-center gap-2 md:gap-4 mb-4 md:mb-6 flex-wrap">
-                  <motion.div
+                  <motion.div 
                     className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-orange flex items-center justify-center"
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -420,7 +409,7 @@ export default function SeoGeo() {
                     <Search className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </motion.div>
                   <div className="text-2xl md:text-3xl text-primary font-light">+</div>
-                  <motion.div
+                  <motion.div 
                     className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center"
                     animate={{ rotate: [360, 0] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -428,7 +417,7 @@ export default function SeoGeo() {
                     <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </motion.div>
                   <div className="text-2xl md:text-3xl text-primary font-light">=</div>
-                  <motion.div
+                  <motion.div 
                     className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-primary to-amber-500 flex items-center justify-center"
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -437,9 +426,7 @@ export default function SeoGeo() {
                   </motion.div>
                 </div>
                 <p className="text-lg md:text-xl lg:text-2xl text-foreground font-medium leading-relaxed">
-                  Apvienojot SEO un GEO, uzņēmums veido redzamību gan{" "}
-                  <span className="text-primary font-semibold">šodienas</span>, gan{" "}
-                  <span className="text-amber-600 font-semibold">nākotnes</span> meklēšanas vidēs.
+                  Apvienojot SEO un GEO, uzņēmums veido redzamību gan <span className="text-primary font-semibold">šodienas</span>, gan <span className="text-amber-600 font-semibold">nākotnes</span> meklēšanas vidēs.
                 </p>
               </div>
             </motion.div>
@@ -451,9 +438,9 @@ export default function SeoGeo() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-tl from-amber-50/80 via-white to-orange-50/60" />
-
+        
         {/* Animated mesh gradient */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `
@@ -462,9 +449,9 @@ export default function SeoGeo() {
             `,
           }}
         />
-
+        
         {/* Subtle grid */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage: `
@@ -474,7 +461,7 @@ export default function SeoGeo() {
             backgroundSize: "50px 50px",
           }}
         />
-
+        
         {/* Floating decorative elements */}
         <motion.div
           className="absolute top-20 left-[10%] w-32 h-32 rounded-full bg-gradient-to-br from-primary/5 to-amber-400/5 blur-2xl"
@@ -486,59 +473,53 @@ export default function SeoGeo() {
           animate={{ y: [0, 20, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
-
+        
         <div className="container-neo relative z-10">
           {/* Header */}
           <ScrollReveal>
             <div className="text-center mb-14 md:mb-20">
               <span className="chip mb-6 inline-block text-sm">Sistēma</span>
               <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
-                Rezultāts nav viens cipars. Tā ir <span className="text-gradient-orange">sistēma</span>, kas sāk strādāt
-                uzņēmuma labā.
+                Rezultāts nav viens cipars. Tā ir <span className="text-gradient-orange">sistēma</span>, kas sāk strādāt uzņēmuma labā.
               </h2>
             </div>
           </ScrollReveal>
-
+          
           {/* Results grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[
               {
                 icon: Eye,
                 title: "Stabilāka redzamība",
-                description:
-                  "Uzņēmums kļūst atrodams meklējumos brīdī, kad potenciālie klienti aktīvi meklē risinājumus. Redzamība vairs nav atkarīga no īstermiņa reklāmas budžetiem vai kampaņu intensitātes.",
+                description: "Uzņēmums kļūst atrodams meklējumos brīdī, kad potenciālie klienti aktīvi meklē risinājumus. Redzamība vairs nav atkarīga no īstermiņa reklāmas budžetiem vai kampaņu intensitātes.",
                 gradient: "from-primary to-orange-500",
                 delay: 0.1,
               },
               {
                 icon: Settings,
                 title: "Sakārtota digitālā struktūra",
-                description:
-                  "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte. Tas pozitīvi ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
+                description: "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte. Tas pozitīvi ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
                 gradient: "from-orange-500 to-amber-500",
                 delay: 0.15,
               },
               {
                 icon: PieChart,
                 title: "Skaidrība par to, kas strādā",
-                description:
-                  "Uzņēmums saprot, kādi vaicājumi piesaista apmeklētājus, kā viņi nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
+                description: "Uzņēmums saprot, kādi vaicājumi piesaista apmeklētājus, kā viņi nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
                 gradient: "from-amber-500 to-yellow-500",
                 delay: 0.2,
               },
               {
                 icon: Bot,
                 title: "Redzamība arī AI meklējumos",
-                description:
-                  "GEO optimizācija paplašina klātbūtni jaunās meklēšanas platformās un AI ģenerētajās atbildēs, kur lietotāji sagaida koncentrētu un uzticamu informāciju.",
+                description: "GEO optimizācija paplašina klātbūtni jaunās meklēšanas platformās un AI ģenerētajās atbildēs, kur lietotāji sagaida koncentrētu un uzticamu informāciju.",
                 gradient: "from-yellow-500 to-amber-400",
                 delay: 0.25,
               },
               {
                 icon: Rocket,
                 title: "Ilgtermiņa izaugsmes pamats",
-                description:
-                  "SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.",
+                description: "SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.",
                 gradient: "from-amber-400 to-primary",
                 delay: 0.3,
                 featured: true,
@@ -551,15 +532,13 @@ export default function SeoGeo() {
                   className={`relative group h-full ${item.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
                 >
                   {/* Glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`}
-                  />
-
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`} />
+                  
                   {/* Card */}
                   <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 md:p-8 border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
                     {/* Icon with animated background */}
                     <div className="relative mb-4 md:mb-6">
-                      <motion.div
+                      <motion.div 
                         className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}
                         whileHover={{ rotate: 5, scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400 }}
@@ -573,13 +552,11 @@ export default function SeoGeo() {
                         transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       />
                     </div>
-
+                    
                     {/* Content */}
                     <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-4">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">
-                      {item.description}
-                    </p>
-
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">{item.description}</p>
+                    
                     {/* Bottom accent line */}
                     <motion.div
                       className={`mt-4 md:mt-6 h-1 rounded-full bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
@@ -593,7 +570,7 @@ export default function SeoGeo() {
               </ScrollReveal>
             ))}
           </div>
-
+          
           {/* Visual connector at bottom */}
           <ScrollReveal delay={0.4}>
             <div className="mt-16 flex justify-center">
@@ -621,9 +598,9 @@ export default function SeoGeo() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Dynamic gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
-
+        
         {/* Mesh gradient overlay */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage: `
@@ -632,9 +609,9 @@ export default function SeoGeo() {
             `,
           }}
         />
-
+        
         {/* Subtle grid pattern */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `
@@ -644,7 +621,7 @@ export default function SeoGeo() {
             backgroundSize: "40px 40px",
           }}
         />
-
+        
         {/* Floating orbs */}
         <motion.div
           className="absolute top-16 right-[20%] w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/10 blur-2xl"
@@ -656,7 +633,7 @@ export default function SeoGeo() {
           animate={{ y: [0, 15, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-
+        
         <div className="container-neo relative z-10">
           {/* Header */}
           <ScrollReveal>
@@ -667,7 +644,7 @@ export default function SeoGeo() {
               </h2>
             </div>
           </ScrollReveal>
-
+          
           {/* Case study cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {[
@@ -676,10 +653,8 @@ export default function SeoGeo() {
                 icon: ShoppingCart,
                 gradient: "from-primary to-orange-500",
                 bgGradient: "from-primary/5 to-orange-500/5",
-                situation:
-                  "Interneta veikals ar 2000+ produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija gandrīz nulle.",
-                solution:
-                  "Veicām pilnu tehnisko auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām kategorizācijas stratēģiju.",
+                situation: "Interneta veikals ar 2000+ produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija gandrīz nulle.",
+                solution: "Veicām pilnu tehnisko auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām kategorizācijas stratēģiju.",
                 result: "+340%",
                 resultLabel: "organiskā trafika pieaugums",
                 delay: 0.1,
@@ -689,10 +664,8 @@ export default function SeoGeo() {
                 icon: Building2,
                 gradient: "from-orange-500 to-amber-500",
                 bgGradient: "from-orange-500/5 to-amber-500/5",
-                situation:
-                  'Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti neatrada uzņēmumu, meklējot "būvniecība + pilsēta".',
-                solution:
-                  "Optimizējām Google My Business profilu, izveidojām lokālā satura stratēģiju un nodrošinājām NAP konsistenci visās platformās.",
+                situation: "Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti neatrada uzņēmumu, meklējot \"būvniecība + pilsēta\".",
+                solution: "Optimizējām Google My Business profilu, izveidojām lokālā satura stratēģiju un nodrošinājām NAP konsistenci visās platformās.",
                 result: "Top 3",
                 resultLabel: "lokālajos rezultātos",
                 delay: 0.2,
@@ -702,10 +675,8 @@ export default function SeoGeo() {
                 icon: Briefcase,
                 gradient: "from-amber-500 to-yellow-500",
                 bgGradient: "from-amber-500/5 to-yellow-500/5",
-                situation:
-                  "Konsultāciju uzņēmums saņēma daudz apmeklētāju, bet maz pieprasījumu. Augsts bounce rate, lietotāji aizgāja bez darbības.",
-                solution:
-                  "Pārstrukturējām saturu uz lietotāja vajadzībām, izveidojām skaidru konversijas piltuvi un optimizējām galvenās piezemēšanās lapas.",
+                situation: "Konsultāciju uzņēmums saņēma daudz apmeklētāju, bet maz pieprasījumu. Augsts bounce rate, lietotāji aizgāja bez darbības.",
+                solution: "Pārstrukturējām saturu uz lietotāja vajadzībām, izveidojām skaidru konversijas piltuvi un optimizējām galvenās piezemēšanās lapas.",
                 result: "+180%",
                 resultLabel: "vairāk kvalificētu pieprasījumu",
                 delay: 0.3,
@@ -718,16 +689,14 @@ export default function SeoGeo() {
                   className="relative group h-full"
                 >
                   {/* Glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${caseStudy.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`}
-                  />
-
+                  <div className={`absolute inset-0 bg-gradient-to-br ${caseStudy.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-all duration-500`} />
+                  
                   {/* Card */}
                   <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 h-full flex flex-col overflow-hidden">
                     {/* Header with icon and industry */}
                     <div className={`bg-gradient-to-br ${caseStudy.bgGradient} p-4 md:p-6 border-b border-primary/5`}>
                       <div className="flex items-center gap-3 md:gap-4">
-                        <motion.div
+                        <motion.div 
                           className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${caseStudy.gradient} flex items-center justify-center shadow-lg`}
                           whileHover={{ rotate: 5, scale: 1.1 }}
                         >
@@ -736,7 +705,7 @@ export default function SeoGeo() {
                         <span className="font-bold text-base md:text-lg text-foreground">{caseStudy.industry}</span>
                       </div>
                     </div>
-
+                    
                     {/* Content */}
                     <div className="p-4 md:p-6 flex-1 flex flex-col">
                       {/* Situācija */}
@@ -745,38 +714,30 @@ export default function SeoGeo() {
                           <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
                             <AlertCircle className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
-                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                            Situācija
-                          </span>
+                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Situācija</span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.situation}</p>
                       </div>
-
+                      
                       {/* Risinājums */}
                       <div className="mb-5">
                         <div className="flex items-center gap-2 mb-2">
                           <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
                             <Wrench className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
-                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                            Risinājums
-                          </span>
+                          <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Risinājums</span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.solution}</p>
                       </div>
-
+                      
                       {/* Rezultāts */}
                       <div className="mt-auto">
-                        <div
-                          className={`bg-gradient-to-br ${caseStudy.bgGradient} rounded-2xl p-5 border border-primary/10`}
-                        >
+                        <div className={`bg-gradient-to-br ${caseStudy.bgGradient} rounded-2xl p-5 border border-primary/10`}>
                           <div className="flex items-center gap-2 mb-2">
                             <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
                               <CheckCircle className="w-3.5 h-3.5 text-green-500" />
                             </div>
-                            <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">
-                              Rezultāts
-                            </span>
+                            <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">Rezultāts</span>
                           </div>
                           <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
@@ -784,9 +745,7 @@ export default function SeoGeo() {
                             viewport={{ once: true }}
                             transition={{ delay: caseStudy.delay + 0.3, type: "spring" }}
                           >
-                            <span
-                              className={`text-4xl font-bold bg-gradient-to-r ${caseStudy.gradient} bg-clip-text text-transparent`}
-                            >
+                            <span className={`text-4xl font-bold bg-gradient-to-r ${caseStudy.gradient} bg-clip-text text-transparent`}>
                               {caseStudy.result}
                             </span>
                             <p className="text-muted-foreground text-sm mt-1">{caseStudy.resultLabel}</p>
@@ -794,9 +753,9 @@ export default function SeoGeo() {
                         </div>
                       </div>
                     </div>
-
+                    
                     {/* Bottom accent */}
-                    <motion.div
+                    <motion.div 
                       className={`h-1 bg-gradient-to-r ${caseStudy.gradient}`}
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
@@ -808,7 +767,7 @@ export default function SeoGeo() {
               </ScrollReveal>
             ))}
           </div>
-
+          
           {/* Bottom visual connector */}
           <ScrollReveal delay={0.4}>
             <div className="mt-16 flex justify-center">
@@ -836,9 +795,9 @@ export default function SeoGeo() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Premium background with depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/30" />
-
+        
         {/* Subtle geometric pattern */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -848,10 +807,10 @@ export default function SeoGeo() {
             backgroundSize: "60px 60px",
           }}
         />
-
+        
         {/* Accent line at top */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
+        
         {/* Floating accents */}
         <motion.div
           className="absolute top-32 left-[5%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl"
@@ -863,7 +822,7 @@ export default function SeoGeo() {
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-
+        
         <div className="container-neo relative z-10">
           {/* Premium Header */}
           <ScrollReveal>
@@ -882,12 +841,11 @@ export default function SeoGeo() {
                 Kāds ir <span className="text-gradient-orange">NEOLab</span> risinājums
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, balstoties uz auditu,
-                prioritātēm un pakāpenisku ieviešanu.
+                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, balstoties uz auditu, prioritātēm un pakāpenisku ieviešanu.
               </p>
             </div>
           </ScrollReveal>
-
+          
           {/* Services Grid - 3x2 layout */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
             {[
@@ -895,8 +853,7 @@ export default function SeoGeo() {
                 icon: Search,
                 number: "01",
                 title: "SEO audits un situācijas izvērtējums",
-                description:
-                  "Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra un esošā redzamība meklējumos, lai noteiktu galvenās optimizācijas iespējas.",
+                description: "Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra un esošā redzamība meklējumos, lai noteiktu galvenās optimizācijas iespējas.",
                 accent: "from-primary to-orange-500",
                 delay: 0.1,
               },
@@ -904,8 +861,7 @@ export default function SeoGeo() {
                 icon: Settings,
                 number: "02",
                 title: "Tehniskā SEO optimizācija",
-                description:
-                  "Tiek sakārtoti tehniskie aspekti, kas ietekmē meklētājprogrammu uztveri un lietotāja pieredzi, tostarp lapas ātrums, struktūra un indeksācija.",
+                description: "Tiek sakārtoti tehniskie aspekti, kas ietekmē meklētājprogrammu uztveri un lietotāja pieredzi, tostarp lapas ātrums, struktūra un indeksācija.",
                 accent: "from-orange-500 to-amber-500",
                 delay: 0.15,
               },
@@ -913,8 +869,7 @@ export default function SeoGeo() {
                 icon: FileText,
                 number: "03",
                 title: "Satura un atslēgvārdu struktūra",
-                description:
-                  "Tiek veidota loģiska satura struktūra, kas balstīta lietotāju meklēšanas paradumos un uzņēmuma mērķos, nodrošinot saprotamu informācijas plūsmu.",
+                description: "Tiek veidota loģiska satura struktūra, kas balstīta lietotāju meklēšanas paradumos un uzņēmuma mērķos, nodrošinot saprotamu informācijas plūsmu.",
                 accent: "from-amber-500 to-yellow-500",
                 delay: 0.2,
               },
@@ -922,8 +877,7 @@ export default function SeoGeo() {
                 icon: Target,
                 number: "04",
                 title: "Keyword list veidošana",
-                description:
-                  "Tiek izstrādāts strukturēts atslēgvārdu saraksts, kas sadalīts pa lapām un meklēšanas nolūkiem, lai novērstu kanibalizāciju un palielinātu efektivitāti.",
+                description: "Tiek izstrādāts strukturēts atslēgvārdu saraksts, kas sadalīts pa lapām un meklēšanas nolūkiem, lai novērstu kanibalizāciju un palielinātu efektivitāti.",
                 accent: "from-yellow-500 to-amber-400",
                 delay: 0.25,
               },
@@ -931,8 +885,7 @@ export default function SeoGeo() {
                 icon: Globe,
                 number: "05",
                 title: "GEO mājaslapas audits",
-                description:
-                  "Tiek izvērtēts, kā mājaslapa un tās saturs tiek uztverts AI balstītās meklēšanas vidēs un ģeneratīvajās atbildēs.",
+                description: "Tiek izvērtēts, kā mājaslapa un tās saturs tiek uztverts AI balstītās meklēšanas vidēs un ģeneratīvajās atbildēs.",
                 accent: "from-amber-400 to-orange-500",
                 delay: 0.3,
               },
@@ -940,8 +893,7 @@ export default function SeoGeo() {
                 icon: Rocket,
                 number: "06",
                 title: "GEO stratēģijas izveide",
-                description:
-                  "Balstoties auditā, tiek izstrādāta GEO stratēģija, kas palīdz uzlabot redzamību jaunās paaudzes meklēšanas kanālos.",
+                description: "Balstoties auditā, tiek izstrādāta GEO stratēģija, kas palīdz uzlabot redzamību jaunās paaudzes meklēšanas kanālos.",
                 accent: "from-orange-500 to-primary",
                 delay: 0.35,
               },
@@ -953,56 +905,52 @@ export default function SeoGeo() {
                   className="group relative h-full"
                 >
                   {/* Hover glow */}
-                  <div
-                    className={`absolute -inset-2 bg-gradient-to-br ${service.accent} rounded-3xl blur-xl opacity-0 group-hover:opacity-15 transition-all duration-500`}
-                  />
-
+                  <div className={`absolute -inset-2 bg-gradient-to-br ${service.accent} rounded-3xl blur-xl opacity-0 group-hover:opacity-15 transition-all duration-500`} />
+                  
                   {/* Card */}
                   <div className="relative bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col overflow-hidden">
                     {/* Top accent line */}
-                    <motion.div
+                    <motion.div 
                       className={`h-1 bg-gradient-to-r ${service.accent}`}
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: service.delay }}
                     />
-
+                    
                     <div className="p-5 md:p-7 flex-1 flex flex-col">
                       {/* Header with number and icon */}
                       <div className="flex items-start justify-between mb-4 md:mb-5">
-                        <motion.div
+                        <motion.div 
                           className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
                           whileHover={{ rotate: 5, scale: 1.05 }}
                         >
                           <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                         </motion.div>
-                        <span
-                          className={`text-3xl md:text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
-                        >
+                        <span className={`text-3xl md:text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}>
                           {service.number}
                         </span>
                       </div>
-
+                      
                       {/* Title */}
                       <h3 className="text-base md:text-lg font-bold text-foreground mb-2 md:mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
-
+                      
                       {/* Description */}
-                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">{service.description}</p>
-
+                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                        {service.description}
+                      </p>
+                      
                       {/* Bottom visual indicator */}
                       <div className="mt-4 md:mt-5 pt-3 md:pt-4 border-t border-gray-100">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <motion.div
+                          <motion.div 
                             className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.accent}`}
                             animate={{ scale: [1, 1.2, 1] }}
                             transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                           />
-                          <span className="group-hover:text-primary transition-colors duration-300">
-                            Iekļauts pakalpojumā
-                          </span>
+                          <span className="group-hover:text-primary transition-colors duration-300">Iekļauts pakalpojumā</span>
                         </div>
                       </div>
                     </div>
@@ -1011,7 +959,7 @@ export default function SeoGeo() {
               </ScrollReveal>
             ))}
           </div>
-
+          
           {/* Premium CTA Block */}
           <ScrollReveal delay={0.4}>
             <motion.div
@@ -1022,12 +970,12 @@ export default function SeoGeo() {
             >
               {/* Glow behind CTA */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-orange-500/10 to-amber-400/10 rounded-3xl blur-2xl" />
-
+              
               <div className="relative bg-gradient-to-br from-white via-white to-orange-50/50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border border-primary/10 shadow-xl overflow-hidden">
                 {/* Decorative corner elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-400/5 to-transparent rounded-tr-full" />
-
+                
                 <div className="relative flex flex-col lg:flex-row items-center justify-between gap-5 md:gap-8">
                   <div className="text-center lg:text-left">
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 md:mb-3">
@@ -1037,21 +985,20 @@ export default function SeoGeo() {
                       Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.
                     </p>
                   </div>
-
+                  
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")} className="flex-shrink-0">
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button
-                        variant="hero"
-                        size="lg"
-                        className="shadow-lg hover:shadow-xl transition-all duration-300 text-base px-8"
-                      >
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button variant="hero" size="lg" className="shadow-lg hover:shadow-xl transition-all duration-300 text-base px-8">
                         Sākt ar bezmaksas auditu
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </motion.div>
                   </Link>
                 </div>
-
+                
                 {/* Animated progress dots */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -1073,20 +1020,20 @@ export default function SeoGeo() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         {/* Premium background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-orange-50/30" />
-
+        
         {/* Subtle dot pattern */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
           }}
         />
-
+        
         {/* Side accent lines */}
         <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
         <div className="absolute right-0 top-1/3 bottom-1/3 w-1 bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
-
+        
         <div className="container-neo relative z-10">
           {/* Header */}
           <ScrollReveal>
@@ -1106,12 +1053,12 @@ export default function SeoGeo() {
               </h2>
             </div>
           </ScrollReveal>
-
+          
           {/* Vertical Roadmap */}
           <div className="max-w-4xl mx-auto relative px-2 md:px-0">
             {/* Central vertical line */}
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2">
-              <motion.div
+              <motion.div 
                 className="w-full h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400"
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
@@ -1120,15 +1067,14 @@ export default function SeoGeo() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-
+            
             {/* Roadmap steps */}
             {[
               {
                 number: "01",
                 icon: Search,
                 title: "Sākotnējais audits un izvērtējums",
-                description:
-                  "Sadarbība sākas ar mājaslapas, esošās redzamības un konkurentu analīzi, lai noteiktu pašreizējo situāciju un galvenās iespējas.",
+                description: "Sadarbība sākas ar mājaslapas, esošās redzamības un konkurentu analīzi, lai noteiktu pašreizējo situāciju un galvenās iespējas.",
                 gradient: "from-primary to-orange-500",
                 delay: 0.1,
               },
@@ -1136,8 +1082,7 @@ export default function SeoGeo() {
                 number: "02",
                 icon: Target,
                 title: "Prioritātes un stratēģija",
-                description:
-                  "Tiek noteiktas prioritātes un izstrādāta individuāla SEO/GEO stratēģija, kas atbilst uzņēmuma mērķiem un resursiem.",
+                description: "Tiek noteiktas prioritātes un izstrādāta individuāla SEO/GEO stratēģija, kas atbilst uzņēmuma mērķiem un resursiem.",
                 gradient: "from-orange-500 to-amber-500",
                 delay: 0.2,
               },
@@ -1145,8 +1090,7 @@ export default function SeoGeo() {
                 number: "03",
                 icon: Settings,
                 title: "Pakāpeniska ieviešana",
-                description:
-                  "Optimizācijas darbi tiek ieviesti pakāpeniski — tehniskie labojumi, satura uzlabojumi un strukturālās izmaiņas.",
+                description: "Optimizācijas darbi tiek ieviesti pakāpeniski — tehniskie labojumi, satura uzlabojumi un strukturālās izmaiņas.",
                 gradient: "from-amber-500 to-yellow-500",
                 delay: 0.3,
               },
@@ -1154,8 +1098,7 @@ export default function SeoGeo() {
                 number: "04",
                 icon: BarChart3,
                 title: "Uzraudzība un analīze",
-                description:
-                  "Rezultāti tiek nepārtraukti uzraudzīti un analizēti, izmantojot profesionālus rīkus un skaidrus atskaites.",
+                description: "Rezultāti tiek nepārtraukti uzraudzīti un analizēti, izmantojot profesionālus rīkus un skaidrus atskaites.",
                 gradient: "from-yellow-500 to-amber-400",
                 delay: 0.4,
               },
@@ -1163,16 +1106,13 @@ export default function SeoGeo() {
                 number: "05",
                 icon: TrendingUp,
                 title: "Nepārtraukta uzlabošana",
-                description:
-                  "Notiek nepārtraukta uzlabošana, balstoties datos un rezultātos. Stratēģija tiek pielāgota tirgus izmaiņām.",
+                description: "Notiek nepārtraukta uzlabošana, balstoties datos un rezultātos. Stratēģija tiek pielāgota tirgus izmaiņām.",
                 gradient: "from-amber-400 to-primary",
                 delay: 0.5,
               },
             ].map((step, index) => (
               <ScrollReveal key={step.number} delay={step.delay}>
-                <div
-                  className={`relative flex items-start gap-4 md:gap-12 mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                >
+                <div className={`relative flex items-start gap-4 md:gap-12 mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Node point on the line */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
@@ -1182,9 +1122,7 @@ export default function SeoGeo() {
                       transition={{ delay: step.delay + 0.2, type: "spring", stiffness: 300 }}
                       className="relative"
                     >
-                      <div
-                        className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}
-                      >
+                      <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
                         <step.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                       </div>
                       {/* Pulse ring */}
@@ -1195,51 +1133,43 @@ export default function SeoGeo() {
                       />
                     </motion.div>
                   </div>
-
+                  
                   {/* Content card - alternating sides on desktop */}
-                  <div className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
+                  <div className={`ml-24 md:ml-0 md:w-[calc(50%-4rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                     <motion.div
                       whileHover={{ y: -4 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       className="group relative"
                     >
                       {/* Glow effect */}
-                      <div
-                        className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`}
-                      />
-
+                      <div className={`absolute -inset-2 bg-gradient-to-br ${step.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-10 transition-all duration-500`} />
+                      
                       <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
                         {/* Number badge */}
                         <div className="flex items-start justify-between mb-4">
-                          <span
-                            className={`text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}
-                          >
+                          <span className={`text-4xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-30`}>
                             {step.number}
                           </span>
                           {/* Arrow indicator pointing to center */}
-                          <div className={`hidden md:block w-4 h-4 ${index % 2 === 0 ? "rotate-0" : "rotate-180"}`}>
-                            <svg
-                              className="w-full h-full text-primary/30"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                            >
+                          <div className={`hidden md:block w-4 h-4 ${index % 2 === 0 ? 'rotate-0' : 'rotate-180'}`}>
+                            <svg className="w-full h-full text-primary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                           </div>
                         </div>
-
+                        
                         <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                           {step.title}
                         </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                        
                         {/* Progress indicator */}
                         <div className="mt-4 pt-3 border-t border-gray-100">
                           <div className="flex items-center gap-2">
                             <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
-                              <motion.div
+                              <motion.div 
                                 className={`h-full bg-gradient-to-r ${step.gradient}`}
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "100%" }}
@@ -1253,13 +1183,13 @@ export default function SeoGeo() {
                       </div>
                     </motion.div>
                   </div>
-
+                  
                   {/* Spacer for alternating layout */}
                   <div className="hidden md:block md:w-[calc(50%-4rem)]" />
                 </div>
               </ScrollReveal>
             ))}
-
+            
             {/* End node - Success indicator */}
             <ScrollReveal delay={0.6}>
               <div className="relative flex justify-center mt-8">
@@ -1281,7 +1211,7 @@ export default function SeoGeo() {
                 </motion.div>
               </div>
             </ScrollReveal>
-
+            
             {/* Final success message */}
             <ScrollReveal delay={0.7}>
               <motion.div
@@ -1302,7 +1232,7 @@ export default function SeoGeo() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
-
+        
         <div className="container-neo relative z-10">
           {/* Header */}
           <ScrollReveal>
@@ -1313,7 +1243,7 @@ export default function SeoGeo() {
               </h2>
             </div>
           </ScrollReveal>
-
+          
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
@@ -1321,15 +1251,13 @@ export default function SeoGeo() {
                 {
                   icon: Globe,
                   question: "Vai GEO aizvieto SEO?",
-                  answer:
-                    "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
+                  answer: "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
                   gradient: "from-primary to-orange-500",
                 },
                 {
                   icon: Clock,
                   question: "Cik ilgā laikā SEO sāk dot rezultātus?",
-                  answer:
-                    "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
+                  answer: "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
                   gradient: "from-orange-500 to-amber-500",
                 },
                 {
@@ -1341,28 +1269,24 @@ export default function SeoGeo() {
                 {
                   icon: Zap,
                   question: "Vai SEO var apvienot ar Google Ads?",
-                  answer:
-                    "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
+                  answer: "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
                   gradient: "from-yellow-500 to-amber-400",
                 },
                 {
                   icon: MessageSquare,
                   question: "Ar ko sākas sadarbība ar NEOLab?",
-                  answer:
-                    "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
+                  answer: "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
                   gradient: "from-amber-400 to-primary",
                 },
               ].map((faq, index) => (
                 <ScrollReveal key={index} delay={index * 0.05}>
-                  <AccordionItem
-                    value={`item-${index}`}
+                  <AccordionItem 
+                    value={`item-${index}`} 
                     className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
                   >
                     <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
                       <div className="flex items-center gap-3 md:gap-4 text-left">
-                        <div
-                          className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}
-                        >
+                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
                           <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
                         <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
@@ -1372,7 +1296,9 @@ export default function SeoGeo() {
                     </AccordionTrigger>
                     <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
                       <div className="pl-11 md:pl-14">
-                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{faq.answer}</p>
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                          {faq.answer}
+                        </p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -1387,16 +1313,16 @@ export default function SeoGeo() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
-
+        
         {/* Subtle pattern */}
-        <div
+        <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
             backgroundSize: "40px 40px",
           }}
         />
-
+        
         {/* Floating accents */}
         <motion.div
           className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
@@ -1408,7 +1334,7 @@ export default function SeoGeo() {
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
-
+        
         <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
@@ -1418,13 +1344,16 @@ export default function SeoGeo() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
-                Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas
-                reālas izaugsmes iespējas.
+                Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas reālas izaugsmes iespējas.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
                   <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
                     Uzzini kā attīstīties
                     <ArrowRight className="ml-2 w-5 h-5" />
