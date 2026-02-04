@@ -11,6 +11,12 @@ export interface RouteMapping {
 export const routeMappings: RouteMapping[] = [
   { lv: "/", en: "/en", labelLv: "Sākums", labelEn: "Home" },
   { lv: "/seo-un-geo", en: "/en/seo-and-geo", labelLv: "SEO & GEO", labelEn: "SEO & GEO" },
+  { lv: "/seo-un-geo/seo-audits", en: "/en/seo-and-geo/seo-audits", labelLv: "SEO Audits", labelEn: "SEO Audits" },
+  { lv: "/seo-un-geo/tehniska-seo", en: "/en/seo-and-geo/technical-seo", labelLv: "Tehniskā SEO", labelEn: "Technical SEO" },
+  { lv: "/seo-un-geo/satura-struktura", en: "/en/seo-and-geo/content-structure", labelLv: "Satura struktūra", labelEn: "Content Structure" },
+  { lv: "/seo-un-geo/keyword-list", en: "/en/seo-and-geo/keyword-list", labelLv: "Keyword List", labelEn: "Keyword List" },
+  { lv: "/seo-un-geo/geo-audits", en: "/en/seo-and-geo/geo-audits", labelLv: "GEO Audits", labelEn: "GEO Audits" },
+  { lv: "/seo-un-geo/geo-strategija", en: "/en/seo-and-geo/geo-strategy", labelLv: "GEO Stratēģija", labelEn: "GEO Strategy" },
   { lv: "/ai-automatizacija", en: "/en/ai-automations", labelLv: "AI Automatizācijas", labelEn: "AI Automation" },
   { lv: "/performance-reklama", en: "/en/performance-ads", labelLv: "Digitālā reklāma", labelEn: "Digital Advertising" },
   { lv: "/ai-lab", en: "/en/ai-lab", labelLv: "AI Lab", labelEn: "AI Lab" },

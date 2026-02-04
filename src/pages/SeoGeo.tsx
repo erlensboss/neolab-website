@@ -888,126 +888,249 @@ export default function SeoGeo() {
             </div>
           </ScrollReveal>
 
-          {/* Services Grid - 3x2 layout */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
-            {[
-              {
-                icon: Search,
-                number: "01",
-                title: "SEO audits un situācijas izvērtējums",
-                description:
-                  "Sadarbība vienmēr sākas ar auditu. Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra, konkurenti un esošā redzamība, lai saprastu, kur tieši slēpjas galvenās izaugsmes iespējas.",
-                accent: "from-primary to-orange-500",
-                delay: 0.1,
-              },
-              {
-                icon: Settings,
-                number: "02",
-                title: "Tehniskā SEO optimizācija",
-                description:
-                  "Balstoties audita secinājumos, tiek sakārtoti tehniskie aspekti — lapas ātrums, struktūra, indeksācija un citi pamati.",
-                accent: "from-orange-500 to-amber-500",
-                delay: 0.15,
-              },
-              {
-                icon: FileText,
-                number: "03",
-                title: "Satura un atslēgvārdu struktūra",
-                description:
-                  "Tiek veidota loģiska satura struktūra, kas balstīta reālos lietotāju meklējumos un uzņēmuma mērķos.",
-                accent: "from-amber-500 to-yellow-500",
-                delay: 0.2,
-              },
-              {
-                icon: Target,
-                number: "04",
-                title: "Keyword list veidošana",
-                description:
-                  "Izstrādāts strukturēts atslēgvārdu saraksts, sadalīts pa lapām un meklēšanas nolūkiem, novēršot kanibalizāciju.",
-                accent: "from-yellow-500 to-amber-400",
-                delay: 0.25,
-              },
-              {
-                icon: Globe,
-                number: "05",
-                title: "GEO mājaslapas audits",
-                description:
-                  "Tiek izvērtēts, kā mājaslapa un tās saturs tiek uztverts AI balstītās meklēšanas vidēs un ģeneratīvajās atbildēs.",
-                accent: "from-amber-400 to-orange-500",
-                delay: 0.3,
-              },
-              {
-                icon: Rocket,
-                number: "06",
-                title: "GEO stratēģijas izveide",
-                description:
-                  "Balstoties audita secinājumos, tiek izstrādāta GEO stratēģija redzamības uzlabošanai jaunās paaudzes meklēšanas kanālos.",
-                accent: "from-orange-500 to-primary",
-                delay: 0.35,
-              },
-            ].map((service, index) => (
-              <ScrollReveal key={service.number} delay={service.delay}>
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="group relative h-full"
-                >
-                  {/* Hover glow */}
-                  <div
-                    className={`absolute -inset-2 bg-gradient-to-br ${service.accent} rounded-3xl blur-xl opacity-0 group-hover:opacity-15 transition-all duration-500`}
+          {/* ===== HERO SERVICE: SEO Audit - The Main Block ===== */}
+          <ScrollReveal delay={0.1}>
+            <Link to={getLocalizedPath("/seo-un-geo/seo-audits")}>
+              <motion.div
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="group relative mb-8 md:mb-12 cursor-pointer"
+              >
+                {/* Glow effect */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-orange-500/15 to-amber-400/10 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-500" />
+                
+                {/* Main card */}
+                <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                  {/* Top accent gradient */}
+                  <motion.div 
+                    className="h-2 bg-gradient-to-r from-primary via-orange-500 to-amber-400"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
                   />
-
-                  {/* Card */}
-                  <div className="relative bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-500 h-full flex flex-col overflow-hidden">
-                    {/* Top accent line */}
-                    <motion.div
-                      className={`h-1 bg-gradient-to-r ${service.accent}`}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: service.delay }}
-                    />
-
-                    <div className="p-5 md:p-7 flex-1 flex flex-col">
-                      {/* Header with number and icon */}
-                      <div className="flex items-start justify-between mb-4 md:mb-5">
-                        <motion.div
-                          className={`w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                          whileHover={{ rotate: 5, scale: 1.05 }}
+                  
+                  <div className="p-6 md:p-10 lg:p-12">
+                    <div className="grid lg:grid-cols-5 gap-6 lg:gap-10 items-center">
+                      {/* Left: Content - takes 3 columns */}
+                      <div className="lg:col-span-3">
+                        {/* Badge */}
+                        <motion.div 
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-orange-500/10 rounded-full mb-5"
+                          animate={{ scale: [1, 1.02, 1] }}
+                          transition={{ duration: 3, repeat: Infinity }}
                         >
-                          <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                          <motion.div 
+                            className="w-2 h-2 rounded-full bg-primary"
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                          <span className="text-sm font-semibold text-primary">Galvenais pakalpojums</span>
                         </motion.div>
-                        <span
-                          className={`text-3xl md:text-5xl font-bold bg-gradient-to-br ${service.accent} bg-clip-text text-transparent opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
-                        >
-                          {service.number}
-                        </span>
+
+                        {/* Title */}
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                          SEO audits un situācijas izvērtējums
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
+                          Sadarbība vienmēr sākas ar auditu. Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra, konkurenti un esošā redzamība, lai saprastu, kur tieši slēpjas galvenās izaugsmes iespējas.
+                        </p>
+
+                        {/* Features list */}
+                        <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                          {[
+                            "Pilna tehniskā analīze",
+                            "Konkurentu izpēte",
+                            "Satura inventārs",
+                            "Prioritāšu karte"
+                          ].map((feature, i) => (
+                            <div key={feature} className="flex items-center gap-2">
+                              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center flex-shrink-0">
+                                <CheckCircle2 className="w-3 h-3 text-white" />
+                              </div>
+                              <span className="text-sm font-medium text-foreground">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div className="flex items-center gap-3 text-primary font-semibold group-hover:gap-4 transition-all duration-300">
+                          <span>Uzzināt vairāk</span>
+                          <ArrowRight className="w-5 h-5" />
+                        </div>
                       </div>
 
-                      {/* Title */}
-                      <h3 className="text-base md:text-lg font-bold text-foreground mb-2 md:mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
-                        {service.title}
-                      </h3>
+                      {/* Right: Visual - takes 2 columns */}
+                      <div className="lg:col-span-2">
+                        <div className="relative bg-gradient-to-br from-slate-50 to-orange-50/50 rounded-2xl p-6 border border-primary/10">
+                          {/* Audit visualization */}
+                          <div className="space-y-4">
+                            {/* Header bar */}
+                            <div className="flex items-center gap-3 mb-4">
+                              <motion.div 
+                                className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center shadow-lg"
+                                animate={{ rotate: [0, 5, -5, 0] }}
+                                transition={{ duration: 4, repeat: Infinity }}
+                              >
+                                <Search className="w-6 h-6 text-white" />
+                              </motion.div>
+                              <div>
+                                <span className="text-sm font-semibold text-foreground">Audita panelis</span>
+                                <div className="flex items-center gap-1.5 mt-1">
+                                  <motion.div 
+                                    className="w-2 h-2 rounded-full bg-green-500"
+                                    animate={{ opacity: [0.5, 1, 0.5] }}
+                                    transition={{ duration: 1.5, repeat: Infinity }}
+                                  />
+                                  <span className="text-xs text-green-600">Aktīvs</span>
+                                </div>
+                              </div>
+                            </div>
 
-                      {/* Description */}
-                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">{service.description}</p>
+                            {/* Progress bars representing audit areas */}
+                            {[
+                              { label: "Tehnika", progress: 85, color: "from-primary to-orange-500" },
+                              { label: "Saturs", progress: 72, color: "from-orange-500 to-amber-500" },
+                              { label: "Struktūra", progress: 68, color: "from-amber-500 to-yellow-500" },
+                              { label: "Saites", progress: 55, color: "from-yellow-500 to-amber-400" },
+                            ].map((item, i) => (
+                              <div key={item.label} className="space-y-1.5">
+                                <div className="flex justify-between text-xs">
+                                  <span className="text-muted-foreground font-medium">{item.label}</span>
+                                  <span className="text-foreground font-semibold">{item.progress}%</span>
+                                </div>
+                                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                  <motion.div 
+                                    className={`h-full bg-gradient-to-r ${item.color} rounded-full`}
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: `${item.progress}%` }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, delay: 0.2 + i * 0.1 }}
+                                  />
+                                </div>
+                              </div>
+                            ))}
 
-                      {/* Bottom visual indicator */}
-                      <div className="mt-4 md:mt-5 pt-3 md:pt-4 border-t border-gray-100">
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <motion.div
-                            className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.accent}`}
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                          />
-                          <span className="group-hover:text-primary transition-colors duration-300">
-                            Iekļauts pakalpojumā
-                          </span>
+                            {/* Summary stat */}
+                            <div className="mt-5 pt-4 border-t border-primary/10 flex items-center justify-between">
+                              <span className="text-sm text-muted-foreground">Kopējais vērtējums</span>
+                              <motion.span 
+                                className="text-2xl font-bold bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.6 }}
+                              >
+                                72/100
+                              </motion.span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
+            </Link>
+          </ScrollReveal>
+
+          {/* ===== SECONDARY SERVICES GRID - 5 services in compact layout ===== */}
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 mb-10 md:mb-16">
+            {[
+              {
+                icon: Settings,
+                title: "Tehniskā SEO optimizācija",
+                description: "Lapas ātrums, struktūra, indeksācija un tehniskie pamati.",
+                accent: "from-orange-500 to-amber-500",
+                link: "/seo-un-geo/tehniska-seo",
+                delay: 0.1,
+              },
+              {
+                icon: FileText,
+                title: "Satura un atslēgvārdu struktūra",
+                description: "Loģiska satura struktūra balstīta lietotāju meklējumos.",
+                accent: "from-amber-500 to-yellow-500",
+                link: "/seo-un-geo/satura-struktura",
+                delay: 0.15,
+              },
+              {
+                icon: Target,
+                title: "Keyword list veidošana",
+                description: "Strukturēts atslēgvārdu saraksts pa lapām un nolūkiem.",
+                accent: "from-yellow-500 to-amber-400",
+                link: "/seo-un-geo/keyword-list",
+                delay: 0.2,
+              },
+              {
+                icon: Globe,
+                title: "GEO mājaslapas audits",
+                description: "Redzamība AI meklēšanas vidēs un ģeneratīvajās atbildēs.",
+                accent: "from-amber-400 to-orange-500",
+                link: "/seo-un-geo/geo-audits",
+                delay: 0.25,
+              },
+              {
+                icon: Rocket,
+                title: "GEO stratēģijas izveide",
+                description: "GEO stratēģija jaunās paaudzes meklēšanas kanālos.",
+                accent: "from-orange-500 to-primary",
+                link: "/seo-un-geo/geo-strategija",
+                delay: 0.3,
+              },
+            ].map((service, index) => (
+              <ScrollReveal key={service.title} delay={service.delay}>
+                <Link to={getLocalizedPath(service.link)}>
+                  <motion.div
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="group relative h-full cursor-pointer"
+                  >
+                    {/* Hover glow */}
+                    <div
+                      className={`absolute -inset-1 bg-gradient-to-br ${service.accent} rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-500`}
+                    />
+
+                    {/* Card */}
+                    <div className="relative bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col overflow-hidden">
+                      {/* Top accent line */}
+                      <motion.div
+                        className={`h-1 bg-gradient-to-r ${service.accent}`}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: service.delay }}
+                      />
+
+                      <div className="p-4 md:p-5 flex-1 flex flex-col">
+                        {/* Icon */}
+                        <motion.div
+                          className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${service.accent} flex items-center justify-center shadow-md mb-3 md:mb-4`}
+                          whileHover={{ rotate: 5, scale: 1.05 }}
+                        >
+                          <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        </motion.div>
+
+                        {/* Title */}
+                        <h3 className="text-sm md:text-base font-bold text-foreground mb-2 leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                          {service.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground text-xs md:text-sm leading-relaxed flex-1 line-clamp-3">
+                          {service.description}
+                        </p>
+
+                        {/* CTA arrow */}
+                        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                          <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">Uzzināt vairāk</span>
+                          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
