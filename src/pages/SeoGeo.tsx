@@ -1031,7 +1031,7 @@ export default function SeoGeo() {
                 <div className="relative flex flex-col lg:flex-row items-center justify-between gap-5 md:gap-8">
                   <div className="text-center lg:text-left">
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 md:mb-3">
-                      Katrs solis ir pielāgots <span className="text-gradient-orange">jūsu situācijai</span>
+                      Katrs solis tiek pielāgots <span className="text-gradient-orange">Jūsu situācijai</span>
                     </h3>
                     <p className="text-muted-foreground text-base md:text-lg max-w-xl">
                       Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.
@@ -1309,7 +1309,8 @@ export default function SeoGeo() {
             <div className="text-center mb-12">
               <span className="chip mb-4 inline-block text-sm">FAQ</span>
               <h2 className="text-foreground">
-                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+                Biežāk uzdotie jautājumi par <span className="text-gradient-orange">SEO</span> un{" "}
+                <span className="text-gradient-orange">GEO</span> pakalpojumiem.
               </h2>
             </div>
           </ScrollReveal>
@@ -1426,7 +1427,7 @@ export default function SeoGeo() {
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
                   <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
-                    Uzzini kā attīstīties
+                    Pieteikties auditam
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </motion.div>
