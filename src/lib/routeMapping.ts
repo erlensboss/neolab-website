@@ -86,8 +86,12 @@ export function getLocalizedPath(baseLvPath: string, lang: "lv" | "en"): string 
   return lang === "lv" ? baseLvPath : `/en${baseLvPath}`;
 }
 
-// Navigation items for header (excluding home)
-export const navItems = routeMappings.filter(m => m.lv !== "/" && m.lv !== "/bezmaksas-konsultacija");
+// Navigation items for header (excluding home, consultation, and sub-pages)
+export const navItems = routeMappings.filter(m => 
+  m.lv !== "/" && 
+  m.lv !== "/bezmaksas-konsultacija" &&
+  !m.lv.includes("/seo-un-geo/") // Exclude SEO sub-pages from nav
+);
 
 // Footer service links
 export const footerServiceLinks = routeMappings.filter(m => 

@@ -1094,13 +1094,9 @@ export default function SeoGeo() {
 
                     {/* Card */}
                     <div className="relative bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col overflow-hidden">
-                      {/* Top accent line */}
-                      <motion.div
-                        className={`h-1 bg-gradient-to-r ${service.accent}`}
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: service.delay }}
+                      {/* Top accent line - visible only on hover */}
+                      <div
+                        className={`h-1 bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                       />
 
                       <div className="p-4 md:p-5 flex-1 flex flex-col">
@@ -1122,10 +1118,12 @@ export default function SeoGeo() {
                           {service.description}
                         </p>
 
-                        {/* CTA arrow */}
-                        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
-                          <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">Uzzināt vairāk</span>
-                          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* CTA button - orange like the main audit block */}
+                        <div className="mt-3 pt-3 border-t border-gray-100">
+                          <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary group-hover:text-primary-foreground bg-transparent group-hover:bg-primary px-3 py-1.5 rounded-lg transition-all duration-300">
+                            Uzzināt vairāk
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </span>
                         </div>
                       </div>
                     </div>
