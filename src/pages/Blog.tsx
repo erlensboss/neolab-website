@@ -11,62 +11,68 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Placeholder blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "Kāpēc tradicionālā SEO pieeja vairs nestrādā",
-    category: "SEO",
-    date: "2025-01-15",
-    readTime: "8 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-  {
-    id: 2,
-    title: "AI automatizācija maziem un vidējiem uzņēmumiem",
-    category: "AI",
-    date: "2025-01-10",
-    readTime: "6 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-  {
-    id: 3,
-    title: "Performance reklāma 2025: Ko sagaidīt",
-    category: "Reklāma",
-    date: "2025-01-05",
-    readTime: "10 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-  {
-    id: 4,
-    title: "Kā izvēlēties pareizo digitālo aģentūru",
-    category: "Stratēģija",
-    date: "2024-12-28",
-    readTime: "7 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-  {
-    id: 5,
-    title: "Lokālā SEO: Praktiskā rokasgrāmata",
-    category: "SEO",
-    date: "2024-12-20",
-    readTime: "12 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-  {
-    id: 6,
-    title: "Mašīnmācīšanās mārketingā: Reālie pielietojumi",
-    category: "AI",
-    date: "2024-12-15",
-    readTime: "9 min",
-    excerpt: "Placeholder — pilns raksts drīzumā",
-  },
-];
-
-const categories = ["Visi", "SEO", "AI", "Reklāma", "Stratēģija"];
-
 export default function Blog() {
   const { t, getLocalizedPath } = useLanguage();
+
+  // Placeholder blog posts with translations
+  const blogPosts = [
+    {
+      id: 1,
+      title: t("Kāpēc tradicionālā SEO pieeja vairs nestrādā", "Why Traditional SEO Approach No Longer Works"),
+      category: "SEO",
+      date: "2025-01-15",
+      readTime: t("8 min", "8 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+    {
+      id: 2,
+      title: t("AI automatizācija maziem un vidējiem uzņēmumiem", "AI Automation for Small and Medium Businesses"),
+      category: "AI",
+      date: "2025-01-10",
+      readTime: t("6 min", "6 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+    {
+      id: 3,
+      title: t("Performance reklāma 2025: Ko sagaidīt", "Performance Advertising 2025: What to Expect"),
+      category: t("Reklāma", "Advertising"),
+      date: "2025-01-05",
+      readTime: t("10 min", "10 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+    {
+      id: 4,
+      title: t("Kā izvēlēties pareizo digitālo aģentūru", "How to Choose the Right Digital Agency"),
+      category: t("Stratēģija", "Strategy"),
+      date: "2024-12-28",
+      readTime: t("7 min", "7 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+    {
+      id: 5,
+      title: t("Lokālā SEO: Praktiskā rokasgrāmata", "Local SEO: A Practical Guide"),
+      category: "SEO",
+      date: "2024-12-20",
+      readTime: t("12 min", "12 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+    {
+      id: 6,
+      title: t("Mašīnmācīšanās mārketingā: Reālie pielietojumi", "Machine Learning in Marketing: Real Applications"),
+      category: "AI",
+      date: "2024-12-15",
+      readTime: t("9 min", "9 min"),
+      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+    },
+  ];
+
+  const categories = [
+    t("Visi", "All"), 
+    "SEO", 
+    "AI", 
+    t("Reklāma", "Advertising"), 
+    t("Stratēģija", "Strategy")
+  ];
   
   return (
     <div className="overflow-hidden">
@@ -82,13 +88,15 @@ export default function Blog() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h1 className="mb-6">
-                Zināšanas <span className="text-gradient-orange">bez filtra</span>
+                {t("Zināšanas", "Knowledge")} <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-xl text-muted-foreground">
-                Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. 
-                Bez tukšu vārdu — tikai lietderīgs saturs.
+                {t(
+                  "Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. Bez tukšu vārdu — tikai lietderīgs saturs.",
+                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content."
+                )}
               </p>
             </ScrollReveal>
           </div>
@@ -100,12 +108,12 @@ export default function Blog() {
         <div className="container-neo py-6">
           <ScrollReveal>
             <div className="flex flex-wrap gap-3">
-              {categories.map((category) => (
+              {categories.map((category, index) => (
                 <button
                   key={category}
                   className={`
                     px-4 py-2 rounded-lg text-sm font-medium transition-all
-                    ${category === "Visi" 
+                    ${index === 0 
                       ? "bg-primary text-primary-foreground" 
                       : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                     }
@@ -152,14 +160,14 @@ export default function Blog() {
                   <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
-                      {new Date(post.date).toLocaleDateString("lv-LV", {
+                      {new Date(post.date).toLocaleDateString(t("lv-LV", "en-US"), {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
                       })}
                     </span>
                     <span className="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Lasīt
+                      {t("Lasīt", "Read")}
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -180,15 +188,17 @@ export default function Blog() {
                   <BookOpen className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">
-                  Saturs tiek veidots
+                  {t("Saturs tiek veidots", "Content is being created")}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Mēs aktīvi strādājam pie satura. Šie raksti drīzumā būs pieejami 
-                  ar pilnu tekstu un praktiskām zināšanām.
+                  {t(
+                    "Mēs aktīvi strādājam pie satura. Šie raksti drīzumā būs pieejami ar pilnu tekstu un praktiskām zināšanām.",
+                    "We are actively working on content. These articles will soon be available with full text and practical knowledge."
+                  )}
                 </p>
                 <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                   <Button variant="hero">
-                    Saņemt paziņojumu
+                    {t("Saņemt paziņojumu", "Get notified")}
                   </Button>
                 </Link>
               </div>
@@ -203,18 +213,21 @@ export default function Blog() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">
-                Vēlaties personalizētas <span className="text-gradient-orange">zināšanas</span>?
+                {t("Vēlaties personalizētas", "Want personalized")} <span className="text-gradient-orange">{t("zināšanas", "knowledge")}</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-lg text-muted-foreground mb-8">
-                Bezmaksas konsultācijā dalīsimies ar insights, kas attiecas tieši uz jūsu biznesu.
+                {t(
+                  "Bezmaksas konsultācijā dalīsimies ar insights, kas attiecas tieši uz jūsu biznesu.",
+                  "In a free consultation, we'll share insights that apply specifically to your business."
+                )}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                 <Button variant="hero" size="xl">
-                  Rezervēt konsultāciju
+                  {t("Rezervēt konsultāciju", "Book a consultation")}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>

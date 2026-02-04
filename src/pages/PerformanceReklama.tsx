@@ -11,60 +11,70 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-const controlProblems = ["Nezināt, kura kampaņa tiešām nes peļņu", "Aģentūras atskaites, ko neviens nesaprot", "Budžets, kas iztukšojas bez skaidra ROI", "A/B testi bez reāla mācīšanās"];
-const platforms = [{
-  name: "Meta Ads",
-  icon: Eye
-}, {
-  name: "Google Ads",
-  icon: Target
-}, {
-  name: "LinkedIn Ads",
-  icon: MousePointer
-}, {
-  name: "TikTok Ads",
-  icon: Activity
-}];
-const signals = [{
-  label: "CTR",
-  value: "2.4%",
-  trend: "up",
-  color: "text-green-600"
-}, {
-  label: "CPA",
-  value: "€12.50",
-  trend: "down",
-  color: "text-green-600"
-}, {
-  label: "ROAS",
-  value: "4.2x",
-  trend: "up",
-  color: "text-green-600"
-}, {
-  label: "Conv. Rate",
-  value: "3.8%",
-  trend: "up",
-  color: "text-green-600"
-}];
-const approach = [{
-  icon: PieChart,
-  title: "Atribūcijas modelēšana",
-  description: "Ziniet precīzi, kura saskarsme noveda pie pirkuma"
-}, {
-  icon: Gauge,
-  title: "Real-time monitorings",
-  description: "Signāli, kas brīdina pirms budžets ir iztērēts"
-}, {
-  icon: DollarSign,
-  title: "Budžeta optimizācija",
-  description: "Dinamiska pārdale uz labāk strādājošiem kanāliem"
-}, {
-  icon: ShoppingCart,
-  title: "Pilna piltuve",
-  description: "No apzināšanās līdz pirkumam — viss redzams"
-}];
+// Data moved inside component to use t() function
 export default function PerformanceReklama() {
-  const { t, getLocalizedPath } = useLanguage();
+  const { t, getLocalizedPath, language } = useLanguage();
+
+  const controlProblems = [
+    t("Nezināt, kura kampaņa tiešām nes peļņu", "Not knowing which campaign actually brings profit"),
+    t("Aģentūras atskaites, ko neviens nesaprot", "Agency reports that no one understands"),
+    t("Budžets, kas iztukšojas bez skaidra ROI", "Budget that drains without clear ROI"),
+    t("A/B testi bez reāla mācīšanās", "A/B tests without real learning")
+  ];
+
+  const platforms = [{
+    name: "Meta Ads",
+    icon: Eye
+  }, {
+    name: "Google Ads",
+    icon: Target
+  }, {
+    name: "LinkedIn Ads",
+    icon: MousePointer
+  }, {
+    name: "TikTok Ads",
+    icon: Activity
+  }];
+
+  const signals = [{
+    label: "CTR",
+    value: "2.4%",
+    trend: "up",
+    color: "text-green-600"
+  }, {
+    label: "CPA",
+    value: "€12.50",
+    trend: "down",
+    color: "text-green-600"
+  }, {
+    label: "ROAS",
+    value: "4.2x",
+    trend: "up",
+    color: "text-green-600"
+  }, {
+    label: "Conv. Rate",
+    value: "3.8%",
+    trend: "up",
+    color: "text-green-600"
+  }];
+
+  const approach = [{
+    icon: PieChart,
+    title: t("Atribūcijas modelēšana", "Attribution modeling"),
+    description: t("Ziniet precīzi, kura saskarsme noveda pie pirkuma", "Know precisely which touchpoint led to purchase")
+  }, {
+    icon: Gauge,
+    title: t("Real-time monitorings", "Real-time monitoring"),
+    description: t("Signāli, kas brīdina pirms budžets ir iztērēts", "Signals that warn before budget is spent")
+  }, {
+    icon: DollarSign,
+    title: t("Budžeta optimizācija", "Budget optimization"),
+    description: t("Dinamiska pārdale uz labāk strādājošiem kanāliem", "Dynamic reallocation to better-performing channels")
+  }, {
+    icon: ShoppingCart,
+    title: t("Pilna piltuve", "Full funnel"),
+    description: t("No apzināšanās līdz pirkumam — viss redzams", "From awareness to purchase — everything visible")
+  }];
   
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
@@ -110,9 +120,9 @@ export default function PerformanceReklama() {
               
               <ScrollReveal delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.1] lg:text-7xl">
-                  Maksas reklāmu{" "}
+                  {t("Maksas reklāmu", "Paid advertising")}{" "}
                   <span className="relative inline-block">
-                    <span className="text-gradient-orange">pārvalde</span>
+                    <span className="text-gradient-orange">{t("pārvalde", "management")}</span>
                     <motion.span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-amber-400 to-primary rounded-full" initial={{
                     scaleX: 0
                   }} animate={{
@@ -127,7 +137,10 @@ export default function PerformanceReklama() {
               
               <ScrollReveal delay={0.2}>
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-                  Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.
+                  {t(
+                    "Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.",
+                    "Paid advertising solutions that focus on demand generation, conversions, and measurable results across multiple channels."
+                  )}
                 </p>
               </ScrollReveal>
               
@@ -135,7 +148,7 @@ export default function PerformanceReklama() {
                 <div className="flex flex-wrap gap-4">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg" className="group">
-                      Sākt sadarbību
+                      {t("Sākt sadarbību", "Start collaboration")}
                       <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>

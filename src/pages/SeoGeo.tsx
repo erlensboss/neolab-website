@@ -34,24 +34,26 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const diagnosticsSteps = [
-  { icon: Layers, label: "Tehniskais audits", description: "Pilna vietnes analīze" },
-  { icon: FileText, label: "Satura inventārs", description: "Kas strādā, kas nē" },
-  { icon: Target, label: "Konkurentu izpēte", description: "Tirgus pozicionēšana" },
-  { icon: BarChart3, label: "Ranku analīze", description: "Esošās pozīcijas" },
-];
-
-const geoFeatures = [
-  "Google My Business optimizācija",
-  "Lokālo atsauksmju stratēģija",
-  "NAP konsistence",
-  "Lokālais satura mārketings",
-  "Ģeogrāfiski mērķētas lapas",
-  "Strukturēti dati lokālajam biznesam",
-];
+// These will be translated inline with the t() function
 
 export default function SeoGeo() {
-  const { t, getLocalizedPath } = useLanguage();
+  const { t, getLocalizedPath, language } = useLanguage();
+
+  const diagnosticsSteps = [
+    { icon: Layers, label: t("Tehniskais audits", "Technical audit"), description: t("Pilna vietnes analīze", "Full site analysis") },
+    { icon: FileText, label: t("Satura inventārs", "Content inventory"), description: t("Kas strādā, kas nē", "What works, what doesn't") },
+    { icon: Target, label: t("Konkurentu izpēte", "Competitor research"), description: t("Tirgus pozicionēšana", "Market positioning") },
+    { icon: BarChart3, label: t("Ranku analīze", "Rank analysis"), description: t("Esošās pozīcijas", "Current positions") },
+  ];
+
+  const geoFeatures = [
+    t("Google My Business optimizācija", "Google My Business optimization"),
+    t("Lokālo atsauksmju stratēģija", "Local review strategy"),
+    t("NAP konsistence", "NAP consistency"),
+    t("Lokālais satura mārketings", "Local content marketing"),
+    t("Ģeogrāfiski mērķētas lapas", "Geographically targeted pages"),
+    t("Strukturēti dati lokālajam biznesam", "Structured data for local business"),
+  ];
 
   return (
     <div className="overflow-hidden">
@@ -105,14 +107,16 @@ export default function SeoGeo() {
 
               <ScrollReveal delay={0.1}>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 text-foreground">
-                  SEO un GEO optimizācija <span className="text-gradient-orange">uzņēmumiem</span>
+                  {t("SEO un GEO optimizācija", "SEO and GEO optimization")} <span className="text-gradient-orange">{t("uzņēmumiem", "for businesses")}</span>
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
                 <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-6 md:mb-10">
-                  Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā
-                  digitālajai redzamībai.
+                  {t(
+                    "Kvalitatīvi un pārbaudīti SEO un GEO risinājumi, balstīti pieredzē, datos un skaidrā pieejā digitālajai redzamībai.",
+                    "Quality and proven SEO and GEO solutions, based on experience, data, and a clear approach to digital visibility."
+                  )}
                 </p>
               </ScrollReveal>
 
@@ -120,7 +124,7 @@ export default function SeoGeo() {
                 <div className="flex flex-wrap gap-4">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg">
-                      Pieteikties auditam
+                      {t("Pieteikties auditam", "Apply for audit")}
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
@@ -143,7 +147,7 @@ export default function SeoGeo() {
                       >
                         <Search className="w-4 h-4 md:w-5 md:h-5 text-white" />
                       </motion.div>
-                      <span className="font-semibold text-sm md:text-base text-foreground">Redzamības sistēma</span>
+                      <span className="font-semibold text-sm md:text-base text-foreground">{t("Redzamības sistēma", "Visibility system")}</span>
                     </div>
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-primary/20" />
@@ -190,25 +194,25 @@ export default function SeoGeo() {
 
                   {/* Results indicator */}
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-green-200/50">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <motion.div
-                          className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-green-500/20 flex items-center justify-center"
-                          animate={{ scale: [1, 1.1, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-green-600" />
-                        </motion.div>
-                        <span className="text-xs md:text-sm font-medium text-green-700">Sistēmiska izaugsme</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <motion.div
-                          className="w-2 h-2 rounded-full bg-green-400"
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
-                        <span className="text-xs text-green-600 font-medium">Aktīvs</span>
-                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <motion.div
+                            className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-green-500/20 flex items-center justify-center"
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-green-600" />
+                          </motion.div>
+                          <span className="text-xs md:text-sm font-medium text-green-700">{t("Sistēmiska izaugsme", "Systematic growth")}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <motion.div
+                            className="w-2 h-2 rounded-full bg-green-400"
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                          <span className="text-xs text-green-600 font-medium">{t("Aktīvs", "Active")}</span>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -251,10 +255,10 @@ export default function SeoGeo() {
         <div className="container-neo relative z-10">
           <ScrollReveal>
             <div className="text-center mb-12 md:mb-16">
-              <span className="chip mb-6 inline-block text-sm">Pamati</span>
+              <span className="chip mb-6 inline-block text-sm">{t("Pamati", "Basics")}</span>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                Kas ir <span className="text-gradient-orange">SEO</span> un{" "}
-                <span className="text-gradient-orange">GEO</span> optimizācija
+                {t("Kas ir", "What is")} <span className="text-gradient-orange">SEO</span> {t("un", "and")}{" "}
+                <span className="text-gradient-orange">GEO</span> {t("optimizācija", "optimization")}
               </h2>
             </div>
           </ScrollReveal>
@@ -280,16 +284,17 @@ export default function SeoGeo() {
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground">SEO</h3>
                       <span className="text-xs md:text-sm text-primary font-medium">
-                        Meklētājprogrammu optimizācija
+                        {t("Meklētājprogrammu optimizācija", "Search engine optimization")}
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                    SEO optimizācija nodrošina uzņēmuma redzamību tradicionālajās meklētājprogrammās, galvenokārt
-                    Google, uzlabojot mājaslapas tehnisko kvalitāti, saturu un struktūru. Tā palīdz piesaistīt stabilu,
-                    ilgtermiņa organisko datplūsmu.
+                    {t(
+                      "SEO optimizācija nodrošina uzņēmuma redzamību tradicionālajās meklētājprogrammās, galvenokārt Google, uzlabojot mājaslapas tehnisko kvalitāti, saturu un struktūru. Tā palīdz piesaistīt stabilu, ilgtermiņa organisko datplūsmu.",
+                      "SEO optimization ensures business visibility in traditional search engines, primarily Google, by improving website technical quality, content, and structure. It helps attract stable, long-term organic traffic."
+                    )}
                   </p>
 
                   {/* Visual element - search results mockup */}
@@ -314,9 +319,14 @@ export default function SeoGeo() {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-6">
-                    {["Google", "Tehnika", "Saturs", "Ilgtermiņš"].map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium">
-                        {tag}
+                    {[
+                      { lv: "Google", en: "Google" },
+                      { lv: "Tehnika", en: "Technical" },
+                      { lv: "Saturs", en: "Content" },
+                      { lv: "Ilgtermiņš", en: "Long-term" }
+                    ].map((tag) => (
+                      <span key={tag.lv} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium">
+                        {t(tag.lv, tag.en)}
                       </span>
                     ))}
                   </div>
@@ -355,17 +365,17 @@ export default function SeoGeo() {
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground">GEO</h3>
                       <span className="text-xs md:text-sm text-amber-600 font-medium">
-                        Ģeneratīvā meklēšanas optimizācija
+                        {t("Ģeneratīvā meklēšanas optimizācija", "Generative search optimization")}
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                    GEO optimizācija fokusējas uz redzamību AI balstītos meklējumos un ģeneratīvajās atbildēs, kur
-                    informācija netiek vienkārši parādīta kā saišu saraksts, bet tiek apkopota, interpretēta un
-                    ieteikta. Tā palīdz uzņēmumam būt klātesošam tur, kur lietotāji uzdod jautājumus un sagaida
-                    konkrētas, uzticamas atbildes.{" "}
+                    {t(
+                      "GEO optimizācija fokusējas uz redzamību AI balstītos meklējumos un ģeneratīvajās atbildēs, kur informācija netiek vienkārši parādīta kā saišu saraksts, bet tiek apkopota, interpretēta un ieteikta. Tā palīdz uzņēmumam būt klātesošam tur, kur lietotāji uzdod jautājumus un sagaida konkrētas, uzticamas atbildes.",
+                      "GEO optimization focuses on visibility in AI-based searches and generative responses, where information is not simply displayed as a list of links but is compiled, interpreted, and recommended. It helps businesses be present where users ask questions and expect concrete, reliable answers."
+                    )}{" "}
                   </p>
                   {/* Visual element - AI answer mockup */}
                   <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-200/50">
@@ -387,12 +397,18 @@ export default function SeoGeo() {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-6">
-                    {["AI", "AI meklēšana", "ChatGPT", "Gemini", "Nākotne"].map((tag) => (
+                    {[
+                      { lv: "AI", en: "AI" },
+                      { lv: "AI meklēšana", en: "AI search" },
+                      { lv: "ChatGPT", en: "ChatGPT" },
+                      { lv: "Gemini", en: "Gemini" },
+                      { lv: "Nākotne", en: "Future" }
+                    ].map((tag) => (
                       <span
-                        key={tag}
+                        key={tag.lv}
                         className="px-3 py-1 bg-amber-100 text-amber-700 text-sm rounded-full font-medium"
                       >
-                        {tag}
+                        {t(tag.lv, tag.en)}
                       </span>
                     ))}
                   </div>
@@ -437,9 +453,12 @@ export default function SeoGeo() {
                   </motion.div>
                 </div>
                 <p className="text-lg md:text-xl lg:text-2xl text-foreground font-medium leading-relaxed">
-                  Apvienojot SEO un GEO, uzņēmums veido redzamību gan{" "}
-                  <span className="text-primary font-semibold">šodienas</span>, gan{" "}
-                  <span className="text-amber-600 font-semibold">nākotnes</span> meklēšanas vidēs.
+                  {t(
+                    "Apvienojot SEO un GEO, uzņēmums veido redzamību gan",
+                    "By combining SEO and GEO, a business builds visibility in both"
+                  )}{" "}
+                  <span className="text-primary font-semibold">{t("šodienas", "today's")}</span>, {t("gan", "and")}{" "}
+                  <span className="text-amber-600 font-semibold">{t("nākotnes", "tomorrow's")}</span> {t("meklēšanas vidēs.", "search environments.")}
                 </p>
               </div>
             </motion.div>
