@@ -666,91 +666,146 @@ export default function AiAutomatizacija() {
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
               <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
                 <Workflow className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
-                Piedāvājumi
+                {t("Piedāvājumi", "Offerings")}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
-                NEOLab AI automatizācijas <span className="text-gradient-orange">piedāvājumi</span>
+                {t("NEOLab AI automatizācijas", "NEOLab AI Automation")} <span className="text-gradient-orange">{t("piedāvājumi", "offerings")}</span>
               </h2>
             </div>
           </ScrollReveal>
 
-          {/* Products Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {/* Products Grid - Premium Design */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 icon: MessageSquare,
                 title: "LinkedIn Content System",
-                description:
-                  "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu. Samazina laiku satura plānošanai un palīdz uzturēt konsekventu komunikāciju.",
+                descriptionLv: "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu.",
+                descriptionEn: "Automated system that helps regularly create and publish LinkedIn content, analyzing topics, existing content, and industry context.",
                 link: "/ai-automatizacija/linkedin-content-system",
-                accent: "from-primary to-orange-400",
+                gradient: "from-blue-500 via-blue-600 to-indigo-600",
+                bgGlow: "bg-blue-500/20",
+                features: [
+                  { lv: "Satura kalendārs", en: "Content calendar" },
+                  { lv: "Tēmu izpēte", en: "Topic research" },
+                  { lv: "AI rakstīšana", en: "AI writing" },
+                ],
               },
               {
                 icon: Users,
                 title: "Lead Capture Agent",
-                description:
-                  "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus. Palīdz nepazaudēt pieprasījumus un samazināt manuālu iesaisti.",
+                descriptionLv: "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus.",
+                descriptionEn: "AI agent that communicates with website visitors, answers questions, and collects potential customer contacts.",
                 link: "/ai-automatizacija/lead-capture-agent",
-                accent: "from-amber-400 to-orange-500",
+                gradient: "from-amber-400 via-amber-500 to-orange-500",
+                bgGlow: "bg-amber-500/20",
+                features: [
+                  { lv: "24/7 pieejamība", en: "24/7 availability" },
+                  { lv: "CRM integrācija", en: "CRM integration" },
+                  { lv: "Kvalificēšana", en: "Qualification" },
+                ],
               },
               {
                 icon: Zap,
                 title: "Speed-to-Lead System",
-                description:
-                  "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus. Palīdz būt pirmajiem, kas atbild.",
+                descriptionLv: "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus.",
+                descriptionEn: "System that responds to new leads almost instantly, transfers data to CRM, and notifies responsible people.",
                 link: "/ai-automatizacija/speed-to-lead",
-                accent: "from-orange-500 to-red-400",
+                gradient: "from-orange-500 via-red-500 to-rose-500",
+                bgGlow: "bg-orange-500/20",
+                features: [
+                  { lv: "5 sek reakcija", en: "5 sec response" },
+                  { lv: "Auto paziņojumi", en: "Auto notifications" },
+                  { lv: "CRM sync", en: "CRM sync" },
+                ],
               },
               {
                 icon: Layers,
                 title: "Client Onboarding System",
-                description:
-                  "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā. Samazina haosu sadarbības sākumā.",
+                descriptionLv: "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā.",
+                descriptionEn: "Automates the client onboarding process – from first messages to internal task distribution in the team.",
                 link: "/ai-automatizacija/client-onboarding",
-                accent: "from-primary to-amber-500",
+                gradient: "from-primary via-orange-500 to-amber-500",
+                bgGlow: "bg-primary/20",
+                features: [
+                  { lv: "Uzdevumu sadale", en: "Task assignment" },
+                  { lv: "E-pasta secības", en: "Email sequences" },
+                  { lv: "Kalendārs", en: "Calendar" },
+                ],
               },
               {
                 icon: MessageSquare,
                 title: "Customer Support Chatbot",
-                description:
-                  "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
+                descriptionLv: "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
+                descriptionEn: "AI chatbot for customer question handling that can answer FAQs and hand off complex cases to the team.",
                 link: "/ai-automatizacija/support-chatbot",
-                accent: "from-amber-500 to-primary",
+                gradient: "from-amber-500 via-primary to-orange-600",
+                bgGlow: "bg-amber-500/20",
+                features: [
+                  { lv: "AI atbildes", en: "AI responses" },
+                  { lv: "Nodošana cilvēkam", en: "Human handoff" },
+                  { lv: "Analītika", en: "Analytics" },
+                ],
               },
             ].map((product, index) => (
               <ScrollReveal key={product.title} delay={0.05 + index * 0.05}>
                 <motion.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="group h-full"
                 >
-                  <div className="relative bg-card/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-border shadow-neo h-full flex flex-col hover:shadow-neo-lg hover:border-primary/20 transition-all duration-300">
-                    {/* Icon */}
-                    <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${product.accent} flex items-center justify-center mb-3 sm:mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300`}
-                    >
-                      <product.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                  <Link to={getLocalizedPath(product.link)} className="block h-full">
+                    <div className="relative bg-card/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-neo h-full flex flex-col hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
+                      {/* Gradient top accent */}
+                      <div className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`} />
+                      
+                      {/* Glow effect on hover */}
+                      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 ${product.bgGlow} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+                      
+                      <div className="relative p-6 sm:p-8 flex flex-col flex-1">
+                        {/* Icon with animated ring */}
+                        <div className="relative mb-6">
+                          <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                            <product.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                          </div>
+                          {/* Pulse ring */}
+                          <motion.div 
+                            className={`absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-primary/30 opacity-0 group-hover:opacity-100`}
+                            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          />
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                          {product.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
+                          {t(product.descriptionLv, product.descriptionEn)}
+                        </p>
+                        
+                        {/* Feature tags */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {product.features.map((feature, i) => (
+                            <span 
+                              key={i} 
+                              className="text-xs px-3 py-1.5 bg-muted/70 rounded-full text-muted-foreground font-medium"
+                            >
+                              {t(feature.lv, feature.en)}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <div className="flex items-center gap-2 text-primary font-semibold text-sm md:text-base group-hover:gap-4 transition-all duration-300">
+                          {t("Uzzināt vairāk", "Learn more")}
+                          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-2 sm:mb-3">
-                      {product.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 flex-1">
-                      {product.description}
-                    </p>
-
-                    {/* CTA */}
-                    <Link
-                      to={product.link}
-                      className="inline-flex items-center gap-2 text-primary font-medium text-xs sm:text-sm md:text-base group-hover:gap-3 transition-all duration-300"
-                    >
-                      Uzzināt vairāk
-                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </Link>
-                  </div>
+                  </Link>
                 </motion.div>
               </ScrollReveal>
             ))}
