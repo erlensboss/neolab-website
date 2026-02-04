@@ -32,59 +32,61 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const manualProblems = [
-  { icon: Clock, text: "Stundas pavadītas atkārtojošos uzdevumos" },
-  { icon: Users, text: "Cilvēki dara robotu darbu" },
-  { icon: RefreshCcw, text: "Tie paši procesi katru dienu" },
-  { icon: Database, text: "Dati, kas jāpārvieto manuāli" },
-];
-
-const automationModules = [
-  {
-    icon: Mail,
-    title: "E-pasta automatizācija",
-    description: "Personalizētas secības, trigeri, follow-ups",
-    complexity: "Vienkārši",
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "Datu sinhronizācija",
-    description: "CRM, spreadsheets, datubāzes — viss savienots",
-    complexity: "Vidēji",
-  },
-  {
-    icon: MessageSquare,
-    title: "Klientu apkalpošana",
-    description: "AI chatboti, automātiski atbildes, routing",
-    complexity: "Vidēji",
-  },
-  {
-    icon: Workflow,
-    title: "Pilnas darba plūsmas",
-    description: "No lead līdz klientam — automatizēts ceļš",
-    complexity: "Kompleksi",
-  },
-];
-
-const benefits = [
-  "Ietaupiet 10+ stundas nedēļā",
-  "Samaziniet cilvēciskās kļūdas",
-  "Ātrāka reakcija uz klientiem",
-  "Skaidra datu plūsma",
-  "Mērogojamība bez papildu resursiem",
-  "Focus uz stratēģisku darbu",
-];
-
-// System nodes for hero visual
-const systemNodes = [
-  { id: "input", icon: Zap, label: "Trigeris", x: 10, y: 50 },
-  { id: "process", icon: Workflow, label: "Process", x: 40, y: 25 },
-  { id: "ai", icon: Brain, label: "AI", x: 50, y: 75 },
-  { id: "output", icon: BarChart3, label: "Rezultāts", x: 85, y: 50 },
-];
+// Data moved inside component to use t() function
 
 export default function AiAutomatizacija() {
-  const { t, getLocalizedPath } = useLanguage();
+  const { t, getLocalizedPath, language } = useLanguage();
+
+  const manualProblems = [
+    { icon: Clock, text: t("Stundas pavadītas atkārtojošos uzdevumos", "Hours spent on repetitive tasks") },
+    { icon: Users, text: t("Cilvēki dara robotu darbu", "People doing robot work") },
+    { icon: RefreshCcw, text: t("Tie paši procesi katru dienu", "The same processes every day") },
+    { icon: Database, text: t("Dati, kas jāpārvieto manuāli", "Data that needs to be moved manually") },
+  ];
+
+  const automationModules = [
+    {
+      icon: Mail,
+      title: t("E-pasta automatizācija", "Email automation"),
+      description: t("Personalizētas secības, trigeri, follow-ups", "Personalized sequences, triggers, follow-ups"),
+      complexity: t("Vienkārši", "Simple"),
+    },
+    {
+      icon: FileSpreadsheet,
+      title: t("Datu sinhronizācija", "Data synchronization"),
+      description: t("CRM, spreadsheets, datubāzes — viss savienots", "CRM, spreadsheets, databases — all connected"),
+      complexity: t("Vidēji", "Medium"),
+    },
+    {
+      icon: MessageSquare,
+      title: t("Klientu apkalpošana", "Customer service"),
+      description: t("AI chatboti, automātiski atbildes, routing", "AI chatbots, automatic responses, routing"),
+      complexity: t("Vidēji", "Medium"),
+    },
+    {
+      icon: Workflow,
+      title: t("Pilnas darba plūsmas", "Complete workflows"),
+      description: t("No lead līdz klientam — automatizēts ceļš", "From lead to client — automated path"),
+      complexity: t("Kompleksi", "Complex"),
+    },
+  ];
+
+  const benefits = [
+    t("Ietaupiet 10+ stundas nedēļā", "Save 10+ hours per week"),
+    t("Samaziniet cilvēciskās kļūdas", "Reduce human errors"),
+    t("Ātrāka reakcija uz klientiem", "Faster response to clients"),
+    t("Skaidra datu plūsma", "Clear data flow"),
+    t("Mērogojamība bez papildu resursiem", "Scalability without additional resources"),
+    t("Focus uz stratēģisku darbu", "Focus on strategic work"),
+  ];
+
+  // System nodes for hero visual
+  const systemNodes = [
+    { id: "input", icon: Zap, label: t("Trigeris", "Trigger"), x: 10, y: 50 },
+    { id: "process", icon: Workflow, label: t("Process", "Process"), x: 40, y: 25 },
+    { id: "ai", icon: Brain, label: "AI", x: 50, y: 75 },
+    { id: "output", icon: BarChart3, label: t("Rezultāts", "Result"), x: 85, y: 50 },
+  ];
 
   return (
     <div className="overflow-hidden">
@@ -130,21 +132,23 @@ export default function AiAutomatizacija() {
               <ScrollReveal>
                 <span className="chip-outline mb-4 sm:mb-6 md:mb-8 inline-block text-xs sm:text-sm">
                   <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
-                  Mākslīgais intelekts
+                  {t("Mākslīgais intelekts", "Artificial intelligence")}
                 </span>
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 text-foreground leading-tight px-2 sm:px-0">
-                  AI automatizācijas - <span className="text-gradient-orange">jaunās paaudzes</span>
-                  <br className="hidden sm:block" /> risinājums uzņēmumiem
+                  {t("AI automatizācijas -", "AI automation -")} <span className="text-gradient-orange">{t("jaunās paaudzes", "next-generation")}</span>
+                  <br className="hidden sm:block" /> {t("risinājums uzņēmumiem", "solution for businesses")}
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
-                  Pārbaudīti mākslīgā intelekta risinājumi, kas palīdz uzņēmumiem sakārtot procesus, samazināt manuālo
-                  darbu un strādāt efektīvāk
+                  {t(
+                    "Pārbaudīti mākslīgā intelekta risinājumi, kas palīdz uzņēmumiem sakārtot procesus, samazināt manuālo darbu un strādāt efektīvāk",
+                    "Proven artificial intelligence solutions that help businesses organize processes, reduce manual work, and work more efficiently"
+                  )}
                 </p>
               </ScrollReveal>
 
@@ -155,7 +159,7 @@ export default function AiAutomatizacija() {
                     size="default"
                     className="text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6"
                   >
-                    Sākt ar bezmaksas konsultāciju
+                    {t("Sākt ar bezmaksas konsultāciju", "Start with a free consultation")}
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
                 </Link>
@@ -173,16 +177,16 @@ export default function AiAutomatizacija() {
                         <Brain className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">AI Sistēma</h3>
+                        <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">{t("AI Sistēma", "AI System")}</h3>
                         <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
-                          Automatizācijas centrs
+                          {t("Automatizācijas centrs", "Automation center")}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full bg-primary animate-pulse" />
                       <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground hidden xs:inline">
-                        Aktīvs
+                        {t("Aktīvs", "Active")}
                       </span>
                     </div>
                   </div>
@@ -252,8 +256,8 @@ export default function AiAutomatizacija() {
                       {/* Input Layer */}
                       <div className="absolute left-[12%] md:left-[14%] flex flex-col gap-4 md:gap-6 -translate-y-2">
                         {[
-                          { icon: Mail, label: "E-pasts" },
-                          { icon: Database, label: "Dati" },
+                          { icon: Mail, label: t("E-pasts", "Email") },
+                          { icon: Database, label: t("Dati", "Data") },
                           { icon: Users, label: "Leads" },
                         ].map((node, i) => (
                           <motion.div
@@ -312,8 +316,8 @@ export default function AiAutomatizacija() {
                           <BarChart3 className="w-7 h-7 md:w-8 md:h-8 text-primary-foreground" />
                         </div>
                         <div className="hidden md:block">
-                          <p className="text-sm font-medium text-foreground">Rezultāts</p>
-                          <p className="text-xs text-muted-foreground">Optimizēts</p>
+                          <p className="text-sm font-medium text-foreground">{t("Rezultāts", "Result")}</p>
+                          <p className="text-xs text-muted-foreground">{t("Optimizēts", "Optimized")}</p>
                         </div>
                       </motion.div>
                     </div>
@@ -322,9 +326,9 @@ export default function AiAutomatizacija() {
                   {/* Metrics Row */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
                     {[
-                      { label: "Procesu automatizēti", value: "85%", icon: Workflow },
-                      { label: "Laika ietaupījums", value: "10h+", icon: Clock },
-                      { label: "Efektivitātes pieaugums", value: "3x", icon: Zap },
+                      { label: t("Procesu automatizēti", "Processes automated"), value: "85%", icon: Workflow },
+                      { label: t("Laika ietaupījums", "Time saved"), value: "10h+", icon: Clock },
+                      { label: t("Efektivitātes pieaugums", "Efficiency increase"), value: "3x", icon: Zap },
                     ].map((metric, i) => (
                       <motion.div
                         key={metric.label}
@@ -375,9 +379,9 @@ export default function AiAutomatizacija() {
         <div className="container-neo relative z-10">
           <ScrollReveal>
             <div className="text-center mb-10 md:mb-14">
-              <span className="chip mb-6 inline-block text-sm">Pamati</span>
+              <span className="chip mb-6 inline-block text-sm">{t("Pamati", "Basics")}</span>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                Kas ir <span className="text-gradient-orange">AI automatizācija</span>
+                {t("Kas ir", "What is")} <span className="text-gradient-orange">{t("AI automatizācija", "AI automation")}</span>
               </h2>
             </div>
           </ScrollReveal>
