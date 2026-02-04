@@ -882,8 +882,8 @@ export default function SeoGeo() {
                 Kāds ir <span className="text-gradient-orange">NEOLab</span> risinājums
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, balstoties uz auditu,
-                prioritātēm un pakāpenisku ieviešanu.
+                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, kas balstīta auditos,
+                prioritātēs un pakāpeniskā ieviešanā.
               </p>
             </div>
           </ScrollReveal>
@@ -896,7 +896,7 @@ export default function SeoGeo() {
                 number: "01",
                 title: "SEO audits un situācijas izvērtējums",
                 description:
-                  "Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra un esošā redzamība meklējumos, lai noteiktu galvenās optimizācijas iespējas.",
+                  "Sadarbība vienmēr sākas ar auditu. Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra, konkurenti un esošā redzamība, lai saprastu, kur tieši slēpjas galvenās izaugsmes iespējas.",
                 accent: "from-primary to-orange-500",
                 delay: 0.1,
               },
@@ -905,7 +905,7 @@ export default function SeoGeo() {
                 number: "02",
                 title: "Tehniskā SEO optimizācija",
                 description:
-                  "Tiek sakārtoti tehniskie aspekti, kas ietekmē meklētājprogrammu uztveri un lietotāja pieredzi, tostarp lapas ātrums, struktūra un indeksācija.",
+                  "Balstoties audita secinājumos, tiek sakārtoti tehniskie aspekti — lapas ātrums, struktūra, indeksācija un citi pamati.",
                 accent: "from-orange-500 to-amber-500",
                 delay: 0.15,
               },
@@ -914,7 +914,7 @@ export default function SeoGeo() {
                 number: "03",
                 title: "Satura un atslēgvārdu struktūra",
                 description:
-                  "Tiek veidota loģiska satura struktūra, kas balstīta lietotāju meklēšanas paradumos un uzņēmuma mērķos, nodrošinot saprotamu informācijas plūsmu.",
+                  "Tiek veidota loģiska satura struktūra, kas balstīta reālos lietotāju meklējumos un uzņēmuma mērķos.",
                 accent: "from-amber-500 to-yellow-500",
                 delay: 0.2,
               },
@@ -923,7 +923,7 @@ export default function SeoGeo() {
                 number: "04",
                 title: "Keyword list veidošana",
                 description:
-                  "Tiek izstrādāts strukturēts atslēgvārdu saraksts, kas sadalīts pa lapām un meklēšanas nolūkiem, lai novērstu kanibalizāciju un palielinātu efektivitāti.",
+                  "Izstrādāts strukturēts atslēgvārdu saraksts, sadalīts pa lapām un meklēšanas nolūkiem, novēršot kanibalizāciju.",
                 accent: "from-yellow-500 to-amber-400",
                 delay: 0.25,
               },
@@ -941,7 +941,7 @@ export default function SeoGeo() {
                 number: "06",
                 title: "GEO stratēģijas izveide",
                 description:
-                  "Balstoties auditā, tiek izstrādāta GEO stratēģija, kas palīdz uzlabot redzamību jaunās paaudzes meklēšanas kanālos.",
+                  "Balstoties audita secinājumos, tiek izstrādāta GEO stratēģija redzamības uzlabošanai jaunās paaudzes meklēšanas kanālos.",
                 accent: "from-orange-500 to-primary",
                 delay: 0.35,
               },
