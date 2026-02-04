@@ -120,7 +120,7 @@ export default function SeoGeo() {
                 <div className="flex flex-wrap gap-4">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="lg">
-                      Sākt ar auditu
+                      Pieteikties auditam
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
@@ -494,7 +494,7 @@ export default function SeoGeo() {
               <span className="chip mb-6 inline-block text-sm">Sistēma</span>
               <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
                 <span className="text-gradient-orange">SEO</span> un <span className="text-gradient-orange">GEO</span>{" "}
-                nav viens rezultāts, tā ir<span className="text-gradient-orange">sistēma</span>. uzņēmuma labā.
+                nav viens rezultāts, tā ir <span className="text-gradient-orange">sistēma</span>. uzņēmuma labā.
               </h2>
             </div>
           </ScrollReveal>
@@ -506,7 +506,7 @@ export default function SeoGeo() {
                 icon: Eye,
                 title: "Stabilāka redzamība",
                 description:
-                  "Uzņēmums kļūst atrodams meklējumos brīdī, kad potenciālie klienti aktīvi meklē risinājumus. Redzamība vairs nav atkarīga no īstermiņa reklāmas budžetiem vai kampaņu intensitātes.",
+                  "Uzņēmums kļūst atrodams brīdī, kad potenciālie klienti aktīvi meklē risinājumus, nevis tikai redz reklāmu.",
                 gradient: "from-primary to-orange-500",
                 delay: 0.1,
               },
@@ -514,7 +514,7 @@ export default function SeoGeo() {
                 icon: Settings,
                 title: "Sakārtota digitālā struktūra",
                 description:
-                  "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte. Tas pozitīvi ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
+                  "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte, kas ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
                 gradient: "from-orange-500 to-amber-500",
                 delay: 0.15,
               },
@@ -522,7 +522,7 @@ export default function SeoGeo() {
                 icon: PieChart,
                 title: "Skaidrība par to, kas strādā",
                 description:
-                  "Uzņēmums saprot, kādi vaicājumi piesaista apmeklētājus, kā viņi nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
+                  "Uzņēmums saprot, kuri vaicājumi piesaista apmeklētājus, kā tie nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
                 gradient: "from-amber-500 to-yellow-500",
                 delay: 0.2,
               },
@@ -530,7 +530,7 @@ export default function SeoGeo() {
                 icon: Bot,
                 title: "Redzamība arī AI meklējumos",
                 description:
-                  "GEO optimizācija paplašina klātbūtni jaunās meklēšanas platformās un AI ģenerētajās atbildēs, kur lietotāji sagaida koncentrētu un uzticamu informāciju.",
+                  "GEO optimizācija paplašina klātbūtni jaunās paaudzes meklēšanas platformās un AI ģenerētajās atbildēs.",
                 gradient: "from-yellow-500 to-amber-400",
                 delay: 0.25,
               },
@@ -677,9 +677,9 @@ export default function SeoGeo() {
                 gradient: "from-primary to-orange-500",
                 bgGradient: "from-primary/5 to-orange-500/5",
                 situation:
-                  "Interneta veikals ar 2000+ produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija gandrīz nulle.",
+                  "Interneta veikals ar vairāk nekā 2000 produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija minimāls.",
                 solution:
-                  "Veicām pilnu tehnisko auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām kategorizācijas stratēģiju.",
+                  "Veicām pilnu SEO auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām skaidru kategorizācijas stratēģiju.",
                 result: "+340%",
                 resultLabel: "organiskā trafika pieaugums",
                 delay: 0.1,
@@ -690,11 +690,11 @@ export default function SeoGeo() {
                 gradient: "from-orange-500 to-amber-500",
                 bgGradient: "from-orange-500/5 to-amber-500/5",
                 situation:
-                  'Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti neatrada uzņēmumu, meklējot "būvniecība + pilsēta".',
+                  "Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti nespēja atrast uzņēmumu, meklējot pakalpojumu kopā ar pilsētu.",
                 solution:
-                  "Optimizējām Google My Business profilu, izveidojām lokālā satura stratēģiju un nodrošinājām NAP konsistenci visās platformās.",
+                  "SEO audita laikā identificējām problēmas lokālajā redzamībā, optimizējām Google profilu, sakārtojām NAP datus un izveidojām lokālā satura struktūru.",
                 result: "Top 3",
-                resultLabel: "lokālajos rezultātos",
+                resultLabel: "pozīcija lokālajos rezultātos",
                 delay: 0.2,
               },
               {
@@ -703,9 +703,9 @@ export default function SeoGeo() {
                 gradient: "from-amber-500 to-yellow-500",
                 bgGradient: "from-amber-500/5 to-yellow-500/5",
                 situation:
-                  "Konsultāciju uzņēmums saņēma daudz apmeklētāju, bet maz pieprasījumu. Augsts bounce rate, lietotāji aizgāja bez darbības.",
+                  "Konsultāciju uzņēmums saņēma apmeklētājus, bet maz pieprasījumu. Augsts bounce rate un neskaidra konversijas plūsma.",
                 solution:
-                  "Pārstrukturējām saturu uz lietotāja vajadzībām, izveidojām skaidru konversijas piltuvi un optimizējām galvenās piezemēšanās lapas.",
+                  "Balstoties audita secinājumos, pārstrukturējām saturu, uzlabojām galvenās lapas un izveidojām skaidru konversijas piltuvi.",
                 result: "+180%",
                 resultLabel: "vairāk kvalificētu pieprasījumu",
                 delay: 0.3,
