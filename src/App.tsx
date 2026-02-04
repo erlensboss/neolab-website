@@ -30,6 +30,13 @@ const KeywordList = lazy(() => import("./pages/seo-geo/KeywordList"));
 const GeoAudits = lazy(() => import("./pages/seo-geo/GeoAudits"));
 const GeoStrategija = lazy(() => import("./pages/seo-geo/GeoStrategija"));
 
+// AI Automation sub-pages
+const LinkedInContentSystem = lazy(() => import("./pages/ai-automatizacija/LinkedInContentSystem"));
+const LeadCaptureAgent = lazy(() => import("./pages/ai-automatizacija/LeadCaptureAgent"));
+const SpeedToLead = lazy(() => import("./pages/ai-automatizacija/SpeedToLead"));
+const ClientOnboarding = lazy(() => import("./pages/ai-automatizacija/ClientOnboarding"));
+const SupportChatbot = lazy(() => import("./pages/ai-automatizacija/SupportChatbot"));
+
 // Minimal loading fallback to prevent layout shift
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
@@ -62,6 +69,11 @@ const App = () => (
                 <Route path="/seo-un-geo/geo-audits" element={<GeoAudits />} />
                 <Route path="/seo-un-geo/geo-strategija" element={<GeoStrategija />} />
                 <Route path="/ai-automatizacija" element={<AiAutomatizacija />} />
+                <Route path="/ai-automatizacija/linkedin-content-system" element={<LinkedInContentSystem />} />
+                <Route path="/ai-automatizacija/lead-capture-agent" element={<LeadCaptureAgent />} />
+                <Route path="/ai-automatizacija/speed-to-lead" element={<SpeedToLead />} />
+                <Route path="/ai-automatizacija/client-onboarding" element={<ClientOnboarding />} />
+                <Route path="/ai-automatizacija/support-chatbot" element={<SupportChatbot />} />
                 <Route path="/performance-reklama" element={<PerformanceReklama />} />
                 <Route path="/ai-lab" element={<AiLab />} />
                 <Route path="/par-mums" element={<ParMums />} />
@@ -79,6 +91,11 @@ const App = () => (
                 <Route path="/en/seo-and-geo/geo-audits" element={<GeoAudits />} />
                 <Route path="/en/seo-and-geo/geo-strategy" element={<GeoStrategija />} />
                 <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
+                <Route path="/en/ai-automations/linkedin-content-system" element={<LinkedInContentSystem />} />
+                <Route path="/en/ai-automations/lead-capture-agent" element={<LeadCaptureAgent />} />
+                <Route path="/en/ai-automations/speed-to-lead" element={<SpeedToLead />} />
+                <Route path="/en/ai-automations/client-onboarding" element={<ClientOnboarding />} />
+                <Route path="/en/ai-automations/support-chatbot" element={<SupportChatbot />} />
                 <Route path="/en/performance-ads" element={<PerformanceReklama />} />
                 <Route path="/en/ai-lab" element={<AiLab />} />
                 <Route path="/en/about" element={<ParMums />} />

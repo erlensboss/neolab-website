@@ -18,6 +18,11 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/seo-un-geo/geo-audits", en: "/en/seo-and-geo/geo-audits", labelLv: "GEO Audits", labelEn: "GEO Audits" },
   { lv: "/seo-un-geo/geo-strategija", en: "/en/seo-and-geo/geo-strategy", labelLv: "GEO Stratēģija", labelEn: "GEO Strategy" },
   { lv: "/ai-automatizacija", en: "/en/ai-automations", labelLv: "AI Automatizācijas", labelEn: "AI Automation" },
+  { lv: "/ai-automatizacija/linkedin-content-system", en: "/en/ai-automations/linkedin-content-system", labelLv: "LinkedIn Content System", labelEn: "LinkedIn Content System" },
+  { lv: "/ai-automatizacija/lead-capture-agent", en: "/en/ai-automations/lead-capture-agent", labelLv: "Lead Capture Agent", labelEn: "Lead Capture Agent" },
+  { lv: "/ai-automatizacija/speed-to-lead", en: "/en/ai-automations/speed-to-lead", labelLv: "Speed-to-Lead System", labelEn: "Speed-to-Lead System" },
+  { lv: "/ai-automatizacija/client-onboarding", en: "/en/ai-automations/client-onboarding", labelLv: "Client Onboarding System", labelEn: "Client Onboarding System" },
+  { lv: "/ai-automatizacija/support-chatbot", en: "/en/ai-automations/support-chatbot", labelLv: "Customer Support Chatbot", labelEn: "Customer Support Chatbot" },
   { lv: "/performance-reklama", en: "/en/performance-ads", labelLv: "Digitālā reklāma", labelEn: "Digital Advertising" },
   { lv: "/ai-lab", en: "/en/ai-lab", labelLv: "AI Lab", labelEn: "AI Lab" },
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
@@ -90,7 +95,8 @@ export function getLocalizedPath(baseLvPath: string, lang: "lv" | "en"): string 
 export const navItems = routeMappings.filter(m => 
   m.lv !== "/" && 
   m.lv !== "/bezmaksas-konsultacija" &&
-  !m.lv.includes("/seo-un-geo/") // Exclude SEO sub-pages from nav
+  !m.lv.includes("/seo-un-geo/") && // Exclude SEO sub-pages from nav
+  !m.lv.includes("/ai-automatizacija/") // Exclude AI automation sub-pages from nav
 );
 
 // Footer service links
