@@ -124,34 +124,34 @@ export default function Index() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
-      <section className="relative min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden">
+      <section className="relative min-h-[auto] md:min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden">
         {/* Grid pattern — stronger */}
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.05] hidden sm:block"
           style={{
             backgroundImage: `linear-gradient(hsl(21 90% 48%) 1px, transparent 1px), linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
           }}
         />
 
-        {/* Orange glow accents */}
-        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+        {/* Orange glow accents - hidden on mobile for performance */}
+        <div className="absolute top-20 right-20 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-primary/8 rounded-full blur-3xl hidden sm:block" />
+        <div className="absolute bottom-10 left-10 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-primary/5 rounded-full blur-3xl hidden sm:block" />
 
         {/* 2-Column Grid Layout */}
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[70vh]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-10 sm:py-14 md:py-20 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center min-h-[auto] md:min-h-[70vh]">
             {/* LEFT COLUMN: Content — aligned left */}
-            <div className="lg:col-span-5 flex flex-col items-start text-left">
+            <div className="lg:col-span-5 flex flex-col items-start text-left order-1">
               <ScrollReveal>
-                <h1 className="mb-5 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
+                <h1 className="mb-4 sm:mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] sm:leading-[0.95]">
                   {t("Jauna ēra", "A New Era for")} <br />
                   <span className="text-gradient-orange">{t("optimizācijai", "Optimization")}</span>
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-md text-left">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-5 sm:mb-8 max-w-md text-left">
                   {t("Jauna pieeja digitālajai izaugsmei.", "A new approach to digital growth.")}
                 </p>
               </ScrollReveal>
@@ -161,17 +161,17 @@ export default function Index() {
                   <Button
                     variant="hero"
                     size="xl"
-                    className="mb-8 shadow-orange-strong hover:shadow-orange-hover text-lg px-10 py-7"
+                    className="mb-5 sm:mb-8 shadow-orange-strong hover:shadow-orange-hover text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-7"
                   >
                     {t("Pieteikt konsultāciju", "Book Consultation")}
-                    <ArrowRight className="ml-3 w-6 h-6" />
+                    <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                   </Button>
                 </Link>
               </ScrollReveal>
 
               {/* Enhanced Benefit chips — Larger with icons */}
               <ScrollReveal delay={0.3}>
-                <div className="flex flex-wrap gap-3 justify-start">
+                <div className="flex flex-wrap gap-2 sm:gap-3 justify-start">
                   {heroFeatures.map((feature, i) => (
                     <motion.div
                       key={i}
@@ -179,12 +179,12 @@ export default function Index() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 + i * 0.1 }}
                       whileHover={{ y: -3, boxShadow: "0 8px 25px hsla(21, 90%, 48%, 0.15)" }}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-sm font-medium text-foreground shadow-md cursor-default"
+                      className="flex items-center gap-2 sm:gap-3 px-2.5 sm:px-4 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl bg-background/90 backdrop-blur-sm border border-border/80 text-xs sm:text-sm font-medium text-foreground shadow-md cursor-default"
                     >
-                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <feature.icon className="w-4 h-4 text-primary" />
+                      <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg bg-primary/10 flex items-center justify-center">
+                        <feature.icon className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                       </div>
-                      {language === "lv" ? feature.lv : feature.en}
+                      <span className="whitespace-nowrap">{language === "lv" ? feature.lv : feature.en}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -192,7 +192,7 @@ export default function Index() {
             </div>
 
             {/* RIGHT COLUMN: Dashboard Visual - Optimized */}
-            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end order-2 mt-6 sm:mt-0">
               <OptimizedHeroVisual />
             </div>
           </div>
