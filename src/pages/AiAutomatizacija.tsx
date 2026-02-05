@@ -191,11 +191,70 @@ export default function AiAutomatizacija() {
                     </div>
                   </div>
 
-                  {/* AI Flow Visualization - Clean Grid Layout */}
-                  <div className="relative mb-4 sm:mb-6 md:mb-8">
-                    <div className="flex items-center justify-between gap-2 sm:gap-4">
-                      {/* Input Column */}
-                      <div className="flex flex-col gap-2 sm:gap-3 shrink-0">
+                  {/* Neural Network Visualization */}
+                  <div className="relative h-36 sm:h-48 md:h-64 mb-4 sm:mb-6 md:mb-8">
+                    {/* Connection lines SVG */}
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 200">
+                      {/* Layer 1 to Layer 2 connections */}
+                      {[30, 70, 110].map((y1, i) =>
+                        [60, 100, 140].map((y2, j) => (
+                          <motion.line
+                            key={`l1-${i}-${j}`}
+                            x1="80"
+                            y1={y1}
+                            x2="200"
+                            y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.5 + (i + j) * 0.1 }}
+                          />
+                        )),
+                      )}
+
+                      {/* Layer 2 to Layer 3 connections */}
+                      {[60, 100, 140].map((y1, i) =>
+                        [70, 130].map((y2, j) => (
+                          <motion.line
+                            key={`l2-${i}-${j}`}
+                            x1="200"
+                            y1={y1}
+                            x2="320"
+                            y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.8 + (i + j) * 0.1 }}
+                          />
+                        )),
+                      )}
+
+                      {/* Layer 3 to Output */}
+                      {[70, 130].map((y1, i) => (
+                        <motion.line
+                          key={`l3-${i}`}
+                          x1="320"
+                          y1={y1}
+                          x2="430"
+                          y2={100}
+                          stroke="hsl(21 90% 48%)"
+                          strokeWidth="2"
+                          strokeOpacity="0.5"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 1, delay: 1.1 + i * 0.1 }}
+                        />
+                      ))}
+                    </svg>
+
+                    {/* Neural Network Nodes */}
+                    <div className="absolute inset-0 flex items-center">
+                      {/* Input Layer */}
+                      <div className="absolute left-[12%] md:left-[14%] flex flex-col gap-4 md:gap-6 -translate-y-2">
                         {[
                           { icon: Mail, label: t("E-pasts", "Email") },
                           { icon: Database, label: t("Dati", "Data") },
@@ -203,100 +262,62 @@ export default function AiAutomatizacija() {
                         ].map((node, i) => (
                           <motion.div
                             key={node.label}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + i * 0.1 }}
-                            className="flex items-center gap-1.5 sm:gap-2"
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 + i * 0.1, type: "spring" }}
+                            className="flex items-center gap-2"
                           >
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-muted flex items-center justify-center shrink-0">
-                              <node.icon className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
+                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-muted flex items-center justify-center">
+                              <node.icon className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
                             </div>
-                            <span className="text-[10px] sm:text-xs text-muted-foreground hidden sm:inline whitespace-nowrap">
-                              {node.label}
-                            </span>
+                            <span className="text-xs text-muted-foreground hidden md:inline">{node.label}</span>
                           </motion.div>
                         ))}
                       </div>
 
-                      {/* Connection Flow - Animated Lines */}
-                      <div className="flex-1 flex items-center justify-center relative min-h-[120px] sm:min-h-[140px] md:min-h-[160px]">
-                        {/* Horizontal flow lines */}
-                        <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
-                          <defs>
-                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="hsl(21 90% 48%)" stopOpacity="0.2" />
-                              <stop offset="50%" stopColor="hsl(21 90% 48%)" stopOpacity="0.5" />
-                              <stop offset="100%" stopColor="hsl(21 90% 48%)" stopOpacity="0.3" />
-                            </linearGradient>
-                          </defs>
-                          
-                          {/* Curved flow paths */}
-                          {[0, 1, 2].map((i) => (
-                            <motion.path
-                              key={`path-top-${i}`}
-                              d={`M 0 ${25 + i * 35} Q ${25 + i * 5} ${40 + i * 10}, 50 50 T 100 ${35 + i * 15}`}
-                              fill="none"
-                              stroke="url(#lineGradient)"
-                              strokeWidth="1.5"
-                              vectorEffect="non-scaling-stroke"
-                              initial={{ pathLength: 0, opacity: 0 }}
-                              animate={{ pathLength: 1, opacity: 1 }}
-                              transition={{ delay: 0.5 + i * 0.15, duration: 0.8 }}
-                              style={{ 
-                                pathLength: 1,
-                                transform: `translateX(${i * 2}%)`,
-                              }}
-                            />
-                          ))}
-                        </svg>
-
-                        {/* Processing Nodes - Center Grid */}
-                        <div className="relative z-10 flex items-center gap-3 sm:gap-6 md:gap-10">
-                          {/* Layer 1 - Processing */}
-                          <div className="flex flex-col gap-2 sm:gap-3">
-                            {[Workflow, Settings, Layers].map((Icon, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.6 + i * 0.1, type: "spring", stiffness: 200 }}
-                                className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center"
-                              >
-                                <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />
-                              </motion.div>
-                            ))}
-                          </div>
-
-                          {/* Layer 2 - AI Core */}
-                          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6">
-                            {[Brain, Zap].map((Icon, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.9 + i * 0.15, type: "spring", stiffness: 200 }}
-                                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center"
-                              >
-                                <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary" />
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
+                      {/* Hidden Layer 1 */}
+                      <div className="absolute left-[38%] md:left-[40%] flex flex-col gap-4 md:gap-5 -translate-y-1">
+                        {[Workflow, Settings, Layers].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center"
+                          >
+                            <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </motion.div>
+                        ))}
                       </div>
 
-                      {/* Output Column */}
+                      {/* Hidden Layer 2 */}
+                      <div className="absolute left-[60%] md:left-[63%] flex flex-col gap-6 md:gap-8">
+                        {[Brain, Zap].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.9 + i * 0.1, type: "spring" }}
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/20 flex items-center justify-center"
+                          >
+                            <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Output Node */}
                       <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.2, type: "spring" }}
-                        className="flex items-center gap-2 sm:gap-3 shrink-0"
+                        className="absolute right-[10%] md:right-[12%] flex items-center gap-3"
                       >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-orange shadow-orange flex items-center justify-center">
-                          <BarChart3 className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary-foreground" />
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-orange shadow-orange flex items-center justify-center">
+                          <BarChart3 className="w-7 h-7 md:w-8 md:h-8 text-primary-foreground" />
                         </div>
-                        <div className="hidden sm:block">
-                          <p className="text-xs sm:text-sm font-medium text-foreground">{t("Rezultāts", "Result")}</p>
-                          <p className="text-[10px] sm:text-xs text-muted-foreground">{t("Optimizēts", "Optimized")}</p>
+                        <div className="hidden md:block">
+                          <p className="text-sm font-medium text-foreground">{t("Rezultāts", "Result")}</p>
+                          <p className="text-xs text-muted-foreground">{t("Optimizēts", "Optimized")}</p>
                         </div>
                       </motion.div>
                     </div>
