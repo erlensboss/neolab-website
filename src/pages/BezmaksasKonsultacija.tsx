@@ -53,8 +53,8 @@ export default function BezmaksasKonsultacija() {
               <ScrollReveal delay={0.2}>
                 <p className="text-lg text-muted-foreground mb-8">
                   {t(
-                    "30 minūšu bezmaksas konsultācija, kurā auditēsim Jūsu uzņēmumu procesus, lai uzzinātu, kas ir Jums optimālākais risinājums.",
-                    "A 30-minute free consultation during which we will audit your company’s processes to identify the solution that best suits your needs.",
+                    "30 minūšu bezmaksas konsultācija, kurā izrunāsim jūsu situāciju un redzēsim, vai varam palīdzēt. Bez saistībām.",
+                    "A 30-minute free consultation where we'll discuss your situation and see if we can help. No strings attached.",
                   )}
                 </p>
               </ScrollReveal>
@@ -63,12 +63,16 @@ export default function BezmaksasKonsultacija() {
               <ScrollReveal delay={0.3}>
                 <div className="space-y-4 mb-8">
                   {[
-                    { icon: Clock, textLv: "30 minūtes jūsu biznesam", textEn: "30 minutes for your business" },
-                    { icon: MessageSquare, textLv: "Atklāta un godīga saruna", textEn: "Open and honest conversation" },
+                    {
+                      icon: Clock,
+                      textLv: "Velti 30 minūtes savam biznesam",
+                      textEn: "Dedicate 30 minutes for your business",
+                    },
+                    { icon: MessageSquare, textLv: "Ātra un noderīga saruna", textEn: "Fast and useful conversation" },
                     {
                       icon: CheckCircle2,
-                      textLv: "Konkrētas idejas, ne tukši solījumi",
-                      textEn: "Concrete ideas, not empty promises",
+                      textLv: "Konkrēts risinājumu plāns tavam uzņēmumam",
+                      textEn: "A precise solution plan for your business",
                     },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
