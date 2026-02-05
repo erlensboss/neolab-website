@@ -393,7 +393,7 @@ export default function ParMums() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/3 to-transparent blur-3xl" />
 
         <div className="container-neo section-padding relative z-10">
-          <SectionHeading chip="Stāsts" title="NEOLab stāsts" className="mb-16" />
+          <SectionHeading chip="Stāsts" title="NEOLab stāsts" gradientWord="NEOLab" className="mb-16" />
 
           {/* Story blocks with vertical timeline */}
           <div className="max-w-5xl mx-auto relative">
