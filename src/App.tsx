@@ -37,14 +37,6 @@ const SpeedToLead = lazy(() => import("./pages/ai-automatizacija/SpeedToLead"));
 const ClientOnboarding = lazy(() => import("./pages/ai-automatizacija/ClientOnboarding"));
 const SupportChatbot = lazy(() => import("./pages/ai-automatizacija/SupportChatbot"));
 
-// Performance Reklama sub-pages
-const ReklamasStrategija = lazy(() => import("./pages/performance-reklama/ReklamasStrategija"));
-const GoogleAds = lazy(() => import("./pages/performance-reklama/GoogleAds"));
-const MetaAds = lazy(() => import("./pages/performance-reklama/MetaAds"));
-const TikTokAds = lazy(() => import("./pages/performance-reklama/TikTokAds"));
-const MicrosoftAds = lazy(() => import("./pages/performance-reklama/MicrosoftAds"));
-const KonversijuOptimizacija = lazy(() => import("./pages/performance-reklama/KonversijuOptimizacija"));
-
 // Minimal loading fallback to prevent layout shift
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
@@ -83,12 +75,6 @@ const App = () => (
                 <Route path="/ai-automatizacija/client-onboarding" element={<ClientOnboarding />} />
                 <Route path="/ai-automatizacija/support-chatbot" element={<SupportChatbot />} />
                 <Route path="/performance-reklama" element={<PerformanceReklama />} />
-                <Route path="/performance-reklama/reklamas-strategija" element={<ReklamasStrategija />} />
-                <Route path="/performance-reklama/google-ads" element={<GoogleAds />} />
-                <Route path="/performance-reklama/meta-ads" element={<MetaAds />} />
-                <Route path="/performance-reklama/tiktok-ads" element={<TikTokAds />} />
-                <Route path="/performance-reklama/microsoft-ads" element={<MicrosoftAds />} />
-                <Route path="/performance-reklama/konversiju-optimizacija" element={<KonversijuOptimizacija />} />
                 <Route path="/ai-lab" element={<AiLab />} />
                 <Route path="/par-mums" element={<ParMums />} />
                 <Route path="/blog" element={<Blog />} />
@@ -111,12 +97,6 @@ const App = () => (
                 <Route path="/en/ai-automations/client-onboarding" element={<ClientOnboarding />} />
                 <Route path="/en/ai-automations/support-chatbot" element={<SupportChatbot />} />
                 <Route path="/en/performance-ads" element={<PerformanceReklama />} />
-                <Route path="/en/performance-ads/advertising-strategy" element={<ReklamasStrategija />} />
-                <Route path="/en/performance-ads/google-ads" element={<GoogleAds />} />
-                <Route path="/en/performance-ads/meta-ads" element={<MetaAds />} />
-                <Route path="/en/performance-ads/tiktok-ads" element={<TikTokAds />} />
-                <Route path="/en/performance-ads/microsoft-ads" element={<MicrosoftAds />} />
-                <Route path="/en/performance-ads/conversion-optimization" element={<KonversijuOptimizacija />} />
                 <Route path="/en/ai-lab" element={<AiLab />} />
                 <Route path="/en/about" element={<ParMums />} />
                 <Route path="/en/blog" element={<Blog />} />

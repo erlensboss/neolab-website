@@ -24,12 +24,6 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/ai-automatizacija/client-onboarding", en: "/en/ai-automations/client-onboarding", labelLv: "Client Onboarding System", labelEn: "Client Onboarding System" },
   { lv: "/ai-automatizacija/support-chatbot", en: "/en/ai-automations/support-chatbot", labelLv: "Customer Support Chatbot", labelEn: "Customer Support Chatbot" },
   { lv: "/performance-reklama", en: "/en/performance-ads", labelLv: "Digitālā reklāma", labelEn: "Digital Advertising" },
-  { lv: "/performance-reklama/reklamas-strategija", en: "/en/performance-ads/advertising-strategy", labelLv: "Reklāmas stratēģija", labelEn: "Advertising Strategy" },
-  { lv: "/performance-reklama/google-ads", en: "/en/performance-ads/google-ads", labelLv: "Google Ads", labelEn: "Google Ads" },
-  { lv: "/performance-reklama/meta-ads", en: "/en/performance-ads/meta-ads", labelLv: "Meta Ads", labelEn: "Meta Ads" },
-  { lv: "/performance-reklama/tiktok-ads", en: "/en/performance-ads/tiktok-ads", labelLv: "TikTok Ads", labelEn: "TikTok Ads" },
-  { lv: "/performance-reklama/microsoft-ads", en: "/en/performance-ads/microsoft-ads", labelLv: "Microsoft Ads", labelEn: "Microsoft Ads" },
-  { lv: "/performance-reklama/konversiju-optimizacija", en: "/en/performance-ads/conversion-optimization", labelLv: "Konversiju optimizācija", labelEn: "Conversion Optimization" },
   { lv: "/ai-lab", en: "/en/ai-lab", labelLv: "AI Lab", labelEn: "AI Lab" },
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
@@ -102,8 +96,7 @@ export const navItems = routeMappings.filter(m =>
   m.lv !== "/" && 
   m.lv !== "/bezmaksas-konsultacija" &&
   !m.lv.includes("/seo-un-geo/") && // Exclude SEO sub-pages from nav
-  !m.lv.includes("/ai-automatizacija/") && // Exclude AI automation sub-pages from nav
-  !m.lv.includes("/performance-reklama/") // Exclude Performance Reklama sub-pages from nav
+  !m.lv.includes("/ai-automatizacija/") // Exclude AI automation sub-pages from nav
 );
 
 // Footer service links

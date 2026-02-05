@@ -5,7 +5,12 @@ import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, 
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 const experiments = [{
   id: "exp-001",
   title: "Prognozējošā analītika",
@@ -52,10 +57,7 @@ function Star({
   }} />;
 }
 export default function AiLab() {
-  const {
-    t,
-    getLocalizedPath
-  } = useLanguage();
+  const { t, getLocalizedPath } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -442,96 +444,81 @@ export default function AiLab() {
 
       {/* ========== SECTION 4: Kāpēc AI Lab — Lightest, Most Advanced ========== */}
       <section className="relative overflow-hidden" style={{
-      background: `linear-gradient(180deg, hsl(28 75% 62%) 0%, hsl(30 70% 68%) 40%, hsl(32 65% 72%) 100%)`
-    }}>
+        background: `linear-gradient(180deg, hsl(28 75% 62%) 0%, hsl(30 70% 68%) 40%, hsl(32 65% 72%) 100%)`
+      }}>
         {/* Very subtle stars - minimal */}
         <div className="absolute inset-0 pointer-events-none">
           {Array.from({
-          length: 10
-        }, (_, i) => <motion.div key={`star-s4-${i}`} className="absolute rounded-full bg-white" style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          width: Math.random() * 1 + 0.5,
-          height: Math.random() * 1 + 0.5
-        }} initial={{
-          opacity: 0
-        }} animate={{
-          opacity: [0, 0.25, 0.1, 0.25, 0]
-        }} transition={{
-          duration: 7 + Math.random() * 4,
-          delay: Math.random() * 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />)}
+            length: 10
+          }, (_, i) => <motion.div key={`star-s4-${i}`} className="absolute rounded-full bg-white" style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            width: Math.random() * 1 + 0.5,
+            height: Math.random() * 1 + 0.5
+          }} initial={{
+            opacity: 0
+          }} animate={{
+            opacity: [0, 0.25, 0.1, 0.25, 0]
+          }} transition={{
+            duration: 7 + Math.random() * 4,
+            delay: Math.random() * 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }} />)}
         </div>
 
         {/* Advanced geometric pattern - DNA helix inspired */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Left side helix */}
-          <motion.div className="absolute left-0 top-0 bottom-0 w-32 opacity-[0.06]" animate={{
-          y: [0, -20, 0]
-        }} transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}>
-            {Array.from({
-            length: 8
-          }, (_, i) => <div key={`helix-l-${i}`} className="absolute" style={{
-            top: `${i * 14}%`
-          }}>
-                <div className="w-16 h-16 border border-white rounded-full" style={{
-              marginLeft: i % 2 === 0 ? '0' : '16px'
-            }} />
-              </div>)}
+          <motion.div 
+            className="absolute left-0 top-0 bottom-0 w-32 opacity-[0.06]"
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={`helix-l-${i}`} className="absolute" style={{ top: `${i * 14}%` }}>
+                <div className="w-16 h-16 border border-white rounded-full" style={{ marginLeft: i % 2 === 0 ? '0' : '16px' }} />
+              </div>
+            ))}
           </motion.div>
           
           {/* Right side helix */}
-          <motion.div className="absolute right-0 top-0 bottom-0 w-32 opacity-[0.06]" animate={{
-          y: [0, 20, 0]
-        }} transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}>
-            {Array.from({
-            length: 8
-          }, (_, i) => <div key={`helix-r-${i}`} className="absolute" style={{
-            top: `${i * 14}%`
-          }}>
-                <div className="w-16 h-16 border border-white rounded-full" style={{
-              marginLeft: i % 2 === 0 ? '16px' : '0'
-            }} />
-              </div>)}
+          <motion.div 
+            className="absolute right-0 top-0 bottom-0 w-32 opacity-[0.06]"
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={`helix-r-${i}`} className="absolute" style={{ top: `${i * 14}%` }}>
+                <div className="w-16 h-16 border border-white rounded-full" style={{ marginLeft: i % 2 === 0 ? '16px' : '0' }} />
+              </div>
+            ))}
           </motion.div>
         </div>
 
         {/* Top border accent - strong separation */}
         <div className="absolute top-0 left-0 right-0 h-px" style={{
-        background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.4) 50%, transparent 100%)`
-      }} />
+          background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.4) 50%, transparent 100%)`
+        }} />
 
         <div className="container-neo section-padding relative z-10">
           {/* Header with advanced badge */}
           <ScrollReveal className="text-center mb-16">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/30 bg-white/15 backdrop-blur-md mb-6" style={{
-            boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.3)"
-          }}>
-              <motion.div animate={{
-              rotate: 360
-            }} transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
+              boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.3)"
             }}>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
                 <Target className="w-4 h-4 text-white" />
               </motion.div>
               <span className="text-sm font-semibold text-white tracking-wide">Mūsu misija</span>
             </div>
             <h2 className="text-white" style={{
-            textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.25)"
-          }}>
-              ZZZTEST <span className="text-white/70">AI Lab</span> tiek veidots
+              textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.25)"
+            }}>
+              Kāpēc <span className="text-white/70">AI Lab</span> tiek veidots
             </h2>
           </ScrollReveal>
 
@@ -541,15 +528,15 @@ export default function AiLab() {
             <div className="lg:col-span-5">
               <ScrollReveal delay={0.1}>
                 <div className="relative p-8 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md" style={{
-                boxShadow: "0 16px 48px hsla(0, 0%, 0%, 0.12), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
-              }}>
+                  boxShadow: "0 16px 48px hsla(0, 0%, 0%, 0.12), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
+                }}>
                   {/* Decorative corner accents */}
                   <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/30 rounded-tl-lg" />
                   <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/30 rounded-br-lg" />
                   
                   <p className="text-lg text-white/95 leading-relaxed font-medium" style={{
-                  textShadow: "0 2px 12px hsla(0, 0%, 0%, 0.2)"
-                }}>
+                    textShadow: "0 2px 12px hsla(0, 0%, 0%, 0.2)"
+                  }}>
                     Latvijā un plašākā reģionā trūkst vietu, kur jaunieši var droši un atbildīgi attīstīt savas tehnoloģiju prasmes ar mākslīgo intelektu.
                   </p>
                 </div>
@@ -559,54 +546,54 @@ export default function AiLab() {
             {/* Right: Feature cards - advanced glass morphism */}
             <div className="lg:col-span-7">
               <div className="grid sm:grid-cols-2 gap-5">
-                {[{
-                icon: Shield,
-                text: "Droši strādāt ar mākslīgo intelektu",
-                delay: 0.15
-              }, {
-                icon: Lightbulb,
-                text: "Mācīties caur darīšanu, nevis tikai teoriju",
-                delay: 0.2
-              }, {
-                icon: Brain,
-                text: "Attīstīt reālas digitālās prasmes",
-                delay: 0.25
-              }, {
-                icon: Users,
-                text: "Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā",
-                delay: 0.3
-              }].map((item, index) => <ScrollReveal key={index} delay={item.delay}>
-                    <motion.div whileHover={{
-                  y: -6,
-                  scale: 1.02,
-                  boxShadow: "0 24px 48px hsla(0, 0%, 0%, 0.15), inset 0 1px 0 hsla(0, 0%, 100%, 0.4)"
-                }} className="relative p-6 rounded-2xl border border-white/25 bg-white/15 backdrop-blur-lg overflow-hidden group" style={{
-                  boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.25)"
-                }}>
+                {[
+                  { icon: Shield, text: "Droši strādāt ar mākslīgo intelektu", delay: 0.15 },
+                  { icon: Lightbulb, text: "Mācīties caur darīšanu, nevis tikai teoriju", delay: 0.2 },
+                  { icon: Brain, text: "Attīstīt reālas digitālās prasmes", delay: 0.25 },
+                  { icon: Users, text: "Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā", delay: 0.3 }
+                ].map((item, index) => (
+                  <ScrollReveal key={index} delay={item.delay}>
+                    <motion.div 
+                      whileHover={{ 
+                        y: -6, 
+                        scale: 1.02,
+                        boxShadow: "0 24px 48px hsla(0, 0%, 0%, 0.15), inset 0 1px 0 hsla(0, 0%, 100%, 0.4)"
+                      }}
+                      className="relative p-6 rounded-2xl border border-white/25 bg-white/15 backdrop-blur-lg overflow-hidden group"
+                      style={{
+                        boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.25)"
+                      }}
+                    >
                       {/* Animated gradient overlay on hover */}
-                      <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-                    background: "linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%)"
-                  }} />
+                      <motion.div 
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: "linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%)"
+                        }}
+                      />
                       
                       {/* Top accent line */}
                       <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                       
                       <div className="relative flex items-start gap-4">
-                        <motion.div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/20 border border-white/20 flex items-center justify-center" whileHover={{
-                      rotate: 5
-                    }} style={{
-                      boxShadow: "0 4px 16px hsla(0, 0%, 0%, 0.1)"
-                    }}>
+                        <motion.div 
+                          className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/20 border border-white/20 flex items-center justify-center"
+                          whileHover={{ rotate: 5 }}
+                          style={{
+                            boxShadow: "0 4px 16px hsla(0, 0%, 0%, 0.1)"
+                          }}
+                        >
                           <item.icon className="w-7 h-7 text-white" />
                         </motion.div>
                         <p className="text-white font-medium leading-relaxed pt-1" style={{
-                      textShadow: "0 1px 10px hsla(0, 0%, 0%, 0.2)"
-                    }}>
+                          textShadow: "0 1px 10px hsla(0, 0%, 0%, 0.2)"
+                        }}>
                           {item.text}
                         </p>
                       </div>
                     </motion.div>
-                  </ScrollReveal>)}
+                  </ScrollReveal>
+                ))}
               </div>
             </div>
           </div>
@@ -615,20 +602,20 @@ export default function AiLab() {
           <ScrollReveal delay={0.4}>
             <div className="mt-16 max-w-3xl mx-auto">
               <div className="relative text-center p-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md" style={{
-              boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
-            }}>
+                boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
+              }}>
                 {/* Decorative side lines */}
                 <div className="absolute left-8 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent hidden md:block" />
                 <div className="absolute right-8 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent hidden md:block" />
                 
                 <p className="text-xl md:text-2xl text-white font-semibold leading-relaxed" style={{
-                textShadow: "0 2px 20px hsla(0, 0%, 0%, 0.2)"
-              }}>
+                  textShadow: "0 2px 20px hsla(0, 0%, 0%, 0.2)"
+                }}>
                   AI Lab tiek veidots kā šāda vide.
                 </p>
                 <p className="text-base text-white/70 mt-3 italic" style={{
-                textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.15)"
-              }}>
+                  textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.15)"
+                }}>
                   Nevis kustība, bet telpa, kurā var augt.
                 </p>
               </div>
@@ -638,13 +625,13 @@ export default function AiLab() {
         
         {/* Bottom fade to CTA section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{
-        background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
-      }} />
+          background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
+        }} />
         
         {/* Bottom border accent */}
         <div className="absolute bottom-0 left-0 right-0 h-px z-10" style={{
-        background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.25) 50%, transparent 100%)`
-      }} />
+          background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.25) 50%, transparent 100%)`
+        }} />
       </section>
 
       {/* ========== SECTION 5: FAQ ========== */}
@@ -666,28 +653,37 @@ export default function AiLab() {
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
-              {[{
-              icon: HelpCircle,
-              question: "Vai AI Lab ir pakalpojums?",
-              answer: "Nē. AI Lab nav pakalpojums un nav produkts. Tā ir attīstības vide un iniciatīva.",
-              gradient: "from-primary to-orange-500"
-            }, {
-              icon: Layers,
-              question: "Vai AI Lab aizvieto AI automatizācijas pakalpojumus?",
-              answer: "Nē. AI Lab pastāv paralēli un kalpo kā pieredzes un izpētes bāze.",
-              gradient: "from-orange-500 to-amber-500"
-            }, {
-              icon: Clock,
-              question: "Kad AI Lab pieeja ir īpaši nozīmīga?",
-              answer: "Ja nepieciešama dziļāka izpratne par tehnoloģijām, nestandarta risinājumi vai ilgtermiņa skatījums uz AI attīstību.",
-              gradient: "from-amber-500 to-yellow-500"
-            }, {
-              icon: Users,
-              question: "Vai AI Lab ir atvērts visiem?",
-              answer: "AI Lab veidojas pakāpeniski. Šobrīd tas ir attīstības stadijā, un dalība notiek ar atlasi.",
-              gradient: "from-yellow-500 to-amber-400"
-            }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.05}>
-                  <AccordionItem value={`item-${index}`} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
+              {[
+                {
+                  icon: HelpCircle,
+                  question: "Vai AI Lab ir pakalpojums?",
+                  answer: "Nē. AI Lab nav pakalpojums un nav produkts. Tā ir attīstības vide un iniciatīva.",
+                  gradient: "from-primary to-orange-500",
+                },
+                {
+                  icon: Layers,
+                  question: "Vai AI Lab aizvieto AI automatizācijas pakalpojumus?",
+                  answer: "Nē. AI Lab pastāv paralēli un kalpo kā pieredzes un izpētes bāze.",
+                  gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: Clock,
+                  question: "Kad AI Lab pieeja ir īpaši nozīmīga?",
+                  answer: "Ja nepieciešama dziļāka izpratne par tehnoloģijām, nestandarta risinājumi vai ilgtermiņa skatījums uz AI attīstību.",
+                  gradient: "from-amber-500 to-yellow-500",
+                },
+                {
+                  icon: Users,
+                  question: "Vai AI Lab ir atvērts visiem?",
+                  answer: "AI Lab veidojas pakāpeniski. Šobrīd tas ir attīstības stadijā, un dalība notiek ar atlasi.",
+                  gradient: "from-yellow-500 to-amber-400",
+                },
+              ].map((faq, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem 
+                    value={`item-${index}`} 
+                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                  >
                     <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
                       <div className="flex items-center gap-3 md:gap-4 text-left">
                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
@@ -706,7 +702,8 @@ export default function AiLab() {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-                </ScrollReveal>)}
+                </ScrollReveal>
+              ))}
             </Accordion>
           </div>
         </div>

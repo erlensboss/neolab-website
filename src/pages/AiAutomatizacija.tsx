@@ -138,8 +138,7 @@ export default function AiAutomatizacija() {
 
               <ScrollReveal delay={0.1}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 text-foreground leading-tight px-2 sm:px-0">
-                  {t("AI automatizācijas -", "AI automation -")}{" "}
-                  <span className="text-gradient-orange">{t("jaunās paaudzes", "next-generation")}</span>
+                  {t("AI automatizācijas -", "AI automation -")} <span className="text-gradient-orange">{t("jaunās paaudzes", "next-generation")}</span>
                   <br className="hidden sm:block" /> {t("risinājums uzņēmumiem", "solution for businesses")}
                 </h1>
               </ScrollReveal>
@@ -148,7 +147,7 @@ export default function AiAutomatizacija() {
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
                   {t(
                     "Pārbaudīti mākslīgā intelekta risinājumi, kas palīdz uzņēmumiem sakārtot procesus, samazināt manuālo darbu un strādāt efektīvāk",
-                    "Proven artificial intelligence solutions that help businesses organize processes, reduce manual work, and work more efficiently",
+                    "Proven artificial intelligence solutions that help businesses organize processes, reduce manual work, and work more efficiently"
                   )}
                 </p>
               </ScrollReveal>
@@ -178,9 +177,7 @@ export default function AiAutomatizacija() {
                         <Brain className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">
-                          {t("AI Sistēma", "AI System")}
-                        </h3>
+                        <h3 className="font-semibold text-foreground text-xs sm:text-sm md:text-base">{t("AI Sistēma", "AI System")}</h3>
                         <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
                           {t("Automatizācijas centrs", "Automation center")}
                         </p>
@@ -194,73 +191,134 @@ export default function AiAutomatizacija() {
                     </div>
                   </div>
 
-                  {/* Simplified Automation Flow */}
-                  <div className="relative py-6 sm:py-8 md:py-12 mb-4 sm:mb-6 md:mb-8">
-                    <div className="flex items-center justify-between max-w-2xl mx-auto px-2 sm:px-4">
-                      {/* Step 1: Input */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3, type: "spring" }}
-                        className="flex flex-col items-center gap-2 sm:gap-3"
-                      >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-muted flex items-center justify-center">
-                          <Database className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-muted-foreground" />
-                        </div>
-                        <span className="text-xs sm:text-sm font-medium text-foreground">{t("Dati", "Data")}</span>
-                      </motion.div>
-
-                      {/* Arrow 1 */}
-                      <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{ delay: 0.5, duration: 0.4 }}
-                        className="flex-1 mx-2 sm:mx-4 md:mx-6 origin-left"
-                      >
-                        <div className="h-0.5 bg-gradient-to-r from-muted-foreground/30 via-primary/50 to-primary rounded-full" />
-                      </motion.div>
-
-                      {/* Step 2: AI Process */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6, type: "spring" }}
-                        className="flex flex-col items-center gap-2 sm:gap-3"
-                      >
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-primary/15 flex items-center justify-center relative">
-                          <Brain className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-primary" />
-                          <motion.div
-                            className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-primary/30"
-                            animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
-                            transition={{ duration: 2, repeat: Infinity }}
+                  {/* Neural Network Visualization */}
+                  <div className="relative h-36 sm:h-48 md:h-64 mb-4 sm:mb-6 md:mb-8">
+                    {/* Connection lines SVG */}
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 200">
+                      {/* Layer 1 to Layer 2 connections */}
+                      {[30, 70, 110].map((y1, i) =>
+                        [60, 100, 140].map((y2, j) => (
+                          <motion.line
+                            key={`l1-${i}-${j}`}
+                            x1="80"
+                            y1={y1}
+                            x2="200"
+                            y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.5 + (i + j) * 0.1 }}
                           />
-                        </div>
-                        <span className="text-xs sm:text-sm font-medium text-foreground">AI</span>
-                      </motion.div>
+                        )),
+                      )}
 
-                      {/* Arrow 2 */}
-                      <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{ delay: 0.8, duration: 0.4 }}
-                        className="flex-1 mx-2 sm:mx-4 md:mx-6 origin-left"
-                      >
-                        <div className="h-0.5 bg-gradient-to-r from-primary via-primary/50 to-muted-foreground/30 rounded-full" />
-                      </motion.div>
+                      {/* Layer 2 to Layer 3 connections */}
+                      {[60, 100, 140].map((y1, i) =>
+                        [70, 130].map((y2, j) => (
+                          <motion.line
+                            key={`l2-${i}-${j}`}
+                            x1="200"
+                            y1={y1}
+                            x2="320"
+                            y2={y2}
+                            stroke="hsl(21 90% 48%)"
+                            strokeWidth="1.5"
+                            strokeOpacity="0.3"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1, delay: 0.8 + (i + j) * 0.1 }}
+                          />
+                        )),
+                      )}
 
-                      {/* Step 3: Result */}
+                      {/* Layer 3 to Output */}
+                      {[70, 130].map((y1, i) => (
+                        <motion.line
+                          key={`l3-${i}`}
+                          x1="320"
+                          y1={y1}
+                          x2="430"
+                          y2={100}
+                          stroke="hsl(21 90% 48%)"
+                          strokeWidth="2"
+                          strokeOpacity="0.5"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 1, delay: 1.1 + i * 0.1 }}
+                        />
+                      ))}
+                    </svg>
+
+                    {/* Neural Network Nodes */}
+                    <div className="absolute inset-0 flex items-center">
+                      {/* Input Layer */}
+                      <div className="absolute left-[12%] md:left-[14%] flex flex-col gap-4 md:gap-6 -translate-y-2">
+                        {[
+                          { icon: Mail, label: t("E-pasts", "Email") },
+                          { icon: Database, label: t("Dati", "Data") },
+                          { icon: Users, label: "Leads" },
+                        ].map((node, i) => (
+                          <motion.div
+                            key={node.label}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 + i * 0.1, type: "spring" }}
+                            className="flex items-center gap-2"
+                          >
+                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-muted flex items-center justify-center">
+                              <node.icon className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
+                            </div>
+                            <span className="text-xs text-muted-foreground hidden md:inline">{node.label}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Hidden Layer 1 */}
+                      <div className="absolute left-[38%] md:left-[40%] flex flex-col gap-4 md:gap-5 -translate-y-1">
+                        {[Workflow, Settings, Layers].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center"
+                          >
+                            <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Hidden Layer 2 */}
+                      <div className="absolute left-[60%] md:left-[63%] flex flex-col gap-6 md:gap-8">
+                        {[Brain, Zap].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.9 + i * 0.1, type: "spring" }}
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/20 flex items-center justify-center"
+                          >
+                            <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Output Node */}
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.9, type: "spring" }}
-                        className="flex flex-col items-center gap-2 sm:gap-3"
+                        transition={{ delay: 1.2, type: "spring" }}
+                        className="absolute right-[10%] md:right-[12%] flex items-center gap-3"
                       >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-orange shadow-orange flex items-center justify-center">
-                          <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary-foreground" />
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-orange shadow-orange flex items-center justify-center">
+                          <BarChart3 className="w-7 h-7 md:w-8 md:h-8 text-primary-foreground" />
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-foreground">
-                          {t("Rezultāts", "Result")}
-                        </span>
+                        <div className="hidden md:block">
+                          <p className="text-sm font-medium text-foreground">{t("Rezultāts", "Result")}</p>
+                          <p className="text-xs text-muted-foreground">{t("Optimizēts", "Optimized")}</p>
+                        </div>
                       </motion.div>
                     </div>
                   </div>
@@ -268,20 +326,20 @@ export default function AiAutomatizacija() {
                   {/* Metrics Row */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
                     {[
-                      { label: t("Automatizēti procesi", "Automated processes"), value: "85%", icon: Workflow },
-                      { label: t("Ietaupīts laiks nedēļā", "Saved time per week"), value: "10h+", icon: Clock },
-                      { label: t("Uzlabota efektivitāte", "Improved efficiency"), value: "3x", icon: Zap },
+                      { label: t("Procesu automatizēti", "Processes automated"), value: "85%", icon: Workflow },
+                      { label: t("Laika ietaupījums", "Time saved"), value: "10h+", icon: Clock },
+                      { label: t("Efektivitātes pieaugums", "Efficiency increase"), value: "3x", icon: Zap },
                     ].map((metric, i) => (
                       <motion.div
                         key={metric.label}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4 + i * 0.1 }}
-                        className="bg-muted/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 text-center"
+                        className="bg-muted/50 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center"
                       >
-                        <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1.5 sm:mb-2" />
-                        <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">{metric.value}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{metric.label}</p>
+                        <metric.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2" />
+                        <p className="text-sm sm:text-lg md:text-2xl font-bold text-foreground">{metric.value}</p>
+                        <p className="text-[9px] sm:text-xs text-muted-foreground hidden xs:block">{metric.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -323,8 +381,7 @@ export default function AiAutomatizacija() {
             <div className="text-center mb-10 md:mb-14">
               <span className="chip mb-6 inline-block text-sm">{t("Pamati", "Basics")}</span>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                {t("Kas ir", "What is")}{" "}
-                <span className="text-gradient-orange">{t("AI automatizācija", "AI automation")}</span>
+                {t("Kas ir", "What is")} <span className="text-gradient-orange">{t("AI automatizācija", "AI automation")}</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -616,8 +673,7 @@ export default function AiAutomatizacija() {
                 {t("Piedāvājumi", "Offerings")}
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
-                {t("NEOLab AI automatizācijas", "NEOLab AI Automation")}{" "}
-                <span className="text-gradient-orange">{t("piedāvājumi", "offerings")}</span>
+                {t("NEOLab AI automatizācijas", "NEOLab AI Automation")} <span className="text-gradient-orange">{t("piedāvājumi", "offerings")}</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -628,10 +684,8 @@ export default function AiAutomatizacija() {
               {
                 icon: MessageSquare,
                 title: "LinkedIn Content System",
-                descriptionLv:
-                  "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu.",
-                descriptionEn:
-                  "Automated system that helps regularly create and publish LinkedIn content, analyzing topics, existing content, and industry context.",
+                descriptionLv: "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu.",
+                descriptionEn: "Automated system that helps regularly create and publish LinkedIn content, analyzing topics, existing content, and industry context.",
                 link: "/ai-automatizacija/linkedin-content-system",
                 gradient: "from-blue-500 via-blue-600 to-indigo-600",
                 bgGlow: "bg-blue-500/20",
@@ -644,10 +698,8 @@ export default function AiAutomatizacija() {
               {
                 icon: Users,
                 title: "Lead Capture Agent",
-                descriptionLv:
-                  "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus.",
-                descriptionEn:
-                  "AI agent that communicates with website visitors, answers questions, and collects potential customer contacts.",
+                descriptionLv: "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus.",
+                descriptionEn: "AI agent that communicates with website visitors, answers questions, and collects potential customer contacts.",
                 link: "/ai-automatizacija/lead-capture-agent",
                 gradient: "from-amber-400 via-amber-500 to-orange-500",
                 bgGlow: "bg-amber-500/20",
@@ -660,10 +712,8 @@ export default function AiAutomatizacija() {
               {
                 icon: Zap,
                 title: "Speed-to-Lead System",
-                descriptionLv:
-                  "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus.",
-                descriptionEn:
-                  "System that responds to new leads almost instantly, transfers data to CRM, and notifies responsible people.",
+                descriptionLv: "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus.",
+                descriptionEn: "System that responds to new leads almost instantly, transfers data to CRM, and notifies responsible people.",
                 link: "/ai-automatizacija/speed-to-lead",
                 gradient: "from-orange-500 via-red-500 to-rose-500",
                 bgGlow: "bg-orange-500/20",
@@ -676,10 +726,8 @@ export default function AiAutomatizacija() {
               {
                 icon: Layers,
                 title: "Client Onboarding System",
-                descriptionLv:
-                  "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā.",
-                descriptionEn:
-                  "Automates the client onboarding process – from first messages to internal task distribution in the team.",
+                descriptionLv: "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā.",
+                descriptionEn: "Automates the client onboarding process – from first messages to internal task distribution in the team.",
                 link: "/ai-automatizacija/client-onboarding",
                 gradient: "from-primary via-orange-500 to-amber-500",
                 bgGlow: "bg-primary/20",
@@ -692,10 +740,8 @@ export default function AiAutomatizacija() {
               {
                 icon: MessageSquare,
                 title: "Customer Support Chatbot",
-                descriptionLv:
-                  "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
-                descriptionEn:
-                  "AI chatbot for customer question handling that can answer FAQs and hand off complex cases to the team.",
+                descriptionLv: "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
+                descriptionEn: "AI chatbot for customer question handling that can answer FAQs and hand off complex cases to the team.",
                 link: "/ai-automatizacija/support-chatbot",
                 gradient: "from-amber-500 via-primary to-orange-600",
                 bgGlow: "bg-amber-500/20",
@@ -716,22 +762,18 @@ export default function AiAutomatizacija() {
                     <div className="relative bg-card/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-neo h-full flex flex-col hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
                       {/* Gradient top accent */}
                       <div className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`} />
-
+                      
                       {/* Glow effect on hover */}
-                      <div
-                        className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 ${product.bgGlow} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`}
-                      />
-
+                      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 ${product.bgGlow} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+                      
                       <div className="relative p-6 sm:p-8 flex flex-col flex-1">
                         {/* Icon with animated ring */}
                         <div className="relative mb-6">
-                          <div
-                            className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}
-                          >
+                          <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
                             <product.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                           </div>
                           {/* Pulse ring */}
-                          <motion.div
+                          <motion.div 
                             className={`absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-primary/30 opacity-0 group-hover:opacity-100`}
                             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
                             transition={{ duration: 2, repeat: Infinity }}
@@ -747,12 +789,12 @@ export default function AiAutomatizacija() {
                         <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
                           {t(product.descriptionLv, product.descriptionEn)}
                         </p>
-
+                        
                         {/* Feature tags */}
                         <div className="flex flex-wrap gap-2 mb-6">
                           {product.features.map((feature, i) => (
-                            <span
-                              key={i}
+                            <span 
+                              key={i} 
                               className="text-xs px-3 py-1.5 bg-muted/70 rounded-full text-muted-foreground font-medium"
                             >
                               {t(feature.lv, feature.en)}
