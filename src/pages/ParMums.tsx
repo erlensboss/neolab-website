@@ -185,10 +185,10 @@ export default function ParMums() {
           className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full bg-gradient-to-tl from-orange-400/15 to-primary/5 blur-3xl"
         />
 
-        <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center min-h-[80vh]">
+        <div className="container-neo px-4 py-12 md:section-padding relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-center min-h-[70vh] md:min-h-[80vh]">
             {/* Left: Content */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
+            <div className="lg:col-span-6 order-1 lg:order-1">
               <ScrollReveal>
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-8">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -197,23 +197,23 @@ export default function ParMums() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-10 text-foreground">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 md:mb-10 text-foreground">
                   Mēs esam <span className="text-gradient-orange">sistēmu domātāji</span>, nevis sistēmas sekotāji.
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <p className="text-xl md:text-2xl lg:text-[1.7rem] text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="text-lg md:text-2xl lg:text-[1.7rem] text-muted-foreground leading-relaxed max-w-2xl">
                   NEOLab ir vieta, kur digitālā attīstība tiek veidota apzināti, ar izpratni un skatu uz nākotni.
                 </p>
               </ScrollReveal>
 
               {/* Trust indicators */}
               <ScrollReveal delay={0.3}>
-                <div className="flex flex-wrap gap-6 mt-12">
+                <div className="flex flex-wrap gap-4 md:gap-6 mt-8 md:mt-12">
                   {["Profesionāla pieeja", "Pielāgoti risinājumi", "Ilgtermiņa partnerība"].map((text, i) => (
-                    <div key={i} className="flex items-center gap-3 text-base text-foreground/80">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-sm" />
+                    <div key={i} className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-foreground/80">
+                      <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-sm" />
                       <span className="font-medium">{text}</span>
                     </div>
                   ))}
@@ -221,8 +221,8 @@ export default function ParMums() {
               </ScrollReveal>
             </div>
 
-            {/* Right: Animated Logo Visual */}
-            <div className="lg:col-span-6 order-1 lg:order-2 flex justify-center lg:justify-end">
+            {/* Right: Animated Logo Visual - Hidden on small mobile, shown below on larger mobile */}
+            <div className="lg:col-span-6 order-2 lg:order-2 hidden sm:flex justify-center lg:justify-end">
               <ScrollReveal delay={0.15} direction="right">
                 <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]">
                   {/* Outer rotating ring */}
@@ -415,12 +415,12 @@ export default function ParMums() {
                 const isRight = block.position === "right";
                 return (
                   <div key={block.title} className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 items-center">
-                    {/* Left block or spacer */}
-                    <div className={`${isRight ? 'hidden md:block' : ''}`}>
-                      {!isRight && <StoryBlock block={block} index={index} />}
+                    {/* Left block or spacer - desktop only */}
+                    <div className="hidden md:block">
+                      {!isRight ? <StoryBlock block={block} index={index} /> : null}
                     </div>
                     
-                    {/* Center node */}
+                    {/* Center node - desktop only */}
                     <div className="hidden md:flex justify-center">
                       <motion.div
                         initial={{ scale: 0 }}
@@ -432,13 +432,13 @@ export default function ParMums() {
                       />
                     </div>
                     
-                    {/* Right block or spacer */}
-                    <div className={`${!isRight ? 'hidden md:block' : ''}`}>
-                      {isRight && <StoryBlock block={block} index={index} />}
+                    {/* Right block or spacer - desktop only */}
+                    <div className="hidden md:block">
+                      {isRight ? <StoryBlock block={block} index={index} /> : null}
                     </div>
                     
-                    {/* Mobile: show all blocks */}
-                    <div className="md:hidden">
+                    {/* Mobile: show all blocks in single column */}
+                    <div className="block md:hidden">
                       <StoryBlock block={block} index={index} />
                     </div>
                   </div>
