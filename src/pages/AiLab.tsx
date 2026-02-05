@@ -579,195 +579,214 @@ export default function AiLab() {
         }} />
       </section>
 
-      {/* ========== SECTION 4: Kāpēc AI Lab — Lightest, Most Advanced ========== */}
-      <section className="relative overflow-hidden" style={{
-        background: `linear-gradient(180deg, hsl(28 75% 62%) 0%, hsl(30 70% 68%) 40%, hsl(32 65% 72%) 100%)`
+      {/* ========== SECTION 4: Kāpēc AI Lab — Light Theme, Standout Design ========== */}
+      <section className="relative overflow-hidden py-24 lg:py-32" style={{
+        background: `linear-gradient(180deg, hsl(30 30% 95%) 0%, hsl(25 35% 92%) 50%, hsl(30 30% 94%) 100%)`
       }}>
-        {/* Very subtle stars - minimal */}
-        <div className="absolute inset-0 pointer-events-none">
-          {Array.from({
-            length: 10
-          }, (_, i) => <motion.div key={`star-s4-${i}`} className="absolute rounded-full bg-white" style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            width: Math.random() * 1 + 0.5,
-            height: Math.random() * 1 + 0.5
-          }} initial={{
-            opacity: 0
-          }} animate={{
-            opacity: [0, 0.25, 0.1, 0.25, 0]
-          }} transition={{
-            duration: 7 + Math.random() * 4,
-            delay: Math.random() * 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }} />)}
-        </div>
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            radial-gradient(ellipse 70% 50% at 50% 0%, hsl(var(--primary) / 0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 40% at 0% 50%, hsl(var(--primary) / 0.04) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 40% at 100% 50%, hsl(var(--primary) / 0.04) 0%, transparent 60%)
+          `
+        }} />
 
-        {/* Advanced geometric pattern - DNA helix inspired */}
+        {/* Geometric pattern - subtle connecting lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Left side helix */}
           <motion.div 
-            className="absolute left-0 top-0 bottom-0 w-32 opacity-[0.06]"
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-0 top-0 bottom-0 w-40 opacity-[0.03]"
+            animate={{ y: [0, -30, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           >
-            {Array.from({ length: 8 }, (_, i) => (
-              <div key={`helix-l-${i}`} className="absolute" style={{ top: `${i * 14}%` }}>
-                <div className="w-16 h-16 border border-white rounded-full" style={{ marginLeft: i % 2 === 0 ? '0' : '16px' }} />
+            {Array.from({ length: 6 }, (_, i) => (
+              <div key={`geo-l-${i}`} className="absolute" style={{ top: `${i * 18}%` }}>
+                <div className="w-20 h-20 border border-primary rounded-full" style={{ marginLeft: i % 2 === 0 ? '10px' : '30px' }} />
               </div>
             ))}
           </motion.div>
           
-          {/* Right side helix */}
           <motion.div 
-            className="absolute right-0 top-0 bottom-0 w-32 opacity-[0.06]"
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute right-0 top-0 bottom-0 w-40 opacity-[0.03]"
+            animate={{ y: [0, 30, 0] }}
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           >
-            {Array.from({ length: 8 }, (_, i) => (
-              <div key={`helix-r-${i}`} className="absolute" style={{ top: `${i * 14}%` }}>
-                <div className="w-16 h-16 border border-white rounded-full" style={{ marginLeft: i % 2 === 0 ? '16px' : '0' }} />
+            {Array.from({ length: 6 }, (_, i) => (
+              <div key={`geo-r-${i}`} className="absolute" style={{ top: `${i * 18}%` }}>
+                <div className="w-20 h-20 border border-primary rounded-full" style={{ marginLeft: i % 2 === 0 ? '30px' : '10px' }} />
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Top border accent - strong separation */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{
-          background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.4) 50%, transparent 100%)`
-        }} />
-
-        <div className="container-neo section-padding relative z-10">
-          {/* Header with advanced badge */}
+        <div className="container-neo relative z-10">
+          {/* Header - Centered with impact */}
           <ScrollReveal className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/30 bg-white/15 backdrop-blur-md mb-6" style={{
-              boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.3)"
-            }}>
+            <motion.div 
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-primary/25 bg-white/90 backdrop-blur-sm mb-6 shadow-md"
+              whileHover={{ scale: 1.02 }}
+            >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Target className="w-4 h-4 text-white" />
+                <Target className="w-4 h-4 text-primary" />
               </motion.div>
-              <span className="text-sm font-semibold text-white tracking-wide">Mūsu misija</span>
-            </div>
-            <h2 className="text-white" style={{
-              textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.25)"
-            }}>
-              Kāpēc <span className="text-white/70">AI Lab</span> tiek veidots
+              <span className="text-sm font-semibold text-primary tracking-wide">
+                {t("Mūsu misija", "Our Mission")}
+              </span>
+            </motion.div>
+            <h2 className="text-foreground mb-6">
+              {t("Kāpēc", "Why")}{" "}
+              <span className="text-gradient-orange">AI Lab</span>{" "}
+              {t("tiek veidots", "is being created")}
             </h2>
           </ScrollReveal>
 
-          {/* Main content grid - advanced layout */}
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Left: Intro text with sophisticated styling */}
-            <div className="lg:col-span-5">
-              <ScrollReveal delay={0.1}>
-                <div className="relative p-8 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md" style={{
-                  boxShadow: "0 16px 48px hsla(0, 0%, 0%, 0.12), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
-                }}>
-                  {/* Decorative corner accents */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/30 rounded-tl-lg" />
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/30 rounded-br-lg" />
-                  
-                  <p className="text-lg text-white/95 leading-relaxed font-medium" style={{
-                    textShadow: "0 2px 12px hsla(0, 0%, 0%, 0.2)"
-                  }}>
-                    Latvijā un plašākā reģionā trūkst vietu, kur jaunieši var droši un atbildīgi attīstīt savas tehnoloģiju prasmes ar mākslīgo intelektu.
+          {/* Main standout card - the problem statement */}
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/5 via-white to-primary/5 border border-primary/15 shadow-xl overflow-hidden">
+                {/* Decorative corner accents */}
+                <div className="absolute top-6 left-6 w-12 h-12 border-l-2 border-t-2 border-primary/30 rounded-tl-xl" />
+                <div className="absolute bottom-6 right-6 w-12 h-12 border-r-2 border-b-2 border-primary/30 rounded-br-xl" />
+                
+                {/* Floating orb decoration */}
+                <motion.div 
+                  className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 blur-2xl"
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                />
+                
+                <div className="relative z-10 text-center">
+                  <p className="text-xl md:text-2xl text-foreground font-semibold leading-relaxed mb-2">
+                    {t(
+                      "Latvijā un plašākā reģionā trūkst vietu, kur jaunieši var:",
+                      "In Latvia and the broader region, there is a lack of places where young people can:"
+                    )}
                   </p>
                 </div>
-              </ScrollReveal>
-            </div>
-
-            {/* Right: Feature cards - advanced glass morphism */}
-            <div className="lg:col-span-7">
-              <div className="grid sm:grid-cols-2 gap-5">
-                {[
-                  { icon: Shield, text: "Droši strādāt ar mākslīgo intelektu", delay: 0.15 },
-                  { icon: Lightbulb, text: "Mācīties caur darīšanu, nevis tikai teoriju", delay: 0.2 },
-                  { icon: Brain, text: "Attīstīt reālas digitālās prasmes", delay: 0.25 },
-                  { icon: Users, text: "Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā", delay: 0.3 }
-                ].map((item, index) => (
-                  <ScrollReveal key={index} delay={item.delay}>
-                    <motion.div 
-                      whileHover={{ 
-                        y: -6, 
-                        scale: 1.02,
-                        boxShadow: "0 24px 48px hsla(0, 0%, 0%, 0.15), inset 0 1px 0 hsla(0, 0%, 100%, 0.4)"
-                      }}
-                      className="relative p-6 rounded-2xl border border-white/25 bg-white/15 backdrop-blur-lg overflow-hidden group"
-                      style={{
-                        boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.25)"
-                      }}
-                    >
-                      {/* Animated gradient overlay on hover */}
-                      <motion.div 
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                        style={{
-                          background: "linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%)"
-                        }}
-                      />
-                      
-                      {/* Top accent line */}
-                      <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-                      
-                      <div className="relative flex items-start gap-4">
-                        <motion.div 
-                          className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/20 border border-white/20 flex items-center justify-center"
-                          whileHover={{ rotate: 5 }}
-                          style={{
-                            boxShadow: "0 4px 16px hsla(0, 0%, 0%, 0.1)"
-                          }}
-                        >
-                          <item.icon className="w-7 h-7 text-white" />
-                        </motion.div>
-                        <p className="text-white font-medium leading-relaxed pt-1" style={{
-                          textShadow: "0 1px 10px hsla(0, 0%, 0%, 0.2)"
-                        }}>
-                          {item.text}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </ScrollReveal>
-                ))}
               </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Feature points - Asymmetric staggered layout */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+              {[
+                { 
+                  icon: Shield, 
+                  text: t("Droši strādāt ar mākslīgo intelektu", "Safely work with artificial intelligence"),
+                  highlight: t("Droši", "Safely"),
+                  offset: "md:translate-y-0"
+                },
+                { 
+                  icon: Lightbulb, 
+                  text: t("Mācīties caur darīšanu, nevis tikai teoriju", "Learn by doing, not just theory"),
+                  highlight: t("caur darīšanu", "by doing"),
+                  offset: "md:translate-y-8"
+                },
+                { 
+                  icon: Brain, 
+                  text: t("Attīstīt reālas digitālās prasmes", "Develop real digital skills"),
+                  highlight: t("reālas", "real"),
+                  offset: "md:translate-y-0"
+                },
+                { 
+                  icon: Users, 
+                  text: t("Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā", "Build thinking based on technology and responsibility"),
+                  highlight: t("atbildībā", "responsibility"),
+                  offset: "md:translate-y-8"
+                }
+              ].map((item, index) => (
+                <ScrollReveal key={index} delay={0.15 + index * 0.08}>
+                  <motion.div 
+                    className={`group ${item.offset}`}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
+                    <div className="relative p-6 lg:p-8 rounded-2xl bg-white border border-gray-200/80 shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/10 group-hover:border-primary/20">
+                      {/* Top accent bar */}
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Hover gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      <div className="relative z-10 flex items-start gap-5">
+                        {/* Icon with animated ring */}
+                        <div className="relative flex-shrink-0">
+                          <motion.div 
+                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center transition-all duration-300 group-hover:from-primary/25 group-hover:to-primary/10"
+                            whileHover={{ rotate: [0, -5, 5, 0] }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            <item.icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
+                          </motion.div>
+                          {/* Pulsing ring */}
+                          <motion.div 
+                            className="absolute -inset-1 rounded-2xl border border-primary/20 opacity-0 group-hover:opacity-100"
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          />
+                        </div>
+                        
+                        <div className="flex-1 pt-1">
+                          <p className="text-lg text-foreground font-medium leading-relaxed">
+                            {item.text}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {/* Number indicator */}
+                      <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-xs font-bold text-primary">{String(index + 1).padStart(2, '0')}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
 
-          {/* Bottom statement - sophisticated typography */}
-          <ScrollReveal delay={0.4}>
-            <div className="mt-16 max-w-3xl mx-auto">
-              <div className="relative text-center p-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md" style={{
-                boxShadow: "0 12px 40px hsla(0, 0%, 0%, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, 0.2)"
-              }}>
-                {/* Decorative side lines */}
-                <div className="absolute left-8 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent hidden md:block" />
-                <div className="absolute right-8 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent hidden md:block" />
-                
-                <p className="text-xl md:text-2xl text-white font-semibold leading-relaxed" style={{
-                  textShadow: "0 2px 20px hsla(0, 0%, 0%, 0.2)"
-                }}>
-                  AI Lab tiek veidots kā šāda vide.
-                </p>
-                <p className="text-base text-white/70 mt-3 italic" style={{
-                  textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.15)"
-                }}>
-                  Nevis kustība, bet telpa, kurā var augt.
-                </p>
+          {/* Bottom statement - Premium styled */}
+          <ScrollReveal delay={0.5}>
+            <div className="max-w-4xl mx-auto">
+              <div className="relative bg-gradient-to-r from-primary/10 via-primary/15 to-primary/10 rounded-3xl p-1">
+                <div className="relative bg-white rounded-[22px] p-8 md:p-10">
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2 bg-white rounded-full border border-primary/20 shadow-sm">
+                    <span className="text-xs font-bold text-primary uppercase tracking-widest">
+                      {t("Mūsu vīzija", "Our Vision")}
+                    </span>
+                  </div>
+                  
+                  <div className="text-center pt-4">
+                    <p className="text-2xl md:text-3xl text-foreground font-bold leading-relaxed mb-4">
+                      {t(
+                        "AI Lab tiek veidots kā šāda vide.",
+                        "AI Lab is being built as such an environment."
+                      )}
+                    </p>
+                    <div className="flex items-center justify-center gap-4">
+                      <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary/30" />
+                      <p className="text-lg text-muted-foreground italic">
+                        {t(
+                          "Nevis kustība, bet telpa, kurā var augt.",
+                          "Not a movement, but a space where one can grow."
+                        )}
+                      </p>
+                      <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary/30" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
         
-        {/* Bottom fade to CTA section */}
+        {/* Bottom fade to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{
-          background: `linear-gradient(to top, hsl(35 25% 96%) 0%, transparent 100%)`
-        }} />
-        
-        {/* Bottom border accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-px z-10" style={{
-          background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.25) 50%, transparent 100%)`
+          background: `linear-gradient(to top, hsl(35 25% 97%) 0%, transparent 100%)`
         }} />
       </section>
 
