@@ -99,12 +99,12 @@ export default function Blog() {
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="text-xl text-muted-foreground">
-                {t(
-                  "Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. Bez tukšu vārdu — tikai lietderīgs saturs.",
-                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content.",
-                )}
-              </p>
+               <p className="text-xl text-muted-foreground">
+                 {t(
+                   "Praktiski ceļveži, analīze un pieredze no projektiem. Viss par SEO optimizāciju, AI risinājumiem un digitālajiem procesiem, kas palīdz uzņēmumiem augt efektīvāk.",
+                   "Practical guides, analysis, and hands-on project experience. Everything about SEO optimization, AI solutions, and digital processes that help businesses grow more efficiently.",
+                 )}
+               </p>
             </ScrollReveal>
           </div>
         </div>
