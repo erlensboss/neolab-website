@@ -263,20 +263,20 @@ export default function AiAutomatizacija() {
                   {/* Metrics Row */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
                     {[
-                      { label: t("Procesu automatizēti", "Processes automated"), value: "85%", icon: Workflow },
-                      { label: t("Laika ietaupījums", "Time saved"), value: "10h+", icon: Clock },
-                      { label: t("Efektivitātes pieaugums", "Efficiency increase"), value: "3x", icon: Zap },
+                      { label: t("Automatizēti", "Automated"), value: "85%", icon: Workflow },
+                      { label: t("Ietaupīts/ned.", "Saved/week"), value: "10h+", icon: Clock },
+                      { label: t("Efektivitāte", "Efficiency"), value: "3x", icon: Zap },
                     ].map((metric, i) => (
                       <motion.div
                         key={metric.label}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4 + i * 0.1 }}
-                        className="bg-muted/50 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center"
+                        className="bg-muted/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 text-center"
                       >
-                        <metric.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary mx-auto mb-1 md:mb-2" />
-                        <p className="text-sm sm:text-lg md:text-2xl font-bold text-foreground">{metric.value}</p>
-                        <p className="text-[9px] sm:text-xs text-muted-foreground hidden xs:block">{metric.label}</p>
+                        <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-1.5 sm:mb-2" />
+                        <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">{metric.value}</p>
+                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{metric.label}</p>
                       </motion.div>
                     ))}
                   </div>
