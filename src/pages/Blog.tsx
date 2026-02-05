@@ -76,15 +76,15 @@ export default function Blog() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h1 className="mb-6">
-                {t("SEO, AI un Digitālās zināšanas", "SEO, AI and Digital knowledge")}{" "}
+                {t("Zināšanas", "Knowledge")}{" "}
                 <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-xl text-muted-foreground">
                 {t(
-                  "Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. Bez tukšu vārdu — tikai lietderīgs saturs.",
-                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content.",
+                  "Praktiski ceļveži, analīze un pieredze no projektiem. Viss par SEO optimizāciju, AI risinājumiem un digitālajiem procesiem, kas palīdz uzņēmumiem augt efektīvāk.",
+                  "Practical guides, analysis, and hands-on project experience. Everything about SEO optimization, AI solutions, and digital processes that help businesses grow more efficiently.",
                 )}
               </p>
             </ScrollReveal>
