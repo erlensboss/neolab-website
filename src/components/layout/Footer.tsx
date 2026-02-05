@@ -71,7 +71,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>info@neolab.lv</li>
-              <li>+371 XX XXX XXX</li>
+              <li>+371 27306077</li>
               <li>Rīga, Latvija</li>
             </ul>
             <Link 
