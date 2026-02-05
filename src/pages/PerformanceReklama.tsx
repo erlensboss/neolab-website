@@ -583,7 +583,7 @@ export default function PerformanceReklama() {
             
             {/* BLOCK 1: Strategy */}
             <ScrollReveal delay={0.05}>
-              <Link to={getLocalizedPath("/performance-reklama/strategija")}>
+              <Link to={getLocalizedPath("/performance-reklama/reklamas-strategija")}>
                 <motion.div 
                   whileHover={{ y: -4 }} 
                   className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group cursor-pointer"
@@ -739,7 +739,7 @@ export default function PerformanceReklama() {
 
             {/* BLOCK 3: Conversions */}
             <ScrollReveal delay={0.15}>
-              <Link to={getLocalizedPath("/performance-reklama/konversijas")}>
+              <Link to={getLocalizedPath("/performance-reklama/konversiju-optimizacija")}>
                 <motion.div 
                   whileHover={{ y: -4 }} 
                   className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-amber-50/60 to-white border border-primary/20 overflow-hidden group cursor-pointer"
