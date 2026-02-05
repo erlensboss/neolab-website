@@ -107,7 +107,7 @@ export default function BezmaksasKonsultacija() {
 
             {/* Right: Form */}
             <ScrollReveal delay={0.2} direction="right">
-              <div className="card-neo">
+              <div className="card-neo mt-[100px]">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
