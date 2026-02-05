@@ -146,13 +146,13 @@ export default function PerformanceReklama() {
                 <div className="grid grid-cols-3 gap-3 md:flex md:flex-wrap md:items-center md:gap-6 mt-6 md:mt-10 pt-6 md:pt-8 border-t border-border/50">
                   {[{
                   value: "4.8x",
-                  label: "Vidējais ROAS"
+                  label: t("Vidējais ROAS", "Average ROAS")
                 }, {
                   value: "65%+",
-                  label: "Efektivitātes pieaugums"
+                  label: t("Efektivitātes pieaugums", "Efficiency increase")
                 }, {
                   value: "92%",
-                  label: "Klientu saglabāšana"
+                  label: t("Klientu saglabāšana", "Client retention")
                 }].map((stat, idx) => <div key={idx} className="flex flex-col md:flex-row md:items-center gap-0.5 md:gap-2 text-center md:text-left">
                       <span className="text-xl md:text-2xl font-bold text-primary">{stat.value}</span>
                       <span className="text-xs md:text-sm text-muted-foreground leading-tight">{stat.label}</span>
@@ -212,12 +212,12 @@ export default function PerformanceReklama() {
         <div className="container-neo relative z-10">
           {/* Section header */}
           <ScrollReveal className="max-w-3xl mb-8 md:mb-20">
-            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">Priekšrocības</span>
+            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">{t("Priekšrocības", "Benefits")}</span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              Kādas ir maksas reklāmas priekšrocības
+              {t("Kādas ir maksas reklāmas priekšrocības", "What are the benefits of paid advertising")}
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Maksas reklāma ļauj uzņēmumam piesaistīt klientus brīdī, kad viņiem jau ir interese vai vajadzība. Tā balstās datos, nevis minējumos, un ļauj skaidri redzēt, kas strādā un kas nē.
+              {t("Maksas reklāma ļauj uzņēmumam piesaistīt klientus brīdī, kad viņiem jau ir interese vai vajadzība. Tā balstās datos, nevis minējumos, un ļauj skaidri redzēt, kas strādā un kas nē.", "Paid advertising allows businesses to attract customers when they already have interest or need. It's based on data, not guesses, and allows you to clearly see what works and what doesn't.")}
             </p>
           </ScrollReveal>
 
@@ -233,8 +233,8 @@ export default function PerformanceReklama() {
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-105 transition-transform">
                     <Target className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                   </div>
-                  <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-3">Pieprasījuma piesaiste ar augstu pirkuma nodomu</h3>
-                  <p className="text-sm md:text-base text-muted-foreground">Sasniedziet klientus tieši tajā brīdī, kad viņi meklē jūsu produktu vai pakalpojumu.</p>
+                  <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-3">{t("Pieprasījuma piesaiste ar augstu pirkuma nodomu", "Demand capture with high purchase intent")}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{t("Sasniedziet klientus tieši tajā brīdī, kad viņi meklē jūsu produktu vai pakalpojumu.", "Reach customers exactly when they're searching for your product or service.")}</p>
                 </div>
                 {/* Accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 md:h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
@@ -251,8 +251,8 @@ export default function PerformanceReklama() {
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-3 md:mb-5 group-hover:scale-105 transition-transform border border-amber-200/50">
                     <DollarSign className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
                   </div>
-                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">Pilnīga budžeta un izmaksu kontrole</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">Jūs izlemjat, cik tērēt, un redzat katru centu.</p>
+                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">{t("Pilnīga budžeta un izmaksu kontrole", "Complete budget and cost control")}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t("Jūs izlemjat, cik tērēt, un redzat katru centu.", "You decide how much to spend and see every cent.")}</p>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -267,8 +267,8 @@ export default function PerformanceReklama() {
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mb-3 md:mb-5 group-hover:scale-105 transition-transform border border-green-200/50">
                     <BarChart3 className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
                   </div>
-                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">Izmērāmi rezultāti un skaidri KPI</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">Katrs klikšķis, konversija un pārdošana ir izsekojama.</p>
+                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">{t("Izmērāmi rezultāti un skaidri KPI", "Measurable results and clear KPIs")}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t("Katrs klikšķis, konversija un pārdošana ir izsekojama.", "Every click, conversion, and sale is trackable.")}</p>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -283,7 +283,7 @@ export default function PerformanceReklama() {
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Rezultātu pārskats</span>
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t("Rezultātu pārskats", "Results overview")}</span>
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   </div>
 
@@ -338,7 +338,7 @@ export default function PerformanceReklama() {
                   <div className="pt-4 border-t border-border/50">
                     <div className="flex items-end justify-between">
                       <div>
-                        <div className="text-xs text-muted-foreground mb-1">Konversijas likme</div>
+                        <div className="text-xs text-muted-foreground mb-1">{t("Konversijas likme", "Conversion rate")}</div>
                         <div className="text-2xl font-bold text-primary">3.8%</div>
                       </div>
                       <div className="flex items-center gap-1 text-green-600 text-sm font-medium">
@@ -361,8 +361,8 @@ export default function PerformanceReklama() {
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-3 md:mb-5 group-hover:scale-105 transition-transform border border-blue-200/50">
                     <Activity className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">Iespēja ātri testēt piedāvājumus</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">A/B testēšana, lai atrastu labāko ziņojumu un piedāvājumu.</p>
+                  <h3 className="text-base md:text-lg font-semibold mb-1.5 md:mb-2">{t("Iespēja ātri testēt piedāvājumus", "Ability to quickly test offers")}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t("A/B testēšana, lai atrastu labāko ziņojumu un piedāvājumu.", "A/B testing to find the best message and offer.")}</p>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -378,8 +378,8 @@ export default function PerformanceReklama() {
                     <TrendingUp className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-2xl font-semibold mb-1.5 md:mb-2">Elastība starp dažādiem reklāmas kanāliem</h3>
-                    <p className="text-sm md:text-base text-muted-foreground">Pārslēdzieties starp Meta, Google, LinkedIn un citiem kanāliem atkarībā no rezultātiem.</p>
+                    <h3 className="text-lg md:text-2xl font-semibold mb-1.5 md:mb-2">{t("Elastība starp dažādiem reklāmas kanāliem", "Flexibility across different ad channels")}</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">{t("Pārslēdzieties starp Meta, Google, LinkedIn un citiem kanāliem atkarībā no rezultātiem.", "Switch between Meta, Google, LinkedIn, and other channels depending on results.")}</p>
                   </div>
                 </div>
               </motion.div>
@@ -417,10 +417,10 @@ export default function PerformanceReklama() {
         <div className="container-neo relative z-10">
           {/* Section header */}
           <ScrollReveal className="max-w-3xl mb-8 md:mb-20">
-            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">Jūsu situācija</span>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Kādiem uzņēmumiem maksas reklāma ir vajadzīga?</h2>
+            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">{t("Jūsu situācija", "Your situation")}</span>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">{t("Kādiem uzņēmumiem maksas reklāma ir vajadzīga?", "Which businesses need paid advertising?")}</h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Maksas reklāma vislabāk strādā uzņēmumiem, kuri zina, ko piedāvā, un vēlas redzēt atdevi no reklāmas budžeta.
+              {t("Maksas reklāma vislabāk strādā uzņēmumiem, kuri zina, ko piedāvā, un vēlas redzēt atdevi no reklāmas budžeta.", "Paid advertising works best for businesses that know what they offer and want to see return on their ad budget.")}
             </p>
           </ScrollReveal>
 
@@ -430,24 +430,24 @@ export default function PerformanceReklama() {
               <ScrollReveal delay={0.1}>
                 <div className="rounded-xl md:rounded-2xl bg-card border border-border p-5 md:p-10 shadow-sm">
                   <p className="text-base md:text-lg font-medium text-foreground mb-5 md:mb-8">
-                    Maksas reklāma ir piemērota, ja:
+                    {t("Maksas reklāma ir piemērota, ja:", "Paid advertising is suitable if:")}
                   </p>
                   
                   <div className="space-y-3 md:space-y-5">
                     {[{
-                    text: "Uzņēmumam ir konkrēts pakalpojums vai produkts",
+                    text: t("Uzņēmumam ir konkrēts pakalpojums vai produkts", "The business has a specific service or product"),
                     icon: Target
                   }, {
-                    text: "Nepieciešams ātri piesaistīt pieprasījumu",
+                    text: t("Nepieciešams ātri piesaistīt pieprasījumu", "Need to attract demand quickly"),
                     icon: TrendingUp
                   }, {
-                    text: "Tirgū jau notiek aktīva meklēšana vai interese",
+                    text: t("Tirgū jau notiek aktīva meklēšana vai interese", "Active searching or interest already exists in the market"),
                     icon: Eye
                   }, {
-                    text: "Ir vēlme testēt jaunu piedāvājumu vai virzienu",
+                    text: t("Ir vēlme testēt jaunu piedāvājumu vai virzienu", "Want to test a new offer or direction"),
                     icon: Activity
                   }, {
-                    text: "Ir noteikts un kontrolējams reklāmas budžets",
+                    text: t("Ir noteikts un kontrolējams reklāmas budžets", "There is a defined and controllable ad budget"),
                     icon: DollarSign
                   }].map((item, idx) => <motion.div key={idx} initial={{
                     opacity: 0,
@@ -479,20 +479,20 @@ export default function PerformanceReklama() {
                   <div className="absolute top-0 right-0 w-16 md:w-24 h-16 md:h-24 bg-gradient-to-bl from-primary/15 to-transparent rounded-bl-full" />
                   
                   <div className="relative z-10">
-                    <h3 className="text-base md:text-xl font-semibold mb-4 md:mb-5">Īpaši efektīva maksas reklāma:</h3>
+                    <h3 className="text-base md:text-xl font-semibold mb-4 md:mb-5">{t("Īpaši efektīva maksas reklāma:", "Paid advertising is especially effective for:")}</h3>
                     
                     <div className="grid grid-cols-2 gap-2 md:gap-3">
                       {[{
-                      label: "Pakalpojumu uzņēmumiem",
+                      label: t("Pakalpojumu uzņēmumiem", "Service businesses"),
                       color: "from-primary/20 to-primary/10"
                     }, {
-                      label: "E-komercijai",
+                      label: t("E-komercijai", "E-commerce"),
                       color: "from-amber-100 to-amber-50"
                     }, {
-                      label: "B2B segmentam",
+                      label: t("B2B segmentam", "B2B segment"),
                       color: "from-blue-100/80 to-blue-50/50"
                     }, {
-                      label: "Lokāliem pakalpojumiem",
+                      label: t("Lokāliem pakalpojumiem", "Local services"),
                       color: "from-green-100/80 to-green-50/50"
                     }].map((segment, idx) => <motion.div key={idx} initial={{
                       opacity: 0,
@@ -523,14 +523,14 @@ export default function PerformanceReklama() {
                   <div className="relative z-10 h-full flex flex-col">
                     <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-5">
                       <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-xs md:text-sm font-medium text-muted-foreground">Atpazīstat sevi?</span>
+                      <span className="text-xs md:text-sm font-medium text-muted-foreground">{t("Atpazīstat sevi?", "Recognize yourself?")}</span>
                     </div>
                     
-                    <p className="text-sm md:text-base text-foreground mb-4 md:mb-6 flex-1">Ja kaut viens no šiem punktiem atbilst jūsu situācijai, tad maksas reklāma var būt pareizais solis.</p>
+                    <p className="text-sm md:text-base text-foreground mb-4 md:mb-6 flex-1">{t("Ja kaut viens no šiem punktiem atbilst jūsu situācijai, tad maksas reklāma var būt pareizais solis.", "If even one of these points matches your situation, then paid advertising could be the right step.")}</p>
                     
                     <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                       <Button variant="default" className="w-full group text-sm md:text-base">
-                        Sākt sarunu
+                        {t("Sākt sarunu", "Start a conversation")}
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </Link>
@@ -571,10 +571,10 @@ export default function PerformanceReklama() {
         <div className="container-neo relative z-10">
           {/* Section header */}
           <ScrollReveal className="max-w-3xl mx-auto text-center mb-8 md:mb-20">
-            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">Piedāvājumi</span>
+            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">{t("Piedāvājumi", "Offerings")}</span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              NEOLab maksas reklāmu{" "}
-              <span className="text-gradient-orange">piedāvājumi</span>
+              {t("NEOLab maksas reklāmu", "NEOLab paid advertising")}{" "}
+              <span className="text-gradient-orange">{t("piedāvājumi", "offerings")}</span>
             </h2>
           </ScrollReveal>
 
@@ -615,16 +615,16 @@ export default function PerformanceReklama() {
                   <div className="relative z-10 max-w-xl">
                     <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-3 md:mb-5">
                       <Compass className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                      Stratēģija
+                      {t("Stratēģija", "Strategy")}
                     </div>
                     <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-4 group-hover:text-primary transition-colors">
-                      Reklāmas stratēģija un kanālu izvēle
+                      {t("Reklāmas stratēģija un kanālu izvēle", "Ad strategy and channel selection")}
                     </h3>
                     <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
-                      Tiek izvērtēts, kuri kanāli konkrētajā situācijā dos labāko rezultātu – Google, Meta, TikTok, Microsoft vai to kombinācija.
+                      {t("Tiek izvērtēts, kuri kanāli konkrētajā situācijā dos labāko rezultātu – Google, Meta, TikTok, Microsoft vai to kombinācija.", "We evaluate which channels will deliver the best results in your specific situation – Google, Meta, TikTok, Microsoft, or a combination.")}
                     </p>
                     <span className="inline-flex items-center gap-2 text-primary font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
-                      Uzzināt vairāk
+                      {t("Uzzināt vairāk", "Learn more")}
                       <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                     </span>
                   </div>
@@ -642,8 +642,8 @@ export default function PerformanceReklama() {
                     <Layers className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-base md:text-lg font-semibold">Reklāmas kanāli</h3>
-                    <p className="text-xs md:text-sm text-muted-foreground">Izvēlies platformu, kas atbilst tavam mērķim</p>
+                    <h3 className="text-base md:text-lg font-semibold">{t("Reklāmas kanāli", "Ad channels")}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">{t("Izvēlies platformu, kas atbilst tavam mērķim", "Choose the platform that matches your goal")}</p>
                   </div>
                 </div>
                 
@@ -792,16 +792,16 @@ export default function PerformanceReklama() {
                   <div className="relative z-10 max-w-xl">
                     <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-3 md:mb-5">
                       <Settings className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                      Tehniski
+                      {t("Tehniski", "Technical")}
                     </div>
                     <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-4 group-hover:text-primary transition-colors">
-                      Konversiju uzstādīšana un optimizācija
+                      {t("Konversiju uzstādīšana un optimizācija", "Conversion setup and optimization")}
                     </h3>
                     <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
-                      Bez korektas datu uzskaites reklāma netiek palaista. Tiek iestatītas konversijas, notikumi un mērījumi.
+                      {t("Bez korektas datu uzskaites reklāma netiek palaista. Tiek iestatītas konversijas, notikumi un mērījumi.", "Without proper data tracking, advertising is not launched. Conversions, events, and measurements are set up.")}
                     </p>
                     <span className="inline-flex items-center gap-2 text-primary font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
-                      Uzzināt vairāk
+                      {t("Uzzināt vairāk", "Learn more")}
                       <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                     </span>
                   </div>
@@ -835,13 +835,13 @@ export default function PerformanceReklama() {
         <div className="container-neo relative z-10">
           {/* Section header - centered */}
           <ScrollReveal className="max-w-3xl mx-auto text-center mb-8 md:mb-20">
-            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">Mūsu pieeja</span>
+            <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">{t("Mūsu pieeja", "Our approach")}</span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              NEOLab maksas reklāmu{" "}
-              <span className="text-gradient-orange">pieeja</span>
+              {t("NEOLab maksas reklāmu", "NEOLab paid advertising")}{" "}
+              <span className="text-gradient-orange">{t("pieeja", "approach")}</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas.
+              {t("NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas.", "NEOLab doesn't work with advertising as a separate tool. We see it as part of the overall digital strategy.")}
             </p>
           </ScrollReveal>
 
@@ -866,25 +866,25 @@ export default function PerformanceReklama() {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-4">
                 {[{
                 step: "01",
-                title: "Mērķu izpratne",
-                description: "Uzņēmuma biznesa mērķu un prioritāšu izpratne",
+                title: t("Mērķu izpratne", "Understanding goals"),
+                description: t("Uzņēmuma biznesa mērķu un prioritāšu izpratne", "Understanding company business goals and priorities"),
                 icon: Target
               }, {
                 step: "02",
-                title: "Piedāvājuma izvērtēšana",
-                description: "Produkta konkurētspējas un pozicionējuma analīze",
+                title: t("Piedāvājuma izvērtēšana", "Offer evaluation"),
+                description: t("Produkta konkurētspējas un pozicionējuma analīze", "Product competitiveness and positioning analysis"),
                 icon: Eye
               }, {
                 step: "03",
-                title: "Auditorijas analīze",
-                description: "Mērķauditorijas un konkurences izpēte",
+                title: t("Auditorijas analīze", "Audience analysis"),
+                description: t("Mērķauditorijas un konkurences izpēte", "Target audience and competition research"),
                 icon: Users
               }, {
                 step: "04",
-                title: "KPI noteikšana",
-                description: "Skaidru, izmērāmu mērķu definēšana",
+                title: t("KPI noteikšana", "KPI definition"),
+                description: t("Skaidru, izmērāmu mērķu definēšana", "Defining clear, measurable goals"),
                 icon: BarChart3
-              }].map((item, idx) => <ScrollReveal key={item.step} delay={0.15 + idx * 0.1}>
+              }].map((item, idx) => <ScrollReveal key={idx} delay={0.15 + idx * 0.1}>
                     <motion.div whileHover={{
                   y: -6
                 }} className="relative group">
@@ -924,10 +924,11 @@ export default function PerformanceReklama() {
                   </div>
                   
                   <p className="text-sm md:text-xl font-medium text-foreground leading-relaxed">
-                    Tikai pēc tam tiek izvēlēti piemērotākie{" "}
-                    <span className="text-primary font-semibold">reklāmas kanāli</span>{" "}
-                    un{" "}
-                    <span className="text-primary font-semibold">kampaņu struktūra</span>.
+                    {t("Tikai pēc tam tiek izvēlēti piemērotākie", "Only then are the most suitable")}{" "}
+                    <span className="text-primary font-semibold">{t("reklāmas kanāli", "ad channels")}</span>{" "}
+                    {t("un", "and")}{" "}
+                    <span className="text-primary font-semibold">{t("kampaņu struktūra", "campaign structure")}</span>{" "}
+                    {t("", "selected")}.
                   </p>
                 </div>
               </div>
@@ -947,7 +948,7 @@ export default function PerformanceReklama() {
             <div className="text-center mb-6 md:mb-12">
               <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">FAQ</span>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground">
-                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+                {t("Biežāk uzdotie", "Frequently asked")} <span className="text-gradient-orange">{t("jautājumi", "questions")}</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -957,23 +958,23 @@ export default function PerformanceReklama() {
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {[{
               icon: Layers,
-              question: "Vai jāizmanto visi reklāmas kanāli?",
-              answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
+              question: t("Vai jāizmanto visi reklāmas kanāli?", "Do I need to use all ad channels?"),
+              answer: t("Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.", "No. Channels are selected based on goals and audience."),
               gradient: "from-primary to-orange-500"
             }, {
               icon: Wallet,
-              question: "Kas apmaksā reklāmas budžetu?",
-              answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
+              question: t("Kas apmaksā reklāmas budžetu?", "Who pays for the ad budget?"),
+              answer: t("Reklāmas budžetu apmaksā klients tieši platformām.", "The client pays the ad budget directly to the platforms."),
               gradient: "from-orange-500 to-amber-500"
             }, {
               icon: ClipboardCheck,
-              question: "Vai iespējams audits esošām kampaņām?",
-              answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
+              question: t("Vai iespējams audits esošām kampaņām?", "Is an audit of existing campaigns possible?"),
+              answer: t("Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.", "Yes, it's possible to evaluate the existing ad account and provide specific recommendations."),
               gradient: "from-amber-500 to-yellow-500"
             }, {
               icon: TrendingUp,
-              question: "Vai performance reklāmu var apvienot ar SEO?",
-              answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
+              question: t("Vai performance reklāmu var apvienot ar SEO?", "Can performance advertising be combined with SEO?"),
+              answer: t("Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.", "Yes, the combination often delivers the best long-term results."),
               gradient: "from-yellow-500 to-primary"
             }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.05}>
                   <AccordionItem value={`item-${index}`} className="bg-white rounded-lg md:rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
@@ -1032,12 +1033,12 @@ export default function PerformanceReklama() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
-                Sāc ar skaidru <span className="text-gradient-orange">reklāmas stratēģiju</span>
+                {t("Sāc ar skaidru", "Start with a clear")} <span className="text-gradient-orange">{t("reklāmas stratēģiju", "advertising strategy")}</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-10 leading-relaxed">
-                Maksas reklāma strādā tikai tad, ja ir skaidrs mērķis, struktūra un mērījumi.
+                {t("Maksas reklāma strādā tikai tad, ja ir skaidrs mērķis, struktūra un mērījumi.", "Paid advertising only works when there's a clear goal, structure, and measurements.")}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
@@ -1048,7 +1049,7 @@ export default function PerformanceReklama() {
                 scale: 0.98
               }} className="inline-block">
                   <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl transition-all duration-300 text-sm md:text-base">
-                    Uzzini kā attīstīties
+                    {t("Uzzini kā attīstīties", "Learn how to evolve")}
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
                 </motion.div>
