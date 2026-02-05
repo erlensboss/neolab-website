@@ -5,23 +5,15 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 // Data moved inside component to use t() function
 export default function PerformanceReklama() {
-  const { t, getLocalizedPath, language } = useLanguage();
-
-  const controlProblems = [
-    t("Nezināt, kura kampaņa tiešām nes peļņu", "Not knowing which campaign actually brings profit"),
-    t("Aģentūras atskaites, ko neviens nesaprot", "Agency reports that no one understands"),
-    t("Budžets, kas iztukšojas bez skaidra ROI", "Budget that drains without clear ROI"),
-    t("A/B testi bez reāla mācīšanās", "A/B tests without real learning")
-  ];
-
+  const {
+    t,
+    getLocalizedPath,
+    language
+  } = useLanguage();
+  const controlProblems = [t("Nezināt, kura kampaņa tiešām nes peļņu", "Not knowing which campaign actually brings profit"), t("Aģentūras atskaites, ko neviens nesaprot", "Agency reports that no one understands"), t("Budžets, kas iztukšojas bez skaidra ROI", "Budget that drains without clear ROI"), t("A/B testi bez reāla mācīšanās", "A/B tests without real learning")];
   const platforms = [{
     name: "Meta Ads",
     icon: Eye
@@ -35,7 +27,6 @@ export default function PerformanceReklama() {
     name: "TikTok Ads",
     icon: Activity
   }];
-
   const signals = [{
     label: "CTR",
     value: "2.4%",
@@ -57,7 +48,6 @@ export default function PerformanceReklama() {
     trend: "up",
     color: "text-green-600"
   }];
-
   const approach = [{
     icon: PieChart,
     title: t("Atribūcijas modelēšana", "Attribution modeling"),
@@ -75,7 +65,6 @@ export default function PerformanceReklama() {
     title: t("Pilna piltuve", "Full funnel"),
     description: t("No apzināšanās līdz pirkumam — viss redzams", "From awareness to purchase — everything visible")
   }];
-  
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
       <section className="relative overflow-hidden">
@@ -137,10 +126,7 @@ export default function PerformanceReklama() {
               
               <ScrollReveal delay={0.2}>
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-                  {t(
-                    "Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.",
-                    "Paid advertising solutions that focus on demand generation, conversions, and measurable results across multiple channels."
-                  )}
+                  {t("Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.", "Paid advertising solutions that focus on demand generation, conversions, and measurable results across multiple channels.")}
                 </p>
               </ScrollReveal>
               
@@ -517,7 +503,7 @@ export default function PerformanceReklama() {
                     }} transition={{
                       delay: 0.5 + idx * 0.1
                     }} className={`px-4 py-3 rounded-xl bg-gradient-to-br ${segment.color} border border-border/50 text-center`}>
-                          <span className="text-sm font-medium text-foreground">{segment.label}</span>
+                          <span className="font-medium text-foreground my-0 py-0 text-center text-base">{segment.label}</span>
                         </motion.div>)}
                     </div>
                   </div>
@@ -540,9 +526,7 @@ export default function PerformanceReklama() {
                       <span className="text-sm font-medium text-muted-foreground">Atpazīstat sevi?</span>
                     </div>
                     
-                    <p className="text-foreground mb-6 flex-1">
-                      Ja kaut viens no šiem punktiem atbilst jūsu situācijai — maksas reklāma var būt pareizais solis.
-                    </p>
+                    <p className="text-foreground mb-6 flex-1">Ja kaut viens no šiem punktiem atbilst jūsu situācijai, tad maksas reklāma var būt pareizais solis.</p>
                     
                     <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                       <Button variant="default" className="w-full group">
@@ -558,7 +542,7 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: NEOLab Offerings ========== */}
+      {/* ========== SECTION 4: NEOLab Offerings - Restructured ========== */}
       <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/40 to-white" />
@@ -594,334 +578,248 @@ export default function PerformanceReklama() {
             </h2>
           </ScrollReveal>
 
-          {/* Offerings grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* 3-Block Structure */}
+          <div className="space-y-8 md:space-y-10">
             
-            {/* Offering 1 - Strategy (Featured) */}
-            <ScrollReveal delay={0.05} className="lg:col-span-2">
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group">
-                {/* Decorative visual */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 w-32 h-32 md:w-40 md:h-40">
-                  <div className="relative w-full h-full">
-                    {/* Compass visual */}
-                    <motion.div className="absolute inset-0 rounded-full border-2 border-primary/20" animate={{
-                    rotate: 360
-                  }} transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }} />
-                    <motion.div className="absolute inset-3 rounded-full border border-primary/15" animate={{
-                    rotate: -360
-                  }} transition={{
-                    duration: 25,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                        <Compass className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            {/* BLOCK 1: Strategy */}
+            <ScrollReveal delay={0.05}>
+              <Link to={getLocalizedPath("/performance-reklama/reklamas-strategija")}>
+                <motion.div 
+                  whileHover={{ y: -4 }} 
+                  className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group cursor-pointer"
+                >
+                  {/* Decorative visual */}
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6 w-28 h-28 md:w-36 md:h-36">
+                    <div className="relative w-full h-full">
+                      <motion.div className="absolute inset-0 rounded-full border-2 border-primary/20" animate={{
+                      rotate: 360
+                    }} transition={{
+                      duration: 30,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }} />
+                      <motion.div className="absolute inset-3 rounded-full border border-primary/15" animate={{
+                      rotate: -360
+                    }} transition={{
+                      duration: 25,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }} />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                          <Compass className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                        </div>
                       </div>
+                      {[0, 90, 180, 270].map(deg => (
+                        <motion.div 
+                          key={deg} 
+                          className="absolute w-2 h-2 rounded-full bg-primary/40" 
+                          style={{
+                            top: '50%',
+                            left: '50%',
+                            transform: `rotate(${deg}deg) translateY(-45px) translate(-50%, -50%)`
+                          }} 
+                          animate={{ opacity: [0.4, 1, 0.4] }} 
+                          transition={{ duration: 2, repeat: Infinity, delay: deg / 360 }} 
+                        />
+                      ))}
                     </div>
-                    {/* Direction dots */}
-                    {[0, 90, 180, 270].map(deg => <motion.div key={deg} className="absolute w-2 h-2 rounded-full bg-primary/40" style={{
-                    top: '50%',
-                    left: '50%',
-                    transform: `rotate(${deg}deg) translateY(-50px) translate(-50%, -50%)`
-                  }} animate={{
-                    opacity: [0.4, 1, 0.4]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: deg / 360
-                  }} />)}
                   </div>
-                </div>
-                
-                <div className="relative z-10 max-w-lg">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-5">
-                    <Compass className="w-3.5 h-3.5" />
-                    Stratēģija
+                  
+                  <div className="relative z-10 max-w-xl">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-5">
+                      <Compass className="w-3.5 h-3.5" />
+                      Stratēģija
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                      Reklāmas stratēģija un kanālu izvēle
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Tiek izvērtēts, kuri kanāli konkrētajā situācijā dos labāko rezultātu – Google, Meta, TikTok, Microsoft vai to kombinācija. Mērķis nav būt visur, bet būt tur, kur tas strādā.
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
+                      Uzzināt vairāk
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-4">Reklāmas stratēģija un kanālu izvēle</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Tiek izvērtēts, kuri kanāli konkrētajā situācijā dos labāko rezultātu – Google, Meta, TikTok, Microsoft vai to kombinācija. Mērķis nav būt visur, bet būt tur, kur tas strādā.
-                  </p>
-                </div>
-                
-                {/* Bottom accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
-              </motion.div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+                </motion.div>
+              </Link>
             </ScrollReveal>
 
-            {/* Offering 2 - Google Ads */}
+            {/* BLOCK 2: Ad Channels Grid */}
             <ScrollReveal delay={0.1}>
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
-                {/* Google visual */}
-                <div className="absolute top-4 right-4 w-20 h-20">
-                  <div className="relative w-full h-full">
-                    <motion.div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 border border-blue-200/50 flex items-center justify-center" whileHover={{
-                    scale: 1.05
-                  }}>
-                      <Search className="w-8 h-8 text-blue-600" />
+              <div className="p-6 md:p-8 rounded-2xl bg-card border border-border shadow-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                    <Layers className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">Reklāmas kanāli</h3>
+                    <p className="text-sm text-muted-foreground">Izvēlies platformu, kas atbilst tavam mērķim</p>
+                  </div>
+                </div>
+                
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Google Ads */}
+                  <Link to={getLocalizedPath("/performance-reklama/google-ads")}>
+                    <motion.div 
+                      whileHover={{ y: -3 }} 
+                      className="relative p-5 rounded-xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200/50 overflow-hidden group cursor-pointer h-full"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 rounded-lg bg-green-100 border border-green-200/50 flex items-center justify-center">
+                          <Search className="w-6 h-6 text-green-600" />
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-green-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <h4 className="font-semibold text-foreground mb-2">Google Ads</h4>
+                      <p className="text-xs text-muted-foreground">Search, Display, YouTube, Performance Max</p>
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                     </motion.div>
-                    {/* Search pulse */}
-                    <motion.div className="absolute -inset-2 rounded-xl border border-blue-300/30" animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.5, 0, 0.5]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity
-                  }} />
-                  </div>
+                  </Link>
+
+                  {/* Meta Ads */}
+                  <Link to={getLocalizedPath("/performance-reklama/meta-ads")}>
+                    <motion.div 
+                      whileHover={{ y: -3 }} 
+                      className="relative p-5 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50/50 border border-purple-200/50 overflow-hidden group cursor-pointer h-full"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 rounded-lg bg-purple-100 border border-purple-200/50 flex items-center justify-center">
+                          <Users className="w-6 h-6 text-purple-600" />
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <h4 className="font-semibold text-foreground mb-2">Meta Ads</h4>
+                      <p className="text-xs text-muted-foreground">Facebook, Instagram, Audience Network</p>
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                    </motion.div>
+                  </Link>
+
+                  {/* TikTok Ads */}
+                  <Link to={getLocalizedPath("/performance-reklama/tiktok-ads")}>
+                    <motion.div 
+                      whileHover={{ y: -3 }} 
+                      className="relative p-5 rounded-xl bg-gradient-to-br from-cyan-50 to-pink-50/30 border border-cyan-200/50 overflow-hidden group cursor-pointer h-full"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 rounded-lg bg-foreground/5 border border-foreground/10 flex items-center justify-center">
+                          <Play className="w-6 h-6 text-foreground" />
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <h4 className="font-semibold text-foreground mb-2">TikTok Ads</h4>
+                      <p className="text-xs text-muted-foreground">In-Feed, TopView, Spark Ads</p>
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-foreground/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                    </motion.div>
+                  </Link>
+
+                  {/* Microsoft Ads */}
+                  <Link to={getLocalizedPath("/performance-reklama/microsoft-ads")}>
+                    <motion.div 
+                      whileHover={{ y: -3 }} 
+                      className="relative p-5 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200/50 overflow-hidden group cursor-pointer h-full"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 rounded-lg bg-blue-100 border border-blue-200/50 flex items-center justify-center">
+                          <Building2 className="w-6 h-6 text-blue-600" />
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <h4 className="font-semibold text-foreground mb-2">Microsoft Ads</h4>
+                      <p className="text-xs text-muted-foreground">Bing, LinkedIn Audience, B2B</p>
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                    </motion.div>
+                  </Link>
                 </div>
-                
-                <div className="relative z-10 pr-20">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs font-medium mb-4">
-                    <Search className="w-3.5 h-3.5" />
-                    Google
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">Google Ads kampaņas</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Meklēšanas, Display, YouTube, remarketinga un Performance Max kampaņas pieprasījuma piesaistei un redzamībai.
-                  </p>
-                </div>
-                
-                {/* Bottom accent */}
-                <div className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-blue-400 to-transparent" />
-              </motion.div>
+              </div>
             </ScrollReveal>
 
-            {/* Offering 3 - Meta Ads */}
+            {/* BLOCK 3: Conversions */}
             <ScrollReveal delay={0.15}>
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
-                {/* Meta visual */}
-                <div className="absolute top-4 right-4 w-20 h-20">
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.div className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-purple-100 to-pink-50 border border-purple-200/50" animate={{
-                    rotate: [0, 5, -5, 0]
-                  }} transition={{
-                    duration: 4,
-                    repeat: Infinity
-                  }} />
-                    <Users className="w-7 h-7 text-purple-600 relative z-10" />
-                    {/* Audience dots */}
-                    <motion.div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-pink-400" animate={{
-                    scale: [1, 1.2, 1]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity
-                  }} />
-                    <motion.div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-purple-400" animate={{
-                    scale: [1, 1.2, 1]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: 0.5
-                  }} />
-                  </div>
-                </div>
-                
-                <div className="relative z-10 pr-20">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-xs font-medium mb-4">
-                    <Users className="w-3.5 h-3.5" />
-                    Meta
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">Meta Ads (Facebook un Instagram)</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Reklāmas auditoriju sasniegšanai, pieprasījuma veidošanai un atkārtotai komunikācijai sociālajos tīklos.
-                  </p>
-                </div>
-                
-                <div className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-purple-400 to-transparent" />
-              </motion.div>
-            </ScrollReveal>
-
-            {/* Offering 4 - TikTok Ads */}
-            <ScrollReveal delay={0.2}>
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
-                {/* TikTok visual */}
-                <div className="absolute top-4 right-4 w-20 h-20">
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.div className="absolute w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-100 to-pink-50 border border-cyan-200/50" animate={{
-                    rotate: [0, 3, -3, 0]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity
-                  }} />
-                    <Play className="w-7 h-7 text-foreground relative z-10" />
-                    {/* Music notes */}
-                    <motion.div className="absolute -top-2 right-0 text-cyan-500 text-xs" animate={{
-                    y: [-2, 2, -2],
-                    opacity: [0.5, 1, 0.5]
-                  }} transition={{
-                    duration: 1.5,
-                    repeat: Infinity
-                  }}>
-                      ♪
-                    </motion.div>
-                    <motion.div className="absolute -bottom-1 -right-2 text-pink-500 text-xs" animate={{
-                    y: [2, -2, 2],
-                    opacity: [0.5, 1, 0.5]
-                  }} transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: 0.3
-                  }}>
-                      ♫
-                    </motion.div>
-                  </div>
-                </div>
-                
-                <div className="relative z-10 pr-20">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground/10 text-foreground text-xs font-medium mb-4">
-                    <Play className="w-3.5 h-3.5" />
-                    TikTok
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">TikTok Ads</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Ātrai sasniedzamībai, jaunu auditoriju testēšanai un dinamiskai satura komunikācijai.
-                  </p>
-                </div>
-                
-                <div className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-foreground/40 to-transparent" />
-              </motion.div>
-            </ScrollReveal>
-
-            {/* Offering 5 - Microsoft Ads */}
-            <ScrollReveal delay={0.25}>
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-7 md:p-8 rounded-2xl bg-card border border-border shadow-sm overflow-hidden group">
-                {/* Microsoft visual */}
-                <div className="absolute top-4 right-4 w-20 h-20">
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-1">
-                      <motion.div className="w-6 h-6 rounded bg-blue-500" animate={{
-                      opacity: [0.7, 1, 0.7]
-                    }} transition={{
-                      duration: 2,
-                      repeat: Infinity
-                    }} />
-                      <motion.div className="w-6 h-6 rounded bg-green-500" animate={{
-                      opacity: [0.7, 1, 0.7]
-                    }} transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: 0.2
-                    }} />
-                      <motion.div className="w-6 h-6 rounded bg-amber-500" animate={{
-                      opacity: [0.7, 1, 0.7]
-                    }} transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: 0.4
-                    }} />
-                      <motion.div className="w-6 h-6 rounded bg-red-500" animate={{
-                      opacity: [0.7, 1, 0.7]
-                    }} transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: 0.6
-                    }} />
+              <Link to={getLocalizedPath("/performance-reklama/konversiju-optimizacija")}>
+                <motion.div 
+                  whileHover={{ y: -4 }} 
+                  className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-amber-50/60 to-white border border-primary/20 overflow-hidden group cursor-pointer"
+                >
+                  {/* Conversion visual - Simple linear flow */}
+                  <div className="absolute top-4 right-4 md:top-6 md:right-6 w-40 h-24 md:w-48 md:h-28">
+                    <div className="relative w-full h-full flex items-center justify-center gap-2">
+                      {/* Step 1: Click */}
+                      <motion.div 
+                        className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <MousePointer className="w-5 h-5 text-primary" />
+                      </motion.div>
+                      
+                      {/* Arrow 1 */}
+                      <motion.div 
+                        className="w-6 h-0.5 bg-gradient-to-r from-primary/40 to-primary/60"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ delay: 0.5, duration: 0.3 }}
+                      />
+                      
+                      {/* Step 2: Target/Conversion */}
+                      <motion.div 
+                        className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-amber-200/30 border border-primary/30 flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.6 }}
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          <Target className="w-6 h-6 text-primary" />
+                        </motion.div>
+                      </motion.div>
+                      
+                      {/* Arrow 2 */}
+                      <motion.div 
+                        className="w-6 h-0.5 bg-gradient-to-r from-primary/60 to-primary/40"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ delay: 0.8, duration: 0.3 }}
+                      />
+                      
+                      {/* Step 3: Analytics */}
+                      <motion.div 
+                        className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.9 }}
+                      >
+                        <BarChart3 className="w-5 h-5 text-primary" />
+                      </motion.div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="relative z-10 pr-20">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-medium mb-4">
-                    <Building2 className="w-3.5 h-3.5" />
-                    Microsoft
+                  
+                  <div className="relative z-10 max-w-xl">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-5">
+                      <Settings className="w-3.5 h-3.5" />
+                      Tehniski
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                      Konversiju uzstādīšana un optimizācija
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Bez korektas datu uzskaites reklāma netiek palaista. Tiek iestatītas konversijas, notikumi un mērījumi, lai lēmumi balstītos reālos datos.
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
+                      Uzzināt vairāk
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-3">Microsoft Ads</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Papildkanāls specifiskām auditorijām un B2B segmentam, īpaši starptautiskos tirgos.
-                  </p>
-                </div>
-                
-                <div className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-transparent" />
-              </motion.div>
-            </ScrollReveal>
-
-            {/* Offering 6 - Conversion Setup (Featured) */}
-            <ScrollReveal delay={0.3} className="lg:col-span-2">
-              <motion.div whileHover={{
-              y: -4
-            }} className="relative h-full p-8 md:p-10 rounded-2xl bg-gradient-to-br from-green-50/80 via-emerald-50/50 to-white border border-green-200/50 overflow-hidden group">
-                {/* Conversion visual */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 w-32 h-32 md:w-36 md:h-36">
-                  <div className="relative w-full h-full">
-                    {/* Data flow visualization */}
-                    <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center" animate={{
-                    y: [0, 4, 0]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity
-                  }}>
-                      <Globe className="w-5 h-5 text-green-600" />
-                    </motion.div>
-                    
-                    {/* Flow lines */}
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-                      <motion.path d="M50 25 L50 45 L30 55" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" strokeDasharray="5,5" animate={{
-                      strokeDashoffset: [0, -10]
-                    }} transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }} />
-                      <motion.path d="M50 25 L50 45 L70 55" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none" strokeDasharray="5,5" animate={{
-                      strokeDashoffset: [0, -10]
-                    }} transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }} />
-                    </svg>
-                    
-                    {/* Bottom nodes */}
-                    <motion.div className="absolute bottom-4 left-1 w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center" animate={{
-                    scale: [1, 1.1, 1]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: 0.5
-                  }}>
-                      <BarChart3 className="w-4 h-4 text-primary" />
-                    </motion.div>
-                    <motion.div className="absolute bottom-4 right-1 w-8 h-8 rounded-lg bg-green-100 border border-green-300 flex items-center justify-center" animate={{
-                    scale: [1, 1.1, 1]
-                  }} transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: 1
-                  }}>
-                      <Target className="w-4 h-4 text-green-600" />
-                    </motion.div>
-                  </div>
-                </div>
-                
-                <div className="relative z-10 max-w-lg">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 border border-green-200 text-green-700 text-xs font-medium mb-5">
-                    <Settings className="w-3.5 h-3.5" />
-                    Tehniski
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-4">Konversiju uzstādīšana un optimizācija</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Bez korektas datu uzskaites reklāma netiek palaista. Tiek iestatītas konversijas, notikumi un mērījumi, lai lēmumi balstītos reālos datos.
-                  </p>
-                </div>
-                
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500/60 via-green-400/30 to-transparent" />
-              </motion.div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+                </motion.div>
+              </Link>
             </ScrollReveal>
 
           </div>
@@ -1075,37 +973,28 @@ export default function PerformanceReklama() {
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
-              {[
-                {
-                  icon: Layers,
-                  question: "Vai jāizmanto visi reklāmas kanāli?",
-                  answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
-                  gradient: "from-primary to-orange-500",
-                },
-                {
-                  icon: Wallet,
-                  question: "Kas apmaksā reklāmas budžetu?",
-                  answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
-                  gradient: "from-orange-500 to-amber-500",
-                },
-                {
-                  icon: ClipboardCheck,
-                  question: "Vai iespējams audits esošām kampaņām?",
-                  answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
-                  gradient: "from-amber-500 to-yellow-500",
-                },
-                {
-                  icon: TrendingUp,
-                  question: "Vai performance reklāmu var apvienot ar SEO?",
-                  answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
-                  gradient: "from-yellow-500 to-primary",
-                },
-              ].map((faq, index) => (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <AccordionItem 
-                    value={`item-${index}`} 
-                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
-                  >
+              {[{
+              icon: Layers,
+              question: "Vai jāizmanto visi reklāmas kanāli?",
+              answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
+              gradient: "from-primary to-orange-500"
+            }, {
+              icon: Wallet,
+              question: "Kas apmaksā reklāmas budžetu?",
+              answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
+              gradient: "from-orange-500 to-amber-500"
+            }, {
+              icon: ClipboardCheck,
+              question: "Vai iespējams audits esošām kampaņām?",
+              answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
+              gradient: "from-amber-500 to-yellow-500"
+            }, {
+              icon: TrendingUp,
+              question: "Vai performance reklāmu var apvienot ar SEO?",
+              answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
+              gradient: "from-yellow-500 to-primary"
+            }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem value={`item-${index}`} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
                     <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
                       <div className="flex items-center gap-3 md:gap-4 text-left">
                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
@@ -1124,8 +1013,7 @@ export default function PerformanceReklama() {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-                </ScrollReveal>
-              ))}
+                </ScrollReveal>)}
             </Accordion>
           </div>
         </div>
@@ -1137,25 +1025,26 @@ export default function PerformanceReklama() {
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
         
         {/* Subtle pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+        backgroundSize: "40px 40px"
+      }} />
         
         {/* Floating accents */}
-        <motion.div
-          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
+        <motion.div className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl" animate={{
+        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity
+      }} />
+        <motion.div className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl" animate={{
+        scale: [1.1, 1, 1.1],
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity
+      }} />
         
         <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -1171,11 +1060,11 @@ export default function PerformanceReklama() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-block"
-                >
+                <motion.div whileHover={{
+                scale: 1.02
+              }} whileTap={{
+                scale: 0.98
+              }} className="inline-block">
                   <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
                     Uzzini kā attīstīties
                     <ArrowRight className="ml-2 w-5 h-5" />
