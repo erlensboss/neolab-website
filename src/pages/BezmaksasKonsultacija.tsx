@@ -46,15 +46,15 @@ export default function BezmaksasKonsultacija() {
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
                 <h1 className="mb-6">
-                  {t("Sāksim ar", "Let's start")}{" "}
+                  {t("Sāksim", "Let's start")}{" "}
                   <span className="text-gradient-orange">{t("sarunu", "a conversation")}</span>
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="text-lg text-muted-foreground mb-8">
                   {t(
-                    "30 minūšu bezmaksas konsultācija, kurā izrunāsim jūsu situāciju un redzēsim, vai varam palīdzēt. Bez saistībām.",
-                    "A 30-minute free consultation where we'll discuss your situation and see if we can help. No strings attached.",
+                    "30 minūšu bezmaksas konsultācija, kurā auditēsim Jūsu uzņēmumu procesus, lai uzzinātu, kas ir Jums optimālākais risinājums.",
+                    "A 30-minute free consultation during which we will audit your company’s processes to identify the solution that best suits your needs.",
                   )}
                 </p>
               </ScrollReveal>
