@@ -419,116 +419,164 @@ export default function AiLab() {
         }} />
       </section>
 
-      {/* ========== SECTION 3: Ko mēs darām — Lighter inverted style ========== */}
-      <section className="relative overflow-hidden" style={{
-      background: `linear-gradient(180deg, hsl(25 70% 55%) 0%, hsl(23 65% 52%) 50%, hsl(21 60% 48%) 100%)`
-    }}>
-        {/* Subtle stars - sparser here */}
-        <div className="absolute inset-0 pointer-events-none">
-          {Array.from({
-          length: 15
-        }, (_, i) => <motion.div key={`star-s3-${i}`} className="absolute rounded-full bg-white" style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          width: Math.random() * 1 + 0.5,
-          height: Math.random() * 1 + 0.5
-        }} initial={{
-          opacity: 0
-        }} animate={{
-          opacity: [0, 0.3, 0.15, 0.3, 0]
-        }} transition={{
-          duration: 6 + Math.random() * 3,
-          delay: Math.random() * 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />)}
-        </div>
+      {/* ========== SECTION 3: Ko mēs darām — Light Theme ========== */}
+      <section className="relative overflow-hidden py-20 lg:py-28" style={{
+        background: `linear-gradient(180deg, hsl(35 35% 95%) 0%, hsl(38 40% 97%) 50%, hsl(35 30% 96%) 100%)`
+      }}>
+        {/* Subtle gradient accents */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            radial-gradient(ellipse 50% 40% at 80% 20%, hsl(var(--primary) / 0.04) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 50% at 20% 80%, hsl(var(--primary) / 0.03) 0%, transparent 70%)
+          `
+        }} />
 
-        {/* Top border accent */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{
-        background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.2) 50%, transparent 100%)`
-      }} />
+        {/* Decorative grid dots */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.4]" style={{
+          backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.08) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }} />
 
-        <div className="container-neo section-padding relative z-10">
+        <div className="container-neo relative z-10">
           {/* Header */}
           <ScrollReveal className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-6" style={{
-            boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.15)"
-          }}>
-              <Cpu className="w-4 h-4 text-white/80" />
-              <span className="text-sm font-medium text-white/80">Mūsu darbība</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-white/80 backdrop-blur-sm mb-6 shadow-sm">
+              <Cpu className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">
+                {t("Mūsu darbība", "Our Activities")}
+              </span>
             </div>
-            <h2 className="text-white" style={{
-            textShadow: "0 4px 25px hsla(0, 0%, 0%, 0.3)"
-          }}>
-              Ko mēs darām <span className="text-white/60">AI Lab ietvaros</span>
+            <h2 className="text-foreground mb-4">
+              {t("Ko mēs darām", "What we do")}{" "}
+              <span className="text-gradient-orange">{t("AI Lab ietvaros", "within AI Lab")}</span>
             </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {t("AI Lab ietvaros mēs:", "Within AI Lab we:")}
+            </p>
           </ScrollReveal>
 
-          {/* Activity cards - clean grid with white accents */}
+          {/* Activity cards - Interactive reactive design */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[{
-            icon: Sparkles,
-            text: "Pētām jaunus AI rīkus un platformas"
-          }, {
-            icon: Cpu,
-            text: "Testējam automatizācijas un datu apstrādes scenārijus"
-          }, {
-            icon: Lightbulb,
-            text: "Veidojam prototipus un eksperimentālus risinājumus"
-          }, {
-            icon: Zap,
-            text: "Analizējam, kas strādā praksē un kas ne"
-          }, {
-            icon: FlaskConical,
-            text: "Krājam pieredzi, nevis tikai zināšanas"
-          }].map((item, index) => <ScrollReveal key={index} delay={index * 0.1}>
-                <motion.div whileHover={{
-              y: -4,
-              scale: 1.02
-            }} className="relative p-6 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm" style={{
-              boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.15)"
-            }}>
-                  {/* White accent line at top */}
-                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-white/90" />
+            {[
+              {
+                icon: Sparkles,
+                title: t("Pētījumi", "Research"),
+                text: t("Pētām jaunus AI rīkus un platformas", "Research new AI tools and platforms"),
+                accent: "from-orange-500/20 to-amber-500/20"
+              },
+              {
+                icon: Cpu,
+                title: t("Testēšana", "Testing"),
+                text: t("Testējam dažādus automatizācijas un datu apstrādes scenārijus", "Test various automation and data processing scenarios"),
+                accent: "from-amber-500/20 to-yellow-500/20"
+              },
+              {
+                icon: Lightbulb,
+                title: t("Prototipi", "Prototypes"),
+                text: t("Veidojam prototipus un eksperimentālus risinājumus", "Create prototypes and experimental solutions"),
+                accent: "from-yellow-500/20 to-orange-500/20"
+              },
+              {
+                icon: Target,
+                title: t("Analīze", "Analysis"),
+                text: t("Analizējam, kas strādā praksē un kas ne", "Analyze what works in practice and what doesn't"),
+                accent: "from-orange-600/20 to-red-500/20"
+              },
+              {
+                icon: FlaskConical,
+                title: t("Pieredze", "Experience"),
+                text: t("Krājam pieredzi, nevis tikai zināšanas", "Accumulate experience, not just knowledge"),
+                accent: "from-red-500/20 to-orange-500/20"
+              }
+            ].map((item, index) => (
+              <ScrollReveal key={index} delay={index * 0.08}>
+                <motion.div 
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group relative h-full"
+                >
+                  {/* Card */}
+                  <div className="relative h-full p-6 rounded-2xl bg-white border border-gray-200/60 shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
+                    {/* Gradient accent on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                    
+                    {/* Top accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon with reactive background */}
+                      <div className="relative mb-4">
+                        <motion.div 
+                          className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-primary/15 group-hover:border-primary/20"
+                          whileHover={{ rotate: [0, -5, 5, 0] }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <item.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
+                        </motion.div>
+                        
+                        {/* Pulse indicator */}
+                        <motion.div 
+                          className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary/30 opacity-0 group-hover:opacity-100"
+                          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      </div>
+                      
+                      {/* Title */}
+                      <h4 className="text-lg font-semibold text-foreground mb-2 transition-colors duration-300">
+                        {item.title}
+                      </h4>
+                      
+                      {/* Description */}
+                      <p className="text-muted-foreground leading-relaxed">
+                        {item.text}
+                      </p>
                     </div>
-                    <p className="text-white/90 text-base leading-relaxed pt-2" style={{
-                  textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.3)"
-                }}>
-                      {item.text}
-                    </p>
+                    
+                    {/* Corner decoration */}
+                    <div className="absolute bottom-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
+                    </div>
                   </div>
                 </motion.div>
-              </ScrollReveal>)}
+              </ScrollReveal>
+            ))}
           </div>
 
-          {/* Bottom note */}
+          {/* Bottom emphasis quote */}
           <ScrollReveal delay={0.5}>
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="inline-block px-6 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm" style={{
-              boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.1)"
-            }}>
-                <p className="text-white/70 italic" style={{
-                textShadow: "0 1px 8px hsla(0, 0%, 0%, 0.2)"
-              }}>Fokusējamies uz izpratni un izaugsmi.</p>
+            <div className="max-w-3xl mx-auto">
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-primary/15 shadow-sm">
+                {/* Quote accent */}
+                <div className="absolute -top-3 left-8 px-4 py-1 bg-primary/10 rounded-full border border-primary/20">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                    {t("Mūsu pieeja", "Our Approach")}
+                  </span>
+                </div>
+                
+                <div className="flex items-center gap-6">
+                  <div className="hidden sm:flex flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 items-center justify-center">
+                    <Target className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-lg text-foreground font-medium leading-relaxed">
+                      {t(
+                        "Fokuss nav uz perfektiem rezultātiem, bet uz izpratni un progresu.",
+                        "The focus is not on perfect results, but on understanding and progress."
+                      )}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
         
         {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{
-        background: `linear-gradient(to top, hsl(28 75% 62%) 0%, transparent 100%)`
-      }} />
-        
-        {/* Bottom border accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-px z-10" style={{
-        background: `linear-gradient(90deg, transparent 0%, hsla(0, 0%, 100%, 0.2) 50%, transparent 100%)`
-      }} />
+        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{
+          background: `linear-gradient(to top, hsl(30 30% 95%) 0%, transparent 100%)`
+        }} />
       </section>
 
       {/* ========== SECTION 4: Kāpēc AI Lab — Lightest, Most Advanced ========== */}
