@@ -227,7 +227,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 2: What is SEO & GEO ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic background with gradient mesh */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50/50" />
         <div
@@ -467,7 +467,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 3: Results System ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-tl from-amber-50/80 via-white to-orange-50/60" />
 
@@ -637,7 +637,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 4: Experience & Achievements ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
 
@@ -852,7 +852,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 5: NEOLab Solution — PREMIUM CONVERSION BLOCK ========== */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Premium background with depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/30" />
 
@@ -1210,7 +1210,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 6: Collaboration Roadmap — VERTICAL FLOW ========== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Premium background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-orange-50/30" />
 
@@ -1439,7 +1439,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 7: FAQ ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
 
@@ -1525,7 +1525,7 @@ export default function SeoGeo() {
       </section>
 
       {/* ========== SECTION 8: Final CTA ========== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
 

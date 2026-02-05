@@ -696,7 +696,7 @@ export default function Index() {
       </section>
 
       {/* ========== SECTION 9: Final CTA — Strong Orange ========== */}
-      <section className="relative py-14 md:py-20 section-divider-top overflow-hidden">
+      <section className="relative py-12 md:py-16 section-divider-top overflow-hidden">
         {/* Strong orange gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />

@@ -341,13 +341,13 @@
     @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary;
   }
 
-  /* Section spacing — PREMIUM: larger vertical rhythm */
+  /* Section spacing — Consistent rhythm matching SEO & GEO page */
   .section-padding {
-    @apply py-20 md:py-32 lg:py-40;
+    @apply py-12 md:py-16 lg:py-20;
   }
 
   .section-padding-sm {
-    @apply py-14 md:py-20 lg:py-28;
+    @apply py-10 md:py-14 lg:py-16;
   }
 
   /* Full-bleed section wrapper for atmosphere */

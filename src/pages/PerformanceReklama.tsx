@@ -205,7 +205,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 2: Benefits of Paid Advertising ========== */}
-      <section className="relative overflow-hidden py-12 md:py-24 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Subtle background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/30 to-white" />
         
@@ -396,7 +396,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 3: Who Is Paid Advertising For ========== */}
-      <section className="relative overflow-hidden py-12 md:py-24 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Warm welcoming background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-amber-50/40 to-white" />
         <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -543,7 +543,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 4: NEOLab Offerings - Restructured ========== */}
-      <section className="relative overflow-hidden py-12 md:py-28 lg:py-32">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/40 to-white" />
         <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -816,7 +816,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 5: NEOLab Approach - Process Flow ========== */}
-      <section className="relative overflow-hidden py-12 md:py-28 lg:py-32">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Warm gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-amber-50/40 to-white" />
         <div className="absolute inset-0 opacity-[0.015]" style={{
@@ -937,7 +937,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 6: FAQ ========== */}
-      <section className="relative py-12 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
         
@@ -1002,7 +1002,7 @@ export default function PerformanceReklama() {
       </section>
 
       {/* ========== SECTION 7: CTA ========== */}
-      <section className="relative py-12 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
         
