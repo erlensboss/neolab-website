@@ -17,7 +17,7 @@ const teamMembers = [
   },
   // Add more team members here as they join
 ];
-const storyCheckpoints = [
+const storyBlocks = [
   {
     icon: Sparkles,
     title: "Laboratorija",
@@ -25,6 +25,7 @@ const storyCheckpoints = [
       "NEOLab ir mākslīgā intelekta laboratorija, kurā attīstām jaunus AI risinājumus dažādām uzņēmumu vajadzībām - sākot ar praktiskiem digitāliem risinājumiem un beidzot ar nestandarta idejām, kas praksē izrādās pārsteidzoši efektīvas.",
     gradient: "from-orange-400 to-amber-500",
     bgGlow: "hsl(25 80% 50% / 0.15)",
+    position: "left" as const,
   },
   {
     icon: Rocket,
@@ -33,6 +34,7 @@ const storyCheckpoints = [
       "NEOLab veido jaunu ekspertu komanda ar dabīgu izpratni par mākslīgā intelekta tehnoloģiju pārvaldību un izstrādi. Mēs esam tehnoloģiju un algoritmu paaudze, kas digitālajā vidē orientējas intuitīvi, ātri apgūst jauno un spēj pielāgoties straujām pārmaiņām.",
     gradient: "from-primary to-orange-500",
     bgGlow: "hsl(25 70% 55% / 0.12)",
+    position: "right" as const,
   },
   {
     icon: Heart,
@@ -41,214 +43,101 @@ const storyCheckpoints = [
       "Jaunība mums nav tikai vecums. Tā ir degsme, zinātkāre un nepārtraukts izsalkums pēc attīstības. Mēs esam uzauguši digitālajā pasaulē, un jaunākās tehnoloģijas mums ir dabiska ikdienas sastāvdaļa.",
     gradient: "from-rose-400 to-orange-400",
     bgGlow: "hsl(15 70% 55% / 0.12)",
+    position: "left" as const,
   },
 ];
 
-// Animated Roadmap Checkpoint Component
-function RoadmapCheckpoint({
-  checkpoint,
+// Story Block Component with reactive hover effects
+function StoryBlock({
+  block,
   index,
-  isLeft,
-  isLast,
 }: {
-  checkpoint: (typeof storyCheckpoints)[0];
+  block: (typeof storyBlocks)[0];
   index: number;
-  isLeft: boolean;
-  isLast: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px",
   });
+  const isRight = block.position === "right";
+  
   return (
-    <div ref={ref} className="relative">
-      {/* Connecting road line */}
-      {!isLast && (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: isRight ? 60 : -60, y: 20 }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+      whileHover={{ scale: 1.02, y: -8 }}
+      className={`relative ${isRight ? 'md:col-start-2' : 'md:col-start-1'}`}
+    >
+      {/* Card */}
+      <div
+        className="group relative bg-white rounded-3xl p-8 md:p-10 border border-border/40 overflow-hidden transition-all duration-500 hover:border-primary/30 cursor-pointer"
+        style={{
+          boxShadow: `0 20px 60px -20px ${block.bgGlow}, 0 8px 24px -12px hsl(0 0% 0% / 0.08)`,
+        }}
+      >
+        {/* Hover glow effect */}
         <motion.div
-          initial={{
-            scaleY: 0,
-          }}
-          animate={
-            isInView
-              ? {
-                  scaleY: 1,
-                }
-              : {}
-          }
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-          }}
-          className="absolute left-1/2 top-24 -translate-x-1/2 w-1 h-32 md:h-40 origin-top"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: "linear-gradient(to bottom, hsl(25 80% 55% / 0.4), hsl(25 80% 55% / 0.1))",
+            background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${block.bgGlow.replace('0.15', '0.08').replace('0.12', '0.08')}, transparent 40%)`,
           }}
         />
-      )}
-
-      {/* Main checkpoint row */}
-      <div className={`grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-12 items-center mb-16 md:mb-24`}>
-        {/* Left content or spacer */}
-        <div className={`${isLeft ? "order-1" : "order-1 md:order-3"}`}>
-          {isLeft && (
+        
+        {/* Corner glow */}
+        <div
+          className={`absolute ${isRight ? 'top-0 left-0' : 'top-0 right-0'} w-40 h-40 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500`}
+          style={{ background: block.bgGlow }}
+        />
+        
+        {/* Decorative gradient line */}
+        <div 
+          className={`absolute ${isRight ? 'left-0' : 'right-0'} top-8 bottom-8 w-1 rounded-full bg-gradient-to-b ${block.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
+        />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          {/* Icon + Number badge */}
+          <div className="flex items-center gap-4 mb-6">
             <motion.div
-              initial={{
-                opacity: 0,
-                x: -40,
-              }}
-              animate={
-                isInView
-                  ? {
-                      opacity: 1,
-                      x: 0,
-                    }
-                  : {}
-              }
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-              }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-border/50 relative overflow-hidden"
+              whileHover={{ rotate: 10, scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${block.gradient} flex items-center justify-center shadow-lg`}
               style={{
-                boxShadow: `0 20px 50px -15px ${checkpoint.bgGlow}`,
+                boxShadow: `0 12px 30px -8px ${block.bgGlow.replace('0.15', '0.4').replace('0.12', '0.4')}`,
               }}
             >
-              {/* Glow effect */}
-              <div
-                className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-50"
-                style={{
-                  background: checkpoint.bgGlow,
-                }}
-              />
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 relative z-10">{checkpoint.title}</h3>
-              <p className="text-muted-foreground leading-relaxed relative z-10">{checkpoint.content}</p>
+              <block.icon className="w-8 h-8 text-white" />
             </motion.div>
-          )}
-        </div>
-
-        {/* Center checkpoint node */}
-        <div className="order-first md:order-2 flex justify-center">
-          <motion.div
-            initial={{
-              scale: 0,
-              rotate: -180,
-            }}
-            animate={
-              isInView
-                ? {
-                    scale: 1,
-                    rotate: 0,
-                  }
-                : {}
-            }
-            transition={{
-              duration: 0.6,
-              type: "spring",
-              stiffness: 200,
-              damping: 15,
-            }}
-            className="relative"
-          >
-            {/* Pulse rings */}
-            <motion.div
-              animate={{
-                scale: [1, 1.4, 1],
-                opacity: [0.4, 0, 0.4],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: index * 0.3,
-              }}
-              className={`absolute inset-0 rounded-full bg-gradient-to-br ${checkpoint.gradient}`}
-            />
-            <motion.div
-              animate={{
-                scale: [1, 1.6, 1],
-                opacity: [0.2, 0, 0.2],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: index * 0.3 + 0.3,
-              }}
-              className={`absolute inset-0 rounded-full bg-gradient-to-br ${checkpoint.gradient}`}
-            />
-
-            {/* Main node */}
-            <div
-              className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${checkpoint.gradient} flex items-center justify-center shadow-xl`}
-              style={{
-                boxShadow: `0 10px 40px -10px ${checkpoint.bgGlow.replace("0.15", "0.5").replace("0.12", "0.5")}`,
-              }}
-            >
-              <checkpoint.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
+            <div className="flex flex-col">
+              <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium mb-1">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                {block.title}
+              </h3>
             </div>
-
-            {/* Step number */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 10,
-              }}
-              animate={
-                isInView
-                  ? {
-                      opacity: 1,
-                      y: 0,
-                    }
-                  : {}
-              }
-              transition={{
-                delay: 0.4,
-              }}
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full text-xs font-bold text-primary shadow-md border border-primary/20"
-            >
-              {index + 1}/{storyCheckpoints.length}
-            </motion.div>
+          </div>
+          
+          {/* Description */}
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {block.content}
+          </p>
+          
+          {/* Hover indicator */}
+          <motion.div 
+            className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            initial={{ x: -10 }}
+            whileHover={{ x: 0 }}
+          >
+            <span className="text-sm font-medium">Uzzināt vairāk</span>
+            <ArrowRight className="w-4 h-4" />
           </motion.div>
         </div>
-
-        {/* Right content or spacer */}
-        <div className={`${isLeft ? "order-3 hidden md:block" : "order-3 md:order-1"}`}>
-          {!isLeft && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 40,
-              }}
-              animate={
-                isInView
-                  ? {
-                      opacity: 1,
-                      x: 0,
-                    }
-                  : {}
-              }
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-              }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-border/50 relative overflow-hidden"
-              style={{
-                boxShadow: `0 20px 50px -15px ${checkpoint.bgGlow}`,
-              }}
-            >
-              {/* Glow effect */}
-              <div
-                className="absolute top-0 left-0 w-32 h-32 rounded-full blur-3xl opacity-50"
-                style={{
-                  background: checkpoint.bgGlow,
-                }}
-              />
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 relative z-10">{checkpoint.title}</h3>
-              <p className="text-muted-foreground leading-relaxed relative z-10">{checkpoint.content}</p>
-            </motion.div>
-          )}
-        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 export default function ParMums() {
@@ -502,28 +391,43 @@ export default function ParMums() {
       </section>
 
       {/* ========== SECTION 2: NEOLab Story Roadmap ========== */}
-      <section className="section-offwhite section-full-bleed relative overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
         {/* Background decorations */}
         <div className="absolute top-20 left-[5%] w-40 h-40 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-20 right-[5%] w-60 h-60 rounded-full bg-orange-300/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/3 to-transparent blur-3xl" />
 
         <div className="container-neo section-padding relative z-10">
-          <SectionHeading chip="Stāsts" title="NEOLab stāsts" className="mb-20" />
+          <SectionHeading chip="Stāsts" title="NEOLab stāsts" className="mb-16" />
 
-          {/* Roadmap */}
-          <div className="max-w-5xl mx-auto">
-            {storyCheckpoints.map((checkpoint, index) => {
-              const isLeft = index % 2 === 0;
-              return (
-                <RoadmapCheckpoint
-                  key={checkpoint.title}
-                  checkpoint={checkpoint}
-                  index={index}
-                  isLeft={isLeft}
-                  isLast={index === storyCheckpoints.length - 1}
+          {/* Story Grid with visible connecting line */}
+          <div className="max-w-6xl mx-auto relative">
+            {/* Central connecting line - visible on desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+              {/* Animated pulse on line */}
+              <motion.div
+                animate={{ y: ["0%", "100%"], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-lg"
+                style={{ boxShadow: "0 0 20px hsl(var(--primary) / 0.5)" }}
+              />
+              {/* Static node points */}
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-primary/40 shadow-sm"
+                  style={{ top: `${15 + i * 35}%` }}
                 />
-              );
-            })}
+              ))}
+            </div>
+
+            {/* Story blocks grid */}
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+              {storyBlocks.map((block, index) => (
+                <StoryBlock key={block.title} block={block} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
