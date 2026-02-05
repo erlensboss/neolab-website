@@ -1556,69 +1556,23 @@ export default function ParMums() {
       <section
         className="relative overflow-hidden py-20 md:py-28"
         style={{
-          background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`,
+          background: `linear-gradient(180deg, hsl(30 50% 97%) 0%, hsl(35 40% 95%) 50%, hsl(30 45% 96%) 100%)`,
         }}
       >
-        {/* Top fade-in gradient from previous section */}
+        {/* Subtle background pattern */}
         <div
-          className="absolute top-0 left-0 right-0 h-32 md:h-48 pointer-events-none"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            background:
-              "linear-gradient(to bottom, hsl(25 60% 94%) 0%, hsl(25 70% 80% / 0.5) 30%, hsl(21 85% 45% / 0) 100%)",
+            backgroundImage: `linear-gradient(hsl(25 80% 50% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(25 80% 50% / 0.4) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
           }}
         />
-
-        {/* Bottom fade-out gradient to next section */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-32 md:h-48 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to top, hsl(30 60% 96%) 0%, hsl(25 70% 70% / 0.4) 30%, hsl(8 60% 20% / 0) 100%)",
-          }}
-        />
-
-        {/* Deep space overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(ellipse 100% 100% at 30% 20%, hsl(25 90% 50% / 0.15), transparent 50%),
-                       radial-gradient(ellipse 80% 80% at 70% 80%, hsl(15 70% 35% / 0.2), transparent 50%)`,
-          }}
-        />
-
-        {/* Subtle twinkling stars */}
-        {Array.from(
-          {
-            length: 25,
-          },
-          (_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-white"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: Math.random() * 1.5 + 0.5,
-                height: Math.random() * 1.5 + 0.5,
-              }}
-              animate={{
-                opacity: [0, 0.6, 0.3, 0.6, 0],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                delay: Math.random() * 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ),
-        )}
 
         {/* Floating glow orbs */}
         <motion.div
           animate={{
             x: [0, 30, 0],
-            opacity: [0.3, 0.5, 0.3],
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{
             duration: 10,
@@ -1627,13 +1581,13 @@ export default function ParMums() {
           }}
           className="absolute top-10 left-[10%] w-80 h-80 rounded-full blur-3xl"
           style={{
-            background: "radial-gradient(circle, hsl(25 90% 55% / 0.25), transparent 60%)",
+            background: "radial-gradient(circle, hsl(25 80% 60% / 0.15), transparent 60%)",
           }}
         />
         <motion.div
           animate={{
             x: [0, -20, 0],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
             duration: 12,
@@ -1642,7 +1596,7 @@ export default function ParMums() {
           }}
           className="absolute bottom-10 right-[10%] w-72 h-72 rounded-full blur-3xl"
           style={{
-            background: "radial-gradient(circle, hsl(15 80% 45% / 0.3), transparent 60%)",
+            background: "radial-gradient(circle, hsl(35 70% 55% / 0.2), transparent 60%)",
           }}
         />
 
@@ -1652,14 +1606,13 @@ export default function ParMums() {
               <motion.div
                 className="relative rounded-3xl p-10 md:p-14 lg:p-16 overflow-hidden"
                 style={{
-                  background: "linear-gradient(145deg, hsl(0 0% 100% / 0.08) 0%, hsl(25 50% 80% / 0.05) 100%)",
-                  backdropFilter: "blur(12px)",
+                  background: "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(30 40% 98%) 100%)",
                   boxShadow:
-                    "0 25px 60px -15px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(0 0% 100% / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.15)",
+                    "0 25px 60px -15px hsl(25 50% 50% / 0.12), 0 0 0 1px hsl(25 40% 90% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.9)",
                 }}
                 whileHover={{
                   boxShadow:
-                    "0 30px 70px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(25 70% 60% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.2)",
+                    "0 30px 70px -15px hsl(25 50% 50% / 0.18), 0 0 0 1px hsl(25 60% 80% / 0.5), inset 0 1px 0 hsl(0 0% 100%)",
                   y: -4,
                 }}
                 transition={{
@@ -1680,7 +1633,7 @@ export default function ParMums() {
                     }}
                     className="relative"
                   >
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-dashed border-white/20" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-dashed border-primary/20" />
                   </motion.div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div
@@ -1704,16 +1657,16 @@ export default function ParMums() {
 
                 {/* Content */}
                 <div className="max-w-2xl">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span className="text-sm font-medium text-white/90">Pamats</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-sm font-medium text-primary">Pamats</span>
                   </div>
 
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
                     AI Lab kā{" "}
                     <span
                       style={{
-                        background: "linear-gradient(90deg, hsl(40 95% 70%), hsl(25 90% 65%))",
+                        background: "linear-gradient(90deg, hsl(25 80% 50%), hsl(35 75% 50%))",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -1722,12 +1675,12 @@ export default function ParMums() {
                     </span>
                   </h2>
 
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-4">
+                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
                     NEOLab darbības pamatā ir AI Lab – iekšējā attīstības vide, kur tiek pētītas un testētas jaunākās
                     tehnoloģijas.
                   </p>
 
-                  <p className="text-base md:text-lg text-white/60 leading-relaxed mb-8">
+                  <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed mb-8">
                     Tas ļauj mums strādāt ar pārbaudītām pieejām un neveidot klientu projektus kā eksperimentus.
                   </p>
 
@@ -1752,19 +1705,11 @@ export default function ParMums() {
                   </Link>
                 </div>
 
-                {/* Decorative floating icon */}
-                <motion.img
-                  src={iconWhite}
-                  alt=""
-                  className="absolute bottom-6 right-6 w-16 h-16 md:w-24 md:h-24 opacity-10"
-                  animate={{
-                    rotate: [0, 10, 0, -10, 0],
-                    y: [0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                {/* Decorative corner glow */}
+                <div
+                  className="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-30 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(circle, hsl(25 80% 55% / 0.3), transparent 60%)",
                   }}
                 />
               </motion.div>
