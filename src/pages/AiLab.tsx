@@ -234,7 +234,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 2: Kas ir AI Lab? — Light Theme ========== */}
-      <section className="relative overflow-hidden py-12 md:py-20 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-16">
 
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -408,7 +408,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 3: Ko mēs darām — Light Theme ========== */}
-      <section className="relative overflow-hidden py-12 md:py-20 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -555,7 +555,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 4: Kāpēc AI Lab — Light Theme, Standout Design ========== */}
-      <section className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+      <section className="relative overflow-hidden py-12 md:py-16">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -724,7 +724,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 5: FAQ ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
         
@@ -813,7 +813,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 6: Contact CTA — Light Theme ========== */}
-      <section className="relative py-12 md:py-20 lg:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Background with warm gradient */}
         <div className="absolute inset-0" style={{
           background: `hsl(var(--background))`

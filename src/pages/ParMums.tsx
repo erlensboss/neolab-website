@@ -1188,7 +1188,7 @@ export default function ParMums() {
 
       {/* ========== SECTION 5: Ko NEOLab dod uzņēmumiem ========== */}
       <section
-        className="relative overflow-hidden py-16 md:py-20"
+        className="relative overflow-hidden py-12 md:py-16"
         style={{
           background: "linear-gradient(180deg, hsl(30 50% 97%) 0%, hsl(35 40% 96%) 100%)",
         }}
@@ -1294,7 +1294,7 @@ export default function ParMums() {
       </section>
       {/* ========== SECTION 7: AI Lab kā pamats ========== */}
       <section
-        className="relative overflow-hidden py-20 md:py-28"
+        className="relative overflow-hidden py-12 md:py-16"
         style={{
           background: `linear-gradient(180deg, hsl(30 50% 97%) 0%, hsl(35 40% 95%) 50%, hsl(30 45% 96%) 100%)`,
         }}
@@ -1459,7 +1459,7 @@ export default function ParMums() {
       </section>
 
       {/* ========== SECTION 8: CTA — Strong Orange (Homepage Style) ========== */}
-      <section className="relative py-14 md:py-20 section-divider-top overflow-hidden">
+      <section className="relative py-12 md:py-16 section-divider-top overflow-hidden">
         {/* Strong orange gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />

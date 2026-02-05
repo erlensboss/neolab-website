@@ -293,7 +293,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 2: What is AI Automation ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Dynamic background with gradient mesh */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50/50" />
         <div
@@ -484,7 +484,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 3: Ready AI Solutions ========== */}
-      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Subtle warm background */}
         <div className="absolute inset-0 bg-gradient-to-b from-background-warm/50 via-background to-background" />
 
@@ -593,7 +593,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 4: AI Automation Offerings ========== */}
-      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background-warm/30 to-background" />
         <div
@@ -776,7 +776,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 5: Personalized Solutions ========== */}
-      <section className="relative py-14 sm:py-20 md:py-32 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Premium background with warm gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-orange-50 to-amber-50/80" />
 
@@ -974,7 +974,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 6: How We Work - Roadmap ========== */}
-      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-white" />
 
@@ -1192,7 +1192,7 @@ export default function AiAutomatizacija() {
       </section>
 
       {/* ========== SECTION 7: FAQ ========== */}
-      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Simple clean background */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
 
