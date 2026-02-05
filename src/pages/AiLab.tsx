@@ -239,170 +239,184 @@ export default function AiLab() {
         }} />
       </section>
 
-      {/* ========== SECTION 2: Kas ir AI Lab? — Inverted Cosmos Style ========== */}
-      <section className="relative overflow-hidden" style={{
-      background: `linear-gradient(180deg, hsl(18 80% 38%) 0%, hsl(15 75% 32%) 50%, hsl(12 70% 28%) 100%)`
-    }}>
-        {/* Subtle star field continues */}
-        <div className="absolute inset-0 pointer-events-none">
-          {Array.from({
-          length: 25
-        }, (_, i) => <motion.div key={`star-s2-${i}`} className="absolute rounded-full bg-white" style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          width: Math.random() * 1.5 + 0.5,
-          height: Math.random() * 1.5 + 0.5
-        }} initial={{
-          opacity: 0
-        }} animate={{
-          opacity: [0, 0.4, 0.2, 0.4, 0]
-        }} transition={{
-          duration: 5 + Math.random() * 3,
-          delay: Math.random() * 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />)}
-        </div>
-
-        {/* Nebula glow accents */}
+      {/* ========== SECTION 2: Kas ir AI Lab? — Light Theme ========== */}
+      <section className="relative overflow-hidden py-20 lg:py-28" style={{
+        background: `linear-gradient(180deg, hsl(30 25% 96%) 0%, hsl(35 30% 97%) 50%, hsl(30 20% 95%) 100%)`
+      }}>
+        {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
-        background: `
-              radial-gradient(ellipse 50% 40% at 10% 50%, hsla(35 100% 70% / 0.06) 0%, transparent 70%),
-              radial-gradient(ellipse 40% 50% at 90% 30%, hsla(21 90% 55% / 0.05) 0%, transparent 70%)
-            `
-      }} />
+          background: `
+            radial-gradient(ellipse 60% 40% at 10% 30%, hsl(var(--primary) / 0.05) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 50% at 90% 70%, hsl(var(--primary) / 0.04) 0%, transparent 70%)
+          `
+        }} />
 
-        <div className="container-neo section-padding relative z-10">
+        {/* Grid pattern - very subtle */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px',
+          }}
+        />
+
+        <div className="container-neo relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Content */}
+            {/* Left: Content - Better structured */}
             <div>
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm mb-8" style={{
-                boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.2)"
-              }}>
-                  <FlaskConical className="w-4 h-4 text-white/80" />
-                  <span className="text-sm font-medium text-white/80">Par laboratoriju</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-white/80 backdrop-blur-sm mb-6 shadow-sm">
+                  <FlaskConical className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-primary">
+                    {t("Par laboratoriju", "About the Laboratory")}
+                  </span>
                 </div>
               </ScrollReveal>
               
               <ScrollReveal delay={0.1}>
-                <h2 className="text-white mb-8" style={{
-                textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.4)"
-              }}>
-                  Kas ir <span className="text-white/60">AI Lab</span>?
+                <h2 className="text-foreground mb-8">
+                  {t("Kas ir", "What is")}{" "}
+                  <span className="text-gradient-orange">AI Lab</span>?
                 </h2>
               </ScrollReveal>
               
+              {/* Main description - highlighted card */}
+              <ScrollReveal delay={0.15}>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-primary/10 shadow-sm">
+                  <p className="text-lg text-foreground leading-relaxed font-medium">
+                    {t(
+                      "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.",
+                      "AI Lab is a development and experimentation environment created by NEOLab, focused on practical research, creation, and application of artificial intelligence."
+                    )}
+                  </p>
+                </div>
+              </ScrollReveal>
+              
+              {/* Secondary description - three key points */}
               <ScrollReveal delay={0.2}>
-                <p className="text-lg text-white/85 mb-6 leading-relaxed" style={{
-                textShadow: "0 2px 15px hsla(0, 0%, 0%, 0.4)"
-              }}>
-                  AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.
-                </p>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Users className="w-5 h-5 text-primary" />
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {t(
+                        "Vieta, kur jaunieši ar interesi par tehnoloģijām strādā ar reāliem rīkiem, reāliem scenārijiem un reālām problēmām.",
+                        "A place where young people interested in technology work with real tools, real scenarios, and real problems."
+                      )}
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Rocket className="w-5 h-5 text-primary" />
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {t(
+                        "Attīstoties prasmēs, spējās un domāšanā, šeit top AI un tehnoloģiju risinājumi, kuriem ir praktiska vērtība.",
+                        "While developing skills, abilities, and thinking, AI and technology solutions with practical value are created here."
+                      )}
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
               
-              <ScrollReveal delay={0.3}>
-                <p className="text-lg text-white/75 mb-6 leading-relaxed" style={{
-                textShadow: "0 2px 15px hsla(0, 0%, 0%, 0.4)"
-              }}>
-                  Tā ir vieta, kur jaunieši ar interesi par tehnoloģijām strādā ar reāliem rīkiem, reāliem scenārijiem un reālām problēmām. Attīstoties prasmēs, spējās un domāšanā, šeit top AI un tehnoloģiju risinājumi, kuriem ir praktiska vērtība.
-                </p>
-              </ScrollReveal>
-              
-              <ScrollReveal delay={0.4}>
-                <p className="text-base text-white/60 italic" style={{
-                textShadow: "0 2px 10px hsla(0, 0%, 0%, 0.3)"
-              }}>
-                  AI Lab tiek veidots ar skatu uz ilgtermiņa attīstību, nevis ātru rezultātu.
-                </p>
+              {/* Quote/emphasis - italic styled */}
+              <ScrollReveal delay={0.25}>
+                <div className="pl-5 border-l-2 border-primary/30">
+                  <p className="text-muted-foreground italic">
+                    {t(
+                      "AI Lab tiek veidots ar skatu uz ilgtermiņa attīstību, nevis ātru rezultātu.",
+                      "AI Lab is being built with a focus on long-term development, not quick results."
+                    )}
+                  </p>
+                </div>
               </ScrollReveal>
             </div>
 
-            {/* Right: Visual Element — Mysterious orb/constellation */}
+            {/* Right: Visual Element — Light theme orbital */}
             <ScrollReveal delay={0.2} direction="right">
               <div className="relative flex items-center justify-center py-12">
                 {/* Central glowing orb */}
-                <motion.div className="relative" animate={{
-                scale: [1, 1.02, 1]
-              }} transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}>
-                  {/* Outer glow rings */}
-                  <motion.div animate={{
-                  rotate: 360
-                }} transition={{
-                  duration: 60,
-                  repeat: Infinity,
-                  ease: "linear"
-                }} className="absolute -inset-16 md:-inset-20 border border-dashed border-white/8 rounded-full" />
-                  <motion.div animate={{
-                  rotate: -360
-                }} transition={{
-                  duration: 45,
-                  repeat: Infinity,
-                  ease: "linear"
-                }} className="absolute -inset-10 md:-inset-14 border border-white/10 rounded-full">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/40" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/40" />
-                    <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/30" />
+                <motion.div 
+                  className="relative"
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {/* Outer glow rings - light theme */}
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-16 md:-inset-20 border border-dashed border-primary/10 rounded-full"
+                  />
+                  <motion.div 
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-10 md:-inset-14 border border-primary/15 rounded-full"
+                  >
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 rounded-full bg-primary/40" />
+                    <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary/30" />
                   </motion.div>
                   
                   {/* Inner pulsing ring */}
-                  <motion.div animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.4, 0.2]
-                }} transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }} className="absolute -inset-4 md:-inset-6 rounded-full border border-white/20" />
+                  <motion.div 
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -inset-4 md:-inset-6 rounded-full border-2 border-primary/20"
+                  />
                   
-                  {/* Central orb */}
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white flex items-center justify-center" style={{
-                  boxShadow: "0 0 60px hsla(0, 0%, 100%, 0.3), 0 0 120px hsla(21, 90%, 50%, 0.2), inset 0 -4px 20px hsla(0, 0%, 0%, 0.1)"
-                }}>
-                    <FlaskConical className="w-10 h-10 md:w-14 md:h-14 text-primary" />
+                  {/* Central orb - light theme */}
+                  <div 
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+                    style={{
+                      boxShadow: "0 0 40px hsl(var(--primary) / 0.25), 0 0 80px hsl(var(--primary) / 0.15), 0 8px 32px hsl(var(--primary) / 0.2)"
+                    }}
+                  >
+                    <FlaskConical className="w-10 h-10 md:w-14 md:h-14 text-white" />
                   </div>
                 </motion.div>
 
-                {/* Floating accent dots */}
-                <motion.div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-white/30" animate={{
-                y: [-5, 5, -5],
-                opacity: [0.3, 0.6, 0.3]
-              }} transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }} />
-                <motion.div className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-white/25" animate={{
-                y: [5, -5, 5],
-                opacity: [0.2, 0.5, 0.2]
-              }} transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }} />
-                <motion.div className="absolute top-1/3 right-1/3 w-1 h-1 rounded-full bg-white/20" animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.2, 0.4, 0.2]
-              }} transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5
-              }} />
+                {/* Floating accent dots - light theme */}
+                <motion.div 
+                  className="absolute top-1/4 left-1/4 w-3 h-3 rounded-full bg-primary/20"
+                  animate={{ y: [-5, 5, -5], opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div 
+                  className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-primary/25"
+                  animate={{ y: [5, -5, 5], opacity: [0.2, 0.5, 0.2] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                <motion.div 
+                  className="absolute top-1/3 right-1/3 w-1.5 h-1.5 rounded-full bg-primary/15"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+                
+                {/* Additional floating elements */}
+                <motion.div 
+                  className="absolute top-1/2 left-[15%] w-2 h-2 rounded-full bg-primary/20"
+                  animate={{ x: [-3, 3, -3], y: [-2, 2, -2] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                />
+                <motion.div 
+                  className="absolute bottom-1/4 right-[20%] w-2.5 h-2.5 rounded-full bg-primary/15"
+                  animate={{ y: [-4, 4, -4], scale: [1, 1.2, 1] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                />
               </div>
             </ScrollReveal>
           </div>
         </div>
         
-        {/* Bottom fade to lighter section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{
-        background: `linear-gradient(to top, hsl(25 70% 55%) 0%, transparent 100%)`
-      }} />
+        {/* Bottom fade to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{
+          background: `linear-gradient(to top, hsl(35 35% 95%) 0%, transparent 100%)`
+        }} />
       </section>
 
       {/* ========== SECTION 3: Ko mēs darām — Lighter inverted style ========== */}
