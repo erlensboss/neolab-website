@@ -1,22 +1,19 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, ArrowRight, Calendar, Clock, Tag, Search, Bot, Megaphone, Target, LayoutGrid } from "lucide-react";
+import { BookOpen, ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Blog() {
   const { t, getLocalizedPath } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   // Placeholder blog posts with translations
   const blogPosts = [
     {
       id: 1,
       title: t("Kāpēc tradicionālā SEO pieeja vairs nestrādā", "Why Traditional SEO Approach No Longer Works"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      category: "SEO",
       date: "2025-01-15",
       readTime: t("8 min", "8 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -24,8 +21,7 @@ export default function Blog() {
     {
       id: 2,
       title: t("AI automatizācija maziem un vidējiem uzņēmumiem", "AI Automation for Small and Medium Businesses"),
-      categoryKey: "ai",
-      categoryLabel: "AI",
+      category: "AI",
       date: "2025-01-10",
       readTime: t("6 min", "6 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -33,8 +29,7 @@ export default function Blog() {
     {
       id: 3,
       title: t("Performance reklāma 2025: Ko sagaidīt", "Performance Advertising 2025: What to Expect"),
-      categoryKey: "reklama",
-      categoryLabel: t("Reklāma", "Advertising"),
+      category: t("Reklāma", "Advertising"),
       date: "2025-01-05",
       readTime: t("10 min", "10 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -42,8 +37,7 @@ export default function Blog() {
     {
       id: 4,
       title: t("Kā izvēlēties pareizo digitālo aģentūru", "How to Choose the Right Digital Agency"),
-      categoryKey: "strategija",
-      categoryLabel: t("Stratēģija", "Strategy"),
+      category: t("Stratēģija", "Strategy"),
       date: "2024-12-28",
       readTime: t("7 min", "7 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -51,8 +45,7 @@ export default function Blog() {
     {
       id: 5,
       title: t("Lokālā SEO: Praktiskā rokasgrāmata", "Local SEO: A Practical Guide"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      category: "SEO",
       date: "2024-12-20",
       readTime: t("12 min", "12 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -60,25 +53,14 @@ export default function Blog() {
     {
       id: 6,
       title: t("Mašīnmācīšanās mārketingā: Reālie pielietojumi", "Machine Learning in Marketing: Real Applications"),
-      categoryKey: "ai",
-      categoryLabel: "AI",
+      category: "AI",
       date: "2024-12-15",
       readTime: t("9 min", "9 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
     },
   ];
 
-  const categories = [
-    { key: "all", label: t("Visi raksti", "All articles"), icon: LayoutGrid },
-    { key: "seo", label: "SEO", icon: Search },
-    { key: "ai", label: "AI", icon: Bot },
-    { key: "reklama", label: t("Reklāma", "Advertising"), icon: Megaphone },
-    { key: "strategija", label: t("Stratēģija", "Strategy"), icon: Target },
-  ];
-
-  const filteredPosts = activeCategory === "all" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.categoryKey === activeCategory);
+  const categories = [t("Visi", "All"), "SEO", "AI", t("Reklāma", "Advertising"), t("Stratēģija", "Strategy")];
 
   return (
     <div className="overflow-hidden">
@@ -101,8 +83,8 @@ export default function Blog() {
             <ScrollReveal delay={0.2}>
               <p className="text-xl text-muted-foreground">
                 {t(
-                  "Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. Bez tukšu vārdu — tikai lietderīgs saturs.",
-                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content.",
+                  "Praktiski ceļveži, analīze un pieredze no projektiem. Viss par SEO optimizāciju, AI risinājumiem un digitālajiem procesiem, kas palīdz uzņēmumiem augt efektīvāk.",
+                  "Practical guides, analysis, and hands-on project experience. Everything about SEO optimization, AI solutions, and digital processes that help businesses grow more efficiently.",
                 )}
               </p>
             </ScrollReveal>
@@ -115,33 +97,21 @@ export default function Blog() {
         <div className="container-neo py-6">
           <ScrollReveal>
             <div className="flex flex-wrap gap-3">
-              {categories.map((cat) => {
-                const Icon = cat.icon;
-                const isActive = activeCategory === cat.key;
-                return (
-                  <button
-                    key={cat.key}
-                    onClick={() => setActiveCategory(cat.key)}
-                    className={`
-                      inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200
-                      border-2
-                      ${
-                        isActive
-                          ? "bg-primary text-primary-foreground border-primary shadow-neo"
-                          : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:bg-accent"
-                      }
-                    `}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {cat.label}
-                    {isActive && (
-                      <span className="ml-1 text-xs bg-primary-foreground/20 rounded-full px-2 py-0.5">
-                        {cat.key === "all" ? blogPosts.length : blogPosts.filter(p => p.categoryKey === cat.key).length}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
+              {categories.map((category, index) => (
+                <button
+                  key={category}
+                  className={`
+                    px-4 py-2 rounded-lg text-sm font-medium transition-all
+                    ${
+                      index === 0
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                    }
+                  `}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
           </ScrollReveal>
         </div>
@@ -151,14 +121,14 @@ export default function Blog() {
       <section className="section-offwhite">
         <div className="container-neo section-padding">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map((post, index) => (
+            {blogPosts.map((post, index) => (
               <ScrollReveal key={post.id} delay={index * 0.1}>
                 <article className="card-bordered h-full flex flex-col group cursor-pointer">
                   {/* Category tag */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="chip">
                       <Tag className="w-3 h-3 mr-1" />
-                      {post.categoryLabel}
+                      {post.category}
                     </span>
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Clock className="w-3 h-3" />
