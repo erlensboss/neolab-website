@@ -101,7 +101,7 @@ export default function PerformanceReklama() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <ScrollReveal>
-                <span className="inline-flex items-center gap-2 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6 px-px my-[20px]">
+                <span className="inline-flex items-center gap-2 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6 my-[20px] px-[16px]">
                   <BarChart3 className="w-4 h-4" />
                   Performance Marketing
                 </span>
