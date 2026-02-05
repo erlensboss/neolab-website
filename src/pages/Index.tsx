@@ -433,7 +433,7 @@ export default function Index() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {t("NEOLab strādā ar jaunākajiem un efektīvākajiem digitālajiem risinājumiem, kas palīdz sakārtot procesus, novērst digitālās vājās vietas un paātrināt biznesa ikdienas darbu. Mēs fokusējamies uz risinājumiem, kuri dod praktisku ieguvumu un ir pielāgojami konkrētai uzņēmuma situācijai, nevis universālām shēmām.", "NEOLab works with the latest and most effective digital solutions that help organize processes, eliminate digital weak points, and accelerate daily business operations. We focus on solutions that provide practical benefits and are adaptable to specific company situations, not universal schemes.")}
                 </p>
               </ScrollReveal>
