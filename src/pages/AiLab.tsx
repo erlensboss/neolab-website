@@ -125,14 +125,13 @@ export default function AiLab() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden" style={{
+      background: `linear-gradient(180deg, hsl(35 40% 97%) 0%, hsl(30 30% 96%) 25%, hsl(35 35% 95%) 50%, hsl(30 25% 96%) 75%, hsl(35 30% 97%) 100%)`
+    }}>
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
       <section 
         ref={containerRef} 
         className="min-h-[95vh] relative overflow-hidden"
-        style={{
-          background: `linear-gradient(165deg, hsl(35 40% 97%) 0%, hsl(30 30% 95%) 40%, hsl(25 35% 93%) 100%)`
-        }}
       >
         {/* Subtle gradient overlays */}
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -232,17 +231,11 @@ export default function AiLab() {
             </ScrollReveal>
           </div>
         </div>
-        
-        {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{
-          background: `linear-gradient(to top, hsl(30 25% 96%) 0%, transparent 100%)`
-        }} />
+
       </section>
 
       {/* ========== SECTION 2: Kas ir AI Lab? — Light Theme ========== */}
-      <section className="relative overflow-hidden py-20 lg:py-28" style={{
-        background: `linear-gradient(180deg, hsl(30 25% 96%) 0%, hsl(35 30% 97%) 50%, hsl(30 20% 95%) 100%)`
-      }}>
+      <section className="relative overflow-hidden py-20 lg:py-28">
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -412,17 +405,10 @@ export default function AiLab() {
             </ScrollReveal>
           </div>
         </div>
-        
-        {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{
-          background: `linear-gradient(to top, hsl(35 35% 95%) 0%, transparent 100%)`
-        }} />
       </section>
 
       {/* ========== SECTION 3: Ko mēs darām — Light Theme ========== */}
-      <section className="relative overflow-hidden py-20 lg:py-28" style={{
-        background: `linear-gradient(180deg, hsl(35 35% 95%) 0%, hsl(38 40% 97%) 50%, hsl(35 30% 96%) 100%)`
-      }}>
+      <section className="relative overflow-hidden py-20 lg:py-28">
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -572,17 +558,10 @@ export default function AiLab() {
             </div>
           </ScrollReveal>
         </div>
-        
-        {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{
-          background: `linear-gradient(to top, hsl(30 30% 95%) 0%, transparent 100%)`
-        }} />
       </section>
 
       {/* ========== SECTION 4: Kāpēc AI Lab — Light Theme, Standout Design ========== */}
-      <section className="relative overflow-hidden py-24 lg:py-32" style={{
-        background: `linear-gradient(180deg, hsl(30 30% 95%) 0%, hsl(25 35% 92%) 50%, hsl(30 30% 94%) 100%)`
-      }}>
+      <section className="relative overflow-hidden py-24 lg:py-32">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -643,69 +622,46 @@ export default function AiLab() {
             </h2>
           </ScrollReveal>
 
-          {/* Main standout card - the problem statement */}
+          {/* Main intro text - better formatted */}
           <ScrollReveal delay={0.1}>
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/5 via-white to-primary/5 border border-primary/15 shadow-xl overflow-hidden">
-                {/* Decorative corner accents */}
-                <div className="absolute top-6 left-6 w-12 h-12 border-l-2 border-t-2 border-primary/30 rounded-tl-xl" />
-                <div className="absolute bottom-6 right-6 w-12 h-12 border-r-2 border-b-2 border-primary/30 rounded-br-xl" />
-                
-                {/* Floating orb decoration */}
-                <motion.div 
-                  className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 blur-2xl"
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                />
-                
-                <div className="relative z-10 text-center">
-                  <p className="text-xl md:text-2xl text-foreground font-semibold leading-relaxed mb-2">
-                    {t(
-                      "Latvijā un plašākā reģionā trūkst vietu, kur jaunieši var:",
-                      "In Latvia and the broader region, there is a lack of places where young people can:"
-                    )}
-                  </p>
-                </div>
-              </div>
+            <div className="max-w-3xl mx-auto mb-12 text-center">
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                {t(
+                  "Latvijā un plašākā reģionā trūkst vietu, kur jaunieši var droši un atbildīgi attīstīt savas tehnoloģiju prasmes.",
+                  "In Latvia and the broader region, there is a lack of places where young people can safely and responsibly develop their technology skills."
+                )}
+              </p>
             </div>
           </ScrollReveal>
 
-          {/* Feature points - Asymmetric staggered layout */}
+          {/* Feature points - Clean grid without offset */}
           <div className="max-w-5xl mx-auto mb-16">
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {[
                 { 
                   icon: Shield, 
-                  text: t("Droši strādāt ar mākslīgo intelektu", "Safely work with artificial intelligence"),
-                  highlight: t("Droši", "Safely"),
-                  offset: "md:translate-y-0"
+                  text: t("Droši strādāt ar mākslīgo intelektu", "Safely work with artificial intelligence")
                 },
                 { 
                   icon: Lightbulb, 
-                  text: t("Mācīties caur darīšanu, nevis tikai teoriju", "Learn by doing, not just theory"),
-                  highlight: t("caur darīšanu", "by doing"),
-                  offset: "md:translate-y-8"
+                  text: t("Mācīties caur darīšanu, nevis tikai teoriju", "Learn by doing, not just theory")
                 },
                 { 
                   icon: Brain, 
-                  text: t("Attīstīt reālas digitālās prasmes", "Develop real digital skills"),
-                  highlight: t("reālas", "real"),
-                  offset: "md:translate-y-0"
+                  text: t("Attīstīt reālas digitālās prasmes", "Develop real digital skills")
                 },
                 { 
                   icon: Users, 
-                  text: t("Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā", "Build thinking based on technology and responsibility"),
-                  highlight: t("atbildībā", "responsibility"),
-                  offset: "md:translate-y-8"
+                  text: t("Veidot domāšanu, kas balstīta tehnoloģijās un atbildībā", "Build thinking based on technology and responsibility")
                 }
               ].map((item, index) => (
-                <ScrollReveal key={index} delay={0.15 + index * 0.08}>
+                <ScrollReveal key={index} delay={0.1 + index * 0.05}>
                   <motion.div 
-                    className={`group ${item.offset}`}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="group h-full"
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <div className="relative p-6 lg:p-8 rounded-2xl bg-white border border-gray-200/80 shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/10 group-hover:border-primary/20">
+                    <div className="relative h-full p-6 lg:p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:border-primary/20">
                       {/* Top accent bar */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
@@ -713,21 +669,9 @@ export default function AiLab() {
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
                       <div className="relative z-10 flex items-start gap-5">
-                        {/* Icon with animated ring */}
-                        <div className="relative flex-shrink-0">
-                          <motion.div 
-                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center transition-all duration-300 group-hover:from-primary/25 group-hover:to-primary/10"
-                            whileHover={{ rotate: [0, -5, 5, 0] }}
-                            transition={{ duration: 0.6 }}
-                          >
-                            <item.icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
-                          </motion.div>
-                          {/* Pulsing ring */}
-                          <motion.div 
-                            className="absolute -inset-1 rounded-2xl border border-primary/20 opacity-0 group-hover:opacity-100"
-                            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                          />
+                        {/* Icon */}
+                        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center transition-all duration-300 group-hover:from-primary/25 group-hover:to-primary/10">
+                          <item.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
                         </div>
                         
                         <div className="flex-1 pt-1">
@@ -783,17 +727,14 @@ export default function AiLab() {
             </div>
           </ScrollReveal>
         </div>
-        
-        {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{
-          background: `linear-gradient(to top, hsl(35 25% 97%) 0%, transparent 100%)`
-        }} />
       </section>
 
       {/* ========== SECTION 5: FAQ ========== */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* Simple clean background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+        {/* Subtle accent layer */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `radial-gradient(ellipse 60% 40% at 50% 100%, hsl(var(--primary) / 0.03) 0%, transparent 70%)`
+        }} />
         
         <div className="container-neo relative z-10">
           {/* Header */}
