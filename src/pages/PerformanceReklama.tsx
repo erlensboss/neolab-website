@@ -101,7 +101,7 @@ export default function PerformanceReklama() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <ScrollReveal>
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6">
+                <span className="inline-flex items-center gap-2 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6 px-px my-[20px]">
                   <BarChart3 className="w-4 h-4" />
                   Performance Marketing
                 </span>
@@ -584,10 +584,9 @@ export default function PerformanceReklama() {
             {/* BLOCK 1: Strategy */}
             <ScrollReveal delay={0.05}>
               <Link to={getLocalizedPath("/performance-reklama/reklamas-strategija")}>
-                <motion.div 
-                  whileHover={{ y: -4 }} 
-                  className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group cursor-pointer"
-                >
+                <motion.div whileHover={{
+                y: -4
+              }} className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group cursor-pointer">
                   {/* Decorative visual */}
                   <div className="absolute top-4 right-4 md:top-6 md:right-6 w-28 h-28 md:w-36 md:h-36">
                     <div className="relative w-full h-full">
@@ -610,19 +609,17 @@ export default function PerformanceReklama() {
                           <Compass className="w-7 h-7 md:w-8 md:h-8 text-primary" />
                         </div>
                       </div>
-                      {[0, 90, 180, 270].map(deg => (
-                        <motion.div 
-                          key={deg} 
-                          className="absolute w-2 h-2 rounded-full bg-primary/40" 
-                          style={{
-                            top: '50%',
-                            left: '50%',
-                            transform: `rotate(${deg}deg) translateY(-45px) translate(-50%, -50%)`
-                          }} 
-                          animate={{ opacity: [0.4, 1, 0.4] }} 
-                          transition={{ duration: 2, repeat: Infinity, delay: deg / 360 }} 
-                        />
-                      ))}
+                      {[0, 90, 180, 270].map(deg => <motion.div key={deg} className="absolute w-2 h-2 rounded-full bg-primary/40" style={{
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${deg}deg) translateY(-45px) translate(-50%, -50%)`
+                    }} animate={{
+                      opacity: [0.4, 1, 0.4]
+                    }} transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: deg / 360
+                    }} />)}
                     </div>
                   </div>
                   
@@ -664,10 +661,9 @@ export default function PerformanceReklama() {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {/* Google Ads */}
                   <Link to={getLocalizedPath("/performance-reklama/google-ads")}>
-                    <motion.div 
-                      whileHover={{ y: -3 }} 
-                      className="relative p-5 rounded-xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
+                    <motion.div whileHover={{
+                    y: -3
+                  }} className="relative p-5 rounded-xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200/50 overflow-hidden group cursor-pointer h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 rounded-lg bg-green-100 border border-green-200/50 flex items-center justify-center">
                           <Search className="w-6 h-6 text-green-600" />
@@ -682,10 +678,9 @@ export default function PerformanceReklama() {
 
                   {/* Meta Ads */}
                   <Link to={getLocalizedPath("/performance-reklama/meta-ads")}>
-                    <motion.div 
-                      whileHover={{ y: -3 }} 
-                      className="relative p-5 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50/50 border border-purple-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
+                    <motion.div whileHover={{
+                    y: -3
+                  }} className="relative p-5 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50/50 border border-purple-200/50 overflow-hidden group cursor-pointer h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 rounded-lg bg-purple-100 border border-purple-200/50 flex items-center justify-center">
                           <Users className="w-6 h-6 text-purple-600" />
@@ -700,10 +695,9 @@ export default function PerformanceReklama() {
 
                   {/* TikTok Ads */}
                   <Link to={getLocalizedPath("/performance-reklama/tiktok-ads")}>
-                    <motion.div 
-                      whileHover={{ y: -3 }} 
-                      className="relative p-5 rounded-xl bg-gradient-to-br from-cyan-50 to-pink-50/30 border border-cyan-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
+                    <motion.div whileHover={{
+                    y: -3
+                  }} className="relative p-5 rounded-xl bg-gradient-to-br from-cyan-50 to-pink-50/30 border border-cyan-200/50 overflow-hidden group cursor-pointer h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 rounded-lg bg-foreground/5 border border-foreground/10 flex items-center justify-center">
                           <Play className="w-6 h-6 text-foreground" />
@@ -718,10 +712,9 @@ export default function PerformanceReklama() {
 
                   {/* Microsoft Ads */}
                   <Link to={getLocalizedPath("/performance-reklama/microsoft-ads")}>
-                    <motion.div 
-                      whileHover={{ y: -3 }} 
-                      className="relative p-5 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
+                    <motion.div whileHover={{
+                    y: -3
+                  }} className="relative p-5 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200/50 overflow-hidden group cursor-pointer h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 rounded-lg bg-blue-100 border border-blue-200/50 flex items-center justify-center">
                           <Building2 className="w-6 h-6 text-blue-600" />
@@ -740,61 +733,75 @@ export default function PerformanceReklama() {
             {/* BLOCK 3: Conversions */}
             <ScrollReveal delay={0.15}>
               <Link to={getLocalizedPath("/performance-reklama/konversiju-optimizacija")}>
-                <motion.div 
-                  whileHover={{ y: -4 }} 
-                  className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-amber-50/60 to-white border border-primary/20 overflow-hidden group cursor-pointer"
-                >
+                <motion.div whileHover={{
+                y: -4
+              }} className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 via-amber-50/60 to-white border border-primary/20 overflow-hidden group cursor-pointer">
                   {/* Conversion visual - Simple linear flow */}
                   <div className="absolute top-4 right-4 md:top-6 md:right-6 w-40 h-24 md:w-48 md:h-28">
                     <div className="relative w-full h-full flex items-center justify-center gap-2">
                       {/* Step 1: Click */}
-                      <motion.div 
-                        className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                      >
+                      <motion.div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center" initial={{
+                      opacity: 0,
+                      scale: 0.8
+                    }} animate={{
+                      opacity: 1,
+                      scale: 1
+                    }} transition={{
+                      delay: 0.3
+                    }}>
                         <MousePointer className="w-5 h-5 text-primary" />
                       </motion.div>
                       
                       {/* Arrow 1 */}
-                      <motion.div 
-                        className="w-6 h-0.5 bg-gradient-to-r from-primary/40 to-primary/60"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ delay: 0.5, duration: 0.3 }}
-                      />
+                      <motion.div className="w-6 h-0.5 bg-gradient-to-r from-primary/40 to-primary/60" initial={{
+                      scaleX: 0
+                    }} animate={{
+                      scaleX: 1
+                    }} transition={{
+                      delay: 0.5,
+                      duration: 0.3
+                    }} />
                       
                       {/* Step 2: Target/Conversion */}
-                      <motion.div 
-                        className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-amber-200/30 border border-primary/30 flex items-center justify-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6 }}
-                      >
-                        <motion.div
-                          animate={{ scale: [1, 1.1, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
+                      <motion.div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-amber-200/30 border border-primary/30 flex items-center justify-center" initial={{
+                      opacity: 0,
+                      scale: 0.8
+                    }} animate={{
+                      opacity: 1,
+                      scale: 1
+                    }} transition={{
+                      delay: 0.6
+                    }}>
+                        <motion.div animate={{
+                        scale: [1, 1.1, 1]
+                      }} transition={{
+                        duration: 2,
+                        repeat: Infinity
+                      }}>
                           <Target className="w-6 h-6 text-primary" />
                         </motion.div>
                       </motion.div>
                       
                       {/* Arrow 2 */}
-                      <motion.div 
-                        className="w-6 h-0.5 bg-gradient-to-r from-primary/60 to-primary/40"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ delay: 0.8, duration: 0.3 }}
-                      />
+                      <motion.div className="w-6 h-0.5 bg-gradient-to-r from-primary/60 to-primary/40" initial={{
+                      scaleX: 0
+                    }} animate={{
+                      scaleX: 1
+                    }} transition={{
+                      delay: 0.8,
+                      duration: 0.3
+                    }} />
                       
                       {/* Step 3: Analytics */}
-                      <motion.div 
-                        className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.9 }}
-                      >
+                      <motion.div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center" initial={{
+                      opacity: 0,
+                      scale: 0.8
+                    }} animate={{
+                      opacity: 1,
+                      scale: 1
+                    }} transition={{
+                      delay: 0.9
+                    }}>
                         <BarChart3 className="w-5 h-5 text-primary" />
                       </motion.div>
                     </div>
