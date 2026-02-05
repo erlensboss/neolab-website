@@ -819,5 +819,6 @@ export default function AiLab() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
