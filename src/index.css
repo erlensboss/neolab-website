@@ -49,6 +49,11 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Success/Active — Semantic green for status indicators */
+    --success: 142 70% 45%;
+    --success-foreground: 142 80% 15%;
+    --success-muted: 142 50% 95%;
+
     /* UI Elements */
     --border: 30 15% 88%;
     --input: 30 15% 88%;
