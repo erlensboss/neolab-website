@@ -413,7 +413,18 @@ export default function ParMums() {
 
           {/* Story blocks with vertical timeline */}
           <div className="max-w-5xl mx-auto relative">
-// ... keep existing code (central connecting line)
+            {/* Central connecting line - visible on desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px">
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/30 to-primary/40" />
+              {/* Animated pulse on line */}
+              <motion.div
+                animate={{ y: ["0%", "100%"], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-lg"
+                style={{ boxShadow: "0 0 20px hsl(var(--primary) / 0.5)" }}
+              />
+            </div>
+
             {/* Story blocks - vertical layout */}
             <div className="flex flex-col gap-12 md:gap-0">
               {storyBlocksData.map((block, index) => {
