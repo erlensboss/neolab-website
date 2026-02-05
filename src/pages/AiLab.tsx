@@ -125,9 +125,8 @@ export default function AiLab() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="overflow-hidden" style={{
-      background: `linear-gradient(180deg, hsl(35 40% 97%) 0%, hsl(30 30% 96%) 25%, hsl(35 35% 95%) 50%, hsl(30 25% 96%) 75%, hsl(35 30% 97%) 100%)`
-    }}>
+    <div className="overflow-hidden bg-background">
+
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
       <section 
         ref={containerRef} 
@@ -188,7 +187,7 @@ export default function AiLab() {
         />
 
         {/* Hero Content */}
-        <div className="container-neo section-padding relative z-10 flex items-center justify-center min-h-[95vh]">
+        <div className="container-neo px-4 py-12 md:section-padding relative z-10 flex items-center justify-center min-h-[80vh] md:min-h-[95vh]">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge */}
             <ScrollReveal>
@@ -202,7 +201,7 @@ export default function AiLab() {
             
             {/* Main H1 - Much bigger */}
             <ScrollReveal delay={0.1}>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-foreground leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 md:mb-8 text-foreground leading-[1.1] tracking-tight">
                 AI Lab –{" "}
                 <span className="text-gradient-orange">
                   {t("Inovatīva jauniešu AI laboratorija", "Innovative Youth AI Laboratory")}
@@ -212,7 +211,7 @@ export default function AiLab() {
             
             {/* Subtitle */}
             <ScrollReveal delay={0.2}>
-              <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+              <p className="text-lg md:text-2xl lg:text-3xl text-muted-foreground mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed font-medium px-2">
                 {t(
                   "Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, nevis tikai apspriests teorijā.",
                   "An environment where artificial intelligence is researched, tested, and applied in practice, not just discussed in theory."
@@ -235,7 +234,8 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 2: Kas ir AI Lab? — Light Theme ========== */}
-      <section className="relative overflow-hidden py-20 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-20 lg:py-28">
+
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -257,7 +257,7 @@ export default function AiLab() {
         />
 
         <div className="container-neo relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             {/* Left: Content - Better structured */}
             <div>
               <ScrollReveal>
@@ -278,7 +278,7 @@ export default function AiLab() {
               
               {/* Main description - highlighted card */}
               <ScrollReveal delay={0.15}>
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-primary/10 shadow-sm">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-6 border border-primary/10 shadow-sm">
                   <p className="text-lg text-foreground leading-relaxed font-medium">
                     {t(
                       "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.",
@@ -408,7 +408,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 3: Ko mēs darām — Light Theme ========== */}
-      <section className="relative overflow-hidden py-20 lg:py-28">
+      <section className="relative overflow-hidden py-12 md:py-20 lg:py-28">
         {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -425,7 +425,8 @@ export default function AiLab() {
 
         <div className="container-neo relative z-10">
           {/* Header */}
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-10 md:mb-16">
+
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-white/80 backdrop-blur-sm mb-6 shadow-sm">
               <Cpu className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
@@ -442,7 +443,7 @@ export default function AiLab() {
           </ScrollReveal>
 
           {/* Activity cards - Interactive reactive design */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
             {[
               {
                 icon: Sparkles,
@@ -554,7 +555,7 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 4: Kāpēc AI Lab — Light Theme, Standout Design ========== */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
+      <section className="relative overflow-hidden py-16 md:py-24 lg:py-32">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
@@ -628,8 +629,8 @@ export default function AiLab() {
           </ScrollReveal>
 
           {/* Feature points - Clean grid without offset */}
-          <div className="max-w-5xl mx-auto mb-16">
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="max-w-5xl mx-auto mb-10 md:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
               {[
                 { 
                   icon: Shield, 
@@ -654,14 +655,14 @@ export default function AiLab() {
                     whileHover={{ y: -4 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <div className="relative h-full p-6 lg:p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:border-primary/20">
+                    <div className="relative h-full p-6 lg:p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10 group-hover:border-primary/20 sm:flex sm:flex-col">
                       {/* Top accent bar */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
                       {/* Hover gradient */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
-                      <div className="relative z-10 flex items-start gap-5">
+                      <div className="relative z-10 flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
                         {/* Icon */}
                         <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center transition-all duration-300 group-hover:from-primary/25 group-hover:to-primary/10">
                           <item.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
@@ -698,7 +699,7 @@ export default function AiLab() {
                   </div>
                   
                   <div className="text-center pt-4">
-                    <p className="text-2xl md:text-3xl text-foreground font-bold leading-relaxed mb-4">
+                    <p className="text-xl md:text-3xl text-foreground font-bold leading-relaxed mb-4">
                       {t(
                         "AI Lab tiek veidots kā šāda vide.",
                         "AI Lab is being built as such an environment."
@@ -740,7 +741,8 @@ export default function AiLab() {
           </ScrollReveal>
           
           {/* FAQ Accordion */}
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto px-4 md:px-0">
+
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {[
                 {
@@ -785,7 +787,7 @@ export default function AiLab() {
                     value={`item-${index}`} 
                     className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
                   >
-                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
+                    <AccordionTrigger className="px-3 md:px-5 py-3 md:py-4 hover:no-underline group">
                       <div className="flex items-center gap-3 md:gap-4 text-left">
                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
                           <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
@@ -795,7 +797,7 @@ export default function AiLab() {
                         </span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
+                    <AccordionContent className="px-3 md:px-5 pb-4 md:pb-5">
                       <div className="pl-11 md:pl-14">
                         <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                           {faq.answer}
@@ -811,10 +813,10 @@ export default function AiLab() {
       </section>
 
       {/* ========== SECTION 6: Contact CTA — Light Theme ========== */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-20 lg:py-28 overflow-hidden">
         {/* Background with warm gradient */}
         <div className="absolute inset-0" style={{
-          background: `linear-gradient(135deg, hsl(35 45% 96%) 0%, hsl(30 40% 94%) 50%, hsl(35 35% 95%) 100%)`
+          background: `hsl(var(--background))`
         }} />
         
         {/* Decorative elements */}
@@ -850,7 +852,7 @@ export default function AiLab() {
                 {/* Top accent bar */}
                 <div className="h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
                 
-                <div className="p-8 md:p-12 lg:p-16 text-center">
+                <div className="p-6 md:p-12 lg:p-16 text-center">
                   {/* Badge */}
                   <motion.div 
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8"
@@ -864,7 +866,7 @@ export default function AiLab() {
                   </motion.div>
                   
                   {/* Main heading */}
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
                     {t("AI Lab aug.", "AI Lab is growing.")}{" "}
                     <span className="text-gradient-orange block mt-2">
                       {t("Tāpat kā cilvēki, kas to veido.", "Just like the people who build it.")}
@@ -886,8 +888,8 @@ export default function AiLab() {
                   >
                     <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                       <Button 
-                        size="xl"
-                        className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6 text-lg"
+                        size="lg"
+                        className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6 text-lg"
                       >
                         {t("Sazināties ar NEOLab", "Contact NEOLab")}
                         <ArrowRight className="ml-2 w-5 h-5" />
