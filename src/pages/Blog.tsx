@@ -67,117 +67,26 @@ export default function Blog() {
       {/* ========== SECTION 1: Header ========== */}
       <section className="bg-gradient-hero">
         <div className="container-neo section-padding relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className="max-w-xl">
-              <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/80 backdrop-blur-sm mb-6">
-                  <BookOpen className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">Lab Journal</span>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={0.1}>
-                <h1 className="mb-6">
-                  {t("Zināšanas", "Knowledge")}{" "}
-                  <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p className="text-xl text-muted-foreground">
-                  {t(
-                    "Praktiski ceļveži, analīze un pieredze no projektiem. Viss par SEO optimizāciju, AI risinājumiem un digitālajiem procesiem, kas palīdz uzņēmumiem augt efektīvāk.",
-                    "Practical guides, analysis, and hands-on project experience. Everything about SEO optimization, AI solutions, and digital processes that help businesses grow more efficiently.",
-                  )}
-                </p>
-              </ScrollReveal>
-            </div>
-
-            {/* Right: Book Visual */}
-            <ScrollReveal delay={0.3} className="hidden lg:block">
-              <div className="relative">
-                {/* Book Base */}
-                <motion.div
-                  className="relative w-full max-w-md mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  {/* Open Book Shape */}
-                  <div className="relative">
-                    {/* Book Shadow */}
-                    <div className="absolute inset-0 translate-y-4 bg-foreground/5 rounded-2xl blur-xl" />
-                    
-                    {/* Book Container */}
-                    <div className="relative bg-card border border-border rounded-2xl p-6 shadow-lg">
-                      {/* Book Spine Line */}
-                      <div className="absolute left-1/2 top-4 bottom-4 w-px bg-border -translate-x-1/2" />
-                      
-                      {/* Left Page */}
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-3 pr-4 border-r border-border/50">
-                          <div className="h-2 bg-muted rounded w-full" />
-                          <div className="h-2 bg-muted rounded w-4/5" />
-                          <div className="h-2 bg-muted rounded w-3/5" />
-                          <div className="h-2 bg-muted rounded w-full" />
-                          <div className="h-2 bg-muted rounded w-2/3" />
-                        </div>
-                        
-                        {/* Right Page */}
-                        <div className="space-y-3 pl-4">
-                          <div className="h-2 bg-muted rounded w-4/5" />
-                          <div className="h-2 bg-muted rounded w-full" />
-                          <div className="h-2 bg-muted rounded w-3/4" />
-                          <div className="h-2 bg-muted rounded w-full" />
-                          <div className="h-2 bg-muted rounded w-1/2" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Cards Coming Out of Book */}
-                  {/* SEO Card */}
-                  <motion.div
-                    className="absolute -top-4 -left-4 bg-card border border-border rounded-xl px-4 py-2 shadow-md"
-                    initial={{ opacity: 0, y: 20, x: -10 }}
-                    animate={{ opacity: 1, y: 0, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent-foreground/60" />
-                      <span className="text-sm font-medium text-foreground">SEO</span>
-                    </div>
-                  </motion.div>
-
-                  {/* AI Card */}
-                  <motion.div
-                    className="absolute -top-8 right-8 bg-card border border-border rounded-xl px-4 py-2 shadow-md"
-                    initial={{ opacity: 0, y: 20, x: 10 }}
-                    animate={{ opacity: 1, y: 0, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.9 }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="text-sm font-medium text-foreground">AI</span>
-                    </div>
-                  </motion.div>
-
-                  {/* Ads Card */}
-                  <motion.div
-                    className="absolute -top-2 right-0 bg-card border border-border rounded-xl px-4 py-2 shadow-md"
-                    initial={{ opacity: 0, y: 20, x: 5 }}
-                    animate={{ opacity: 1, y: 0, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1.1 }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-muted-foreground" />
-                      <span className="text-sm font-medium text-foreground">Ads</span>
-                    </div>
-                  </motion.div>
-
-                  {/* Decorative Glow */}
-                  <div className="absolute -inset-8 bg-gradient-to-t from-primary/5 to-transparent rounded-3xl -z-10 blur-2xl" />
-                </motion.div>
+          <div className="max-w-3xl">
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/80 backdrop-blur-sm mb-6">
+                <BookOpen className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Lab Journal</span>
               </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h1 className="mb-6">
+                {t("Zināšanas", "Knowledge")}{" "}
+                <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p className="text-xl text-muted-foreground">
+                {t(
+                  "Praktiski ceļveži, analīze un pieredze no projektiem. Viss par SEO optimizāciju, AI risinājumiem un digitālajiem procesiem, kas palīdz uzņēmumiem augt efektīvāk.",
+                  "Practical guides, analysis, and hands-on project experience. Everything about SEO optimization, AI solutions, and digital processes that help businesses grow more efficiently.",
+                )}
+              </p>
             </ScrollReveal>
           </div>
         </div>
