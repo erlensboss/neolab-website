@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, Hexagon, Triangle, Circle, Square, Shield, Users, Brain, Target, HelpCircle, Clock, Layers } from "lucide-react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { Zap, Cpu, Sparkles, ArrowRight, Lock, Lightbulb, FlaskConical, Rocket, Brain, Shield, Users, Target, HelpCircle, Clock, Layers, Bot, Workflow, Database, LineChart, Network, CircuitBoard, Code2, Gauge, GitBranch, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 const experiments = [{
   id: "exp-001",
   title: "Prognozējošā analītika",
@@ -28,131 +29,205 @@ const experiments = [{
   description: "Zvanu analīze ar AI — insights bez manuālas klausīšanās"
 }];
 
-// Subtle star particle
-function Star({
-  x,
-  y,
-  size,
-  delay
-}: {
-  x: number;
-  y: number;
-  size: number;
-  delay: number;
+// Floating icon component for background
+function FloatingIcon({ 
+  icon: Icon, 
+  x, 
+  y, 
+  size = 24, 
+  delay = 0,
+  duration = 20,
+  opacity = 0.08
+}: { 
+  icon: React.ElementType;
+  x: string;
+  y: string;
+  size?: number;
+  delay?: number;
+  duration?: number;
+  opacity?: number;
 }) {
-  return <motion.div className="absolute rounded-full bg-white" style={{
-    left: `${x}%`,
-    top: `${y}%`,
-    width: size,
-    height: size
-  }} initial={{
-    opacity: 0
-  }} animate={{
-    opacity: [0, 0.6, 0.3, 0.6, 0]
-  }} transition={{
-    duration: 4 + Math.random() * 3,
-    delay,
-    repeat: Infinity,
-    ease: "easeInOut"
-  }} />;
+  return (
+    <motion.div
+      className="absolute pointer-events-none text-primary"
+      style={{ left: x, top: y, opacity }}
+      animate={{
+        y: [0, -15, 0, 15, 0],
+        x: [0, 8, 0, -8, 0],
+        rotate: [0, 5, 0, -5, 0],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <Icon size={size} strokeWidth={1.5} />
+    </motion.div>
+  );
 }
+
+// Floating geometric shape
+function FloatingShape({ 
+  x, 
+  y, 
+  size = 40, 
+  delay = 0,
+  type = "circle"
+}: { 
+  x: string;
+  y: string;
+  size?: number;
+  delay?: number;
+  type?: "circle" | "ring" | "dot";
+}) {
+  return (
+    <motion.div
+      className="absolute pointer-events-none"
+      style={{ left: x, top: y }}
+      animate={{
+        y: [0, -10, 0, 10, 0],
+        scale: [1, 1.1, 1, 0.95, 1],
+        opacity: [0.06, 0.12, 0.06, 0.1, 0.06],
+      }}
+      transition={{
+        duration: 15 + Math.random() * 10,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      {type === "circle" && (
+        <div 
+          className="rounded-full bg-gradient-to-br from-primary/20 to-primary/5"
+          style={{ width: size, height: size }}
+        />
+      )}
+      {type === "ring" && (
+        <div 
+          className="rounded-full border-2 border-primary/15"
+          style={{ width: size, height: size }}
+        />
+      )}
+      {type === "dot" && (
+        <div 
+          className="rounded-full bg-primary/20"
+          style={{ width: size, height: size }}
+        />
+      )}
+    </motion.div>
+  );
+}
+
 export default function AiLab() {
   const { t, getLocalizedPath } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0.5);
-  const mouseY = useMotionValue(0.5);
-  const springConfig = {
-    damping: 30,
-    stiffness: 100
-  };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        mouseX.set(x);
-        mouseY.set(y);
-      }
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
 
-  // Generate sparse star field - small and subtle
-  const stars = Array.from({
-    length: 40
-  }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 1.5 + 0.5,
-    // 0.5px to 2px
-    delay: Math.random() * 6
-  }));
-  return <div className="overflow-hidden">
-      {/* ========== SECTION 1: INVERTED Hero — Cosmos/Night Sky ========== */}
-      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden" style={{
-      background: `linear-gradient(160deg, hsl(21 85% 45%) 0%, hsl(18 80% 38%) 35%, hsl(12 70% 28%) 70%, hsl(8 60% 20%) 100%)`
-    }}>
-        {/* Deep space overlay for cosmos feel */}
-        <div className="absolute inset-0" style={{
-        background: `
-              radial-gradient(ellipse 100% 80% at 50% 20%, transparent 0%, hsla(8 60% 15% / 0.4) 100%),
-              radial-gradient(circle 300px at 20% 80%, hsla(25 90% 50% / 0.08) 0%, transparent 100%),
-              radial-gradient(circle 400px at 85% 30%, hsla(30 80% 55% / 0.06) 0%, transparent 100%)
-            `
-      }} />
+  return (
+    <div className="overflow-hidden">
+      {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
+      <section 
+        ref={containerRef} 
+        className="min-h-[95vh] relative overflow-hidden"
+        style={{
+          background: `linear-gradient(165deg, hsl(35 40% 97%) 0%, hsl(30 30% 95%) 40%, hsl(25 35% 93%) 100%)`
+        }}
+      >
+        {/* Subtle gradient overlays */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            radial-gradient(ellipse 80% 50% at 20% 20%, hsl(var(--primary) / 0.04) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 40% at 80% 80%, hsl(var(--primary) / 0.05) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 30% at 50% 50%, hsl(var(--primary) / 0.02) 0%, transparent 70%)
+          `
+        }} />
 
-        {/* Subtle star field - very low opacity, won't interfere with text */}
-        <div className="absolute inset-0 pointer-events-none">
-          {stars.map(star => <Star key={star.id} x={star.x} y={star.y} size={star.size} delay={star.delay} />)}
-        </div>
+        {/* Floating Icons - positioned around edges, not overlapping center text area */}
+        {/* Top Left Area */}
+        <FloatingIcon icon={Brain} x="5%" y="15%" size={32} delay={0} opacity={0.07} />
+        <FloatingIcon icon={Cpu} x="12%" y="8%" size={24} delay={2} opacity={0.06} />
+        <FloatingIcon icon={Network} x="3%" y="35%" size={28} delay={4} opacity={0.05} />
         
-        {/* Distant nebula glow - very subtle */}
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{
-        background: `
-              radial-gradient(ellipse 40% 30% at 75% 25%, hsla(35 100% 70% / 0.1) 0%, transparent 70%),
-              radial-gradient(ellipse 35% 25% at 20% 70%, hsla(21 90% 55% / 0.08) 0%, transparent 70%)
-            `
-      }} />
+        {/* Top Right Area */}
+        <FloatingIcon icon={Bot} x="88%" y="12%" size={30} delay={1} opacity={0.07} />
+        <FloatingIcon icon={CircuitBoard} x="92%" y="28%" size={26} delay={3} opacity={0.06} />
+        <FloatingIcon icon={Code2} x="85%" y="5%" size={22} delay={5} opacity={0.05} />
+        
+        {/* Bottom Left Area */}
+        <FloatingIcon icon={Database} x="8%" y="70%" size={28} delay={2.5} opacity={0.06} />
+        <FloatingIcon icon={Workflow} x="4%" y="55%" size={24} delay={4.5} opacity={0.05} />
+        <FloatingIcon icon={GitBranch} x="15%" y="80%" size={26} delay={1.5} opacity={0.07} />
+        
+        {/* Bottom Right Area */}
+        <FloatingIcon icon={LineChart} x="90%" y="65%" size={28} delay={3.5} opacity={0.06} />
+        <FloatingIcon icon={Gauge} x="82%" y="78%" size={24} delay={0.5} opacity={0.05} />
+        <FloatingIcon icon={MessageSquare} x="95%" y="50%" size={22} delay={2} opacity={0.07} />
+        
+        {/* Mid-edges - very subtle */}
+        <FloatingIcon icon={Sparkles} x="2%" y="48%" size={20} delay={6} opacity={0.04} />
+        <FloatingIcon icon={Zap} x="97%" y="40%" size={20} delay={7} opacity={0.04} />
 
-        {/* Hero Content — Enhanced text with shadows */}
+        {/* Floating Geometric Shapes - edges only */}
+        <FloatingShape x="6%" y="25%" size={60} delay={0} type="ring" />
+        <FloatingShape x="90%" y="20%" size={50} delay={2} type="circle" />
+        <FloatingShape x="4%" y="65%" size={40} delay={4} type="dot" />
+        <FloatingShape x="92%" y="72%" size={55} delay={1} type="ring" />
+        <FloatingShape x="88%" y="45%" size={35} delay={3} type="circle" />
+        <FloatingShape x="10%" y="85%" size={45} delay={5} type="ring" />
+
+        {/* Grid pattern overlay - very subtle */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Hero Content */}
         <div className="container-neo section-padding relative z-10 flex items-center justify-center min-h-[95vh]">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Badge */}
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-10" style={{
-              boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.2)"
-            }}>
-                <FlaskConical className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white/90">Inovatīva jauniešu AI laboratorija</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 bg-white/60 backdrop-blur-sm mb-8 shadow-sm">
+                <FlaskConical className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">
+                  {t("Jauniešu AI laboratorija", "Youth AI Laboratory")}
+                </span>
               </div>
             </ScrollReveal>
             
+            {/* Main H1 - Much bigger */}
             <ScrollReveal delay={0.1}>
-              <h1 className="mb-8 text-white font-bold" style={{
-              textShadow: "0 4px 30px hsla(0, 0%, 0%, 0.4), 0 2px 10px hsla(0, 0%, 0%, 0.3)"
-            }}>
-                AI Lab
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-foreground leading-[1.1] tracking-tight">
+                AI Lab — {" "}
+                <span className="text-gradient-orange">
+                  {t("Inovatīva jauniešu AI laboratorija", "Innovative Youth AI Laboratory")}
+                </span>
               </h1>
             </ScrollReveal>
             
+            {/* Subtitle */}
             <ScrollReveal delay={0.2}>
-              <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium" style={{
-              textShadow: "0 2px 20px hsla(0, 0%, 0%, 0.5), 0 1px 4px hsla(0, 0%, 0%, 0.3)"
-            }}>
-                Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, nevis tikai apspriests teorijā.
+              <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+                {t(
+                  "Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, nevis tikai apspriests teorijā.",
+                  "An environment where artificial intelligence is researched, tested, and applied in practice, not just discussed in theory."
+                )}
               </p>
             </ScrollReveal>
 
+            {/* Access badge */}
             <ScrollReveal delay={0.3}>
-              <div className="inline-flex items-center gap-3 text-sm text-white/80 bg-white/5 backdrop-blur-sm px-5 py-3 rounded-xl border border-white/10" style={{
-              boxShadow: "0 4px 20px hsla(0, 0%, 0%, 0.2)"
-            }}>
-                <Lock className="w-4 h-4" />
-                <span>Pieejams tikai NEOLab partneriem</span>
+              <div className="inline-flex items-center gap-3 text-sm text-muted-foreground bg-white/70 backdrop-blur-sm px-6 py-4 rounded-2xl border border-gray-200/60 shadow-sm">
+                <Lock className="w-4 h-4 text-primary" />
+                <span className="font-medium">
+                  {t("Pieejams tikai NEOLab partneriem", "Available only to NEOLab partners")}
+                </span>
               </div>
             </ScrollReveal>
           </div>
@@ -160,8 +235,8 @@ export default function AiLab() {
         
         {/* Bottom fade to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{
-        background: `linear-gradient(to top, hsl(18 80% 38%) 0%, transparent 100%)`
-      }} />
+          background: `linear-gradient(to top, hsl(30 25% 96%) 0%, transparent 100%)`
+        }} />
       </section>
 
       {/* ========== SECTION 2: Kas ir AI Lab? — Inverted Cosmos Style ========== */}
