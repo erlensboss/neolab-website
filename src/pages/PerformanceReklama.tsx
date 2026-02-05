@@ -5,23 +5,15 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 // Data moved inside component to use t() function
 export default function PerformanceReklama() {
-  const { t, getLocalizedPath, language } = useLanguage();
-
-  const controlProblems = [
-    t("Nezināt, kura kampaņa tiešām nes peļņu", "Not knowing which campaign actually brings profit"),
-    t("Aģentūras atskaites, ko neviens nesaprot", "Agency reports that no one understands"),
-    t("Budžets, kas iztukšojas bez skaidra ROI", "Budget that drains without clear ROI"),
-    t("A/B testi bez reāla mācīšanās", "A/B tests without real learning")
-  ];
-
+  const {
+    t,
+    getLocalizedPath,
+    language
+  } = useLanguage();
+  const controlProblems = [t("Nezināt, kura kampaņa tiešām nes peļņu", "Not knowing which campaign actually brings profit"), t("Aģentūras atskaites, ko neviens nesaprot", "Agency reports that no one understands"), t("Budžets, kas iztukšojas bez skaidra ROI", "Budget that drains without clear ROI"), t("A/B testi bez reāla mācīšanās", "A/B tests without real learning")];
   const platforms = [{
     name: "Meta Ads",
     icon: Eye
@@ -35,7 +27,6 @@ export default function PerformanceReklama() {
     name: "TikTok Ads",
     icon: Activity
   }];
-
   const signals = [{
     label: "CTR",
     value: "2.4%",
@@ -57,7 +48,6 @@ export default function PerformanceReklama() {
     trend: "up",
     color: "text-green-600"
   }];
-
   const approach = [{
     icon: PieChart,
     title: t("Atribūcijas modelēšana", "Attribution modeling"),
@@ -75,7 +65,6 @@ export default function PerformanceReklama() {
     title: t("Pilna piltuve", "Full funnel"),
     description: t("No apzināšanās līdz pirkumam — viss redzams", "From awareness to purchase — everything visible")
   }];
-  
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
       <section className="relative overflow-hidden">
@@ -137,10 +126,7 @@ export default function PerformanceReklama() {
               
               <ScrollReveal delay={0.2}>
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-                  {t(
-                    "Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.",
-                    "Paid advertising solutions that focus on demand generation, conversions, and measurable results across multiple channels."
-                  )}
+                  {t("Maksas reklāmas risinājumi, kas fokusējas uz pieprasījuma piesaisti, konversijām un izmērāmu rezultātu vairākos kanālos.", "Paid advertising solutions that focus on demand generation, conversions, and measurable results across multiple channels.")}
                 </p>
               </ScrollReveal>
               
@@ -540,9 +526,7 @@ export default function PerformanceReklama() {
                       <span className="text-sm font-medium text-muted-foreground">Atpazīstat sevi?</span>
                     </div>
                     
-                    <p className="text-foreground mb-6 flex-1">
-                      Ja kaut viens no šiem punktiem atbilst jūsu situācijai — maksas reklāma var būt pareizais solis.
-                    </p>
+                    <p className="text-foreground mb-6 flex-1">Ja kaut viens no šiem punktiem atbilst jūsu situācijai, tad maksas reklāma var būt pareizais solis.</p>
                     
                     <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                       <Button variant="default" className="w-full group">
@@ -1075,37 +1059,28 @@ export default function PerformanceReklama() {
           {/* FAQ Accordion */}
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
-              {[
-                {
-                  icon: Layers,
-                  question: "Vai jāizmanto visi reklāmas kanāli?",
-                  answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
-                  gradient: "from-primary to-orange-500",
-                },
-                {
-                  icon: Wallet,
-                  question: "Kas apmaksā reklāmas budžetu?",
-                  answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
-                  gradient: "from-orange-500 to-amber-500",
-                },
-                {
-                  icon: ClipboardCheck,
-                  question: "Vai iespējams audits esošām kampaņām?",
-                  answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
-                  gradient: "from-amber-500 to-yellow-500",
-                },
-                {
-                  icon: TrendingUp,
-                  question: "Vai performance reklāmu var apvienot ar SEO?",
-                  answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
-                  gradient: "from-yellow-500 to-primary",
-                },
-              ].map((faq, index) => (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <AccordionItem 
-                    value={`item-${index}`} 
-                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
-                  >
+              {[{
+              icon: Layers,
+              question: "Vai jāizmanto visi reklāmas kanāli?",
+              answer: "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
+              gradient: "from-primary to-orange-500"
+            }, {
+              icon: Wallet,
+              question: "Kas apmaksā reklāmas budžetu?",
+              answer: "Reklāmas budžetu apmaksā klients tieši platformām.",
+              gradient: "from-orange-500 to-amber-500"
+            }, {
+              icon: ClipboardCheck,
+              question: "Vai iespējams audits esošām kampaņām?",
+              answer: "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
+              gradient: "from-amber-500 to-yellow-500"
+            }, {
+              icon: TrendingUp,
+              question: "Vai performance reklāmu var apvienot ar SEO?",
+              answer: "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
+              gradient: "from-yellow-500 to-primary"
+            }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.05}>
+                  <AccordionItem value={`item-${index}`} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
                     <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
                       <div className="flex items-center gap-3 md:gap-4 text-left">
                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
@@ -1124,8 +1099,7 @@ export default function PerformanceReklama() {
                       </div>
                     </AccordionContent>
                   </AccordionItem>
-                </ScrollReveal>
-              ))}
+                </ScrollReveal>)}
             </Accordion>
           </div>
         </div>
@@ -1137,25 +1111,26 @@ export default function PerformanceReklama() {
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
         
         {/* Subtle pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+        backgroundSize: "40px 40px"
+      }} />
         
         {/* Floating accents */}
-        <motion.div
-          className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
+        <motion.div className="absolute top-20 left-[10%] w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl" animate={{
+        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.5, 0.3]
+      }} transition={{
+        duration: 8,
+        repeat: Infinity
+      }} />
+        <motion.div className="absolute bottom-20 right-[15%] w-56 h-56 rounded-full bg-gradient-to-tl from-amber-400/10 to-transparent blur-3xl" animate={{
+        scale: [1.1, 1, 1.1],
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity
+      }} />
         
         <div className="container-neo relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -1171,11 +1146,11 @@ export default function PerformanceReklama() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-block"
-                >
+                <motion.div whileHover={{
+                scale: 1.02
+              }} whileTap={{
+                scale: 0.98
+              }} className="inline-block">
                   <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
                     Uzzini kā attīstīties
                     <ArrowRight className="ml-2 w-5 h-5" />
