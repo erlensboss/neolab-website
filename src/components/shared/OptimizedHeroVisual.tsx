@@ -50,59 +50,59 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
   ];
 
   return (
-    <div className="w-full max-w-[540px] lg:max-w-[580px] xl:max-w-[620px]">
+    <div className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[540px] xl:max-w-[580px]">
       {/* Main Dashboard Card */}
       <motion.div
         initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border/60 shadow-xl overflow-hidden"
+        className="bg-card/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-border/60 shadow-lg sm:shadow-xl overflow-hidden"
       >
         {/* Header */}
-        <div className="px-5 py-4 border-b border-border/40 bg-gradient-to-r from-card to-muted/30">
+        <div className="px-3 sm:px-5 py-2.5 sm:py-4 border-b border-border/40 bg-gradient-to-r from-card to-muted/30">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-md">
-                <BarChart3 className="w-5 h-5 text-primary-foreground" />
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center shadow-md">
+                <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Digitālā sistēma</h3>
-                <div className="flex items-center gap-1.5 mt-0.5">
-                  <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                  <span className="text-xs text-success font-medium">Aktīvs</span>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base">Digitālā sistēma</h3>
+                <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-success animate-pulse" />
+                  <span className="text-[10px] sm:text-xs text-success font-medium">Aktīvs</span>
                 </div>
               </div>
             </div>
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-primary/20" />
-              <div className="w-3 h-3 rounded-full bg-primary/40" />
-              <div className="w-3 h-3 rounded-full bg-primary" />
+            <div className="flex gap-1 sm:gap-1.5">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-primary/20" />
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-primary/40" />
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-primary" />
             </div>
           </div>
         </div>
 
         {/* Service Modules Grid */}
-        <div className="p-5">
+        <div className="p-3 sm:p-5">
           {/* Top row - 2 main modules */}
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2 sm:mb-3">
             {serviceModules.map((module, i) => (
               <motion.div
                 key={module.id}
                 initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 + i * 0.1, duration: 0.4 }}
-                className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-4 border border-primary/20 hover:border-primary/40 transition-colors group"
+                className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg sm:rounded-xl p-2.5 sm:p-4 border border-primary/20 hover:border-primary/40 transition-colors group"
               >
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
-                    <module.icon className="w-4 h-4 text-primary" />
+                <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
+                    <module.icon className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                   </div>
-                  <span className="font-semibold text-foreground">{module.label}</span>
+                  <span className="font-semibold text-foreground text-xs sm:text-base">{module.label}</span>
                 </div>
                 
                 {/* Progress bar */}
-                <div className="space-y-1.5">
-                  <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                <div className="space-y-1 sm:space-y-1.5">
+                  <div className="h-1.5 sm:h-2 bg-primary/10 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-primary to-primary/80 rounded-full"
                       initial={shouldAnimate ? { width: 0 } : { width: `${module.progress}%` }}
@@ -110,8 +110,8 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
                       transition={{ delay: 0.3 + i * 0.15, duration: 0.8, ease: "easeOut" }}
                     />
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Efektivitāte</span>
+                  <div className="flex justify-between text-[10px] sm:text-xs">
+                    <span className="text-muted-foreground hidden sm:inline">Efektivitāte</span>
                     <span className="text-primary font-semibold">{module.progress}%</span>
                   </div>
                 </div>
@@ -120,28 +120,28 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
           </div>
 
           {/* Bottom row - 2 secondary modules */}
-          <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2 sm:mb-4">
             {secondaryModules.map((module, i) => (
               <motion.div
                 key={module.id}
                 initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.25 + i * 0.1, duration: 0.4 }}
-                className="bg-muted/40 rounded-xl p-4 border border-border/60 hover:border-primary/30 transition-colors group"
+                className="bg-muted/40 rounded-lg sm:rounded-xl p-2.5 sm:p-4 border border-border/60 hover:border-primary/30 transition-colors group"
               >
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <module.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <module.icon className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
-                  <span className="font-medium text-foreground text-sm">{module.label}</span>
+                  <span className="font-medium text-foreground text-xs sm:text-sm">{module.label}</span>
                 </div>
                 
                 {/* Subtle progress indicators */}
-                <div className="flex gap-1">
+                <div className="flex gap-0.5 sm:gap-1">
                   {[...Array(5)].map((_, j) => (
                     <motion.div
                       key={j}
-                      className={`h-1.5 flex-1 rounded-full ${
+                      className={`h-1 sm:h-1.5 flex-1 rounded-full ${
                         j < Math.floor(module.progress / 20) 
                           ? "bg-primary/60" 
                           : "bg-border"
@@ -161,24 +161,24 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
             initial={shouldAnimate ? { opacity: 0, y: 10 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.4 }}
-            className="bg-success-muted rounded-xl p-3.5 border border-success/20 flex items-center justify-between"
+            className="bg-success-muted rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 border border-success/20 flex items-center justify-between"
           >
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-success/15 flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-success" />
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-success/15 flex items-center justify-center">
+                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-success" />
               </div>
-              <span className="font-medium text-foreground text-sm">Sistēmiska izaugsme</span>
+              <span className="font-medium text-foreground text-xs sm:text-sm">Sistēmiska izaugsme</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-success" />
-              <span className="text-xs text-success font-semibold">Aktīvs</span>
+            <div className="flex items-center gap-1 sm:gap-1.5">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-success" />
+              <span className="text-[10px] sm:text-xs text-success font-semibold">Aktīvs</span>
             </div>
           </motion.div>
         </div>
 
         {/* Bottom Metrics Bar */}
-        <div className="px-5 py-4 bg-muted/30 border-t border-border/40">
-          <div className="grid grid-cols-4 gap-3">
+        <div className="px-3 sm:px-5 py-2.5 sm:py-4 bg-muted/30 border-t border-border/40">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-3">
             {metrics.map((metric, i) => (
               <motion.div
                 key={metric.label}
@@ -187,10 +187,10 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
                 transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
                 className="text-center"
               >
-                <div className="text-lg font-bold text-primary">
+                <div className="text-sm sm:text-lg font-bold text-primary">
                   {metric.value}{metric.suffix}
                 </div>
-                <div className="text-xs text-muted-foreground">{metric.label}</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground">{metric.label}</div>
               </motion.div>
             ))}
           </div>
