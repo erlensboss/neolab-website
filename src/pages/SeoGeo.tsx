@@ -486,10 +486,10 @@ export default function SeoGeo() {
           {/* Header */}
           <ScrollReveal>
             <div className="text-center mb-14 md:mb-20">
-              <span className="chip mb-6 inline-block text-sm">Sistēma</span>
+              <span className="chip mb-6 inline-block text-sm">{t("Sistēma", "System")}</span>
               <h2 className="text-foreground max-w-4xl mx-auto leading-tight">
-                <span className="text-gradient-orange">SEO</span> un <span className="text-gradient-orange">GEO</span>{" "}
-                nav viens rezultāts, tā ir <span className="text-gradient-orange">sistēma</span>. uzņēmuma labā.
+                <span className="text-gradient-orange">SEO</span> {t("un", "and")} <span className="text-gradient-orange">GEO</span>{" "}
+                {t("nav viens rezultāts, tā ir", "is not one result, it's a")} <span className="text-gradient-orange">{t("sistēma", "system")}</span> {t("uzņēmuma labā.", "for your business.")}
               </h2>
             </div>
           </ScrollReveal>
@@ -498,36 +498,36 @@ export default function SeoGeo() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[{
             icon: Eye,
-            title: "Stabilāka redzamība",
-            description: "Uzņēmums kļūst atrodams brīdī, kad potenciālie klienti aktīvi meklē risinājumus, nevis tikai redz reklāmu.",
+            title: t("Stabilāka redzamība", "Stable visibility"),
+            description: t("Uzņēmums kļūst atrodams brīdī, kad potenciālie klienti aktīvi meklē risinājumus, nevis tikai redz reklāmu.", "The business becomes discoverable when potential clients are actively searching for solutions, not just seeing ads."),
             gradient: "from-primary to-orange-500",
             delay: 0.1
           }, {
             icon: Settings,
-            title: "Sakārtota digitālā struktūra",
-            description: "Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte, kas ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.",
+            title: t("Sakārtota digitālā struktūra", "Organized digital structure"),
+            description: t("Tiek uzlabota mājaslapas loģika, saturs un tehniskā kvalitāte, kas ietekmē gan lietotāja pieredzi, gan meklētājprogrammu uztveri.", "Website logic, content, and technical quality are improved, affecting both user experience and search engine perception."),
             gradient: "from-orange-500 to-amber-500",
             delay: 0.15
           }, {
             icon: PieChart,
-            title: "Skaidrība par to, kas strādā",
-            description: "Uzņēmums saprot, kuri vaicājumi piesaista apmeklētājus, kā tie nonāk līdz piedāvājumam un kur rodas reālais rezultāts.",
+            title: t("Skaidrība par to, kas strādā", "Clarity about what works"),
+            description: t("Uzņēmums saprot, kuri vaicājumi piesaista apmeklētājus, kā tie nonāk līdz piedāvājumam un kur rodas reālais rezultāts.", "The business understands which queries attract visitors, how they reach the offer, and where real results come from."),
             gradient: "from-amber-500 to-yellow-500",
             delay: 0.2
           }, {
             icon: Bot,
-            title: "Redzamība arī AI meklējumos",
-            description: "GEO optimizācija paplašina klātbūtni jaunās paaudzes meklēšanas platformās un AI ģenerētajās atbildēs.",
+            title: t("Redzamība arī AI meklējumos", "Visibility in AI searches"),
+            description: t("GEO optimizācija paplašina klātbūtni jaunās paaudzes meklēšanas platformās un AI ģenerētajās atbildēs.", "GEO optimization expands presence in next-generation search platforms and AI-generated responses."),
             gradient: "from-yellow-500 to-amber-400",
             delay: 0.25
           }, {
             icon: Rocket,
-            title: "Ilgtermiņa izaugsmes pamats",
-            description: "SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.",
+            title: t("Ilgtermiņa izaugsmes pamats", "Long-term growth foundation"),
+            description: t("SEO un GEO kļūst par stabilu digitālās izaugsmes balstu, nevis taktisku rīku atsevišķām kampaņām.", "SEO and GEO become a stable foundation for digital growth, not a tactical tool for individual campaigns."),
             gradient: "from-amber-400 to-primary",
             delay: 0.3,
             featured: true
-          }].map((item, index) => <ScrollReveal key={item.title} delay={item.delay}>
+          }].map((item, index) => <ScrollReveal key={index} delay={item.delay}>
                 <motion.div whileHover={{
               y: -6,
               scale: 1.02
@@ -653,9 +653,9 @@ export default function SeoGeo() {
           {/* Header */}
           <ScrollReveal>
             <div className="text-center mb-14 md:mb-20">
-              <span className="chip mb-6 inline-block text-sm">Pieredze</span>
+              <span className="chip mb-6 inline-block text-sm">{t("Pieredze", "Experience")}</span>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                Mūsu <span className="text-gradient-orange">pieredze</span> un sasniegumi
+                {t("Mūsu", "Our")} <span className="text-gradient-orange">{t("pieredze", "experience")}</span> {t("un sasniegumi", "and achievements")}
               </h2>
             </div>
           </ScrollReveal>
@@ -663,36 +663,36 @@ export default function SeoGeo() {
           {/* Case study cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {[{
-            industry: "E-komercija",
+            industry: t("E-komercija", "E-commerce"),
             icon: ShoppingCart,
             gradient: "from-primary to-orange-500",
             bgGradient: "from-primary/5 to-orange-500/5",
-            situation: "Interneta veikals ar vairāk nekā 2000 produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija minimāls.",
-            solution: "Veicām pilnu SEO auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām skaidru kategorizācijas stratēģiju.",
+            situation: t("Interneta veikals ar vairāk nekā 2000 produktiem netika atrasts Google meklējumos. Produktu lapas neindeksējās, un organiskais trafiks bija minimāls.", "An online store with more than 2000 products was not found in Google searches. Product pages were not indexed, and organic traffic was minimal."),
+            solution: t("Veicām pilnu SEO auditu, sakārtojām vietnes struktūru, optimizējām produktu lapas ar strukturētiem datiem un izveidojām skaidru kategorizācijas stratēģiju.", "We performed a full SEO audit, organized the site structure, optimized product pages with structured data, and created a clear categorization strategy."),
             result: "+340%",
-            resultLabel: "organiskā trafika pieaugums",
+            resultLabel: t("organiskā trafika pieaugums", "organic traffic growth"),
             delay: 0.1
           }, {
-            industry: "Lokāls pakalpojums",
+            industry: t("Lokāls pakalpojums", "Local service"),
             icon: Building2,
             gradient: "from-orange-500 to-amber-500",
             bgGradient: "from-orange-500/5 to-amber-500/5",
-            situation: "Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti nespēja atrast uzņēmumu, meklējot pakalpojumu kopā ar pilsētu.",
-            solution: "SEO audita laikā identificējām problēmas lokālajā redzamībā, optimizējām Google profilu, sakārtojām NAP datus un izveidojām lokālā satura struktūru.",
+            situation: t("Būvniecības uzņēmums netika atrasts lokālajos meklējumos. Klienti nespēja atrast uzņēmumu, meklējot pakalpojumu kopā ar pilsētu.", "A construction company was not found in local searches. Clients couldn't find the company when searching for the service with the city name."),
+            solution: t("SEO audita laikā identificējām problēmas lokālajā redzamībā, optimizējām Google profilu, sakārtojām NAP datus un izveidojām lokālā satura struktūru.", "During the SEO audit, we identified problems with local visibility, optimized Google profile, organized NAP data, and created a local content structure."),
             result: "Top 3",
-            resultLabel: "pozīcija lokālajos rezultātos",
+            resultLabel: t("pozīcija lokālajos rezultātos", "position in local results"),
             delay: 0.2
           }, {
-            industry: "B2B pakalpojumi",
+            industry: t("B2B pakalpojumi", "B2B services"),
             icon: Briefcase,
             gradient: "from-amber-500 to-yellow-500",
             bgGradient: "from-amber-500/5 to-yellow-500/5",
-            situation: "Konsultāciju uzņēmums saņēma apmeklētājus, bet maz pieprasījumu. Augsts bounce rate un neskaidra konversijas plūsma.",
-            solution: "Balstoties audita secinājumos, pārstrukturējām saturu, uzlabojām galvenās lapas un izveidojām skaidru konversijas piltuvi.",
+            situation: t("Konsultāciju uzņēmums saņēma apmeklētājus, bet maz pieprasījumu. Augsts bounce rate un neskaidra konversijas plūsma.", "A consulting company received visitors but few inquiries. High bounce rate and unclear conversion flow."),
+            solution: t("Balstoties audita secinājumos, pārstrukturējām saturu, uzlabojām galvenās lapas un izveidojām skaidru konversijas piltuvi.", "Based on audit findings, we restructured content, improved key pages, and created a clear conversion funnel."),
             result: "+180%",
-            resultLabel: "vairāk kvalificētu pieprasījumu",
+            resultLabel: t("vairāk kvalificētu pieprasījumu", "more qualified inquiries"),
             delay: 0.3
-          }].map((caseStudy, index) => <ScrollReveal key={caseStudy.industry} delay={caseStudy.delay}>
+          }].map((caseStudy, index) => <ScrollReveal key={index} delay={caseStudy.delay}>
                 <motion.div whileHover={{
               y: -8,
               scale: 1.02
@@ -728,7 +728,7 @@ export default function SeoGeo() {
                             <AlertCircle className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
                           <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                            Situācija
+                            {t("Situācija", "Situation")}
                           </span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.situation}</p>
@@ -741,7 +741,7 @@ export default function SeoGeo() {
                             <Wrench className="w-3.5 h-3.5 text-muted-foreground" />
                           </div>
                           <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                            Risinājums
+                            {t("Risinājums", "Solution")}
                           </span>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">{caseStudy.solution}</p>
@@ -755,7 +755,7 @@ export default function SeoGeo() {
                               <CheckCircle className="w-3.5 h-3.5 text-green-500" />
                             </div>
                             <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">
-                              Rezultāts
+                              {t("Rezultāts", "Result")}
                             </span>
                           </div>
                           <motion.div initial={{
@@ -813,7 +813,7 @@ export default function SeoGeo() {
               }}>
                   <TrendingUp className="w-5 h-5 text-white" />
                 </motion.div>
-                <span className="text-muted-foreground font-medium">Jūsu veiksmes stāsts var būt nākamais</span>
+                <span className="text-muted-foreground font-medium">{t("Jūsu veiksmes stāsts var būt nākamais", "Your success story could be next")}</span>
               </motion.div>
             </div>
           </ScrollReveal>
@@ -869,15 +869,14 @@ export default function SeoGeo() {
               once: true
             }} className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-gradient-to-r from-transparent to-primary" />
-                <span className="text-sm font-semibold text-primary uppercase tracking-widest">Metodika</span>
+                <span className="text-sm font-semibold text-primary uppercase tracking-widest">{t("Metodika", "Methodology")}</span>
                 <div className="w-8 h-[2px] bg-gradient-to-l from-transparent to-primary" />
               </motion.div>
               <h2 className="text-foreground max-w-4xl mx-auto mb-6">
-                Kāds ir <span className="text-gradient-orange">NEOLab</span> risinājums
+                {t("Kāds ir", "What is the")} <span className="text-gradient-orange">NEOLab</span> {t("risinājums", "solution")}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, kas balstīta auditos,
-                prioritātēs un pakāpeniskā ieviešanā.
+                {t("NEOLab piedāvā strukturētu un pārskatāmu pieeju SEO un GEO optimizācijai, kas balstīta auditos, prioritātēs un pakāpeniskā ieviešanā.", "NEOLab offers a structured and transparent approach to SEO and GEO optimization, based on audits, priorities, and gradual implementation.")}
               </p>
             </div>
           </ScrollReveal>
@@ -926,22 +925,22 @@ export default function SeoGeo() {
                           duration: 1.5,
                           repeat: Infinity
                         }} />
-                          <span className="text-sm font-semibold text-primary">Galvenais pakalpojums</span>
+                          <span className="text-sm font-semibold text-primary">{t("Galvenais pakalpojums", "Main service")}</span>
                         </motion.div>
 
                         {/* Title */}
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                          SEO audits un situācijas izvērtējums
+                          {t("SEO audits un situācijas izvērtējums", "SEO audit and situation assessment")}
                         </h3>
 
                         {/* Description */}
                         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
-                          Sadarbība vienmēr sākas ar auditu. Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra, konkurenti un esošā redzamība, lai saprastu, kur tieši slēpjas galvenās izaugsmes iespējas.
+                          {t("Sadarbība vienmēr sākas ar auditu. Tiek analizēta mājaslapas tehniskā puse, saturs, struktūra, konkurenti un esošā redzamība, lai saprastu, kur tieši slēpjas galvenās izaugsmes iespējas.", "Collaboration always starts with an audit. The website's technical side, content, structure, competitors, and existing visibility are analyzed to understand where the main growth opportunities lie.")}
                         </p>
 
                         {/* Features list */}
                         <div className="grid sm:grid-cols-2 gap-3 mb-6">
-                          {["Pilna tehniskā analīze", "Konkurentu izpēte", "Satura inventārs", "Prioritāšu karte"].map((feature, i) => <div key={feature} className="flex items-center gap-2">
+                          {[t("Pilna tehniskā analīze", "Full technical analysis"), t("Konkurentu izpēte", "Competitor research"), t("Satura inventārs", "Content inventory"), t("Prioritāšu karte", "Priority map")].map((feature, i) => <div key={i} className="flex items-center gap-2">
                               <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center flex-shrink-0">
                                 <CheckCircle2 className="w-3 h-3 text-white" />
                               </div>
@@ -951,7 +950,7 @@ export default function SeoGeo() {
 
                         {/* CTA */}
                         <div className="flex items-center gap-3 text-primary font-semibold group-hover:gap-4 transition-all duration-300">
-                          <span>Uzzināt vairāk</span>
+                          <span>{t("Uzzināt vairāk", "Learn more")}</span>
                           <ArrowRight className="w-5 h-5" />
                         </div>
                       </div>
@@ -972,7 +971,7 @@ export default function SeoGeo() {
                                 <Search className="w-6 h-6 text-white" />
                               </motion.div>
                               <div>
-                                <span className="text-sm font-semibold text-foreground">Audita panelis</span>
+                                <span className="text-sm font-semibold text-foreground">{t("Audita panelis", "Audit panel")}</span>
                                 <div className="flex items-center gap-1.5 mt-1">
                                   <motion.div className="w-2 h-2 rounded-full bg-green-500" animate={{
                                   opacity: [0.5, 1, 0.5]
@@ -980,29 +979,29 @@ export default function SeoGeo() {
                                   duration: 1.5,
                                   repeat: Infinity
                                 }} />
-                                  <span className="text-xs text-green-600">Aktīvs</span>
+                                  <span className="text-xs text-green-600">{t("Aktīvs", "Active")}</span>
                                 </div>
                               </div>
                             </div>
 
                             {/* Progress bars representing audit areas */}
                             {[{
-                            label: "Tehnika",
+                            label: t("Tehnika", "Technical"),
                             progress: 85,
                             color: "from-primary to-orange-500"
                           }, {
-                            label: "Saturs",
+                            label: t("Saturs", "Content"),
                             progress: 72,
                             color: "from-orange-500 to-amber-500"
                           }, {
-                            label: "Struktūra",
+                            label: t("Struktūra", "Structure"),
                             progress: 68,
                             color: "from-amber-500 to-yellow-500"
                           }, {
-                            label: "Saites",
+                            label: t("Saites", "Links"),
                             progress: 55,
                             color: "from-yellow-500 to-amber-400"
-                          }].map((item, i) => <div key={item.label} className="space-y-1.5">
+                          }].map((item, i) => <div key={i} className="space-y-1.5">
                                 <div className="flex justify-between text-xs">
                                   <span className="text-muted-foreground font-medium">{item.label}</span>
                                   <span className="text-foreground font-semibold">{item.progress}%</span>
@@ -1023,7 +1022,7 @@ export default function SeoGeo() {
 
                             {/* Summary stat */}
                             <div className="mt-5 pt-4 border-t border-primary/10 flex items-center justify-between">
-                              <span className="text-sm text-muted-foreground">Kopējais vērtējums</span>
+                              <span className="text-sm text-muted-foreground">{t("Kopējais vērtējums", "Overall score")}</span>
                               <motion.span className="text-2xl font-bold bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent" initial={{
                               opacity: 0,
                               scale: 0.8
@@ -1052,40 +1051,40 @@ export default function SeoGeo() {
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 mb-10 md:mb-16">
             {[{
             icon: Settings,
-            title: "Tehniskā SEO optimizācija",
-            description: "Lapas ātrums, struktūra, indeksācija un tehniskie pamati.",
+            title: t("Tehniskā SEO optimizācija", "Technical SEO optimization"),
+            description: t("Lapas ātrums, struktūra, indeksācija un tehniskie pamati.", "Page speed, structure, indexing, and technical fundamentals."),
             accent: "from-orange-500 to-amber-500",
             link: "/seo-un-geo/tehniska-seo",
             delay: 0.1
           }, {
             icon: FileText,
-            title: "Satura un atslēgvārdu struktūra",
-            description: "Loģiska satura struktūra balstīta lietotāju meklējumos.",
+            title: t("Satura un atslēgvārdu struktūra", "Content and keyword structure"),
+            description: t("Loģiska satura struktūra balstīta lietotāju meklējumos.", "Logical content structure based on user searches."),
             accent: "from-amber-500 to-yellow-500",
             link: "/seo-un-geo/satura-struktura",
             delay: 0.15
           }, {
             icon: Target,
-            title: "Keyword list veidošana",
-            description: "Strukturēts atslēgvārdu saraksts pa lapām un nolūkiem.",
+            title: t("Keyword list veidošana", "Keyword list creation"),
+            description: t("Strukturēts atslēgvārdu saraksts pa lapām un nolūkiem.", "Structured keyword list by pages and intents."),
             accent: "from-yellow-500 to-amber-400",
             link: "/seo-un-geo/keyword-list",
             delay: 0.2
           }, {
             icon: Globe,
-            title: "GEO mājaslapas audits",
-            description: "Redzamība AI meklēšanas vidēs un ģeneratīvajās atbildēs.",
+            title: t("GEO mājaslapas audits", "GEO website audit"),
+            description: t("Redzamība AI meklēšanas vidēs un ģeneratīvajās atbildēs.", "Visibility in AI search environments and generative responses."),
             accent: "from-amber-400 to-orange-500",
             link: "/seo-un-geo/geo-audits",
             delay: 0.25
           }, {
             icon: Rocket,
-            title: "GEO stratēģijas izveide",
-            description: "GEO stratēģija jaunās paaudzes meklēšanas kanālos.",
+            title: t("GEO stratēģijas izveide", "GEO strategy development"),
+            description: t("GEO stratēģija jaunās paaudzes meklēšanas kanālos.", "GEO strategy in next-generation search channels."),
             accent: "from-orange-500 to-primary",
             link: "/seo-un-geo/geo-strategija",
             delay: 0.3
-          }].map((service, index) => <ScrollReveal key={service.title} delay={service.delay}>
+          }].map((service, index) => <ScrollReveal key={index} delay={service.delay}>
                 <Link to={getLocalizedPath(service.link)}>
                   <motion.div whileHover={{
                 y: -6,
@@ -1125,7 +1124,7 @@ export default function SeoGeo() {
                         {/* CTA button - orange like the main audit block */}
                         <div className="mt-3 pt-3 border-t border-gray-100">
                           <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary group-hover:text-primary-foreground bg-transparent group-hover:bg-primary px-3 py-1.5 rounded-lg transition-all duration-300">
-                            Uzzināt vairāk
+                            {t("Uzzināt vairāk", "Learn more")}
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
@@ -1158,10 +1157,10 @@ export default function SeoGeo() {
                 <div className="relative flex flex-col lg:flex-row items-center justify-between gap-5 md:gap-8">
                   <div className="text-center lg:text-left">
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 md:mb-3">
-                      Katrs solis tiek pielāgots <span className="text-gradient-orange">Jūsu situācijai</span>
+                      {t("Katrs solis tiek pielāgots", "Every step is tailored to")} <span className="text-gradient-orange">{t("Jūsu situācijai", "your situation")}</span>
                     </h3>
                     <p className="text-muted-foreground text-base md:text-lg max-w-xl">
-                      Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.
+                      {t("Saņemiet bezmaksas konsultāciju, lai saprastu, kādi soļi ir būtiskākie tieši jūsu uzņēmumam.", "Get a free consultation to understand which steps are most important for your business.")}
                     </p>
                   </div>
 
@@ -1172,7 +1171,7 @@ export default function SeoGeo() {
                     scale: 0.98
                   }}>
                       <Button variant="hero" size="lg" className="shadow-lg hover:shadow-xl transition-all duration-300 text-base px-8">
-                        Sākt ar bezmaksas auditu
+                        {t("Sākt ar bezmaksas auditu", "Start with a free audit")}
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </motion.div>
@@ -1224,11 +1223,11 @@ export default function SeoGeo() {
               once: true
             }} className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-gradient-to-r from-transparent to-primary" />
-                <span className="text-sm font-semibold text-primary uppercase tracking-widest">Process</span>
+                <span className="text-sm font-semibold text-primary uppercase tracking-widest">{t("Process", "Process")}</span>
                 <div className="w-8 h-[2px] bg-gradient-to-l from-transparent to-primary" />
               </motion.div>
               <h2 className="text-foreground max-w-3xl mx-auto">
-                Kā notiek <span className="text-gradient-orange">sadarbība</span>
+                {t("Kā notiek", "How does")} <span className="text-gradient-orange">{t("sadarbība", "collaboration")}</span> {t("", "work")}
               </h2>
             </div>
           </ScrollReveal>
@@ -1255,36 +1254,36 @@ export default function SeoGeo() {
             {[{
             number: "01",
             icon: Search,
-            title: "Sākotnējais audits un izvērtējums",
-            description: "Sadarbība sākas ar mājaslapas, esošās redzamības un konkurentu analīzi, lai noteiktu pašreizējo situāciju un galvenās iespējas.",
+            title: t("Sākotnējais audits un izvērtējums", "Initial audit and assessment"),
+            description: t("Sadarbība sākas ar mājaslapas, esošās redzamības un konkurentu analīzi, lai noteiktu pašreizējo situāciju un galvenās iespējas.", "Collaboration begins with website, existing visibility, and competitor analysis to determine the current situation and main opportunities."),
             gradient: "from-primary to-orange-500",
             delay: 0.1
           }, {
             number: "02",
             icon: Target,
-            title: "Prioritātes un stratēģija",
-            description: "Tiek noteiktas prioritātes un izstrādāta individuāla SEO/GEO stratēģija, kas atbilst uzņēmuma mērķiem un resursiem.",
+            title: t("Prioritātes un stratēģija", "Priorities and strategy"),
+            description: t("Tiek noteiktas prioritātes un izstrādāta individuāla SEO/GEO stratēģija, kas atbilst uzņēmuma mērķiem un resursiem.", "Priorities are set and an individual SEO/GEO strategy is developed that matches the company's goals and resources."),
             gradient: "from-orange-500 to-amber-500",
             delay: 0.2
           }, {
             number: "03",
             icon: Settings,
-            title: "Pakāpeniska ieviešana",
-            description: "Optimizācijas darbi tiek ieviesti pakāpeniski — tehniskie labojumi, satura uzlabojumi un strukturālās izmaiņas.",
+            title: t("Pakāpeniska ieviešana", "Gradual implementation"),
+            description: t("Optimizācijas darbi tiek ieviesti pakāpeniski — tehniskie labojumi, satura uzlabojumi un strukturālās izmaiņas.", "Optimization work is implemented gradually — technical fixes, content improvements, and structural changes."),
             gradient: "from-amber-500 to-yellow-500",
             delay: 0.3
           }, {
             number: "04",
             icon: BarChart3,
-            title: "Uzraudzība un analīze",
-            description: "Rezultāti tiek nepārtraukti uzraudzīti un analizēti, izmantojot profesionālus rīkus un skaidrus atskaites.",
+            title: t("Uzraudzība un analīze", "Monitoring and analysis"),
+            description: t("Rezultāti tiek nepārtraukti uzraudzīti un analizēti, izmantojot profesionālus rīkus un skaidrus atskaites.", "Results are continuously monitored and analyzed using professional tools and clear reports."),
             gradient: "from-yellow-500 to-amber-400",
             delay: 0.4
           }, {
             number: "05",
             icon: TrendingUp,
-            title: "Nepārtraukta uzlabošana",
-            description: "Notiek nepārtraukta uzlabošana, balstoties datos un rezultātos. Stratēģija tiek pielāgota tirgus izmaiņām.",
+            title: t("Nepārtraukta uzlabošana", "Continuous improvement"),
+            description: t("Notiek nepārtraukta uzlabošana, balstoties datos un rezultātos. Stratēģija tiek pielāgota tirgus izmaiņām.", "Continuous improvement based on data and results. Strategy is adjusted to market changes."),
             gradient: "from-amber-400 to-primary",
             delay: 0.5
           }].map((step, index) => <ScrollReveal key={step.number} delay={step.delay}>
@@ -1413,8 +1412,8 @@ export default function SeoGeo() {
             }} viewport={{
               once: true
             }} className="text-center mt-8">
-                <p className="text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
-                <p className="text-muted-foreground">Stabila un pieaugoša redzamība</p>
+                <p className="text-lg font-semibold text-foreground">{t("Ilgtermiņa rezultāti", "Long-term results")}</p>
+                <p className="text-muted-foreground">{t("Stabila un pieaugoša redzamība", "Stable and growing visibility")}</p>
               </motion.div>
             </ScrollReveal>
           </div>
@@ -1432,8 +1431,8 @@ export default function SeoGeo() {
             <div className="text-center mb-12">
               <span className="chip mb-4 inline-block text-sm">FAQ</span>
               <h2 className="text-foreground">
-                Biežāk uzdotie jautājumi par <span className="text-gradient-orange">SEO</span> un{" "}
-                <span className="text-gradient-orange">GEO</span> pakalpojumiem.
+                {t("Biežāk uzdotie jautājumi par", "Frequently asked questions about")} <span className="text-gradient-orange">SEO</span> {t("un", "and")}{" "}
+                <span className="text-gradient-orange">GEO</span> {t("pakalpojumiem.", "services.")}
               </h2>
             </div>
           </ScrollReveal>
@@ -1443,28 +1442,28 @@ export default function SeoGeo() {
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {[{
               icon: Globe,
-              question: "Vai GEO aizvieto SEO?",
-              answer: "Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.",
+              question: t("Vai GEO aizvieto SEO?", "Does GEO replace SEO?"),
+              answer: t("Nē. GEO papildina SEO un paplašina redzamību jaunās meklēšanas vidēs, bet neaizvieto tradicionālo SEO.", "No. GEO complements SEO and expands visibility in new search environments, but does not replace traditional SEO."),
               gradient: "from-primary to-orange-500"
             }, {
               icon: Clock,
-              question: "Cik ilgā laikā SEO sāk dot rezultātus?",
-              answer: "Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.",
+              question: t("Cik ilgā laikā SEO sāk dot rezultātus?", "How long does it take for SEO to show results?"),
+              answer: t("Parasti pirmās izmaiņas ir redzamas dažu mēnešu laikā, bet stabils rezultāts veidojas ilgtermiņā.", "Usually the first changes are visible within a few months, but stable results are formed in the long term."),
               gradient: "from-orange-500 to-amber-500"
             }, {
               icon: Users,
-              question: "Vai SEO un GEO ir piemērots mazākiem uzņēmumiem?",
-              answer: "Jā, ja pieeja ir pielāgota uzņēmuma apjomam, mērķiem un resursiem.",
+              question: t("Vai SEO un GEO ir piemērots mazākiem uzņēmumiem?", "Is SEO and GEO suitable for smaller businesses?"),
+              answer: t("Jā, ja pieeja ir pielāgota uzņēmuma apjomam, mērķiem un resursiem.", "Yes, if the approach is tailored to the company's size, goals, and resources."),
               gradient: "from-amber-500 to-yellow-500"
             }, {
               icon: Zap,
-              question: "Vai SEO var apvienot ar Google Ads?",
-              answer: "Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.",
+              question: t("Vai SEO var apvienot ar Google Ads?", "Can SEO be combined with Google Ads?"),
+              answer: t("Jā. SEO un Google Ads var veiksmīgi papildināt viens otru, veidojot stabilu pieprasījuma plūsmu.", "Yes. SEO and Google Ads can successfully complement each other, creating a stable demand flow."),
               gradient: "from-yellow-500 to-amber-400"
             }, {
               icon: MessageSquare,
-              question: "Ar ko sākas sadarbība ar NEOLab?",
-              answer: "Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.",
+              question: t("Ar ko sākas sadarbība ar NEOLab?", "How does collaboration with NEOLab start?"),
+              answer: t("Sadarbība sākas ar auditu un situācijas izvērtējumu, lai noteiktu piemērotāko rīcības plānu.", "Collaboration starts with an audit and situation assessment to determine the most suitable action plan."),
               gradient: "from-amber-400 to-primary"
             }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.05}>
                   <AccordionItem value={`item-${index}`} className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
@@ -1521,13 +1520,12 @@ export default function SeoGeo() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-foreground mb-6">
-                Sper soļus <span className="text-gradient-orange">jaunajā digitālajā laikmetā</span>
+                {t("Sper soļus", "Take steps")} <span className="text-gradient-orange">{t("jaunajā digitālajā laikmetā", "in the new digital era")}</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed">
-                Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas
-                reālas izaugsmes iespējas.
+                {t("Neatpaliec no digitālajām pārmaiņām. Uzzini, kā šobrīd strādā tava uzņēmuma digitālā vide un kur slēpjas reālas izaugsmes iespējas.", "Don't fall behind on digital changes. Find out how your business's digital environment works now and where real growth opportunities lie.")}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
@@ -1538,7 +1536,7 @@ export default function SeoGeo() {
                 scale: 0.98
               }} className="inline-block">
                   <Button variant="hero" size="xl" className="shadow-xl hover:shadow-2xl transition-all duration-300">
-                    Pieteikties auditam
+                    {t("Pieteikties auditam", "Apply for audit")}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </motion.div>
