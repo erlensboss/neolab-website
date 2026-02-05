@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  BookOpen, 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
-  Tag 
-} from "lucide-react";
+import { BookOpen, ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -66,14 +60,8 @@ export default function Blog() {
     },
   ];
 
-  const categories = [
-    t("Visi", "All"), 
-    "SEO", 
-    "AI", 
-    t("Reklāma", "Advertising"), 
-    t("Stratēģija", "Strategy")
-  ];
-  
+  const categories = [t("Visi", "All"), "SEO", "AI", t("Reklāma", "Advertising"), t("Stratēģija", "Strategy")];
+
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
@@ -88,14 +76,15 @@ export default function Blog() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h1 className="mb-6">
-                {t("Zināšanas", "Knowledge")} <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
+                {t("SEO, AI un Digitālās zināšanas", "SEO, AI and Digital knowledge")}{" "}
+                <span className="text-gradient-orange">{t("bez filtra", "unfiltered")}</span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-xl text-muted-foreground">
                 {t(
                   "Mūsu domas, atklājumi un praktiskas zināšanas no NEOLab laboratorijas. Bez tukšu vārdu — tikai lietderīgs saturs.",
-                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content."
+                  "Our thoughts, discoveries, and practical knowledge from the NEOLab laboratory. No empty words — only useful content.",
                 )}
               </p>
             </ScrollReveal>
@@ -113,9 +102,10 @@ export default function Blog() {
                   key={category}
                   className={`
                     px-4 py-2 rounded-lg text-sm font-medium transition-all
-                    ${index === 0 
-                      ? "bg-primary text-primary-foreground" 
-                      : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                    ${
+                      index === 0
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                     }
                   `}
                 >
@@ -152,9 +142,7 @@ export default function Blog() {
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-muted-foreground text-sm mb-4 flex-1">
-                    {post.excerpt}
-                  </p>
+                  <p className="text-muted-foreground text-sm mb-4 flex-1">{post.excerpt}</p>
 
                   {/* Footer */}
                   <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
@@ -187,19 +175,15 @@ export default function Blog() {
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <BookOpen className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">
-                  {t("Saturs tiek veidots", "Content is being created")}
-                </h3>
+                <h3 className="text-xl font-semibold mb-3">{t("Saturs tiek veidots", "Content is being created")}</h3>
                 <p className="text-muted-foreground mb-6">
                   {t(
                     "Mēs aktīvi strādājam pie satura. Šie raksti drīzumā būs pieejami ar pilnu tekstu un praktiskām zināšanām.",
-                    "We are actively working on content. These articles will soon be available with full text and practical knowledge."
+                    "We are actively working on content. These articles will soon be available with full text and practical knowledge.",
                   )}
                 </p>
                 <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                  <Button variant="hero">
-                    {t("Saņemt paziņojumu", "Get notified")}
-                  </Button>
+                  <Button variant="hero">{t("Saņemt paziņojumu", "Get notified")}</Button>
                 </Link>
               </div>
             </ScrollReveal>
@@ -213,14 +197,15 @@ export default function Blog() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">
-                {t("Vēlaties personalizētas", "Want personalized")} <span className="text-gradient-orange">{t("zināšanas", "knowledge")}</span>?
+                {t("Vēlaties personalizētas", "Want personalized")}{" "}
+                <span className="text-gradient-orange">{t("zināšanas", "knowledge")}</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-lg text-muted-foreground mb-8">
                 {t(
                   "Bezmaksas konsultācijā dalīsimies ar insights, kas attiecas tieši uz jūsu biznesu.",
-                  "In a free consultation, we'll share insights that apply specifically to your business."
+                  "In a free consultation, we'll share insights that apply specifically to your business.",
                 )}
               </p>
             </ScrollReveal>
