@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart, Users, FlaskConical } from "lucide-react";
+import { ArrowRight, Lightbulb, Sparkles, Rocket, Heart, Users, FlaskConical, Telescope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -994,7 +994,7 @@ export default function ParMums() {
                               background: "linear-gradient(135deg, hsl(350 50% 85% / 0.6), hsl(25 40% 90% / 0.4))",
                             }}
                           >
-                            <span className="text-2xl">🔮</span>
+                            <Telescope className="w-5 h-5 text-rose-500" />
                           </div>
                         </div>
                       </div>
