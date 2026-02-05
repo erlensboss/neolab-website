@@ -729,114 +729,253 @@ export default function AiLab() {
         </div>
       </section>
 
-      {/* ========== SECTION 5: FAQ ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        {/* Subtle accent layer */}
+      {/* ========== SECTION 5: FAQ — Light Theme ========== */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Subtle gradient accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: `radial-gradient(ellipse 60% 40% at 50% 100%, hsl(var(--primary) / 0.03) 0%, transparent 70%)`
+          background: `
+            radial-gradient(ellipse 70% 50% at 30% 20%, hsl(var(--primary) / 0.04) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 40% at 70% 80%, hsl(var(--primary) / 0.03) 0%, transparent 70%)
+          `
         }} />
+
+        {/* Decorative dots pattern */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: '32px 32px',
+          }}
+        />
         
         <div className="container-neo relative z-10">
-          {/* Header */}
+          {/* Header with decorative elements */}
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <span className="chip mb-4 inline-block text-sm">FAQ</span>
-              <h2 className="text-foreground">
-                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-white/80 backdrop-blur-sm mb-6 shadow-sm">
+                <HelpCircle className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">FAQ</span>
+              </div>
+              <h2 className="text-foreground mb-4">
+                {t("Biežāk uzdotie", "Frequently Asked")}{" "}
+                <span className="text-gradient-orange">{t("jautājumi", "Questions")}</span>
               </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t(
+                  "Atbildes uz jautājumiem par AI Lab, tā mērķiem un pieejamību",
+                  "Answers to questions about AI Lab, its goals and accessibility"
+                )}
+              </p>
             </div>
           </ScrollReveal>
           
-          {/* FAQ Accordion */}
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
+          {/* FAQ Grid - Two columns on desktop */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               {[
                 {
                   icon: HelpCircle,
-                  question: "Vai AI Lab ir pakalpojums?",
-                  answer: "Nē. AI Lab nav pakalpojums un nav produkts. Tā ir attīstības vide un iniciatīva.",
-                  gradient: "from-primary to-orange-500",
+                  question: t("Vai AI Lab ir pakalpojums?", "Is AI Lab a service?"),
+                  answer: t(
+                    "Nē. AI Lab nav pakalpojums un nav produkts. Tā ir attīstības vide un iniciatīva.",
+                    "No. AI Lab is not a service and not a product. It's a development environment and initiative."
+                  ),
+                  number: "01",
                 },
                 {
                   icon: Layers,
-                  question: "Vai AI Lab aizvieto AI automatizācijas pakalpojumus?",
-                  answer: "Nē. AI Lab pastāv paralēli un kalpo kā pieredzes un izpētes bāze.",
-                  gradient: "from-orange-500 to-amber-500",
+                  question: t("Vai AI Lab aizvieto AI automatizācijas pakalpojumus?", "Does AI Lab replace AI automation services?"),
+                  answer: t(
+                    "Nē. AI Lab pastāv paralēli un kalpo kā pieredzes un izpētes bāze.",
+                    "No. AI Lab exists in parallel and serves as an experience and research base."
+                  ),
+                  number: "02",
                 },
                 {
                   icon: Clock,
-                  question: "Kad AI Lab pieeja ir īpaši nozīmīga?",
-                  answer: "Ja nepieciešama dziļāka izpratne par tehnoloģijām, nestandarta risinājumi vai ilgtermiņa skatījums uz AI attīstību.",
-                  gradient: "from-amber-500 to-yellow-500",
+                  question: t("Kad AI Lab pieeja ir īpaši nozīmīga?", "When is AI Lab approach especially important?"),
+                  answer: t(
+                    "Ja nepieciešama dziļāka izpratne par tehnoloģijām, nestandarta risinājumi vai ilgtermiņa skatījums uz AI attīstību.",
+                    "When deeper understanding of technologies, non-standard solutions, or long-term perspective on AI development is needed."
+                  ),
+                  number: "03",
                 },
                 {
                   icon: Users,
-                  question: "Vai AI Lab ir atvērts visiem?",
-                  answer: "AI Lab veidojas pakāpeniski. Šobrīd tas ir attīstības stadijā, un dalība notiek ar atlasi.",
-                  gradient: "from-yellow-500 to-amber-400",
+                  question: t("Vai AI Lab ir atvērts visiem?", "Is AI Lab open to everyone?"),
+                  answer: t(
+                    "AI Lab veidojas pakāpeniski. Šobrīd tas ir attīstības stadijā, un dalība notiek ar atlasi.",
+                    "AI Lab is developing gradually. Currently it's in the development stage, and participation happens through selection."
+                  ),
+                  number: "04",
                 },
               ].map((faq, index) => (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <AccordionItem 
-                    value={`item-${index}`} 
-                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30"
+                <ScrollReveal key={index} delay={index * 0.08}>
+                  <motion.div
+                    className="group h-full"
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <AccordionTrigger className="px-4 md:px-5 py-3 md:py-4 hover:no-underline group">
-                      <div className="flex items-center gap-3 md:gap-4 text-left">
-                        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${faq.gradient} flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300`}>
-                          <faq.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
-                        </div>
-                        <span className="font-medium text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors duration-300">
-                          {faq.question}
-                        </span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 md:px-5 pb-4 md:pb-5">
-                      <div className="pl-11 md:pl-14">
-                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem 
+                        value={`item-${index}`} 
+                        className="h-full bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-xl data-[state=open]:border-primary/30"
+                      >
+                        <AccordionTrigger className="px-5 md:px-6 py-5 md:py-6 hover:no-underline">
+                          <div className="flex items-start gap-4 text-left w-full">
+                            {/* Number indicator */}
+                            <div className="relative flex-shrink-0">
+                              <span className="text-4xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors duration-300">
+                                {faq.number}
+                              </span>
+                              <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                <faq.icon className="w-4 h-4 text-white" />
+                              </div>
+                            </div>
+                            
+                            <div className="flex-1 pt-2">
+                              <span className="font-semibold text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
+                                {faq.question}
+                              </span>
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6">
+                          <div className="pl-16 md:pl-20">
+                            <div className="h-px w-12 bg-gradient-to-r from-primary/30 to-transparent mb-4" />
+                            <p className="text-muted-foreground text-base leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </motion.div>
                 </ScrollReveal>
               ))}
-            </Accordion>
+            </div>
+            
+            {/* Bottom decorative element */}
+            <ScrollReveal delay={0.4}>
+              <div className="mt-12 text-center">
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/60 backdrop-blur-sm border border-gray-200/60 shadow-sm">
+                  <MessageSquare className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">
+                    {t("Ir vēl jautājumi?", "Have more questions?")}{" "}
+                    <Link to={getLocalizedPath("/bezmaksas-konsultacija")} className="text-primary font-medium hover:underline">
+                      {t("Sazinies ar mums", "Contact us")}
+                    </Link>
+                  </span>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 6: Contact CTA ========== */}
-      <section className="bg-gradient-hero">
-        <div className="container-neo section-padding relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+      {/* ========== SECTION 6: Contact CTA — Light Theme ========== */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background with warm gradient */}
+        <div className="absolute inset-0" style={{
+          background: `linear-gradient(135deg, hsl(35 45% 96%) 0%, hsl(30 40% 94%) 50%, hsl(35 35% 95%) 100%)`
+        }} />
+        
+        {/* Decorative elements */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: `
+            radial-gradient(ellipse 80% 60% at 50% 50%, hsl(var(--primary) / 0.06) 0%, transparent 70%)
+          `
+        }} />
+        
+        {/* Floating shapes */}
+        <FloatingShape x="5%" y="20%" size={80} delay={0} type="ring" />
+        <FloatingShape x="90%" y="30%" size={60} delay={2} type="circle" />
+        <FloatingShape x="10%" y="70%" size={50} delay={1} type="dot" />
+        <FloatingShape x="85%" y="75%" size={70} delay={3} type="ring" />
+        
+        {/* Grid pattern */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+        
+        <div className="container-neo relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Card container */}
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 text-sm text-primary mb-6">
-                <Rocket className="w-4 h-4" />
-                <span>Seko līdzi attīstībai</span>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-gray-200/60 shadow-xl overflow-hidden">
+                {/* Top accent bar */}
+                <div className="h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
+                
+                <div className="p-8 md:p-12 lg:p-16 text-center">
+                  {/* Badge */}
+                  <motion.div 
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8"
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Rocket className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium text-primary">
+                      {t("Seko līdzi attīstībai", "Follow the development")}
+                    </span>
+                  </motion.div>
+                  
+                  {/* Main heading */}
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                    {t("AI Lab aug.", "AI Lab is growing.")}{" "}
+                    <span className="text-gradient-orange block mt-2">
+                      {t("Tāpat kā cilvēki, kas to veido.", "Just like the people who build it.")}
+                    </span>
+                  </h2>
+                  
+                  {/* Description */}
+                  <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+                    {t(
+                      "Ja tevi interesē mākslīgais intelekts, tehnoloģijas un digitālā domāšana, seko līdzi NEOLab attīstībai vai sazinies ar mums.",
+                      "If you're interested in artificial intelligence, technology, and digital thinking, follow NEOLab's development or contact us."
+                    )}
+                  </p>
+                  
+                  {/* CTA Button */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+                      <Button 
+                        size="xl"
+                        className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6 text-lg"
+                      >
+                        {t("Sazināties ar NEOLab", "Contact NEOLab")}
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Button>
+                    </Link>
+                  </motion.div>
+                  
+                  {/* Bottom decorative elements */}
+                  <div className="mt-12 flex items-center justify-center gap-8">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      <span>{t("Aktīvi strādājam", "Actively working")}</span>
+                    </div>
+                    <div className="h-4 w-px bg-gray-300" />
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Shield className="w-4 h-4 text-primary" />
+                      <span>{t("Droša vide", "Safe environment")}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Corner decorations */}
+                <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-primary/10 rounded-tr-3xl pointer-events-none" />
+                <div className="absolute bottom-4 left-4 w-20 h-20 border-b-2 border-l-2 border-primary/10 rounded-bl-3xl pointer-events-none" />
               </div>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.1}>
-              <h2 className="mb-6 text-foreground">
-                AI Lab aug. <span className="text-gradient-orange">Tāpat kā cilvēki, kas to veido.</span>
-              </h2>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.2}>
-              <p className="text-lg text-muted-foreground mb-8">
-                Ja tevi interesē mākslīgais intelekts, tehnoloģijas un digitālā domāšana, 
-                seko līdzi NEOLab attīstībai vai sazinies ar mums.
-              </p>
-            </ScrollReveal>
-            
-            <ScrollReveal delay={0.3}>
-              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                <Button variant="hero" size="xl">
-                  Sazināties ar NEOLab
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
             </ScrollReveal>
           </div>
         </div>
