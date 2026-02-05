@@ -534,13 +534,6 @@ export default function AiLab() {
           <ScrollReveal delay={0.5}>
             <div className="max-w-3xl mx-auto">
               <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-primary/15 shadow-sm">
-                {/* Quote accent */}
-                <div className="absolute -top-3 left-8 px-4 py-1 bg-primary/10 rounded-full border border-primary/20">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                    {t("Mūsu pieeja", "Our Approach")}
-                  </span>
-                </div>
-                
                 <div className="flex items-center gap-6">
                   <div className="hidden sm:flex flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 items-center justify-center">
                     <Target className="w-8 h-8 text-primary" />
