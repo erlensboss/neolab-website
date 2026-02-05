@@ -99,26 +99,21 @@ function StoryBlock({
         
         {/* Content */}
         <div className="relative z-10">
-          {/* Icon + Number badge */}
+          {/* Icon + Title */}
           <div className="flex items-center gap-4 mb-6">
             <motion.div
               whileHover={{ rotate: 10, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${block.gradient} flex items-center justify-center shadow-lg`}
+              className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${block.gradient} flex items-center justify-center shadow-lg`}
               style={{
                 boxShadow: `0 12px 30px -8px ${block.bgGlow.replace('0.15', '0.4').replace('0.12', '0.4')}`,
               }}
             >
-              <block.icon className="w-8 h-8 text-white" />
+              <block.icon className="w-7 h-7 text-white" />
             </motion.div>
-            <div className="flex flex-col">
-              <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium mb-1">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                {block.title}
-              </h3>
-            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+              {block.title}
+            </h3>
           </div>
           
           {/* Description */}
@@ -400,33 +395,55 @@ export default function ParMums() {
         <div className="container-neo section-padding relative z-10">
           <SectionHeading chip="Stāsts" title="NEOLab stāsts" className="mb-16" />
 
-          {/* Story Grid with visible connecting line */}
-          <div className="max-w-6xl mx-auto relative">
+          {/* Story blocks with vertical timeline */}
+          <div className="max-w-5xl mx-auto relative">
             {/* Central connecting line - visible on desktop */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/30 to-primary/40" />
               {/* Animated pulse on line */}
               <motion.div
                 animate={{ y: ["0%", "100%"], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                 className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-lg"
                 style={{ boxShadow: "0 0 20px hsl(var(--primary) / 0.5)" }}
               />
-              {/* Static node points */}
-              {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-primary/40 shadow-sm"
-                  style={{ top: `${15 + i * 35}%` }}
-                />
-              ))}
             </div>
 
-            {/* Story blocks grid */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {storyBlocks.map((block, index) => (
-                <StoryBlock key={block.title} block={block} index={index} />
-              ))}
+            {/* Story blocks - vertical layout */}
+            <div className="flex flex-col gap-12 md:gap-0">
+              {storyBlocks.map((block, index) => {
+                const isRight = block.position === "right";
+                return (
+                  <div key={block.title} className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 items-center">
+                    {/* Left block or spacer */}
+                    <div className={`${isRight ? 'hidden md:block' : ''}`}>
+                      {!isRight && <StoryBlock block={block} index={index} />}
+                    </div>
+                    
+                    {/* Center node */}
+                    <div className="hidden md:flex justify-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: "spring", stiffness: 200, delay: index * 0.1 }}
+                        className={`w-5 h-5 rounded-full bg-gradient-to-br ${block.gradient} border-4 border-white shadow-lg`}
+                        style={{ boxShadow: `0 0 20px ${block.bgGlow}` }}
+                      />
+                    </div>
+                    
+                    {/* Right block or spacer */}
+                    <div className={`${!isRight ? 'hidden md:block' : ''}`}>
+                      {isRight && <StoryBlock block={block} index={index} />}
+                    </div>
+                    
+                    {/* Mobile: show all blocks */}
+                    <div className="md:hidden">
+                      <StoryBlock block={block} index={index} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
