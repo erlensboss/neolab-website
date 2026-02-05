@@ -203,8 +203,8 @@ export default function AiLab() {
             
             {/* Main H1 - Much bigger */}
             <ScrollReveal delay={0.1}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-foreground leading-[1.1] tracking-tight">
-                AI Lab — {" "}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-foreground leading-[1.1] tracking-tight">
+                AI Lab –{" "}
                 <span className="text-gradient-orange">
                   {t("Inovatīva jauniešu AI laboratorija", "Innovative Youth AI Laboratory")}
                 </span>
