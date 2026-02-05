@@ -503,7 +503,7 @@ export default function PerformanceReklama() {
                     }} transition={{
                       delay: 0.5 + idx * 0.1
                     }} className={`px-4 py-3 rounded-xl bg-gradient-to-br ${segment.color} border border-border/50 text-center`}>
-                          <span className="text-sm font-medium text-foreground">{segment.label}</span>
+                          <span className="font-medium text-foreground my-0 py-0 text-center text-base">{segment.label}</span>
                         </motion.div>)}
                     </div>
                   </div>
@@ -872,7 +872,7 @@ export default function PerformanceReklama() {
                     </svg>
                     
                     {/* Bottom nodes */}
-                    <motion.div className="absolute bottom-4 left-1 w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center" animate={{
+                    <motion.div className="absolute bottom-4 left-1 w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 items-center justify-center flex flex-col" animate={{
                     scale: [1, 1.1, 1]
                   }} transition={{
                     duration: 2,
