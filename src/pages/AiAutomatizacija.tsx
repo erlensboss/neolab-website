@@ -350,16 +350,14 @@ export default function AiAutomatizacija() {
                       <Brain className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </motion.div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground">Definīcija</h3>
-                      <span className="text-xs md:text-sm text-primary font-medium">Mākslīgā intelekta risinājumi</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Definīcija", "Definition")}</h3>
+                      <span className="text-xs md:text-sm text-primary font-medium">{t("Mākslīgā intelekta risinājumi", "Artificial intelligence solutions")}</span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-                    AI automatizācija ir uzņēmuma procesu uzlabošana, izmantojot mākslīgā intelekta tehnoloģijas, lai
-                    noteiktas darbības notiktu <span className="text-foreground font-medium">ātrāk, precīzāk</span> un
-                    ar <span className="text-foreground font-medium">mazāku cilvēka iesaisti</span>.
+                    {t("AI automatizācija ir uzņēmuma procesu uzlabošana, izmantojot mākslīgā intelekta tehnoloģijas, lai noteiktas darbības notiktu ātrāk, precīzāk un ar mazāku cilvēka iesaisti.", "AI automation is the improvement of business processes using artificial intelligence technologies to ensure specific actions occur faster, more accurately, and with less human involvement.")}
                   </p>
 
                   {/* Visual element - process flow mockup */}
@@ -367,17 +365,17 @@ export default function AiAutomatizacija() {
                     <div className="flex items-center justify-between gap-2 md:gap-4">
                       {[{
                       icon: Database,
-                      label: "Dati"
+                      label: t("Dati", "Data")
                     }, {
                       icon: Workflow,
-                      label: "Process"
+                      label: t("Process", "Process")
                     }, {
                       icon: Brain,
                       label: "AI"
                     }, {
                       icon: Zap,
-                      label: "Rezultāts"
-                    }].map((item, i) => <div key={item.label} className="flex flex-col items-center gap-1 flex-1">
+                      label: t("Rezultāts", "Result")
+                    }].map((item, i) => <div key={i} className="flex flex-col items-center gap-1 flex-1">
                           <motion.div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center ${i === 3 ? "bg-gradient-orange shadow-orange" : "bg-primary/10"}`} initial={{
                         opacity: 0,
                         y: 10
@@ -429,32 +427,31 @@ export default function AiAutomatizacija() {
                       <Layers className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </motion.div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground">Pielietojumi</h3>
-                      <span className="text-xs md:text-sm text-amber-600 font-medium">Praktiski scenāriji</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Pielietojumi", "Use cases")}</h3>
+                      <span className="text-xs md:text-sm text-amber-600 font-medium">{t("Praktiski scenāriji", "Practical scenarios")}</span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-                    AI automatizācija var ietvert datu apstrādi, informācijas plūsmu starp sistēmām, klientu
-                    komunikāciju, satura veidošanu vai iekšējo procesu vadību.
+                    {t("AI automatizācija var ietvert datu apstrādi, informācijas plūsmu starp sistēmām, klientu komunikāciju, satura veidošanu vai iekšējo procesu vadību.", "AI automation can include data processing, information flow between systems, customer communication, content creation, or internal process management.")}
                   </p>
 
                   {/* Use case icons grid */}
                   <div className="grid grid-cols-2 gap-3 mb-6 flex-1">
                     {[{
                     icon: Mail,
-                    label: "E-pasti"
+                    label: t("E-pasti", "Emails")
                   }, {
                     icon: MessageSquare,
-                    label: "Komunikācija"
+                    label: t("Komunikācija", "Communication")
                   }, {
                     icon: FileSpreadsheet,
-                    label: "Datu apstrāde"
+                    label: t("Datu apstrāde", "Data processing")
                   }, {
                     icon: RefreshCcw,
-                    label: "Procesu vadība"
-                  }].map((item, i) => <motion.div key={item.label} initial={{
+                    label: t("Procesu vadība", "Process management")
+                  }].map((item, i) => <motion.div key={i} initial={{
                     opacity: 0,
                     scale: 0.9
                   }} animate={{
@@ -475,8 +472,7 @@ export default function AiAutomatizacija() {
                         <CheckCircle2 className="w-4 h-4 text-primary" />
                       </div>
                       <p className="text-sm md:text-base text-foreground leading-relaxed">
-                        <span className="font-semibold">Svarīgākais:</span> AI tiek pielietots tur, kur tas reāli
-                        atvieglo darbu un dod praktisku ieguvumu.
+                        <span className="font-semibold">{t("Svarīgākais:", "Key point:")}</span> {t("AI tiek pielietots tur, kur tas reāli atvieglo darbu un dod praktisku ieguvumu.", "AI is applied where it actually lightens work and provides practical benefits.")}
                       </p>
                     </div>
                   </div>
@@ -491,8 +487,7 @@ export default function AiAutomatizacija() {
               <div className="inline-flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-border/50">
                 <Settings className="w-5 h-5 text-primary" />
                 <span className="text-muted-foreground text-sm md:text-base">
-                  AI automatizācija nav viens konkrēts rīks - tā ir sistēma, kā tehnoloģijas tiek izmantotas uzņēmuma
-                  ikdienas darbā.
+                  {t("AI automatizācija nav viens konkrēts rīks - tā ir sistēma, kā tehnoloģijas tiek izmantotas uzņēmuma ikdienas darbā.", "AI automation is not one specific tool - it's a system of how technologies are used in a company's daily work.")}
                 </span>
               </div>
             </div>
@@ -512,14 +507,13 @@ export default function AiAutomatizacija() {
               <div className="text-center mb-8 sm:mb-10 md:mb-14">
                 <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
-                  Gatavi risinājumi
+                  {t("Gatavi risinājumi", "Ready solutions")}
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
-                  Pārbaudīti un gatavi <span className="text-gradient-orange">AI risinājumi</span>
+                  {t("Pārbaudīti un gatavi", "Proven and ready")} <span className="text-gradient-orange">{t("AI risinājumi", "AI solutions")}</span>
                 </h2>
                 <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-2">
-                  NEOLab piedāvā vairākus pārbaudītus AI automatizācijas risinājumus, kuri jau ir izmantoti reālās
-                  situācijās un kurus iespējams ieviest salīdzinoši ātri.
+                  {t("NEOLab piedāvā vairākus pārbaudītus AI automatizācijas risinājumus, kuri jau ir izmantoti reālās situācijās un kurus iespējams ieviest salīdzinoši ātri.", "NEOLab offers several proven AI automation solutions that have already been used in real situations and can be implemented relatively quickly.")}
                 </p>
               </div>
             </ScrollReveal>
@@ -531,20 +525,20 @@ export default function AiAutomatizacija() {
                   {/* Left side - text */}
                   <div>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-4 sm:mb-6">
-                      Šie risinājumi ir piemēroti uzņēmumiem, kuri:
+                      {t("Šie risinājumi ir piemēroti uzņēmumiem, kuri:", "These solutions are suitable for businesses that:")}
                     </h3>
 
                     <div className="space-y-3 sm:space-y-4">
                       {[{
                       icon: Zap,
-                      text: "Vēlas ātru rezultātu"
+                      text: t("Vēlas ātru rezultātu", "Want quick results")
                     }, {
                       icon: Settings,
-                      text: "Meklē konkrētu problēmu risinājumu"
+                      text: t("Meklē konkrētu problēmu risinājumu", "Search for specific problem solutions")
                     }, {
                       icon: Layers,
-                      text: "Nevēlas sākt no nulles"
-                    }].map((item, i) => <motion.div key={item.text} initial={{
+                      text: t("Nevēlas sākt no nulles", "Don't want to start from scratch")
+                    }].map((item, i) => <motion.div key={i} initial={{
                       opacity: 0,
                       x: -20
                     }} animate={{
@@ -565,7 +559,7 @@ export default function AiAutomatizacija() {
                     <div className="mt-6 sm:mt-8">
                       <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                         <Button variant="hero" size="default" className="sm:text-base">
-                          Uzzināt vairāk
+                          {t("Uzzināt vairāk", "Learn more")}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </Link>
@@ -578,15 +572,15 @@ export default function AiAutomatizacija() {
                       {/* Status indicators */}
                       <div className="space-y-3 sm:space-y-4">
                         {[{
-                        label: "Testēts praksē",
-                        status: "Apstiprināts"
+                        label: t("Testēts praksē", "Tested in practice"),
+                        status: t("Apstiprināts", "Approved")
                       }, {
-                        label: "Ātra ieviešana",
-                        status: "1-2 nedēļas"
+                        label: t("Ātra ieviešana", "Fast implementation"),
+                        status: t("1-2 nedēļas", "1-2 weeks")
                       }, {
-                        label: "Dokumentēts process",
-                        status: "Pilnībā"
-                      }].map((item, i) => <motion.div key={item.label} initial={{
+                        label: t("Dokumentēts process", "Documented process"),
+                        status: t("Pilnībā", "Fully")
+                      }].map((item, i) => <motion.div key={i} initial={{
                         opacity: 0,
                         y: 10
                       }} animate={{
@@ -608,7 +602,7 @@ export default function AiAutomatizacija() {
                       {/* Bottom badge */}
                       <div className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-primary">
                         <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span className="font-medium text-xs sm:text-sm">NEOLab pārbaudīti risinājumi</span>
+                        <span className="font-medium text-xs sm:text-sm">{t("NEOLab pārbaudīti risinājumi", "NEOLab proven solutions")}</span>
                       </div>
                     </div>
                   </div>
@@ -865,8 +859,8 @@ export default function AiAutomatizacija() {
                           <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                         </motion.div>
                         <div>
-                          <h4 className="font-bold text-foreground text-sm sm:text-base md:text-lg">Jūsu Risinājums</h4>
-                          <span className="text-xs sm:text-sm text-primary font-medium">Veidots tieši jums</span>
+                          <h4 className="font-bold text-foreground text-sm sm:text-base md:text-lg">{t("Jūsu Risinājums", "Your Solution")}</h4>
+                          <span className="text-xs sm:text-sm text-primary font-medium">{t("Veidots tieši jums", "Built specifically for you")}</span>
                         </div>
                       </div>
                       <motion.div className="hidden xs:flex items-center gap-1.5 sm:gap-2 bg-primary/10 rounded-full px-2 sm:px-4 py-1 sm:py-2" animate={{
@@ -884,20 +878,20 @@ export default function AiAutomatizacija() {
                     <div className="space-y-3 sm:space-y-4 mb-5 sm:mb-8">
                       {[{
                       icon: Target,
-                      label: "Jūsu mērķi",
-                      value: "Definēti",
+                      label: t("Jūsu mērķi", "Your goals"),
+                      value: t("Definēti", "Defined"),
                       color: "from-primary to-orange-400"
                     }, {
                       icon: Puzzle,
-                      label: "Jūsu procesi",
-                      value: "Integrēti",
+                      label: t("Jūsu procesi", "Your processes"),
+                      value: t("Integrēti", "Integrated"),
                       color: "from-amber-400 to-orange-500"
                     }, {
                       icon: Settings,
-                      label: "Jūsu sistēmas",
-                      value: "Savienotas",
+                      label: t("Jūsu sistēmas", "Your systems"),
+                      value: t("Savienotas", "Connected"),
                       color: "from-orange-500 to-primary"
-                    }].map((block, i) => <motion.div key={block.label} initial={{
+                    }].map((block, i) => <motion.div key={i} initial={{
                       opacity: 0,
                       x: -20
                     }} animate={{
@@ -934,8 +928,8 @@ export default function AiAutomatizacija() {
                           <Handshake className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-foreground text-sm sm:text-base">Ilgtermiņa partnerība</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground">Stabils risinājums ar atbalstu</p>
+                          <p className="font-semibold text-foreground text-sm sm:text-base">{t("Ilgtermiņa partnerība", "Long-term partnership")}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground">{t("Stabils risinājums ar atbalstu", "Stable solution with support")}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -948,32 +942,30 @@ export default function AiAutomatizacija() {
                 <div className="lg:pl-4">
                   <span className="chip mb-4 sm:mb-6 inline-block text-xs sm:text-sm">
                     <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2" />
-                    Individuāli risinājumi
+                    {t("Individuāli risinājumi", "Individual solutions")}
                   </span>
 
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
-                    Personalizēta <span className="text-gradient-orange">AI risinājumu</span> izstrāde
+                    {t("Personalizēta", "Personalized")} <span className="text-gradient-orange">{t("AI risinājumu", "AI solution")}</span> {t("izstrāde", "development")}
                   </h2>
 
                   <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
                     <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-                      NEOLab izstrādā AI risinājumus, kas tiek būvēti konkrētam uzņēmumam un tā procesiem.
+                      {t("NEOLab izstrādā AI risinājumus, kas tiek būvēti konkrētam uzņēmumam un tā procesiem.", "NEOLab develops AI solutions built specifically for a company and its processes.")}
                     </p>
 
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      Mēs veidojam pilnīgi jaunus un īpatnējus risinājumus dažādos gadījumos. AI automatizācijām nav
-                      jābūt vienpusīgam — mēs prioritizējam klienta vēlmes un vajadzības, attiecīgi pielāgojamies, lai
-                      klients sasniegtu labākos rezultātus.
+                      {t("Mēs veidojam pilnīgi jaunus un īpatnējus risinājumus dažādos gadījumos. AI automatizācijām nav jābūt vienpusīgam — mēs prioritizējam klienta vēlmes un vajadzības, attiecīgi pielāgojamies, lai klients sasniegtu labākos rezultātus.", "We create entirely new and unique solutions for various cases. AI automation doesn't have to be one-sided — we prioritize client wishes and needs, adapting accordingly to ensure the client achieves the best results.")}
                     </p>
 
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      Risinājumi tiek integrēti esošajā sistēmu vidē un paredzēti stabilai, ilgtermiņa lietošanai.
+                      {t("Risinājumi tiek integrēti esošajā sistēmu vidē un paredzēti stabilai, ilgtermiņa lietošanai.", "Solutions are integrated into the existing system environment and designed for stable, long-term use.")}
                     </p>
                   </div>
 
                   {/* Key benefits */}
                   <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-10">
-                    {["Būvēts jums", "Integrēts ar esošo", "Ilgtermiņa atbalsts"].map((benefit, i) => <motion.div key={benefit} initial={{
+                    {[t("Būvēts jums", "Built for you"), t("Integrēts ar esošo", "Integrated with existing"), t("Ilgtermiņa atbalsts", "Long-term support")].map((benefit, i) => <motion.div key={i} initial={{
                     opacity: 0,
                     scale: 0.8
                   }} animate={{
@@ -990,7 +982,7 @@ export default function AiAutomatizacija() {
                   {/* CTA */}
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     <Button variant="hero" size="default" className="text-sm sm:text-base md:text-lg sm:px-8 sm:py-6 shadow-xl">
-                      Apspriest savu risinājumu
+                      {t("Apspriest savu risinājumu", "Discuss your solution")}
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                   </Link>
@@ -1016,9 +1008,9 @@ export default function AiAutomatizacija() {
           {/* Header */}
           <ScrollReveal>
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <span className="chip mb-3 sm:mb-4 inline-block text-xs sm:text-sm">Process</span>
+              <span className="chip mb-3 sm:mb-4 inline-block text-xs sm:text-sm">{t("Process", "Process")}</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-                Kā mēs <span className="text-gradient-orange">strādājam</span>
+                {t("Kā mēs", "How we")} <span className="text-gradient-orange">{t("strādājam", "work")}</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -1045,39 +1037,39 @@ export default function AiAutomatizacija() {
             {[{
             number: "01",
             icon: Search,
-            title: "Izvērtējam uzņēmuma situāciju un procesus",
-            description: "Sākam ar rūpīgu esošo procesu un sistēmu analīzi, lai saprastu, kur automatizācija var dot vislielāko vērtību.",
+            title: t("Izvērtējam uzņēmuma situāciju un procesus", "Evaluate company situation and processes"),
+            description: t("Sākam ar rūpīgu esošo procesu un sistēmu analīzi, lai saprastu, kur automatizācija var dot vislielāko vērtību.", "We start with a thorough analysis of existing processes and systems to understand where automation can provide the most value."),
             gradient: "from-primary to-orange-500",
             delay: 0.1
           }, {
             number: "02",
             icon: Target,
-            title: "Nosakām, kur AI dod lielāko praktisko ieguvumu",
-            description: "Identificējam konkrētus procesus un uzdevumus, kurus automatizējot, tiks sasniegts būtiskākais laika un resursu ietaupījums.",
+            title: t("Nosakām, kur AI dod lielāko praktisko ieguvumu", "Determine where AI gives the greatest practical benefit"),
+            description: t("Identificējam konkrētus procesus un uzdevumus, kurus automatizējot, tiks sasniegts būtiskākais laika un resursu ietaupījums.", "We identify specific processes and tasks where automation will achieve the most significant time and resource savings."),
             gradient: "from-orange-500 to-amber-500",
             delay: 0.2
           }, {
             number: "03",
             icon: Settings,
-            title: "Izvēlamies gatavu risinājumu vai veidojam pielāgotu",
-            description: "Atkarībā no vajadzībām piedāvājam jau pārbaudītu risinājumu vai izstrādājam individuālu sistēmu uzņēmuma specifiskajām prasībām.",
+            title: t("Izvēlamies gatavu risinājumu vai veidojam pielāgotu", "Choose a ready solution or create a custom one"),
+            description: t("Atkarībā no vajadzībām piedāvājam jau pārbaudītu risinājumu vai izstrādājam individuālu sistēmu uzņēmuma specifiskajām prasībām.", "Depending on needs, we offer a proven solution or develop an individual system for the company's specific requirements."),
             gradient: "from-amber-500 to-yellow-500",
             delay: 0.3
           }, {
             number: "04",
             icon: Cog,
-            title: "Ieviešam un integrējam sistēmās",
-            description: "Nodrošinām pilnu ieviešanu un integrāciju ar esošajām sistēmām, lai automatizācija darbotos bez traucējumiem.",
+            title: t("Ieviešam un integrējam sistēmās", "Implement and integrate into systems"),
+            description: t("Nodrošinām pilnu ieviešanu un integrāciju ar esošajām sistēmām, lai automatizācija darbotos bez traucējumiem.", "We ensure full implementation and integration with existing systems so automation works without disruption."),
             gradient: "from-yellow-500 to-amber-400",
             delay: 0.4
           }, {
             number: "05",
             icon: TrendingUp,
-            title: "Uzraugām un pielāgojam pēc reālas lietošanas",
-            description: "Nepārtraukti uzraugām risinājuma darbību un veicam pielāgojumus, balstoties reālās lietošanas datos un atgriezeniskajā saitē.",
+            title: t("Uzraugām un pielāgojam pēc reālas lietošanas", "Monitor and adjust after real use"),
+            description: t("Nepārtraukti uzraugām risinājuma darbību un veicam pielāgojumus, balstoties reālās lietošanas datos un atgriezeniskajā saitē.", "We continuously monitor the solution's performance and make adjustments based on real usage data and feedback."),
             gradient: "from-amber-400 to-primary",
             delay: 0.5
-          }].map((step, index) => <ScrollReveal key={step.number} delay={step.delay}>
+          }].map((step, index) => <ScrollReveal key={index} delay={step.delay}>
                 <div className={`relative flex items-start gap-3 sm:gap-4 md:gap-12 mb-8 sm:mb-10 md:mb-12 last:mb-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   {/* Node point on the line */}
                   <div className="absolute left-5 sm:left-6 md:left-1/2 -translate-x-1/2 z-10">
@@ -1203,8 +1195,8 @@ export default function AiAutomatizacija() {
             }} viewport={{
               once: true
             }} className="text-center mt-6 sm:mt-8">
-                <p className="text-base sm:text-lg font-semibold text-foreground">Ilgtermiņa rezultāti</p>
-                <p className="text-sm sm:text-base text-muted-foreground">Stabila un efektīva automatizācija</p>
+                 <p className="text-base sm:text-lg font-semibold text-foreground">{t("Ilgtermiņa rezultāti", "Long-term results")}</p>
+                 <p className="text-sm sm:text-base text-muted-foreground">{t("Stabila un efektīva automatizācija", "Stable and effective automation")}</p>
               </motion.div>
             </ScrollReveal>
           </div>
@@ -1222,7 +1214,7 @@ export default function AiAutomatizacija() {
             <div className="text-center mb-8 sm:mb-12">
               <span className="chip mb-3 sm:mb-4 inline-block text-xs sm:text-sm">FAQ</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-                Biežāk uzdotie <span className="text-gradient-orange">jautājumi</span>
+                {t("Biežāk uzdotie", "Frequently asked")} <span className="text-gradient-orange">{t("jautājumi", "questions")}</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -1232,28 +1224,28 @@ export default function AiAutomatizacija() {
             <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
               {[{
               icon: Cog,
-              question: "Vai AI automatizācija nozīmē sarežģītu ieviešanu?",
-              answer: "Nē. Risinājumi tiek veidoti tā, lai tie būtu saprotami un pakāpeniski ieviešami.",
+              question: t("Vai AI automatizācija nozīmē sarežģītu ieviešanu?", "Does AI automation mean complex implementation?"),
+              answer: t("Nē. Risinājumi tiek veidoti tā, lai tie būtu saprotami un pakāpeniski ieviešami.", "No. Solutions are created to be understandable and implemented gradually."),
               gradient: "from-primary to-orange-500"
             }, {
               icon: TrendingUp,
-              question: "Vai AI risinājumus var pielāgot uzņēmuma izaugsmei?",
-              answer: "Jā. Automatizācijas tiek veidotas elastīgi, lai tās varētu paplašināt vai mainīt.",
+              question: t("Vai AI risinājumus var pielāgot uzņēmuma izaugsmei?", "Can AI solutions be adapted to business growth?"),
+              answer: t("Jā. Automatizācijas tiek veidotas elastīgi, lai tās varētu paplašināt vai mainīt.", "Yes. Automations are built flexibly so they can be expanded or changed."),
               gradient: "from-orange-500 to-amber-500"
             }, {
               icon: Users,
-              question: "Vai AI aizvieto darbiniekus?",
-              answer: "AI automatizācija palīdz samazināt rutīnas darbus, nevis aizvietot cilvēkus.",
+              question: t("Vai AI aizvieto darbiniekus?", "Does AI replace employees?"),
+              answer: t("AI automatizācija palīdz samazināt rutīnas darbus, nevis aizvietot cilvēkus.", "AI automation helps reduce routine work rather than replacing people."),
               gradient: "from-amber-500 to-yellow-500"
             }, {
               icon: Layers,
-              question: "Vai risinājumus var integrēt ar esošajām sistēmām?",
-              answer: "Jā. Mēs strādājam ar dažādām platformām un sistēmām.",
+              question: t("Vai risinājumus var integrēt ar esošajām sistēmām?", "Can solutions be integrated with existing systems?"),
+              answer: t("Jā. Mēs strādājam ar dažādām platformām un sistēmām.", "Yes. We work with various platforms and systems."),
               gradient: "from-yellow-500 to-amber-400"
             }, {
               icon: MessageSquare,
-              question: "Ar ko sākas sadarbība ar NEOLab?",
-              answer: "Ar sarunu un uzņēmuma situācijas izvērtējumu.",
+              question: t("Ar ko sākas sadarbība ar NEOLab?", "How does collaboration with NEOLab start?"),
+              answer: t("Ar sarunu un uzņēmuma situācijas izvērtējumu.", "With a conversation and an assessment of the company's situation."),
               gradient: "from-amber-400 to-primary"
             }].map((faq, index) => <ScrollReveal key={index} delay={index * 0.03}>
                   <AccordionItem value={`item-${index}`} className="bg-white rounded-lg sm:rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 overflow-hidden data-[state=open]:shadow-lg data-[state=open]:border-primary/30">
@@ -1312,12 +1304,12 @@ export default function AiAutomatizacija() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight">
-                Sāc ar skaidrību, <span className="text-gradient-orange">nevis rīkiem</span>
+                {t("Sāc ar skaidrību,", "Start with clarity,")} <span className="text-gradient-orange">{t("nevis rīkiem", "not tools")}</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 lg:mb-10 leading-relaxed px-2 md:px-0">
-                AI automatizācija sākas ar izpratni par to, kur uzņēmumā tā dod reālu ieguvumu.
+                {t("AI automatizācija sākas ar izpratni par to, kur uzņēmumā tā dod reālu ieguvumu.", "AI automation begins with an understanding of where it provides real benefit in the business.")}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
@@ -1328,7 +1320,7 @@ export default function AiAutomatizacija() {
                 scale: 0.98
               }} className="inline-block">
                   <Button variant="hero" size="lg" className="md:text-lg md:px-8 md:py-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    Uzzini kā attīstīties
+                    {t("Uzzini kā attīstīties", "Learn how to evolve")}
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
                 </motion.div>
