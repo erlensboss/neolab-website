@@ -139,7 +139,7 @@ export default function Index() {
         <div className="absolute bottom-10 left-10 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-primary/5 rounded-full blur-3xl hidden sm:block" />
 
         {/* 2-Column Grid Layout */}
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-10 sm:py-14 md:py-20 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 pt-20 pb-10 sm:py-14 md:py-20 relative z-10">
           <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center min-h-[auto] md:min-h-[70vh]">
             {/* LEFT COLUMN: Content — aligned left */}
             <div className="lg:col-span-5 flex flex-col items-start text-left order-1">
