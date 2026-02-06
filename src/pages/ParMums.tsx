@@ -835,8 +835,8 @@ export default function ParMums() {
 
                   <p className="text-muted-foreground leading-relaxed mb-5">
                     {t(
-                      "Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai darbs kļūtu vienkāršāks, skaidrāks un efektīvāks.",
-                      "To help companies use technology to make work simpler, clearer, and more efficient.",
+                      "Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās paātrina ikdienišķus procesus.",
+                      "To help companies use technology so that it accelerates daily processes.",
                     )}
                   </p>
 
@@ -957,7 +957,7 @@ export default function ParMums() {
                         </div>
 
                         <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
-                          {t("AI un tehnoloģijas —", "AI and technology —")}{" "}
+                          {t("AI un tehnoloģijas -", "AI and technology -")}{" "}
                           <span
                             style={{
                               background: "linear-gradient(135deg, hsl(350 55% 45%) 0%, hsl(25 60% 45%) 100%)",
@@ -1124,8 +1124,8 @@ export default function ParMums() {
                         {
                           title: t("Izpratne pirms rīkiem", "Understanding before tools"),
                           desc: t(
-                            "Mēs nesākam ar platformām — mēs sākam ar saprašanu.",
-                            "We don't start with platforms — we start with understanding.",
+                            "Mēs nesākam ar platformām, mēs sākam ar saprašanu.",
+                            "We don't start with platforms, we start with understanding.",
                           ),
                           accent: "hsl(25 80% 50%)",
                         },
@@ -1140,8 +1140,8 @@ export default function ParMums() {
                         {
                           title: t("Atbildība", "Responsibility"),
                           desc: t(
-                            "Katrs risinājums — ar apziņu par tā ietekmi.",
-                            "Every solution — with an awareness of its impact.",
+                            "Katrs risinājums ir veidots ar apziņu par tā ietekmi.",
+                            "Every solution is made with an awareness of its impact.",
                           ),
                           accent: "hsl(40 70% 45%)",
                         },
