@@ -216,9 +216,9 @@ export default function ParMums() {
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4 md:gap-6 mt-8 md:mt-12">
                   {[
-                    t("Skaidra pieeja un reāla pieredze", "Clear approach and real experience"),
-                    t("Risinājumi, kas pielāgoti konkrētai situācijai", "Solutions tailored to a specific situation"),
-                    t("Ilgtermiņa sadarbība", "Long-term partnership"),
+                    t("Profesionāla pieeja", "Professional approach"),
+                    t("Pielāgoti risinājumi", "Custom solutions"),
+                    t("Ilgtermiņa partnerība", "Long-term partnership"),
                   ].map((text, i) => (
                     <div key={i} className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-foreground/80">
                       <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-sm" />
@@ -564,8 +564,8 @@ export default function ParMums() {
                       <div>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                           {t(
-                            "Tas simbolizē gan jaunākās digitālās un mākslīgā intelekta tehnoloģijas, gan mūsu attieksmi, enerģiju, maksimālismu un gatavību pielāgoties digitālās pasaules pārmaiņām.",
-                            "It symbolizes both the latest digital and artificial intelligence technologies and our attitude, energy, maximalism, and readiness to adapt to the changes of the digital world.",
+                            "NEO apzīmē jauno gan tehnoloģijās, gan domāšanā. Tas atspoguļo mūsu enerģiju, ambīcijas un spēju pielāgoties digitālās pasaules pārmaiņām.",
+                            "NEO stands for new in both technology and thinking. It reflects our energy, ambition, and ability to adapt to the changes in the digital world.",
                           )}
                         </p>
                       </div>
