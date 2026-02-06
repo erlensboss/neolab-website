@@ -642,7 +642,7 @@ export default function ParMums() {
                     boxShadow: "0 12px 30px -8px hsl(15 70% 50% / 0.4)",
                   }}
                 >
-                  <span className="text-white text-lg md:text-xl font-bold">∞</span>
+                  <span className="text-white text-2xl md:text-3xl font-bold">∞</span>
                 </motion.div>
               </div>
             </ScrollReveal>
