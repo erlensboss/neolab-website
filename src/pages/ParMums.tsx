@@ -963,7 +963,7 @@ export default function ParMums() {
                     text: t("Ievietots AI, balstoties uz datiem", "Implemented AI, based on data"),
                     icon: "🤖"
                   }, {
-                    text: t("Uzlabota redzamību meklēšanas vidēs", "Improved visibility in search environments"),
+                    text: t("Uzlabota redzamība meklēšanas vidēs", "Improved visibility in search environments"),
                     icon: "🔍"
                   }, {
                     text: t("Paātrināti un optimizēti procesi", "Accelerated and optimized processes"),
