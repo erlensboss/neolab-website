@@ -1,18 +1,23 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { BookOpen, ArrowRight, Calendar, Clock, Tag } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BookOpen, ArrowRight, Calendar, Clock, Tag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function Blog() {
   const { t, getLocalizedPath } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   // Placeholder blog posts with translations
   const blogPosts = [
     {
       id: 1,
       title: t("Kāpēc tradicionālā SEO pieeja vairs nestrādā", "Why Traditional SEO Approach No Longer Works"),
-      category: "SEO",
+      categoryKey: "seo",
+      categoryLabel: "SEO",
       date: "2025-01-15",
       readTime: t("8 min", "8 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -20,7 +25,8 @@ export default function Blog() {
     {
       id: 2,
       title: t("AI automatizācija maziem un vidējiem uzņēmumiem", "AI Automation for Small and Medium Businesses"),
-      category: "AI",
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2025-01-10",
       readTime: t("6 min", "6 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -28,7 +34,8 @@ export default function Blog() {
     {
       id: 3,
       title: t("Performance reklāma 2025: Ko sagaidīt", "Performance Advertising 2025: What to Expect"),
-      category: t("Reklāma", "Advertising"),
+      categoryKey: "advertising",
+      categoryLabel: t("Reklāma", "Advertising"),
       date: "2025-01-05",
       readTime: t("10 min", "10 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -36,7 +43,8 @@ export default function Blog() {
     {
       id: 4,
       title: t("Kā izvēlēties pareizo digitālo aģentūru", "How to Choose the Right Digital Agency"),
-      category: t("Stratēģija", "Strategy"),
+      categoryKey: "strategy",
+      categoryLabel: t("Stratēģija", "Strategy"),
       date: "2024-12-28",
       readTime: t("7 min", "7 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -44,7 +52,8 @@ export default function Blog() {
     {
       id: 5,
       title: t("Lokālā SEO: Praktiskā rokasgrāmata", "Local SEO: A Practical Guide"),
-      category: "SEO",
+      categoryKey: "seo",
+      categoryLabel: "SEO",
       date: "2024-12-20",
       readTime: t("12 min", "12 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
@@ -52,13 +61,36 @@ export default function Blog() {
     {
       id: 6,
       title: t("Mašīnmācīšanās mārketingā: Reālie pielietojumi", "Machine Learning in Marketing: Real Applications"),
-      category: "AI",
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2024-12-15",
       readTime: t("9 min", "9 min"),
       excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
     },
   ];
-  const categories = [t("Visi", "All"), "SEO", "AI", t("Reklāma", "Advertising"), t("Stratēģija", "Strategy")];
+
+  const categories = [
+    { key: "all", label: t("Visi", "All") },
+    { key: "seo", label: "SEO" },
+    { key: "ai", label: "AI" },
+    { key: "advertising", label: t("Reklāma", "Advertising") },
+    { key: "strategy", label: t("Stratēģija", "Strategy") },
+  ];
+
+  // Get counts for each category
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: blogPosts.length };
+    blogPosts.forEach((post) => {
+      counts[post.categoryKey] = (counts[post.categoryKey] || 0) + 1;
+    });
+    return counts;
+  }, [blogPosts]);
+
+  // Filter posts based on active category
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === "all") return blogPosts;
+    return blogPosts.filter((post) => post.categoryKey === activeCategory);
+  }, [activeCategory, blogPosts]);
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
@@ -91,20 +123,53 @@ export default function Blog() {
 
       {/* ========== SECTION 2: Categories Filter ========== */}
       <section className="section-offwhite border-b border-border">
-        <div className="container-neo py-6">
+        <div className="container-neo py-8">
           <ScrollReveal>
-            <div className="flex flex-wrap gap-3">
-              {categories.map((category, index) => (
-                <button
-                  key={category}
-                  className={`
-                    px-4 py-2 rounded-lg text-sm font-medium transition-all
-                    ${index === 0 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"}
-                  `}
-                >
-                  {category}
-                </button>
-              ))}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span>{t("Filtrēt pēc kategorijas", "Filter by category")}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => {
+                  const isActive = activeCategory === category.key;
+                  const count = categoryCounts[category.key] || 0;
+                  return (
+                    <motion.button
+                      key={category.key}
+                      onClick={() => setActiveCategory(category.key)}
+                      className={`
+                        relative px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
+                        flex items-center gap-2 border
+                        ${isActive 
+                          ? "bg-primary text-primary-foreground border-primary shadow-neo" 
+                          : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:bg-accent/50"
+                        }
+                      `}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {category.label}
+                      <Badge 
+                        variant={isActive ? "secondary" : "outline"}
+                        className={`
+                          text-xs px-1.5 py-0 h-5 min-w-5 flex items-center justify-center
+                          ${isActive ? "bg-primary-foreground/20 text-primary-foreground border-0" : ""}
+                        `}
+                      >
+                        {count}
+                      </Badge>
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeCategory"
+                          className="absolute inset-0 rounded-xl bg-primary -z-10"
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                        />
+                      )}
+                    </motion.button>
+                  );
+                })}
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -113,15 +178,28 @@ export default function Blog() {
       {/* ========== SECTION 3: Blog Grid ========== */}
       <section className="section-offwhite">
         <div className="container-neo section-padding">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <ScrollReveal key={post.id} delay={index * 0.1}>
-                <article className="card-bordered h-full flex flex-col group cursor-pointer">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={activeCategory}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filteredPosts.map((post, index) => (
+                <motion.article 
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  className="card-bordered h-full flex flex-col group cursor-pointer"
+                >
                   {/* Category tag */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="chip">
                       <Tag className="w-3 h-3 mr-1" />
-                      {post.category}
+                      {post.categoryLabel}
                     </span>
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Clock className="w-3 h-3" />
@@ -152,10 +230,10 @@ export default function Blog() {
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
+                </motion.article>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
