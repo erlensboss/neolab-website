@@ -1319,8 +1319,8 @@ export default function ParMums() {
 
                   <p className="mt-6 text-sm text-muted-foreground italic pl-1 border-l-2 border-primary/30">
                     {t(
-                      "Katrs risinājums tiek pielāgots konkrētajai situācijai, nevis balstīts universālās shēmās.",
-                      "Every solution is tailored to the specific situation, not based on universal schemes.",
+                      "Katrs risinājums ir veidots, ņemot vērā uzņēmuma mērķus un šī brīža situāciju.",
+                      "Every solution is designed with your company's goals and current situation in mind.",
                     )}
                   </p>
                 </div>
