@@ -89,9 +89,12 @@ export function Footer() {
             © {new Date().getFullYear()} NEOLab. {t("Visas tiesības aizsargātas.", "All rights reserved.")}
           </p>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span>{t("Privātuma politika", "Privacy Policy")}</span>
-            <span className="w-1 h-1 rounded-full bg-primary/50" />
-            <span>{t("Lietošanas noteikumi", "Terms of Use")}</span>
+            <Link 
+              to={getLocalizedPath("/sikdatnes")}
+              className="hover:text-primary transition-colors"
+            >
+              {t("Sīkdatnes", "Cookies")}
+            </Link>
           </div>
         </div>
       </div>

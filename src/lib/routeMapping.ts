@@ -34,6 +34,7 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
+  { lv: "/sikdatnes", en: "/en/cookies", labelLv: "Sīkdatnes", labelEn: "Cookies" },
 ];
 
 // Thank you pages - not included in main navigation, only accessible after form submission
