@@ -299,7 +299,7 @@ export default function Index() {
                     }}
                   >
                     <div className="text-sm text-muted-foreground mb-1">
-                      {t("Procesu optimizācija", "Process optimisation")}
+                      {t("Procesu efektivitāte", "Process Efficiency")}
                     </div>
                     <div className="text-2xl font-bold text-primary">+85%</div>
                   </motion.div>
@@ -328,7 +328,7 @@ export default function Index() {
                     }}
                   >
                     <div className="text-sm text-muted-foreground mb-1">
-                      {t("Klientu apmierinātība", "Client Satisfaction")}
+                      {t("Pozitīva klientu pieredze", "Positive customer experience")}
                     </div>
                     <div className="text-2xl font-bold text-primary">98%</div>
                   </motion.div>
