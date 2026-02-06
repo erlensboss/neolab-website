@@ -91,6 +91,7 @@ export default function Blog() {
     if (activeCategory === "all") return blogPosts;
     return blogPosts.filter((post) => post.categoryKey === activeCategory);
   }, [activeCategory, blogPosts]);
+
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
@@ -237,32 +238,7 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* ========== SECTION 4: Empty State Message ========== */}
-      <section className="section-warm">
-        <div className="container-neo section-padding-sm">
-          <div className="max-w-2xl mx-auto text-center">
-            <ScrollReveal>
-              <div className="glass-warm rounded-2xl p-8 md:p-12 border border-border/50">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <BookOpen className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{t("Saturs tiek veidots", "Content is being created")}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {t(
-                    "Mēs aktīvi strādājam pie satura. Šie raksti drīzumā būs pieejami ar pilnu tekstu un praktiskām zināšanām.",
-                    "We are actively working on content. These articles will soon be available with full text and practical knowledge.",
-                  )}
-                </p>
-                <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                  <Button variant="hero">{t("Saņemt paziņojumu", "Get notified")}</Button>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: CTA ========== */}
+      {/* ========== SECTION 4: CTA ========== */}
       <section className="bg-gradient-hero">
         <div className="container-neo section-padding relative z-10">
           <div className="max-w-3xl mx-auto text-center">
