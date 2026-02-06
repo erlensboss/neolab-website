@@ -24,7 +24,7 @@ const storyBlocks = (t: (lv: string, en: string) => string) => [
     title: t("Laboratorija", "Laboratory"),
     content: t(
       "NEOLab ir mākslīgā intelekta laboratorija, kurā attīstām jaunus AI risinājumus dažādām uzņēmumu vajadzībām - sākot ar praktiskiem digitāliem risinājumiem un beidzot ar nestandarta idejām, kas praksē izrādās pārsteidzoši efektīvas.",
-      "NEOLab is an artificial intelligence laboratory where we develop new AI solutions for various business needs - from practical digital solutions to unconventional ideas that prove surprisingly effective in practice."
+      "NEOLab is an artificial intelligence laboratory where we develop new AI solutions for various business needs - from practical digital solutions to unconventional ideas that prove surprisingly effective in practice.",
     ),
     gradient: "from-orange-400 to-amber-500",
     bgGlow: "hsl(25 80% 50% / 0.15)",
@@ -35,7 +35,7 @@ const storyBlocks = (t: (lv: string, en: string) => string) => [
     title: t("Komanda", "Team"),
     content: t(
       "NEOLab veido jaunu ekspertu komanda ar dabīgu izpratni par mākslīgā intelekta tehnoloģiju pārvaldību un izstrādi. Mēs esam tehnoloģiju un algoritmu paaudze, kas digitālajā vidē orientējas intuitīvi, ātri apgūst jauno un spēj pielāgoties straujām pārmaiņām.",
-      "NEOLab is formed by a team of young experts with a natural understanding of AI technology management and development. We are a generation of technologies and algorithms that navigate the digital environment intuitively, learn new things quickly, and can adapt to rapid changes."
+      "NEOLab is formed by a team of young experts with a natural understanding of AI technology management and development. We are a generation of technologies and algorithms that navigate the digital environment intuitively, learn new things quickly, and can adapt to rapid changes.",
     ),
     gradient: "from-primary to-orange-500",
     bgGlow: "hsl(25 70% 55% / 0.12)",
@@ -46,7 +46,7 @@ const storyBlocks = (t: (lv: string, en: string) => string) => [
     title: t("Degsme", "Passion"),
     content: t(
       "Jaunība mums nav tikai vecums. Tā ir degsme, zinātkāre un nepārtraukts izsalkums pēc attīstības. Mēs esam uzauguši digitālajā pasaulē, un jaunākās tehnoloģijas mums ir dabiska ikdienas sastāvdaļa.",
-      "Youth for us is not just an age. It is passion, curiosity, and a continuous hunger for development. We have grown up in the digital world, and the latest technologies are a natural part of our daily lives."
+      "Youth for us is not just an age. It is passion, curiosity, and a continuous hunger for development. We have grown up in the digital world, and the latest technologies are a natural part of our daily lives.",
     ),
     gradient: "from-rose-400 to-orange-400",
     bgGlow: "hsl(15 70% 55% / 0.12)",
@@ -55,20 +55,14 @@ const storyBlocks = (t: (lv: string, en: string) => string) => [
 ];
 
 // Story Block Component with reactive hover effects
-function StoryBlock({
-  block,
-  index,
-}: {
-  block: ReturnType<typeof storyBlocks>[0];
-  index: number;
-}) {
+function StoryBlock({ block, index }: { block: ReturnType<typeof storyBlocks>[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px",
   });
   const isRight = block.position === "right";
-  
+
   return (
     <motion.div
       ref={ref}
@@ -76,7 +70,7 @@ function StoryBlock({
       animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
       whileHover={{ scale: 1.02, y: -8 }}
-      className={`relative ${isRight ? 'md:col-start-2' : 'md:col-start-1'}`}
+      className={`relative ${isRight ? "md:col-start-2" : "md:col-start-1"}`}
     >
       {/* Card */}
       <div
@@ -89,21 +83,21 @@ function StoryBlock({
         <motion.div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${block.bgGlow.replace('0.15', '0.08').replace('0.12', '0.08')}, transparent 40%)`,
+            background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${block.bgGlow.replace("0.15", "0.08").replace("0.12", "0.08")}, transparent 40%)`,
           }}
         />
-        
+
         {/* Corner glow */}
         <div
-          className={`absolute ${isRight ? 'top-0 left-0' : 'top-0 right-0'} w-40 h-40 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500`}
+          className={`absolute ${isRight ? "top-0 left-0" : "top-0 right-0"} w-40 h-40 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500`}
           style={{ background: block.bgGlow }}
         />
-        
+
         {/* Decorative gradient line */}
-        <div 
-          className={`absolute ${isRight ? 'left-0' : 'right-0'} top-8 bottom-8 w-1 rounded-full bg-gradient-to-b ${block.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
+        <div
+          className={`absolute ${isRight ? "left-0" : "right-0"} top-8 bottom-8 w-1 rounded-full bg-gradient-to-b ${block.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
         />
-        
+
         {/* Content */}
         <div className="relative z-10">
           {/* Icon + Title */}
@@ -113,7 +107,7 @@ function StoryBlock({
               transition={{ type: "spring", stiffness: 300 }}
               className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${block.gradient} flex items-center justify-center shadow-lg`}
               style={{
-                boxShadow: `0 12px 30px -8px ${block.bgGlow.replace('0.15', '0.4').replace('0.12', '0.4')}`,
+                boxShadow: `0 12px 30px -8px ${block.bgGlow.replace("0.15", "0.4").replace("0.12", "0.4")}`,
               }}
             >
               <block.icon className="w-7 h-7 text-white" />
@@ -122,14 +116,12 @@ function StoryBlock({
               {block.title}
             </h3>
           </div>
-          
+
           {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            {block.content}
-          </p>
-          
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{block.content}</p>
+
           {/* Hover indicator */}
-          <motion.div 
+          <motion.div
             className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             initial={{ x: -10 }}
             whileHover={{ x: 0 }}
@@ -145,7 +137,7 @@ function StoryBlock({
 export default function ParMums() {
   const { t, getLocalizedPath } = useLanguage();
   const storyBlocksData = storyBlocks(t);
-  
+
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Trust Building ========== */}
@@ -215,7 +207,7 @@ export default function ParMums() {
                 <p className="text-lg md:text-2xl lg:text-[1.7rem] text-muted-foreground leading-relaxed max-w-2xl">
                   {t(
                     "NEOLab ir vieta, kur digitālā attīstība tiek veidota apzināti, ar izpratni un skatu uz nākotni.",
-                    "NEOLab is a place where digital development is shaped consciously, with understanding and a look towards the future."
+                    "NEOLab is a place where digital development is shaped consciously, with understanding and a look towards the future.",
                   )}
                 </p>
               </ScrollReveal>
@@ -224,9 +216,9 @@ export default function ParMums() {
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4 md:gap-6 mt-8 md:mt-12">
                   {[
-                    t("Profesionāla pieeja", "Professional approach"),
-                    t("Pielāgoti risinājumi", "Custom solutions"),
-                    t("Ilgtermiņa partnerība", "Long-term partnership")
+                    t("Skaidra pieeja un reāla pieredze", "Clear approach and real experience"),
+                    t("Risinājumi, kas pielāgoti konkrētai situācijai", "Solutions tailored to a specific situation"),
+                    t("Ilgtermiņa sadarbība", "Long-term partnership"),
                   ].map((text, i) => (
                     <div key={i} className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-foreground/80">
                       <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-br from-primary to-orange-400 shadow-sm" />
@@ -409,7 +401,12 @@ export default function ParMums() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/3 to-transparent blur-3xl" />
 
         <div className="container-neo section-padding relative z-10">
-          <SectionHeading chip={t("Stāsts", "Story")} title={t("NEOLab stāsts", "NEOLab Story")} gradientWord="NEOLab" className="mb-16" />
+          <SectionHeading
+            chip={t("Stāsts", "Story")}
+            title={t("NEOLab stāsts", "NEOLab Story")}
+            gradientWord="NEOLab"
+            className="mb-16"
+          />
 
           {/* Story blocks with vertical timeline */}
           <div className="max-w-5xl mx-auto relative">
@@ -435,7 +432,7 @@ export default function ParMums() {
                     <div className="hidden md:block">
                       {!isRight ? <StoryBlock block={block} index={index} /> : null}
                     </div>
-                    
+
                     {/* Center node - desktop only */}
                     <div className="hidden md:flex justify-center">
                       <motion.div
@@ -447,12 +444,10 @@ export default function ParMums() {
                         style={{ boxShadow: `0 0 20px ${block.bgGlow}` }}
                       />
                     </div>
-                    
+
                     {/* Right block or spacer - desktop only */}
-                    <div className="hidden md:block">
-                      {isRight ? <StoryBlock block={block} index={index} /> : null}
-                    </div>
-                    
+                    <div className="hidden md:block">{isRight ? <StoryBlock block={block} index={index} /> : null}</div>
+
                     {/* Mobile: show all blocks in single column */}
                     <div className="block md:hidden">
                       <StoryBlock block={block} index={index} />
@@ -536,7 +531,9 @@ export default function ParMums() {
                       </motion.h2>
                       <span className="text-xl md:text-2xl text-muted-foreground font-light">/ˈniːoʊ/</span>
                       <span className="text-xl md:text-2xl text-muted-foreground">—</span>
-                      <span className="text-xl md:text-2xl italic text-primary font-medium">{t("jauns, jaundzimis", "new, newborn")}</span>
+                      <span className="text-xl md:text-2xl italic text-primary font-medium">
+                        {t("jauns, jaundzimis", "new, newborn")}
+                      </span>
                     </div>
                   </div>
 
@@ -550,8 +547,8 @@ export default function ParMums() {
                     </div>
                     <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                       {t("No sengrieķu", "From Ancient Greek")}{" "}
-                      <span className="font-medium text-foreground">νέος</span> (
-                      <span className="italic">néos</span>, {t('"jauns, jaundzimis"', '"new, newborn"')}).
+                      <span className="font-medium text-foreground">νέος</span> (<span className="italic">néos</span>,{" "}
+                      {t('"jauns, jaundzimis"', '"new, newborn"')}).
                       <span className="ml-2 px-2 py-0.5 rounded bg-primary/10 text-primary text-sm font-medium">
                         {t("Prefikss: neo-", "Prefix: neo-")}
                       </span>
@@ -568,7 +565,7 @@ export default function ParMums() {
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                           {t(
                             "Tas simbolizē gan jaunākās digitālās un mākslīgā intelekta tehnoloģijas, gan mūsu attieksmi, enerģiju, maksimālismu un gatavību pielāgoties digitālās pasaules pārmaiņām.",
-                            "It symbolizes both the latest digital and artificial intelligence technologies and our attitude, energy, maximalism, and readiness to adapt to the changes of the digital world."
+                            "It symbolizes both the latest digital and artificial intelligence technologies and our attitude, energy, maximalism, and readiness to adapt to the changes of the digital world.",
                           )}
                         </p>
                       </div>
@@ -839,16 +836,18 @@ export default function ParMums() {
                   <p className="text-muted-foreground leading-relaxed mb-5">
                     {t(
                       "Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās paātrina ikdienišķus procesus.",
-                      "To help companies use technology so that it accelerates daily processes."
+                      "To help companies use technology so that it accelerates daily processes.",
                     )}
                   </p>
 
                   <div className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80">
                     <p className="text-sm text-muted-foreground italic">
-                      "{t(
+                      "
+                      {t(
                         "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt — nevis jārada sarežģītība.",
-                        "Technology must facilitate work, provide clarity, and help grow — not create complexity."
-                      )}"
+                        "Technology must facilitate work, provide clarity, and help grow — not create complexity.",
+                      )}
+                      "
                     </p>
                   </div>
                 </div>
@@ -973,7 +972,7 @@ export default function ParMums() {
                         <p className="text-muted-foreground leading-relaxed">
                           {t(
                             "Veidot vidi, kur mākslīgais intelekts tiek izmantots ar skatu tālāk par šodienas vajadzībām — fokusējoties uz risinājumiem nākotnei.",
-                            "To create an environment where AI is used with a look beyond today's needs — focusing on solutions for the future."
+                            "To create an environment where AI is used with a look beyond today's needs — focusing on solutions for the future.",
                           )}
                         </p>
                       </div>
@@ -1124,22 +1123,34 @@ export default function ParMums() {
                       {[
                         {
                           title: t("Izpratne pirms rīkiem", "Understanding before tools"),
-                          desc: t("Mēs nesākam ar platformām — mēs sākam ar saprašanu.", "We don't start with platforms — we start with understanding."),
+                          desc: t(
+                            "Mēs nesākam ar platformām — mēs sākam ar saprašanu.",
+                            "We don't start with platforms — we start with understanding.",
+                          ),
                           accent: "hsl(25 80% 50%)",
                         },
                         {
                           title: t("Ilgtermiņa domāšana", "Long-term thinking"),
-                          desc: t("Strādājam uz stabilu attīstību, nevis ātriem risinājumiem.", "We work for stable development, not quick fixes."),
+                          desc: t(
+                            "Strādājam uz stabilu attīstību, nevis ātriem risinājumiem.",
+                            "We work for stable development, not quick fixes.",
+                          ),
                           accent: "hsl(350 60% 55%)",
                         },
                         {
                           title: t("Atbildība", "Responsibility"),
-                          desc: t("Katrs risinājums — ar apziņu par tā ietekmi.", "Every solution — with an awareness of its impact."),
+                          desc: t(
+                            "Katrs risinājums — ar apziņu par tā ietekmi.",
+                            "Every solution — with an awareness of its impact.",
+                          ),
                           accent: "hsl(40 70% 45%)",
                         },
                         {
                           title: t("Nepārtraukta attīstība", "Continuous development"),
-                          desc: t("Mācāmies, testējam un pilnveidojamies praksē.", "We learn, test, and improve in practice."),
+                          desc: t(
+                            "Mācāmies, testējam un pilnveidojamies praksē.",
+                            "We learn, test, and improve in practice.",
+                          ),
                           accent: "hsl(200 60% 45%)",
                         },
                       ].map((value, i) => (
@@ -1234,7 +1245,9 @@ export default function ParMums() {
                 <div className="md:w-1/3 flex-shrink-0">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span className="text-xs uppercase tracking-[0.15em] font-semibold text-primary">{t("Ieguvumi", "Benefits")}</span>
+                    <span className="text-xs uppercase tracking-[0.15em] font-semibold text-primary">
+                      {t("Ieguvumi", "Benefits")}
+                    </span>
                   </div>
                   <h3 className="text-2xl font-bold leading-tight md:text-4xl">
                     {t("Kāds ieguvums ir uzņēmumiem no", "What is the benefit for companies from")}{" "}
@@ -1307,7 +1320,7 @@ export default function ParMums() {
                   <p className="mt-6 text-sm text-muted-foreground italic pl-1 border-l-2 border-primary/30">
                     {t(
                       "Katrs risinājums tiek pielāgots konkrētajai situācijai, nevis balstīts universālās shēmās.",
-                      "Every solution is tailored to the specific situation, not based on universal schemes."
+                      "Every solution is tailored to the specific situation, not based on universal schemes.",
                     )}
                   </p>
                 </div>
@@ -1442,14 +1455,14 @@ export default function ParMums() {
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
                     {t(
                       "NEOLab darbības pamatā ir AI Lab – iekšējā attīstības vide, kur tiek pētītas un testētas jaunākās tehnoloģijas.",
-                      "NEOLab's operations are based on AI Lab – an internal development environment where the latest technologies are researched and tested."
+                      "NEOLab's operations are based on AI Lab – an internal development environment where the latest technologies are researched and tested.",
                     )}
                   </p>
 
                   <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed mb-8">
                     {t(
                       "Tas ļauj mums strādāt ar pārbaudītām pieejām un neveidot klientu projektus kā eksperimentus.",
-                      "This allows us to work with proven approaches and not create client projects as experiments."
+                      "This allows us to work with proven approaches and not create client projects as experiments.",
                     )}
                   </p>
 
@@ -1531,7 +1544,7 @@ export default function ParMums() {
               <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
                 {t(
                   "Līdzīgi ir ar tehnoloģijām. Ja meklē jaunākus, efektīvākus un jēgpilnus mākslīgā intelekta un digitālos risinājumus, strādā ar NEOLab.",
-                  "It's similar with technology. If you are looking for younger, more efficient, and meaningful AI and digital solutions, work with NEOLab."
+                  "It's similar with technology. If you are looking for younger, more efficient, and meaningful AI and digital solutions, work with NEOLab.",
                 )}
               </p>
             </ScrollReveal>
