@@ -22,6 +22,7 @@ const BezmaksasKonsultacija = lazy(() => import("./pages/BezmaksasKonsultacija")
 const Paldies = lazy(() => import("./pages/Paldies"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Sikdatnes = lazy(() => import("./pages/Sikdatnes"));
+const PersonasDatuApstrade = lazy(() => import("./pages/PersonasDatuApstrade"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // SEO & GEO sub-pages
@@ -98,6 +99,7 @@ const App = () => (
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
                 <Route path="/paldies" element={<Paldies />} />
                 <Route path="/sikdatnes" element={<Sikdatnes />} />
+                <Route path="/personas-datu-apstrade" element={<PersonasDatuApstrade />} />
                 
                 {/* EN Routes (English slugs under /en) */}
                 <Route path="/en" element={<Index />} />
@@ -127,6 +129,7 @@ const App = () => (
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
                 <Route path="/en/thank-you" element={<ThankYou />} />
                 <Route path="/en/cookies" element={<Sikdatnes />} />
+                <Route path="/en/personal-data-processing" element={<PersonasDatuApstrade />} />
                 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
