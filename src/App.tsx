@@ -21,6 +21,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BezmaksasKonsultacija = lazy(() => import("./pages/BezmaksasKonsultacija"));
 const Paldies = lazy(() => import("./pages/Paldies"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
+const Sikdatnes = lazy(() => import("./pages/Sikdatnes"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // SEO & GEO sub-pages
@@ -96,6 +97,7 @@ const App = () => (
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
                 <Route path="/paldies" element={<Paldies />} />
+                <Route path="/sikdatnes" element={<Sikdatnes />} />
                 
                 {/* EN Routes (English slugs under /en) */}
                 <Route path="/en" element={<Index />} />
@@ -124,6 +126,7 @@ const App = () => (
                 <Route path="/en/blog" element={<Blog />} />
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
                 <Route path="/en/thank-you" element={<ThankYou />} />
+                <Route path="/en/cookies" element={<Sikdatnes />} />
                 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
