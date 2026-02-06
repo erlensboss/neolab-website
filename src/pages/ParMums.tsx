@@ -957,7 +957,7 @@ export default function ParMums() {
                         </div>
 
                         <h3 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
-                          {t("AI un tehnoloģijas —", "AI and technology —")}{" "}
+                          {t("AI un tehnoloģijas", "AI and technology")}{" "}
                           <span
                             style={{
                               background: "linear-gradient(135deg, hsl(350 55% 45%) 0%, hsl(25 60% 45%) 100%)",
@@ -965,7 +965,7 @@ export default function ParMums() {
                               WebkitTextFillColor: "transparent",
                             }}
                           >
-                            {t("atbildīgi, gudri, ilgtspējīgi", "responsible, smart, sustainable")}
+                            {t("ilgtspējīgi", "sustainably")}
                           </span>
                         </h3>
 
