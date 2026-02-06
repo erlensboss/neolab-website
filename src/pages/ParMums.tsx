@@ -564,8 +564,8 @@ export default function ParMums() {
                       <div>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                           {t(
-                            "NEO apzīmē jauno gan tehnoloģijās, gan domāšanā. Tas atspoguļo mūsu enerģiju, ambīcijas un spēju pielāgoties digitālās pasaules pārmaiņām.",
-                            "NEO stands for new in both technology and thinking. It reflects our energy, ambition, and ability to adapt to the changes in the digital world.",
+                            "Tas simbolizē gan jaunākās digitālās un mākslīgā intelekta tehnoloģijas, gan mūsu attieksmi, enerģiju, maksimālismu un gatavību pielāgoties digitālās pasaules pārmaiņām.",
+                            "It symbolizes both the latest digital and artificial intelligence technologies and our attitude, energy, maximalism, and readiness to adapt to the changes of the digital world.",
                           )}
                         </p>
                       </div>
@@ -642,7 +642,7 @@ export default function ParMums() {
                     boxShadow: "0 12px 30px -8px hsl(15 70% 50% / 0.4)",
                   }}
                 >
-                  <span className="text-white text-2xl md:text-3xl font-bold">∞</span>
+                  <span className="text-white text-lg md:text-xl font-bold">∞</span>
                 </motion.div>
               </div>
             </ScrollReveal>
@@ -835,8 +835,8 @@ export default function ParMums() {
 
                   <p className="text-muted-foreground leading-relaxed mb-5">
                     {t(
-                      "Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai tās paātrina ikdienišķus procesus.",
-                      "To help companies use technology so that it accelerates daily processes.",
+                      "Palīdzēt uzņēmumiem izmantot tehnoloģijas tā, lai darbs kļūtu vienkāršāks, skaidrāks un efektīvāks.",
+                      "To help companies use technology to make work simpler, clearer, and more efficient.",
                     )}
                   </p>
 
@@ -844,8 +844,8 @@ export default function ParMums() {
                     <p className="text-sm text-muted-foreground italic">
                       "
                       {t(
-                        "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt — nevis jārada sarežģītība.",
-                        "Technology must facilitate work, provide clarity, and help grow — not create complexity.",
+                        "Tehnoloģijām ir jāatvieglo darbs, jāsniedz skaidrība un jāpalīdz augt, nevis jārada sarežģītība.",
+                        "Technology must facilitate work, provide clarity, and help grow, not create complexity.",
                       )}
                       "
                     </p>
@@ -971,8 +971,8 @@ export default function ParMums() {
 
                         <p className="text-muted-foreground leading-relaxed">
                           {t(
-                            "Veidot vidi, kur mākslīgais intelekts tiek izmantots ar skatu tālāk par šodienas vajadzībām — fokusējoties uz risinājumiem nākotnei.",
-                            "To create an environment where AI is used with a look beyond today's needs — focusing on solutions for the future.",
+                            "Veidot vidi, kur mākslīgais intelekts tiek izmantots ar skatu tālāk par šodienas vajadzībām, fokusējoties uz risinājumiem nākotnei.",
+                            "To create an environment where AI is used with a look beyond today's needs, focusing on solutions for the future.",
                           )}
                         </p>
                       </div>
