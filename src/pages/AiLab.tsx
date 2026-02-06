@@ -297,8 +297,8 @@ export default function AiLab() {
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-6 border border-primary/10 shadow-sm">
                   <p className="text-lg text-foreground leading-relaxed font-medium">
                     {t(
-                      "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta izpēti, veidošanu un praktisku ieviešanu.",
-                      "AI Lab is a development and experimentation environment created by NEOLab that focuses on the research, creation, and practical implementation of artificial intelligence.",
+                      "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.",
+                      "AI Lab is a development and experimentation environment created by NEOLab, focused on practical research, creation, and application of artificial intelligence.",
                     )}
                   </p>
                 </div>
@@ -313,8 +313,8 @@ export default function AiLab() {
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {t(
-                        "Tā ir vieta jauniešiem ar interesi par tehnoloģijām, kuri vēlas strādāt ar īstiem rīkiem, reālām situācijām un uzdevumiem, kas prasa domāšanu, atbildību un spēju risināt problēmas.",
-                        "It is a place for young people with an interest in technology who want to work with real tools, real situations, and tasks that require thinking, responsibility, and the ability to solve problems.",
+                        "Vieta, kur jaunieši ar interesi par tehnoloģijām strādā ar reāliem rīkiem, reāliem scenārijiem un reālām problēmām.",
+                        "A place where young people interested in technology work with real tools, real scenarios, and real problems.",
                       )}
                     </p>
                   </div>
@@ -325,8 +325,8 @@ export default function AiLab() {
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {t(
-                        "Attīstoties prasmēm, pieredzei un domāšanas veidam, šeit veidojas AI un tehnoloģiju risinājumi ar skaidru praktisku nozīmi un reālu pielietojumu.",
-                        "As skills, experience, and mindset develop, AI and technology solutions with clear practical meaning and real-world applications are formed here.",
+                        "Attīstoties prasmēs, spējās un domāšanā, šeit top AI un tehnoloģiju risinājumi, kuriem ir praktiska vērtība.",
+                        "While developing skills, abilities, and thinking, AI and technology solutions with practical value are created here.",
                       )}
                     </p>
                   </div>
@@ -338,8 +338,8 @@ export default function AiLab() {
                 <div className="pl-5 border-l-2 border-primary/30">
                   <p className="text-muted-foreground italic">
                     {t(
-                      "AI Lab tiek veidots ar ilgtermiņa skatījumu, dodot telpu mācīšanās procesam un pakāpeniskai izaugsmei.",
-                      "AI Lab is being built with a long-term perspective, allowing room for learning and gradual growth.",
+                      "AI Lab tiek veidots ar skatu uz ilgtermiņa attīstību, nevis ātru rezultātu.",
+                      "AI Lab is being built with a focus on long-term development, not quick results.",
                     )}
                   </p>
                 </div>
@@ -468,15 +468,18 @@ export default function AiLab() {
               {
                 icon: Sparkles,
                 title: t("Pētījumi", "Research"),
-                text: t("Pētām jaunus AI rīkus un platformas", "Research new AI tools and platforms"),
+                text: t(
+                  "Jaunu AI rīku, platformu un pieeju izpēte, lai izprastu to iespējas un ierobežojumus praksē.",
+                  "Researching new AI tools, platforms, and approaches to understand their capabilities and limitations in practice.",
+                ),
                 accent: "from-orange-500/20 to-amber-500/20",
               },
               {
                 icon: Cpu,
                 title: t("Testēšana", "Testing"),
                 text: t(
-                  "Testējam dažādus automatizācijas un datu apstrādes scenārijus",
-                  "Test various automation and data processing scenarios",
+                  "Automatizācijas, datu apstrādes un AI scenāriju izmēģināšana dažādos reālos lietojuma gadījumos.",
+                  "Testing automation, data processing, and AI scenarios in various real-world use cases.",
                 ),
                 accent: "from-amber-500/20 to-yellow-500/20",
               },
@@ -484,21 +487,27 @@ export default function AiLab() {
                 icon: Lightbulb,
                 title: t("Prototipi", "Prototypes"),
                 text: t(
-                  "Veidojam prototipus un eksperimentālus risinājumus",
-                  "Create prototypes and experimental solutions",
+                  "Eksperimentālu ideju un risinājumu izstrāde prototipu līmenī, ļaujot procesam attīstīties dabiski.",
+                  "Developing experimental ideas and solutions at the prototype level, allowing the process to develop naturally.",
                 ),
                 accent: "from-yellow-500/20 to-orange-500/20",
               },
               {
                 icon: Target,
                 title: t("Analīze", "Analysis"),
-                text: t("Analizējam, kas strādā praksē un kas ne", "Analyze what works in practice and what doesn't"),
+                text: t(
+                  "Darba rezultātu izvērtēšana, balstoties novērojumos un faktiskajā pieredzē.",
+                  "Evaluation of work results based on observations and actual experience.",
+                ),
                 accent: "from-orange-600/20 to-red-500/20",
               },
               {
                 icon: FlaskConical,
                 title: t("Pieredze", "Experience"),
-                text: t("Krājam pieredzi, nevis tikai zināšanas", "Accumulate experience, not just knowledge"),
+                text: t(
+                  "Praktiskas pieredzes uzkrāšana, kas veido izpratni par to, kā tehnoloģijas darbojas ikdienas situācijās.",
+                  "Accumulating practical experience that builds an understanding of how technology works in everyday situations.",
+                ),
                 accent: "from-red-500/20 to-orange-500/20",
               },
             ].map((item, index) => (
