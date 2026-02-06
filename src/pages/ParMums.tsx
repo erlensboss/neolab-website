@@ -1268,19 +1268,19 @@ export default function ParMums() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     {[
                       {
-                        text: t("Sakārtot digitālos procesus", "Organize digital processes"),
+                        text: t("Sakārtoti digitālie procesi", "Organized digital processes"),
                         icon: "📊",
                       },
                       {
-                        text: t("Ieviest AI praktiski, ne teorētiski", "Implement AI practically, not theoretically"),
+                        text: t("Ievietots AI, balstoties uz datiem", "Implemented AI, based on data"),
                         icon: "🤖",
                       },
                       {
-                        text: t("Uzlabot redzamību meklēšanas vidēs", "Improve visibility in search environments"),
+                        text: t("Uzlabota redzamību meklēšanas vidēs", "Improved visibility in search environments"),
                         icon: "🔍",
                       },
                       {
-                        text: t("Pieņemt pamatotus tehnoloģiskus lēmumus", "Make informed technological decisions"),
+                        text: t("Paātrināti un optimizēti procesi", "Accelerated and optimized processes"),
                         icon: "⚡",
                       },
                     ].map((item, i) => (
