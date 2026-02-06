@@ -32,7 +32,7 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
 
   // All 4 service modules with equal prominence
   const serviceModules = [
-    { id: "ai", label: "AI Automatizācija", labelEn: "AI Automation", icon: Brain, status: "Aktīvs", statusEn: "Active" },
+    { id: "ai", label: "AI Automatizācija", labelEn: "AI Automation", icon: Brain, status: "Automatizēts", statusEn: "Automated" },
     { id: "seo", label: "SEO & GEO", labelEn: "SEO & GEO", icon: Globe, status: "Optimizēts", statusEn: "Optimized" },
     { id: "ads", label: "Performance Reklāma", labelEn: "Performance Ads", icon: Target, status: "Aktīvs", statusEn: "Active" },
     { id: "auto", label: "Procesu vadība", labelEn: "Process Management", icon: Cpu, status: "Integrēts", statusEn: "Integrated" },
@@ -96,10 +96,10 @@ export const OptimizedHeroVisual = memo(function OptimizedHeroVisual() {
                   <span className="font-semibold text-foreground text-[10px] sm:text-sm leading-tight">{module.label}</span>
                 </div>
                 
-                {/* Status indicator instead of progress bar */}
+                {/* Status indicator - neutral styling */}
                 <div className="flex items-center gap-1 sm:gap-1.5">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-success" />
-                  <span className="text-[10px] sm:text-xs text-success font-medium">{module.status}</span>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-muted-foreground/40" />
+                  <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">{module.status}</span>
                 </div>
               </motion.div>
             ))}
