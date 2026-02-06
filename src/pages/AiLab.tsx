@@ -144,7 +144,7 @@ export default function AiLab() {
   return (
     <div className="overflow-hidden bg-background">
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
-      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden mb-[-50px]">
+      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden">
         {/* Subtle gradient overlays */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -229,8 +229,8 @@ export default function AiLab() {
             <ScrollReveal delay={0.2}>
               <p className="text-lg md:text-2xl lg:text-3xl text-muted-foreground mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed font-medium px-2">
                 {t(
-                  "Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, ikdienas darbā un reālos scenārijos, ar uzsvaru uz pieredzi un praktisku pielietojumu.",
-                  "An environment where artificial intelligence is researched, tested, and used in practice, in everyday work, and in real-world scenarios, with an emphasis on experience and practical application.",
+                  "Vide, kur mākslīgais intelekts tiek pētīts, izmēģināts un izmantots praksē, nevis tikai apspriests teorijā.",
+                  "An environment where artificial intelligence is researched, tested, and applied in practice, not just discussed in theory.",
                 )}
               </p>
             </ScrollReveal>
@@ -297,8 +297,8 @@ export default function AiLab() {
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-6 border border-primary/10 shadow-sm">
                   <p className="text-lg text-foreground leading-relaxed font-medium">
                     {t(
-                      "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta praktisku izpēti, veidošanu un pielietošanu.",
-                      "AI Lab is a development and experimentation environment created by NEOLab, focused on practical research, creation, and application of artificial intelligence.",
+                      "AI Lab ir NEOLab veidota attīstības un eksperimentu vide, kas fokusējas uz mākslīgā intelekta izpēti, veidošanu un praktisku ieviešanu.",
+                      "AI Lab is a development and experimentation environment created by NEOLab that focuses on the research, creation, and practical implementation of artificial intelligence.",
                     )}
                   </p>
                 </div>
@@ -313,8 +313,8 @@ export default function AiLab() {
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {t(
-                        "Vieta, kur jaunieši ar interesi par tehnoloģijām strādā ar reāliem rīkiem, reāliem scenārijiem un reālām problēmām.",
-                        "A place where young people interested in technology work with real tools, real scenarios, and real problems.",
+                        "Tā ir vieta jauniešiem ar interesi par tehnoloģijām, kuri vēlas strādāt ar īstiem rīkiem, reālām situācijām un uzdevumiem, kas prasa domāšanu, atbildību un spēju risināt problēmas.",
+                        "It is a place for young people with an interest in technology who want to work with real tools, real situations, and tasks that require thinking, responsibility, and the ability to solve problems.",
                       )}
                     </p>
                   </div>
@@ -325,8 +325,8 @@ export default function AiLab() {
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {t(
-                        "Attīstoties prasmēs, spējās un domāšanā, šeit top AI un tehnoloģiju risinājumi, kuriem ir praktiska vērtība.",
-                        "While developing skills, abilities, and thinking, AI and technology solutions with practical value are created here.",
+                        "Attīstoties prasmēm, pieredzei un domāšanas veidam, šeit veidojas AI un tehnoloģiju risinājumi ar skaidru praktisku nozīmi un reālu pielietojumu.",
+                        "As skills, experience, and mindset develop, AI and technology solutions with clear practical meaning and real-world applications are formed here.",
                       )}
                     </p>
                   </div>
@@ -338,8 +338,8 @@ export default function AiLab() {
                 <div className="pl-5 border-l-2 border-primary/30">
                   <p className="text-muted-foreground italic">
                     {t(
-                      "AI Lab tiek veidots ar skatu uz ilgtermiņa attīstību, nevis ātru rezultātu.",
-                      "AI Lab is being built with a focus on long-term development, not quick results.",
+                      "AI Lab tiek veidots ar ilgtermiņa skatījumu, dodot telpu mācīšanās procesam un pakāpeniskai izaugsmei.",
+                      "AI Lab is being built with a long-term perspective, allowing room for learning and gradual growth.",
                     )}
                   </p>
                 </div>
