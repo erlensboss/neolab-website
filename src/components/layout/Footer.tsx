@@ -95,6 +95,13 @@ export function Footer() {
             >
               {t("Sīkdatnes", "Cookies")}
             </Link>
+            <span className="w-1 h-1 rounded-full bg-primary/50" />
+            <Link 
+              to={getLocalizedPath("/personas-datu-apstrade")}
+              className="hover:text-primary transition-colors"
+            >
+              {t("Personas datu apstrāde", "Personal Data Processing")}
+            </Link>
           </div>
         </div>
       </div>
