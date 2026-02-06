@@ -966,7 +966,7 @@ export default function ParMums() {
                     text: t("Uzlabota redzamība meklēšanas vidēs", "Improved visibility in search environments"),
                     icon: "🔍"
                   }, {
-                    text: t("Paātrināti un optimizēti procesi", "Accelerated and optimized processes"),
+                    text: t("Paātrināta un optimizēta darbība", "Accelerated and optimized performance"),
                     icon: "⚡"
                   }].map((item, i) => <motion.div key={i} initial={{
                     opacity: 0,
