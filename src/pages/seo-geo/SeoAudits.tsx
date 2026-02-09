@@ -1,10 +1,67 @@
-import { Search, FileSearch, BarChart3, Layers, Target } from "lucide-react";
+import { Search } from "lucide-react";
+import { motion } from "framer-motion";
 import { ServiceSubpage } from "@/components/shared/ServiceSubpage";
+import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SeoAudits() {
   const { language } = useLanguage();
   const lv = language === "lv";
+
+  const customSection = (
+    <section className="section-padding">
+      <div className="container-neo">
+        <div className="relative rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/[0.04] to-transparent overflow-hidden">
+          {/* Subtle accent glow */}
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/[0.06] to-transparent rounded-bl-full pointer-events-none" />
+          
+          <div className="relative z-10 p-8 md:p-12 lg:p-16">
+            <ScrollReveal>
+              <span className="chip mb-6 inline-block text-xs">
+                {lv ? "Kāpēc audits?" : "Why an audit?"}
+              </span>
+            </ScrollReveal>
+
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+              <ScrollReveal delay={0.05}>
+                <div>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight mb-6">
+                    SEO audits{" "}
+                    <span className="text-gradient-orange">
+                      {lv ? "uzņēmumiem" : "for businesses"}
+                    </span>
+                  </h2>
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                    {lv
+                      ? "SEO audits ir pirmais solis, ar kuru sāk jebkuru nopietnu darbu pie mājaslapas redzamības. Ne tāpēc, ka tā ir pieņemts darīt, bet tāpēc, ka bez audita nav iespējams saprast, kas īsti šobrīd notiek ar mājaslapu un kur pazūd potenciālie klienti."
+                      : "An SEO audit is the first step in any serious work on website visibility. Not because it's the standard practice, but because without an audit, it's impossible to understand what's actually happening with the website and where potential clients are being lost."}
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="relative"
+                >
+                  <div className="absolute -left-4 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-primary to-primary/20" />
+                  <blockquote className="pl-6 md:pl-8">
+                    <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed italic">
+                      {lv
+                        ? "Ja nav skaidras bildes, jebkura SEO optimizācija ir minēšana. Reizēm trāpa, biežāk nē. SEO audits šo minēšanu izslēdz."
+                        : "Without a clear picture, any SEO optimization is guesswork. Sometimes it hits, more often it doesn't. An SEO audit eliminates the guessing."}
+                    </p>
+                  </blockquote>
+                </motion.div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 
   return (
     <ServiceSubpage
@@ -23,38 +80,7 @@ export default function SeoAudits() {
       }
       price="249 EUR"
       ctaText={lv ? "Pieteikties auditam" : "Request Audit"}
-      featuresSectionTitle={lv ? "Ko ietver" : "What's Included in"}
-      featuresSectionTitleGradient="SEO audits"
-      features={[
-        {
-          icon: FileSearch,
-          title: lv ? "Tehniskā analīze" : "Technical Analysis",
-          description: lv
-            ? "Pilna mājaslapas tehniskā pārbaude — ātrums, indeksācija, mobilo ierīču atbilstība"
-            : "Full technical website check — speed, indexing, mobile compatibility",
-        },
-        {
-          icon: Layers,
-          title: lv ? "Satura inventārs" : "Content Inventory",
-          description: lv
-            ? "Esošā satura izvērtējums — kas strādā, kas nē, kur ir robi"
-            : "Existing content evaluation — what works, what doesn't, where are the gaps",
-        },
-        {
-          icon: Target,
-          title: lv ? "Konkurentu izpēte" : "Competitor Research",
-          description: lv
-            ? "Tirgus pozicionēšanas analīze un konkurentu SEO stratēģiju pētījums"
-            : "Market positioning analysis and competitor SEO strategy research",
-        },
-        {
-          icon: BarChart3,
-          title: lv ? "Ranku analīze" : "Ranking Analysis",
-          description: lv
-            ? "Esošo pozīciju izvērtējums un potenciāla noteikšana"
-            : "Current position evaluation and potential assessment",
-        },
-      ]}
+      customSection={customSection}
       benefits={[
         lv ? "Saprotat reālo situāciju pirms investīcijām" : "Understand the real situation before investing",
         lv ? "Identificējat prioritātes ar lielāko ROI" : "Identify priorities with the highest ROI",
