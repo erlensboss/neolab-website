@@ -80,12 +80,16 @@ export default function Blog() {
     },
     {
       id: 6,
-      title: t("Mašīnmācīšanās mārketingā: Reālie pielietojumi", "Machine Learning in Marketing: Real Applications"),
-      categoryKey: "ai",
-      categoryLabel: "AI",
+      title: t("Mākslīgais intelekts un patērētāju uzvedība: pāreja no prognozējošā uz ģeneratīvo AI", "Artificial Intelligence and Consumer Behavior: Transition from Predictive to Generative AI"),
+      categoryKey: "strategy",
+      categoryLabel: t("Stratēģija", "Strategy"),
       date: "2024-12-15",
       readTime: t("9 min", "9 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      excerpt: t(
+        "Pāreja no prognozējošā uz ģeneratīvo AI būtiski maina to, kā uzņēmumi izprot, ietekmē un mijiedarbojas ar patērētājiem.",
+        "The transition from predictive to generative AI fundamentally changes how companies understand, influence, and interact with consumers."
+      ),
+      link: "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai",
     },
   ];
 
