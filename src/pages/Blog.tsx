@@ -54,12 +54,16 @@ export default function Blog() {
     },
     {
       id: 4,
-      title: t("Kā izvēlēties pareizo digitālo aģentūru", "How to Choose the Right Digital Agency"),
-      categoryKey: "strategy",
-      categoryLabel: t("Stratēģija", "Strategy"),
+      title: t("Preskriptīvā analītika un mākslīgais intelekts: kā AI sāk ietekmēt patērētāju lēmumus", "Prescriptive Analytics and Artificial Intelligence: How AI Is Beginning to Influence Consumer Decisions"),
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2024-12-28",
-      readTime: t("7 min", "7 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("8 min", "8 min"),
+      excerpt: t(
+        "Preskriptīvā analītika maina veidu, kā AI ietekmē patērētāju lēmumus — no prognozēšanas uz konkrētu rekomendāciju sniegšanu.",
+        "Prescriptive analytics is changing how AI influences consumer decisions — from forecasting to providing specific recommendations."
+      ),
+      link: "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b",
     },
     {
       id: 5,
