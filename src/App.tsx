@@ -30,6 +30,7 @@ const B2bPardosana2025 = lazy(() => import("./pages/blog/B2bPardosana2025"));
 const AiPateretajuUzvediba = lazy(() => import("./pages/blog/AiPateretajuUzvediba"));
 const GenerativaisAi = lazy(() => import("./pages/blog/GenerativaisAi"));
 const PreskriptivaAnalitika = lazy(() => import("./pages/blog/PreskriptivaAnalitika"));
+const AiMarketingsUznemumiem = lazy(() => import("./pages/blog/AiMarketingsUznemumiem"));
 
 // SEO & GEO sub-pages
 const SeoAudits = lazy(() => import("./pages/seo-geo/SeoAudits"));
@@ -106,6 +107,7 @@ const App = () => (
                 <Route path="/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana" element={<AiPateretajuUzvediba />} />
                 <Route path="/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni" element={<GenerativaisAi />} />
                 <Route path="/preskriptiva-analitika-ai-pateretaju-lemumi-b2b" element={<PreskriptivaAnalitika />} />
+                <Route path="/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem" element={<AiMarketingsUznemumiem />} />
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
                 <Route path="/paldies" element={<Paldies />} />
                 <Route path="/sikdatnes" element={<Sikdatnes />} />
@@ -140,6 +142,7 @@ const App = () => (
                 <Route path="/en/artificial-intelligence-consumer-behavior-ai-decision-making" element={<AiPateretajuUzvediba />} />
                 <Route path="/en/generative-ai-current-state-future-directions" element={<GenerativaisAi />} />
                 <Route path="/en/prescriptive-analytics-ai-consumer-decisions-b2b" element={<PreskriptivaAnalitika />} />
+                <Route path="/en/how-ai-drives-marketing-development-businesses" element={<AiMarketingsUznemumiem />} />
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
                 <Route path="/en/thank-you" element={<ThankYou />} />
                 <Route path="/en/cookies" element={<Sikdatnes />} />
