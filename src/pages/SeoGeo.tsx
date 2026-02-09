@@ -1205,7 +1205,7 @@ export default function SeoGeo() {
 
           {/* ===== HERO SERVICE: SEO Audit - The Main Block ===== */}
           <ScrollReveal delay={0.1}>
-            <Link to={getLocalizedPath("/seo-un-geo/seo-audits")}>
+            <Link to={getLocalizedPath("/seo-un-geo-pakalpojumi")}>
               <motion.div
                 whileHover={{
                   y: -6,
@@ -1448,7 +1448,7 @@ export default function SeoGeo() {
                 ),
                 price: t("no 350", "from 350"),
                 accent: "from-orange-500 to-amber-500",
-                link: "/seo-un-geo/tehniska-seo",
+                link: "/seo-un-geo-pakalpojumi",
                 delay: 0.1,
               },
               {
@@ -1460,7 +1460,7 @@ export default function SeoGeo() {
                 ),
                 price: t("no 300", "from 300"),
                 accent: "from-amber-500 to-yellow-500",
-                link: "/seo-un-geo/satura-struktura",
+                link: "/seo-un-geo-pakalpojumi",
                 delay: 0.15,
               },
               {
@@ -1472,7 +1472,7 @@ export default function SeoGeo() {
                 ),
                 price: t("no 99", "from 99"),
                 accent: "from-yellow-500 to-amber-400",
-                link: "/seo-un-geo/keyword-list",
+                link: "/seo-un-geo-pakalpojumi",
                 delay: 0.2,
               },
               {
@@ -1484,7 +1484,7 @@ export default function SeoGeo() {
                 ),
                 price: "249",
                 accent: "from-amber-400 to-orange-500",
-                link: "/seo-un-geo/geo-audits",
+                link: "/seo-un-geo-pakalpojumi",
                 delay: 0.25,
               },
               {
@@ -1496,7 +1496,7 @@ export default function SeoGeo() {
                 ),
                 price: t("no 350", "from 350"),
                 accent: "from-orange-500 to-primary",
-                link: "/seo-un-geo/geo-strategija",
+                link: "/seo-un-geo-pakalpojumi",
                 delay: 0.3,
               },
             ].map((service, index) => (
