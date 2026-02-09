@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, FileSearch, BarChart3, Layers, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import { ServiceSubpage } from "@/components/shared/ServiceSubpage";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -40,21 +40,47 @@ export default function SeoAudits() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  <div className="absolute -left-4 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-primary to-primary/20" />
-                  <blockquote className="pl-6 md:pl-8">
-                    <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed italic">
-                      {lv
-                        ? "Ja nav skaidras bildes, jebkura SEO optimizācija ir minēšana. Reizēm trāpa, biežāk nē. SEO audits šo minēšanu izslēdz."
-                        : "Without a clear picture, any SEO optimization is guesswork. Sometimes it hits, more often it doesn't. An SEO audit eliminates the guessing."}
-                    </p>
-                  </blockquote>
-                </motion.div>
+                <div className="space-y-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="relative"
+                  >
+                    <div className="absolute -left-4 top-0 bottom-0 w-[2px] rounded-full bg-gradient-to-b from-primary via-primary/60 to-primary/10" />
+                    <div className="pl-6 md:pl-8">
+                      <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                        {lv
+                          ? "Ja nav skaidras bildes, jebkura SEO optimizācija ir minēšana. Reizēm trāpa, biežāk nē. SEO audits šo minēšanu izslēdz."
+                          : "Without a clear picture, any SEO optimization is guesswork. Sometimes it hits, more often it doesn't. An SEO audit eliminates the guessing."}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Visual stats grid */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { icon: FileSearch, label: lv ? "Tehniskā analīze" : "Technical Analysis" },
+                      { icon: Layers, label: lv ? "Satura inventārs" : "Content Inventory" },
+                      { icon: Target, label: lv ? "Konkurentu izpēte" : "Competitor Research" },
+                      { icon: BarChart3, label: lv ? "Ranku analīze" : "Ranking Analysis" },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.15 + i * 0.07 }}
+                        className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/50 backdrop-blur-sm p-3"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-orange flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-foreground text-sm font-medium">{item.label}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </ScrollReveal>
             </div>
           </div>
