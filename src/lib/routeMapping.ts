@@ -33,6 +33,7 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/ai-lab", en: "/en/ai-lab", labelLv: "AI Lab", labelEn: "AI Lab" },
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
+  { lv: "/b2b-pardosana-2025-ai-vertiba", en: "/en/b2b-sales-2025-ai-value", labelLv: "B2B pārdošana 2025", labelEn: "B2B Sales 2025" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
   { lv: "/sikdatnes", en: "/en/cookies", labelLv: "Sīkdatnes", labelEn: "Cookies" },
   { lv: "/personas-datu-apstrade", en: "/en/personal-data-processing", labelLv: "Personas datu apstrāde", labelEn: "Personal Data Processing" },
