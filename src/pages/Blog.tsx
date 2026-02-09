@@ -41,12 +41,16 @@ export default function Blog() {
     },
     {
       id: 3,
-      title: t("Performance reklāma 2025: Ko sagaidīt", "Performance Advertising 2025: What to Expect"),
-      categoryKey: "advertising",
-      categoryLabel: t("Reklāma", "Advertising"),
+      title: t("Ģeneratīvais mākslīgais intelekts: pašreizējais stāvoklis un nākotnes attīstības virzieni", "Generative Artificial Intelligence: Current State and Future Development Directions"),
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2025-01-05",
       readTime: t("10 min", "10 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      excerpt: t(
+        "Ģeneratīvais AI spēj radīt jaunu saturu — tekstu, attēlus, audio un video. Kā tas maina izpratni par AI lomu uzņēmējdarbībā un inovācijās.",
+        "Generative AI can create new content — text, images, audio and video. How this changes the understanding of AI's role in business and innovation."
+      ),
+      link: "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni",
     },
     {
       id: 4,
