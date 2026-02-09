@@ -37,12 +37,7 @@ const SeoGeoOptimizacija = lazy(() => import("./pages/blog/SeoGeoOptimizacija"))
 const DigitalaReklamaLaikmets = lazy(() => import("./pages/blog/DigitalaReklamaLaikmets"));
 
 // SEO & GEO sub-pages
-const SeoAudits = lazy(() => import("./pages/seo-geo/SeoAudits"));
-const TehniskaSeo = lazy(() => import("./pages/seo-geo/TehniskaSeo"));
-const SaturaStruktura = lazy(() => import("./pages/seo-geo/SaturaStruktura"));
-const KeywordList = lazy(() => import("./pages/seo-geo/KeywordList"));
-const GeoAudits = lazy(() => import("./pages/seo-geo/GeoAudits"));
-const GeoStrategija = lazy(() => import("./pages/seo-geo/GeoStrategija"));
+// SEO & GEO sub-pages removed — consolidated into SeoGeoPakalpojumi
 
 // AI Automation sub-pages
 const LinkedInContentSystem = lazy(() => import("./pages/ai-automatizacija/LinkedInContentSystem"));
@@ -86,12 +81,6 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/seo-un-geo" element={<SeoGeo />} />
                 <Route path="/seo-un-geo-pakalpojumi" element={<SeoGeoPakalpojumi />} />
-                <Route path="/seo-un-geo/seo-audits" element={<SeoAudits />} />
-                <Route path="/seo-un-geo/tehniska-seo" element={<TehniskaSeo />} />
-                <Route path="/seo-un-geo/satura-struktura" element={<SaturaStruktura />} />
-                <Route path="/seo-un-geo/keyword-list" element={<KeywordList />} />
-                <Route path="/seo-un-geo/geo-audits" element={<GeoAudits />} />
-                <Route path="/seo-un-geo/geo-strategija" element={<GeoStrategija />} />
                 <Route path="/ai-automatizacija" element={<AiAutomatizacija />} />
                 <Route path="/ai-automatizacija/linkedin-content-system" element={<LinkedInContentSystem />} />
                 <Route path="/ai-automatizacija/lead-capture-agent" element={<LeadCaptureAgent />} />
@@ -125,12 +114,7 @@ const App = () => (
                 <Route path="/en" element={<Index />} />
                 <Route path="/en/seo-and-geo" element={<SeoGeo />} />
                 <Route path="/en/seo-and-geo-services" element={<SeoGeoPakalpojumi />} />
-                <Route path="/en/seo-and-geo/seo-audits" element={<SeoAudits />} />
-                <Route path="/en/seo-and-geo/technical-seo" element={<TehniskaSeo />} />
-                <Route path="/en/seo-and-geo/content-structure" element={<SaturaStruktura />} />
-                <Route path="/en/seo-and-geo/keyword-list" element={<KeywordList />} />
-                <Route path="/en/seo-and-geo/geo-audits" element={<GeoAudits />} />
-                <Route path="/en/seo-and-geo/geo-strategy" element={<GeoStrategija />} />
+                <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
                 <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
                 <Route path="/en/ai-automations/linkedin-content-system" element={<LinkedInContentSystem />} />
                 <Route path="/en/ai-automations/lead-capture-agent" element={<LeadCaptureAgent />} />
