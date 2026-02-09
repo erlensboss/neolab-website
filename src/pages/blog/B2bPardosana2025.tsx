@@ -16,7 +16,7 @@ export default function B2bPardosana2025() {
             <ScrollReveal>
               <Link
                 to={getLocalizedPath("/blog")}
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8 mt-[75px]"
               >
                 <ArrowLeft className="w-4 h-4" />
                 {t("Atpakaļ uz blogu", "Back to blog")}
