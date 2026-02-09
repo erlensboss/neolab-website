@@ -27,6 +27,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Blog post pages
 const B2bPardosana2025 = lazy(() => import("./pages/blog/B2bPardosana2025"));
+const AiPateretajuUzvediba = lazy(() => import("./pages/blog/AiPateretajuUzvediba"));
 
 // SEO & GEO sub-pages
 const SeoAudits = lazy(() => import("./pages/seo-geo/SeoAudits"));
@@ -100,6 +101,7 @@ const App = () => (
                 <Route path="/par-mums" element={<ParMums />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/b2b-pardosana-2025-ai-vertiba" element={<B2bPardosana2025 />} />
+                <Route path="/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana" element={<AiPateretajuUzvediba />} />
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
                 <Route path="/paldies" element={<Paldies />} />
                 <Route path="/sikdatnes" element={<Sikdatnes />} />
@@ -131,6 +133,7 @@ const App = () => (
                 <Route path="/en/about" element={<ParMums />} />
                 <Route path="/en/blog" element={<Blog />} />
                 <Route path="/en/b2b-sales-2025-ai-value" element={<B2bPardosana2025 />} />
+                <Route path="/en/artificial-intelligence-consumer-behavior-ai-decision-making" element={<AiPateretajuUzvediba />} />
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
                 <Route path="/en/thank-you" element={<ThankYou />} />
                 <Route path="/en/cookies" element={<Sikdatnes />} />

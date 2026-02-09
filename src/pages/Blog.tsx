@@ -28,12 +28,16 @@ export default function Blog() {
     },
     {
       id: 2,
-      title: t("AI automatizācija maziem un vidējiem uzņēmumiem", "AI Automation for Small and Medium Businesses"),
+      title: t("Mākslīgais intelekts un patērētāju uzvedība: kā AI maina lēmumu pieņemšanu digitālajā vidē", "Artificial Intelligence and Consumer Behavior: How AI Is Changing Decision-Making in the Digital Environment"),
       categoryKey: "ai",
       categoryLabel: "AI",
       date: "2025-01-10",
-      readTime: t("6 min", "6 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("9 min", "9 min"),
+      excerpt: t(
+        "AI ļauj prognozēt, ieteikt un virzīt patērētāju lēmumus reāllaikā — kā tas maina uzņēmumu stratēģijas un patērētāju pieredzi.",
+        "AI enables predicting, recommending and directing consumer decisions in real time — how this changes business strategies and consumer experience."
+      ),
+      link: "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana",
     },
     {
       id: 3,
