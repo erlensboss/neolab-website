@@ -53,7 +53,7 @@ export default function B2bPardosana2025() {
       {/* Article Content */}
       <section className="section-offwhite">
         <div className="container-neo section-padding">
-          <article className="max-w-3xl prose prose-lg prose-neutral dark:prose-invert">
+          <article className="max-w-3xl prose prose-lg prose-neutral dark:prose-invert [&>h2]:my-[30px]">
             <p>
               {t(
                 "B2B pārdošanas vide pēdējos gados ir būtiski mainījusies, un 2025. gads šo pārmaiņu tendences padara nepārprotamas. Pircēji ir informētāki, prasīgāki un daudz patstāvīgāki nekā jebkad agrāk. Lēmumu pieņemšana vairs nav lineārs process, kurā pārdevējs kontrolē informācijas plūsmu. Tā vietā tā ir sarežģīta, daudzkanālu pieredze, kur galveno lomu spēlē uztvertā vērtība, uzticība un spēja palīdzēt pircējam orientēties informācijas pārbagātībā. Šajā kontekstā mākslīgais intelekts ir kļuvis par neatņemamu B2B pārdošanas sastāvdaļu, taču ne kā aizvietotājs cilvēkam, bet kā instruments vērtības radīšanai.",
