@@ -13,7 +13,6 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/seo-un-geo", en: "/en/seo-and-geo", labelLv: "SEO & GEO", labelEn: "SEO & GEO" },
   { lv: "/seo-un-geo-pakalpojumi", en: "/en/seo-and-geo-services", labelLv: "SEO un GEO pakalpojumi", labelEn: "SEO & GEO Services" },
   { lv: "/ai-automatizacija", en: "/en/ai-automations", labelLv: "AI Automatizācijas", labelEn: "AI Automation" },
-  { lv: "/ai-automatizacija", en: "/en/ai-automations", labelLv: "AI Automatizācijas", labelEn: "AI Automation" },
   { lv: "/ai-automatizacija/linkedin-content-system", en: "/en/ai-automations/linkedin-content-system", labelLv: "LinkedIn Content System", labelEn: "LinkedIn Content System" },
   { lv: "/ai-automatizacija/lead-capture-agent", en: "/en/ai-automations/lead-capture-agent", labelLv: "Lead Capture Agent", labelEn: "Lead Capture Agent" },
   { lv: "/ai-automatizacija/speed-to-lead", en: "/en/ai-automations/speed-to-lead", labelLv: "Speed-to-Lead System", labelEn: "Speed-to-Lead System" },
