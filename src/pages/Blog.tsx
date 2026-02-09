@@ -15,57 +15,94 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 1,
-      title: t("Kāpēc tradicionālā SEO pieeja vairs nestrādā", "Why Traditional SEO Approach No Longer Works"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      title: t("B2B pārdošana 2025. gadā: kā AI, vērtība un uzticība nosaka rezultātus", "B2B Sales in 2025: How AI, Value and Trust Determine Results"),
+      categoryKey: "sales",
+      categoryLabel: t("Pārdošana", "Sales"),
       date: "2025-01-15",
-      readTime: t("8 min", "8 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("10 min", "10 min"),
+      excerpt: t(
+        "Pircēji ir informētāki, prasīgāki un patstāvīgāki nekā jebkad. Kā AI, vērtībā balstīta pieeja un uzticība maina B2B pārdošanas noteikumus.",
+        "Buyers are more informed, demanding and independent than ever. How AI, value-based approach and trust are changing B2B sales rules."
+      ),
+      link: "/b2b-pardosana-2025-ai-vertiba",
     },
     {
       id: 2,
-      title: t("AI automatizācija maziem un vidējiem uzņēmumiem", "AI Automation for Small and Medium Businesses"),
+      title: t("Mākslīgais intelekts un patērētāju uzvedība: kā AI maina lēmumu pieņemšanu digitālajā vidē", "Artificial Intelligence and Consumer Behavior: How AI Is Changing Decision-Making in the Digital Environment"),
       categoryKey: "ai",
       categoryLabel: "AI",
       date: "2025-01-10",
-      readTime: t("6 min", "6 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("9 min", "9 min"),
+      excerpt: t(
+        "AI ļauj prognozēt, ieteikt un virzīt patērētāju lēmumus reāllaikā — kā tas maina uzņēmumu stratēģijas un patērētāju pieredzi.",
+        "AI enables predicting, recommending and directing consumer decisions in real time — how this changes business strategies and consumer experience."
+      ),
+      link: "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana",
     },
     {
       id: 3,
-      title: t("Performance reklāma 2025: Ko sagaidīt", "Performance Advertising 2025: What to Expect"),
-      categoryKey: "advertising",
-      categoryLabel: t("Reklāma", "Advertising"),
+      title: t("Ģeneratīvais mākslīgais intelekts: pašreizējais stāvoklis un nākotnes attīstības virzieni", "Generative Artificial Intelligence: Current State and Future Development Directions"),
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2025-01-05",
       readTime: t("10 min", "10 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      excerpt: t(
+        "Ģeneratīvais AI spēj radīt jaunu saturu — tekstu, attēlus, audio un video. Kā tas maina izpratni par AI lomu uzņēmējdarbībā un inovācijās.",
+        "Generative AI can create new content — text, images, audio and video. How this changes the understanding of AI's role in business and innovation."
+      ),
+      link: "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni",
     },
     {
       id: 4,
-      title: t("Kā izvēlēties pareizo digitālo aģentūru", "How to Choose the Right Digital Agency"),
-      categoryKey: "strategy",
-      categoryLabel: t("Stratēģija", "Strategy"),
+      title: t("Preskriptīvā analītika un mākslīgais intelekts: kā AI sāk ietekmēt patērētāju lēmumus", "Prescriptive Analytics and Artificial Intelligence: How AI Is Beginning to Influence Consumer Decisions"),
+      categoryKey: "ai",
+      categoryLabel: "AI",
       date: "2024-12-28",
-      readTime: t("7 min", "7 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("8 min", "8 min"),
+      excerpt: t(
+        "Preskriptīvā analītika maina veidu, kā AI ietekmē patērētāju lēmumus — no prognozēšanas uz konkrētu rekomendāciju sniegšanu.",
+        "Prescriptive analytics is changing how AI influences consumer decisions — from forecasting to providing specific recommendations."
+      ),
+      link: "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b",
     },
     {
       id: 5,
-      title: t("Lokālā SEO: Praktiskā rokasgrāmata", "Local SEO: A Practical Guide"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      title: t("Kā mākslīgais intelekts veicina mārketinga attīstību uzņēmumos", "How Artificial Intelligence Drives Marketing Development in Businesses"),
+      categoryKey: "sales",
+      categoryLabel: t("Pārdošana", "Sales"),
       date: "2024-12-20",
-      readTime: t("12 min", "12 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("10 min", "10 min"),
+      excerpt: t(
+        "AI ieviešana mārketingā nav tikai tehnoloģisks uzlabojums, bet strukturāla pārmaiņa, kas ietekmē datu analīzi, klientu izpratni un lēmumu pieņemšanu.",
+        "AI implementation in marketing is not just a technological improvement but a structural change that affects data analysis, customer understanding, and decision-making."
+      ),
+      link: "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem",
     },
     {
       id: 6,
-      title: t("Mašīnmācīšanās mārketingā: Reālie pielietojumi", "Machine Learning in Marketing: Real Applications"),
-      categoryKey: "ai",
-      categoryLabel: "AI",
+      title: t("Mākslīgais intelekts un patērētāju uzvedība: pāreja no prognozējošā uz ģeneratīvo AI", "Artificial Intelligence and Consumer Behavior: Transition from Predictive to Generative AI"),
+      categoryKey: "strategy",
+      categoryLabel: t("Stratēģija", "Strategy"),
       date: "2024-12-15",
       readTime: t("9 min", "9 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      excerpt: t(
+        "Pāreja no prognozējošā uz ģeneratīvo AI būtiski maina to, kā uzņēmumi izprot, ietekmē un mijiedarbojas ar patērētājiem.",
+        "The transition from predictive to generative AI fundamentally changes how companies understand, influence, and interact with consumers."
+      ),
+      link: "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai",
+    },
+    {
+      id: 7,
+      title: t("SEO un GEO optimizācija: kāpēc redzamība mainās, bet SEO nepazūd", "SEO and GEO Optimization: Why Visibility Is Changing, but SEO Isn't Disappearing"),
+      categoryKey: "seo",
+      categoryLabel: "SEO",
+      date: "2024-12-10",
+      readTime: t("8 min", "8 min"),
+      excerpt: t(
+        "Līdzās tradicionālajai SEO nostiprinās GEO — ģeneratīvās meklēšanas optimizācija. Kāpēc SEO joprojām ir pamats digitālajai redzamībai.",
+        "Alongside traditional SEO, GEO — generative search optimization — is gaining ground. Why SEO remains the foundation of digital visibility."
+      ),
+      link: "/seo-un-geo-optimizacija-kapec-seo-nepazudis",
     },
   ];
 
@@ -75,6 +112,7 @@ export default function Blog() {
     { key: "ai", label: "AI" },
     { key: "advertising", label: t("Reklāma", "Advertising") },
     { key: "strategy", label: t("Stratēģija", "Strategy") },
+    { key: "sales", label: t("Pārdošana", "Sales") },
   ];
 
   // Get counts for each category
@@ -142,17 +180,16 @@ export default function Blog() {
                       className={`
                         relative px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300
                         flex items-center gap-2 border
-                        ${
-                          isActive
-                            ? "bg-primary text-primary-foreground border-primary shadow-neo"
-                            : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:bg-accent/50"
+                        ${isActive 
+                          ? "bg-primary text-primary-foreground border-primary shadow-neo" 
+                          : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:bg-accent/50"
                         }
                       `}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       {category.label}
-                      <Badge
+                      <Badge 
                         variant={isActive ? "secondary" : "outline"}
                         className={`
                           text-xs px-1.5 py-0 h-5 min-w-5 flex items-center justify-center
@@ -181,7 +218,7 @@ export default function Blog() {
       <section className="section-offwhite">
         <div className="container-neo section-padding">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.div 
               key={activeCategory}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -190,8 +227,12 @@ export default function Blog() {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredPosts.map((post, index) => (
-                <motion.article
+                <Link
                   key={post.id}
+                  to={post.link ? getLocalizedPath(post.link) : "#"}
+                  className="block"
+                >
+                <motion.article 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.3 }}
@@ -233,6 +274,7 @@ export default function Blog() {
                     </span>
                   </div>
                 </motion.article>
+                </Link>
               ))}
             </motion.div>
           </AnimatePresence>
@@ -245,9 +287,8 @@ export default function Blog() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="mb-6">
-                {t("Vēlies", "Want to")}
-                <span className="text-gradient-orange">{t("uzzināt", "learn")}</span>
-                {t("vēl?", "more?")}
+                {t("Vēlaties personalizētas", "Want personalized")}{" "}
+                <span className="text-gradient-orange">{t("zināšanas", "knowledge")}</span>?
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
