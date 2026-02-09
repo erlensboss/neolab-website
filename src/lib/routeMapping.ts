@@ -104,11 +104,12 @@ export function getLocalizedPath(baseLvPath: string, lang: "lv" | "en"): string 
 export const navItems = routeMappings.filter(m => 
   m.lv !== "/" && 
   m.lv !== "/bezmaksas-konsultacija" &&
-  m.lv !== "/sikdatnes" && // Exclude cookies policy from nav
-  m.lv !== "/personas-datu-apstrade" && // Exclude personal data policy from nav
-  !m.lv.includes("/seo-un-geo/") && // Exclude SEO sub-pages from nav
-  !m.lv.includes("/ai-automatizacija/") && // Exclude AI automation sub-pages from nav
-  !m.lv.includes("/performance-reklama/") // Exclude Performance Reklama sub-pages from nav
+  m.lv !== "/sikdatnes" &&
+  m.lv !== "/personas-datu-apstrade" &&
+  !m.lv.includes("/seo-un-geo/") &&
+  !m.lv.includes("/ai-automatizacija/") &&
+  !m.lv.includes("/performance-reklama/") &&
+  !m.lv.startsWith("/b2b-") // Exclude blog post pages from nav
 );
 
 // Footer service links
