@@ -104,6 +104,19 @@ export default function Blog() {
       ),
       link: "/seo-un-geo-optimizacija-kapec-seo-nepazudis",
     },
+    {
+      id: 8,
+      title: t("Digitālās reklāmas jaunais laikmets: Google Ads, Meta un TikTok pārmaiņu kontekstā", "The New Era of Digital Advertising: Google Ads, Meta and TikTok in the Context of Change"),
+      categoryKey: "advertising",
+      categoryLabel: t("Reklāma", "Advertising"),
+      date: "2024-12-05",
+      readTime: t("9 min", "9 min"),
+      excerpt: t(
+        "Platformas arvien vairāk pārņem lēmumu pieņemšanu, automatizējot mērķēšanu un optimizāciju. Kā mainās reklāmdevēja loma Google Ads, Meta un TikTok vidē.",
+        "Platforms are increasingly taking over decision-making, automating targeting and optimization. How the advertiser's role is changing in the Google Ads, Meta, and TikTok environment."
+      ),
+      link: "/jaunais-digitalo-reklamu-laikmets-google-meta-tiktok",
+    },
   ];
 
   const categories = [

@@ -33,6 +33,7 @@ const PreskriptivaAnalitika = lazy(() => import("./pages/blog/PreskriptivaAnalit
 const AiMarketingsUznemumiem = lazy(() => import("./pages/blog/AiMarketingsUznemumiem"));
 const AiPredictiveUzGenerative = lazy(() => import("./pages/blog/AiPredictiveUzGenerative"));
 const SeoGeoOptimizacija = lazy(() => import("./pages/blog/SeoGeoOptimizacija"));
+const DigitalaReklamaLaikmets = lazy(() => import("./pages/blog/DigitalaReklamaLaikmets"));
 
 // SEO & GEO sub-pages
 const SeoAudits = lazy(() => import("./pages/seo-geo/SeoAudits"));
@@ -112,6 +113,7 @@ const App = () => (
                 <Route path="/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem" element={<AiMarketingsUznemumiem />} />
                 <Route path="/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai" element={<AiPredictiveUzGenerative />} />
                 <Route path="/seo-un-geo-optimizacija-kapec-seo-nepazudis" element={<SeoGeoOptimizacija />} />
+                <Route path="/jaunais-digitalo-reklamu-laikmets-google-meta-tiktok" element={<DigitalaReklamaLaikmets />} />
                 <Route path="/bezmaksas-konsultacija" element={<BezmaksasKonsultacija />} />
                 <Route path="/paldies" element={<Paldies />} />
                 <Route path="/sikdatnes" element={<Sikdatnes />} />
@@ -149,6 +151,7 @@ const App = () => (
                 <Route path="/en/how-ai-drives-marketing-development-businesses" element={<AiMarketingsUznemumiem />} />
                 <Route path="/en/ai-consumer-behavior-predictive-to-generative-ai" element={<AiPredictiveUzGenerative />} />
                 <Route path="/en/seo-geo-optimization-why-seo-not-disappearing" element={<SeoGeoOptimizacija />} />
+                <Route path="/en/new-era-digital-advertising-google-meta-tiktok" element={<DigitalaReklamaLaikmets />} />
                 <Route path="/en/free-consultation" element={<BezmaksasKonsultacija />} />
                 <Route path="/en/thank-you" element={<ThankYou />} />
                 <Route path="/en/cookies" element={<Sikdatnes />} />

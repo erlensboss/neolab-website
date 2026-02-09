@@ -115,7 +115,7 @@ export const navItems = routeMappings.filter(m =>
   !m.lv.includes("/seo-un-geo/") &&
   !m.lv.includes("/ai-automatizacija/") &&
   !m.lv.includes("/performance-reklama/") &&
-  !["/b2b-pardosana-2025-ai-vertiba", "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b", "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem", "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai", "/seo-un-geo-optimizacija-kapec-seo-nepazudis"].includes(m.lv)
+  !["/b2b-pardosana-2025-ai-vertiba", "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b", "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem", "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai", "/seo-un-geo-optimizacija-kapec-seo-nepazudis", "/jaunais-digitalo-reklamu-laikmets-google-meta-tiktok"].includes(m.lv)
 );
 
 // Footer service links
