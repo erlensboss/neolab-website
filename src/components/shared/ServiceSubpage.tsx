@@ -79,24 +79,24 @@ export function ServiceSubpage({
             />
           </div>
 
-          <div className="container-neo relative z-10 pt-8 pb-12 md:pt-12 md:pb-16">
+          <div className="container-neo relative z-10 pt-16 pb-16 md:pt-20 md:pb-24">
             {/* Back link */}
             <Link
               to={getLocalizedPath("/seo-un-geo")}
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6 text-sm"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 text-sm"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>{language === "lv" ? "SEO & GEO" : "SEO & GEO"}</span>
             </Link>
 
-            <div className="grid lg:grid-cols-[1fr,auto] gap-8 items-end">
+            <div className="grid lg:grid-cols-[1fr,auto] gap-10 items-end">
               <div className="max-w-3xl">
                 <ScrollReveal>
-                  <span className="chip mb-4 inline-block text-xs">{chip}</span>
+                  <span className="chip mb-5 inline-block text-xs" style={{ marginTop: '30px' }}>{chip}</span>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.05}>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 text-foreground">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-5 text-foreground">
                     {titleMain}{" "}
                     <span className="text-gradient-orange">{titleGradient}</span>
                   </h1>
