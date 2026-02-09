@@ -37,6 +37,7 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", en: "/en/artificial-intelligence-consumer-behavior-ai-decision-making", labelLv: "AI un patērētāju uzvedība", labelEn: "AI & Consumer Behavior" },
   { lv: "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", en: "/en/generative-ai-current-state-future-directions", labelLv: "Ģeneratīvais AI", labelEn: "Generative AI" },
   { lv: "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b", en: "/en/prescriptive-analytics-ai-consumer-decisions-b2b", labelLv: "Preskriptīvā analītika", labelEn: "Prescriptive Analytics" },
+  { lv: "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem", en: "/en/how-ai-drives-marketing-development-businesses", labelLv: "AI mārketings", labelEn: "AI Marketing" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
   { lv: "/sikdatnes", en: "/en/cookies", labelLv: "Sīkdatnes", labelEn: "Cookies" },
   { lv: "/personas-datu-apstrade", en: "/en/personal-data-processing", labelLv: "Personas datu apstrāde", labelEn: "Personal Data Processing" },
@@ -112,7 +113,7 @@ export const navItems = routeMappings.filter(m =>
   !m.lv.includes("/seo-un-geo/") &&
   !m.lv.includes("/ai-automatizacija/") &&
   !m.lv.includes("/performance-reklama/") &&
-  !["/b2b-pardosana-2025-ai-vertiba", "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b"].includes(m.lv)
+  !["/b2b-pardosana-2025-ai-vertiba", "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b", "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem"].includes(m.lv)
 );
 
 // Footer service links

@@ -67,12 +67,16 @@ export default function Blog() {
     },
     {
       id: 5,
-      title: t("Lokālā SEO: Praktiskā rokasgrāmata", "Local SEO: A Practical Guide"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      title: t("Kā mākslīgais intelekts veicina mārketinga attīstību uzņēmumos", "How Artificial Intelligence Drives Marketing Development in Businesses"),
+      categoryKey: "sales",
+      categoryLabel: t("Pārdošana", "Sales"),
       date: "2024-12-20",
-      readTime: t("12 min", "12 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("10 min", "10 min"),
+      excerpt: t(
+        "AI ieviešana mārketingā nav tikai tehnoloģisks uzlabojums, bet strukturāla pārmaiņa, kas ietekmē datu analīzi, klientu izpratni un lēmumu pieņemšanu.",
+        "AI implementation in marketing is not just a technological improvement but a structural change that affects data analysis, customer understanding, and decision-making."
+      ),
+      link: "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem",
     },
     {
       id: 6,
