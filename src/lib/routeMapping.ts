@@ -40,6 +40,7 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem", en: "/en/how-ai-drives-marketing-development-businesses", labelLv: "AI mārketings", labelEn: "AI Marketing" },
   { lv: "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai", en: "/en/ai-consumer-behavior-predictive-to-generative-ai", labelLv: "No predictive uz generative AI", labelEn: "Predictive to Generative AI" },
   { lv: "/seo-un-geo-optimizacija-kapec-seo-nepazudis", en: "/en/seo-geo-optimization-why-seo-not-disappearing", labelLv: "SEO un GEO optimizācija", labelEn: "SEO & GEO Optimization" },
+  { lv: "/jaunais-digitalo-reklamu-laikmets-google-meta-tiktok", en: "/en/new-era-digital-advertising-google-meta-tiktok", labelLv: "Digitālās reklāmas laikmets", labelEn: "New Era of Digital Advertising" },
   { lv: "/bezmaksas-konsultacija", en: "/en/free-consultation", labelLv: "Konsultācija", labelEn: "Consultation" },
   { lv: "/sikdatnes", en: "/en/cookies", labelLv: "Sīkdatnes", labelEn: "Cookies" },
   { lv: "/personas-datu-apstrade", en: "/en/personal-data-processing", labelLv: "Personas datu apstrāde", labelEn: "Personal Data Processing" },
