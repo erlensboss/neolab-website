@@ -11,6 +11,7 @@ export interface RouteMapping {
 export const routeMappings: RouteMapping[] = [
   { lv: "/", en: "/en", labelLv: "Sākums", labelEn: "Home" },
   { lv: "/seo-un-geo", en: "/en/seo-and-geo", labelLv: "SEO & GEO", labelEn: "SEO & GEO" },
+  { lv: "/seo-un-geo-pakalpojumi", en: "/en/seo-and-geo-services", labelLv: "SEO un GEO pakalpojumi", labelEn: "SEO & GEO Services" },
   { lv: "/seo-un-geo/seo-audits", en: "/en/seo-and-geo/seo-audits", labelLv: "SEO Audits", labelEn: "SEO Audits" },
   { lv: "/seo-un-geo/tehniska-seo", en: "/en/seo-and-geo/technical-seo", labelLv: "Tehniskā SEO", labelEn: "Technical SEO" },
   { lv: "/seo-un-geo/satura-struktura", en: "/en/seo-and-geo/content-structure", labelLv: "Satura struktūra", labelEn: "Content Structure" },

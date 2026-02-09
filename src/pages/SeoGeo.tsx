@@ -150,7 +150,7 @@ export default function SeoGeo() {
 
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap gap-4">
-                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+                  <Link to={getLocalizedPath("/seo-un-geo-pakalpojumi")}>
                     <Button variant="hero" size="lg">
                       {t("Pieteikties auditam", "Apply for audit")}
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -1602,7 +1602,7 @@ export default function SeoGeo() {
                     </p>
                   </div>
 
-                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")} className="flex-shrink-0">
+                  <Link to={getLocalizedPath("/seo-un-geo-pakalpojumi")} className="flex-shrink-0">
                     <motion.div
                       whileHover={{
                         scale: 1.02,
@@ -2127,7 +2127,7 @@ export default function SeoGeo() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+              <Link to={getLocalizedPath("/seo-un-geo-pakalpojumi")}>
                 <motion.div
                   whileHover={{
                     scale: 1.02,
