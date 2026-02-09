@@ -1270,10 +1270,16 @@ export default function SeoGeo() {
                           </span>
                         </motion.div>
 
-                        {/* Title */}
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                          {t("SEO audits un situācijas izvērtējums", "SEO audit and situation assessment")}
-                        </h3>
+                        {/* Title + Price */}
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+                          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                            {t("SEO audits un situācijas izvērtējums", "SEO audit and situation assessment")}
+                          </h3>
+                          <span className="inline-flex items-baseline gap-1 flex-shrink-0 bg-primary/10 px-4 py-2 rounded-xl">
+                            <span className="text-2xl md:text-3xl font-bold text-primary">249</span>
+                            <span className="text-sm font-semibold text-primary/70">EUR</span>
+                          </span>
+                        </div>
 
                         {/* Description */}
                         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
@@ -1440,17 +1446,19 @@ export default function SeoGeo() {
                   "Lapas ātrums, struktūra, indeksācija un tehniskie pamati.",
                   "Page speed, structure, indexing, and technical fundamentals.",
                 ),
+                price: t("no 350", "from 350"),
                 accent: "from-orange-500 to-amber-500",
                 link: "/seo-un-geo/tehniska-seo",
                 delay: 0.1,
               },
               {
                 icon: FileText,
-                title: t("Satura un atslēgvārdu struktūra", "Content and keyword structure"),
+                title: t("On-Page optimizācija", "On-Page optimization"),
                 description: t(
                   "Loģiska satura struktūra balstīta lietotāju meklējumos.",
                   "Logical content structure based on user searches.",
                 ),
+                price: t("no 300", "from 300"),
                 accent: "from-amber-500 to-yellow-500",
                 link: "/seo-un-geo/satura-struktura",
                 delay: 0.15,
@@ -1462,6 +1470,7 @@ export default function SeoGeo() {
                   "Strukturēts atslēgvārdu saraksts pa lapām un nolūkiem.",
                   "Structured keyword list by pages and intents.",
                 ),
+                price: t("no 99", "from 99"),
                 accent: "from-yellow-500 to-amber-400",
                 link: "/seo-un-geo/keyword-list",
                 delay: 0.2,
@@ -1473,6 +1482,7 @@ export default function SeoGeo() {
                   "Redzamība AI meklēšanas vidēs un ģeneratīvajās atbildēs.",
                   "Visibility in AI search environments and generative responses.",
                 ),
+                price: "249",
                 accent: "from-amber-400 to-orange-500",
                 link: "/seo-un-geo/geo-audits",
                 delay: 0.25,
@@ -1484,6 +1494,7 @@ export default function SeoGeo() {
                   "GEO stratēģija jaunās paaudzes meklēšanas kanālos.",
                   "GEO strategy in next-generation search channels.",
                 ),
+                price: t("no 350", "from 350"),
                 accent: "from-orange-500 to-primary",
                 link: "/seo-un-geo/geo-strategija",
                 delay: 0.3,
@@ -1537,12 +1548,13 @@ export default function SeoGeo() {
                           {service.description}
                         </p>
 
-                        {/* CTA button - orange like the main audit block */}
-                        <div className="mt-3 pt-3 border-t border-gray-100">
-                          <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary group-hover:text-primary-foreground bg-transparent group-hover:bg-primary px-3 py-1.5 rounded-lg transition-all duration-300">
-                            {t("Uzzināt vairāk", "Learn more")}
-                            <ArrowRight className="w-3.5 h-3.5" />
+                        {/* Price */}
+                        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                          <span className="inline-flex items-baseline gap-1">
+                            <span className="text-lg font-bold text-foreground">{service.price}</span>
+                            <span className="text-xs font-semibold text-muted-foreground">EUR</span>
                           </span>
+                          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
                       </div>
                     </div>
