@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2, type LucideIcon } from "lucide-react";
@@ -25,9 +26,10 @@ interface ServiceSubpageProps {
   description: string;
   price: string;
   ctaText: string;
-  features: FeatureItem[];
-  featuresSectionTitle: string;
-  featuresSectionTitleGradient: string;
+  features?: FeatureItem[];
+  featuresSectionTitle?: string;
+  featuresSectionTitleGradient?: string;
+  customSection?: ReactNode;
   benefits?: string[];
   benefitsTitle?: string;
   benefitsTitleGradient?: string;
@@ -48,6 +50,7 @@ export function ServiceSubpage({
   features,
   featuresSectionTitle,
   featuresSectionTitleGradient,
+  customSection,
   benefits,
   benefitsTitle,
   benefitsTitleGradient,
@@ -130,40 +133,42 @@ export function ServiceSubpage({
           </div>
         </section>
 
-        {/* Features grid */}
-        <section className="section-padding">
-          <div className="container-neo">
-            <ScrollReveal>
-              <div className="mb-10 md:mb-12">
-                <h2 className="text-foreground">
-                  {featuresSectionTitle}{" "}
-                  <span className="text-gradient-orange">{featuresSectionTitleGradient}</span>
-                </h2>
-              </div>
-            </ScrollReveal>
+        {/* Custom section OR Features grid */}
+        {customSection ? customSection : features && features.length > 0 && (
+          <section className="section-padding">
+            <div className="container-neo">
+              <ScrollReveal>
+                <div className="mb-10 md:mb-12">
+                  <h2 className="text-foreground">
+                    {featuresSectionTitle}{" "}
+                    <span className="text-gradient-orange">{featuresSectionTitleGradient}</span>
+                  </h2>
+                </div>
+              </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {features.map((item, index) => (
-                <ScrollReveal key={index} delay={0.05 + index * 0.05}>
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="group card-bordered h-full !p-6"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-gradient-orange flex items-center justify-center mb-4">
-                      <item.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                </ScrollReveal>
-              ))}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {features.map((item, index) => (
+                  <ScrollReveal key={index} delay={0.05 + index * 0.05}>
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      className="group card-bordered h-full !p-6"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-gradient-orange flex items-center justify-center mb-4">
+                        <item.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Benefits (optional) + CTA */}
         <section className="section-padding bg-gradient-warm">
