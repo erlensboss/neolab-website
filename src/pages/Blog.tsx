@@ -15,12 +15,16 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 1,
-      title: t("Kāpēc tradicionālā SEO pieeja vairs nestrādā", "Why Traditional SEO Approach No Longer Works"),
-      categoryKey: "seo",
-      categoryLabel: "SEO",
+      title: t("B2B pārdošana 2025. gadā: kā AI, vērtība un uzticība nosaka rezultātus", "B2B Sales in 2025: How AI, Value and Trust Determine Results"),
+      categoryKey: "sales",
+      categoryLabel: t("Pārdošana", "Sales"),
       date: "2025-01-15",
-      readTime: t("8 min", "8 min"),
-      excerpt: t("Placeholder — pilns raksts drīzumā", "Placeholder — full article coming soon"),
+      readTime: t("10 min", "10 min"),
+      excerpt: t(
+        "Pircēji ir informētāki, prasīgāki un patstāvīgāki nekā jebkad. Kā AI, vērtībā balstīta pieeja un uzticība maina B2B pārdošanas noteikumus.",
+        "Buyers are more informed, demanding and independent than ever. How AI, value-based approach and trust are changing B2B sales rules."
+      ),
+      link: "/b2b-pardosana-2025-ai-vertiba",
     },
     {
       id: 2,
@@ -75,6 +79,7 @@ export default function Blog() {
     { key: "ai", label: "AI" },
     { key: "advertising", label: t("Reklāma", "Advertising") },
     { key: "strategy", label: t("Stratēģija", "Strategy") },
+    { key: "sales", label: t("Pārdošana", "Sales") },
   ];
 
   // Get counts for each category
@@ -189,8 +194,12 @@ export default function Blog() {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredPosts.map((post, index) => (
-                <motion.article 
+                <Link
                   key={post.id}
+                  to={post.link ? getLocalizedPath(post.link) : "#"}
+                  className="block"
+                >
+                <motion.article 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.3 }}
@@ -232,6 +241,7 @@ export default function Blog() {
                     </span>
                   </div>
                 </motion.article>
+                </Link>
               ))}
             </motion.div>
           </AnimatePresence>
