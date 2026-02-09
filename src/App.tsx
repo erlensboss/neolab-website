@@ -13,6 +13,7 @@ import Index from "./pages/Index";
 
 // Lazy load other pages for code splitting
 const SeoGeo = lazy(() => import("./pages/SeoGeo"));
+const SeoGeoPakalpojumi = lazy(() => import("./pages/SeoGeoPakalpojumi"));
 const AiAutomatizacija = lazy(() => import("./pages/AiAutomatizacija"));
 const PerformanceReklama = lazy(() => import("./pages/PerformanceReklama"));
 const AiLab = lazy(() => import("./pages/AiLab"));
@@ -84,6 +85,7 @@ const App = () => (
                 {/* LV Routes (default) */}
                 <Route path="/" element={<Index />} />
                 <Route path="/seo-un-geo" element={<SeoGeo />} />
+                <Route path="/seo-un-geo-pakalpojumi" element={<SeoGeoPakalpojumi />} />
                 <Route path="/seo-un-geo/seo-audits" element={<SeoAudits />} />
                 <Route path="/seo-un-geo/tehniska-seo" element={<TehniskaSeo />} />
                 <Route path="/seo-un-geo/satura-struktura" element={<SaturaStruktura />} />
@@ -122,6 +124,7 @@ const App = () => (
                 {/* EN Routes (English slugs under /en) */}
                 <Route path="/en" element={<Index />} />
                 <Route path="/en/seo-and-geo" element={<SeoGeo />} />
+                <Route path="/en/seo-and-geo-services" element={<SeoGeoPakalpojumi />} />
                 <Route path="/en/seo-and-geo/seo-audits" element={<SeoAudits />} />
                 <Route path="/en/seo-and-geo/technical-seo" element={<TehniskaSeo />} />
                 <Route path="/en/seo-and-geo/content-structure" element={<SaturaStruktura />} />
