@@ -91,6 +91,19 @@ export default function Blog() {
       ),
       link: "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai",
     },
+    {
+      id: 7,
+      title: t("SEO un GEO optimizācija: kāpēc redzamība mainās, bet SEO nepazūd", "SEO and GEO Optimization: Why Visibility Is Changing, but SEO Isn't Disappearing"),
+      categoryKey: "seo",
+      categoryLabel: "SEO",
+      date: "2024-12-10",
+      readTime: t("8 min", "8 min"),
+      excerpt: t(
+        "Līdzās tradicionālajai SEO nostiprinās GEO — ģeneratīvās meklēšanas optimizācija. Kāpēc SEO joprojām ir pamats digitālajai redzamībai.",
+        "Alongside traditional SEO, GEO — generative search optimization — is gaining ground. Why SEO remains the foundation of digital visibility."
+      ),
+      link: "/seo-un-geo-optimizacija-kapec-seo-nepazudis",
+    },
   ];
 
   const categories = [
