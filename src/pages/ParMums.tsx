@@ -229,7 +229,7 @@ export default function ParMums() {
                 }} className="absolute inset-16 md:inset-20 rounded-full bg-gradient-to-br from-primary/10 via-orange-300/20 to-transparent blur-sm" />
 
                   {/* Center logo container */}
-                  <div className="absolute inset-20 md:inset-24 lg:inset-28 flex items-center justify-center">
+                  <div className="absolute inset-14 sm:inset-16 md:inset-20 lg:inset-24 flex items-center justify-center">
                     <motion.div initial={{
                     opacity: 0,
                     scale: 0.8
@@ -239,10 +239,10 @@ export default function ParMums() {
                   }} transition={{
                     duration: 1,
                     delay: 0.4
-                  }} className="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border border-white/50" style={{
+                  }} className="relative bg-white/90 backdrop-blur-md rounded-3xl p-5 sm:p-6 md:p-8 shadow-2xl border border-white/50" style={{
                     boxShadow: "0 25px 80px -20px hsl(25 80% 50% / 0.3), 0 10px 30px -10px hsl(25 80% 50% / 0.2)"
                   }}>
-                      <motion.img src={logoSecondaryOrange} alt="NEOLab" className="w-24 md:w-32 lg:w-40 h-auto" animate={{
+                      <motion.img src={logoSecondaryOrange} alt="NEOLab" className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto" animate={{
                       scale: [1, 1.02, 1]
                     }} transition={{
                       duration: 4,
@@ -287,7 +287,7 @@ export default function ParMums() {
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeOut"
-                }} className="absolute inset-20 md:inset-24 lg:inset-28 rounded-full border-2 border-primary/40" />
+                }} className="absolute inset-14 sm:inset-16 md:inset-20 lg:inset-24 rounded-full border-2 border-primary/40" />
                   <motion.div animate={{
                   scale: [0.5, 1.2],
                   opacity: [0.6, 0]
@@ -296,7 +296,7 @@ export default function ParMums() {
                   repeat: Infinity,
                   ease: "easeOut",
                   delay: 1
-                }} className="absolute inset-20 md:inset-24 lg:inset-28 rounded-full border-2 border-primary/40" />
+                }} className="absolute inset-14 sm:inset-16 md:inset-20 lg:inset-24 rounded-full border-2 border-primary/40" />
 
                   {/* Corner accent lines */}
                   <div className="absolute top-0 left-1/2 w-px h-12 bg-gradient-to-b from-primary/40 to-transparent" />
