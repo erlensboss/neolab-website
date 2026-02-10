@@ -15,6 +15,7 @@ import Index from "./pages/Index";
 const SeoGeo = lazy(() => import("./pages/SeoGeo"));
 const SeoGeoPakalpojumi = lazy(() => import("./pages/SeoGeoPakalpojumi"));
 const AiAutomatizacija = lazy(() => import("./pages/AiAutomatizacija"));
+const AiPakalpojumi = lazy(() => import("./pages/AiPakalpojumi"));
 const PerformanceReklama = lazy(() => import("./pages/PerformanceReklama"));
 const AiLab = lazy(() => import("./pages/AiLab"));
 const ParMums = lazy(() => import("./pages/ParMums"));
@@ -82,6 +83,7 @@ const App = () => (
                 <Route path="/seo-un-geo" element={<SeoGeo />} />
                 <Route path="/seo-un-geo-pakalpojumi" element={<SeoGeoPakalpojumi />} />
                 <Route path="/ai-automatizacija" element={<AiAutomatizacija />} />
+                <Route path="/ai-pakalpojumi" element={<AiPakalpojumi />} />
                 <Route path="/ai-automatizacija/linkedin-content-system" element={<LinkedInContentSystem />} />
                 <Route path="/ai-automatizacija/lead-capture-agent" element={<LeadCaptureAgent />} />
                 <Route path="/ai-automatizacija/speed-to-lead" element={<SpeedToLead />} />
@@ -115,7 +117,7 @@ const App = () => (
                 <Route path="/en/seo-and-geo" element={<SeoGeo />} />
                 <Route path="/en/seo-and-geo-services" element={<SeoGeoPakalpojumi />} />
                 <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
-                <Route path="/en/ai-automations" element={<AiAutomatizacija />} />
+                <Route path="/en/ai-services" element={<AiPakalpojumi />} />
                 <Route path="/en/ai-automations/linkedin-content-system" element={<LinkedInContentSystem />} />
                 <Route path="/en/ai-automations/lead-capture-agent" element={<LeadCaptureAgent />} />
                 <Route path="/en/ai-automations/speed-to-lead" element={<SpeedToLead />} />
