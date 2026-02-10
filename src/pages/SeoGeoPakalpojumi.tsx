@@ -30,7 +30,7 @@ export default function SeoGeoPakalpojumi() {
             y: 0
           }} transition={{
             duration: 0.5
-          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 my-0 mt-[75px]">
+          }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 my-0 mt-[80px]">
               <Search className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">SEO & GEO</span>
               <MapPin className="w-4 h-4 text-primary" />
