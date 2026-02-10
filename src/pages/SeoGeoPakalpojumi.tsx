@@ -830,9 +830,6 @@ export default function SeoGeoPakalpojumi() {
                   stiffness: 200
                 }} className={`relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
                       <item.icon className="w-7 h-7 md:w-9 md:h-9 text-white" />
-                      <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-[11px] font-bold flex items-center justify-center shadow-md">
-                        {item.step}
-                      </span>
                     </motion.div>
 
                     {/* Content card */}
@@ -845,18 +842,6 @@ export default function SeoGeoPakalpojumi() {
                       </p>
                     </div>
 
-                    {/* Arrow connector to next */}
-                    {i < 4 && <motion.div initial={{
-                  opacity: 0
-                }} whileInView={{
-                  opacity: 1
-                }} viewport={{
-                  once: true
-                }} transition={{
-                  delay: 0.4 + i * 0.1
-                }} className="absolute -bottom-5 left-[30px] md:left-[38px] text-muted-foreground/30 hidden md:block">
-                        <ArrowRight className="w-4 h-4 rotate-90" />
-                      </motion.div>}
                   </motion.div>
                 </ScrollReveal>)}
             </div>
