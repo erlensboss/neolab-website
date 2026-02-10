@@ -388,7 +388,7 @@ export default function SeoGeoPakalpojumi() {
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no 350€", "Price: from €350")}</span>
                           <Button size="default" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt tehnisko SEO optimizāciju", "Request technical SEO optimization")}
@@ -457,7 +457,7 @@ export default function SeoGeoPakalpojumi() {
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no 300€", "Price: from €300")}</span>
                           <Button size="default" className="bg-amber-500 hover:bg-amber-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt on-page SEO optimizāciju", "Request on-page SEO optimization")}
@@ -542,7 +542,7 @@ export default function SeoGeoPakalpojumi() {
                           ))}
                         </div>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: ___€", "Price: ___€")}</span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: 99€", "Price: €99")}</span>
                           <Button size="default" className="bg-emerald-500 hover:bg-emerald-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Saņemt atslēgvārdu struktūru", "Get keyword structure")}
@@ -619,7 +619,7 @@ export default function SeoGeoPakalpojumi() {
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: ___€", "Price: ___€")}</span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: 249€", "Price: €249")}</span>
                           <Button size="default" className="bg-violet-500 hover:bg-violet-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt GEO auditu", "Request GEO audit")}
@@ -688,7 +688,7 @@ export default function SeoGeoPakalpojumi() {
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no 350€", "Price: from €350")}</span>
                           <Button size="default" className="bg-sky-500 hover:bg-sky-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Izstrādāt GEO stratēģiju", "Develop GEO strategy")}
