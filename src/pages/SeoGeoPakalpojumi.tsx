@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import { Search, MapPin, ArrowRight } from "lucide-react";
+import { Search, MapPin, ArrowRight, Eye, BarChart3, Wrench, FileText, CheckCircle2, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { Link } from "react-router-dom";
+import { ScrollReveal } from "@/components/shared/ScrollReveal";
 export default function SeoGeoPakalpojumi() {
   const {
     t,
@@ -98,6 +99,120 @@ export default function SeoGeoPakalpojumi() {
                 </Link>
               </Button>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 2: SEO Audits ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-amber-50/50" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `
+            linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px"
+        }} />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-10 md:mb-14">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-6 text-sm">
+                <Search className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">{t("Pamats", "Foundation")}</span>
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground max-w-3xl mx-auto">
+                {t("SEO audits", "SEO audit")} –{" "}
+                <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
+                  {t("pamats jebkurai optimizācijai", "the foundation of any optimization")}
+                </span>
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-stretch">
+            {/* Main Definition Card */}
+            <ScrollReveal delay={0.1}>
+              <motion.div whileHover={{ y: -4, scale: 1.01 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="relative group h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <motion.div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-r from-primary to-orange-400 flex items-center justify-center shadow-lg" whileHover={{ rotate: 5 }}>
+                      <Search className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Kas ir SEO audits?", "What is an SEO audit?")}</h3>
+                      <span className="text-xs md:text-sm text-primary font-medium">{t("Sistemātiska izvērtēšana", "Systematic evaluation")}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
+                    {t("SEO audits ir sistemātiska mājaslapas izvērtēšana, kas parāda, kā tā šobrīd tiek uztverta meklētājos un kas tieši ierobežo tās redzamību. Tas ļauj saprast ne tikai to, kas nestrādā, bet arī kāpēc.", "An SEO audit is a systematic website evaluation that shows how it is currently perceived by search engines and what exactly limits its visibility. It helps understand not only what isn't working, but also why.")}
+                  </p>
+
+                  {/* Audit areas visual */}
+                  <div className="bg-muted/50 rounded-xl p-4 border border-border/50">
+                    <p className="text-sm font-medium text-foreground mb-3">{t("Audits dod skaidru priekšstatu par:", "The audit provides a clear picture of:")}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        { icon: Eye, label: t("Redzamību", "Visibility") },
+                        { icon: BarChart3, label: t("Konkurences situāciju", "Competitive landscape") },
+                        { icon: Wrench, label: t("Tehnisko stāvokli", "Technical health") },
+                        { icon: FileText, label: t("Satura kvalitāti", "Content quality") },
+                      ].map((item, i) => (
+                        <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }} className="flex items-center gap-2 bg-primary/5 rounded-lg p-2.5 border border-primary/10">
+                          <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-sm text-foreground font-medium">{item.label}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border/50">
+                      <CheckCircle2 className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <p className="text-xs text-muted-foreground">
+                        {t("Bez šīs informācijas optimizācija balstās uz pieņēmumiem un intuitīviem lēmumiem.", "Without this information, optimization is based on assumptions and intuitive decisions.")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </ScrollReveal>
+
+            {/* Why it matters Card */}
+            <ScrollReveal delay={0.2}>
+              <motion.div whileHover={{ y: -4, scale: 1.01 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="relative group h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-400/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-amber-300/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <motion.div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg" whileHover={{ rotate: -5 }}>
+                      <Target className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Kāpēc tas ir būtisks?", "Why does it matter?")}</h3>
+                      <span className="text-xs md:text-sm text-amber-600 font-medium">{t("Skaidrība pirms darbības", "Clarity before action")}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 flex-1">
+                    {t("Tieši tāpēc SEO audits ir būtisks. Tas nosaka prioritātes, secību un virzienu, ļaujot koncentrēties uz darbiem, kas dod reālu efektu, nevis tērēt laiku un resursus bez skaidra pamata.", "That's exactly why an SEO audit is essential. It sets priorities, sequence, and direction, allowing you to focus on actions that deliver real impact rather than spending time and resources without a clear foundation.")}
+                  </p>
+
+                  {/* Key insight box */}
+                  <div className="bg-gradient-to-r from-primary/5 to-amber-50 rounded-xl p-4 border border-primary/10">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <p className="text-sm md:text-base text-foreground leading-relaxed">
+                        <span className="font-semibold">{t("Rezultāts:", "Result:")}</span> {t("Skaidras prioritātes, secība un virziens – lai katrs solis ved uz reālu progresu.", "Clear priorities, sequence, and direction – so every step leads to real progress.")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
