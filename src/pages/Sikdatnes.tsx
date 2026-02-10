@@ -5,7 +5,7 @@ export default function Sikdatnes() {
     t
   } = useLanguage();
   return <>
-      <SEOHead titleLv="Sīkdatnes | NEOLab" titleEn="Cookies | NEOLab" descriptionLv="Informācija par sīkdatņu izmantošanu NEOLab vietnē." descriptionEn="Information about cookie usage on NEOLab website." />
+      <SEOHead titleLv="Sīkdatņu politika | NEOLab" titleEn="Cookie Policy | NEOLab" descriptionLv="Informācija par sīkdatņu izmantošanu, to mērķiem un lietotāja izvēles iespējām NEOLab mājaslapā." descriptionEn="Information about cookie usage, purposes, and user choice options on the NEOLab website." />
 
       <main className="min-h-screen bg-background">
         <div className="container-neo py-16 md:py-24">

@@ -32,6 +32,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { SEOHead } from "@/components/shared/SEOHead";
 
 const experiments = [
   {
@@ -142,6 +143,13 @@ export default function AiLab() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
+    <>
+      <SEOHead
+        titleLv="AI Lab – praktiska AI izpēte un risinājumi | NEOLab"
+        titleEn="AI Lab – Practical AI Research & Solutions | NEOLab"
+        descriptionLv="AI Lab ir NEOLab iniciatīva praktisku AI risinājumu testēšanai, izstrādei un reālai pielietošanai uzņēmējdarbībā."
+        descriptionEn="AI Lab is NEOLab's initiative for testing, developing, and applying practical AI solutions in business."
+      />
     <div className="overflow-hidden bg-background">
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
       <section ref={containerRef} className="min-h-[70vh] md:min-h-[95vh] relative overflow-hidden mt-[30px]">
@@ -966,5 +974,6 @@ export default function AiLab() {
         </div>
       </section>
     </div>
+    </>
   );
 }

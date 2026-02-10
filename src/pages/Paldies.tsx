@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CheckCircle2, Home, ArrowRight } from "lucide-react";
+import { SEOHead } from "@/components/shared/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -67,6 +68,13 @@ export default function Paldies() {
   };
 
   return (
+    <>
+      <SEOHead
+        titleLv="Paldies par pieteikumu | NEOLab"
+        titleEn="Thank You for Your Application | NEOLab"
+        descriptionLv="Paldies par jūsu pieteikumu. Mēs ar jums sazināsimies tuvākajā laikā, lai pārrunātu nākamos soļus."
+        descriptionEn="Thank you for your application. We will contact you shortly to discuss the next steps."
+      />
     <div className="overflow-hidden">
       <section className="bg-gradient-hero min-h-screen flex items-center justify-center">
         <div className="container-neo section-padding relative z-10">
@@ -131,5 +139,6 @@ export default function Paldies() {
         </div>
       </section>
     </div>
+    </>
   );
 }

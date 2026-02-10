@@ -23,6 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { OptimizedHeroVisual } from "@/components/shared/OptimizedHeroVisual";
+import { SEOHead } from "@/components/shared/SEOHead";
 
 // Service cards data
 const services = [
@@ -175,6 +176,13 @@ const heroFeatures = [
 export default function Index() {
   const { t, language, getLocalizedPath } = useLanguage();
   return (
+    <>
+      <SEOHead
+        titleLv="NEOLab | AI & Digitālā Mārketinga Risinājumi"
+        titleEn="NEOLab | AI & Digital Marketing Solutions"
+        descriptionLv="NEOLab piedāvā AI automatizāciju, SEO & GEO optimizāciju un Google Ads pārvaldību."
+        descriptionEn="NEOLab offers AI automation, SEO & GEO optimization, and Google Ads management."
+      />
     <div className="overflow-hidden">
       {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
       <section className="relative min-h-[auto] md:min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden mt-[30px]">
@@ -952,5 +960,6 @@ export default function Index() {
         </div>
       </section>
     </div>
+    </>
   );
 }
