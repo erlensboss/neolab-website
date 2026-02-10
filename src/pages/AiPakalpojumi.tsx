@@ -211,7 +211,7 @@ export default function AiPakalpojumi() {
       />
 
       {/* ========== HERO ========== */}
-      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[85vh] flex items-center mt-[30px]">
+      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[70vh] md:min-h-[85vh] flex items-center mt-[30px]">
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 opacity-[0.06]"
@@ -245,7 +245,7 @@ export default function AiPakalpojumi() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 mt-[40px] md:mt-[80px]"
+              className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-primary/20 bg-primary/5 mb-6 md:mb-8 mt-[20px] md:mt-[80px]"
             >
               <Brain className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">{t("AI pakalpojumi", "AI Services")}</span>
@@ -255,7 +255,7 @@ export default function AiPakalpojumi() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 md:mb-6"
             >
               <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">NEOLab</span>{" "}
               {t("AI automatizācijas pakalpojumi", "AI automation services")}
@@ -265,7 +265,7 @@ export default function AiPakalpojumi() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+              className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 px-2 md:px-0"
             >
               {t(
                 "Pārbaudīti AI risinājumi, kas automatizē ikdienas procesus un palīdz uzņēmumam strādāt efektīvāk – ar skaidrām cenām un ātru ieviešanu.",
@@ -290,12 +290,12 @@ export default function AiPakalpojumi() {
       </section>
 
       {/* ========== INTRO BLOCK ========== */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/20" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
             <ScrollReveal>
-              <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/50 p-8 md:p-12 lg:p-16 overflow-hidden">
+              <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/50 p-6 md:p-12 lg:p-16 overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full blur-3xl" />
@@ -313,7 +313,7 @@ export default function AiPakalpojumi() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-balance">
+                  <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-balance">
                     <span
                       style={{
                         background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
@@ -328,7 +328,7 @@ export default function AiPakalpojumi() {
                     </span>
                   </h2>
 
-                  <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+                  <div className="space-y-3 md:space-y-4 text-muted-foreground text-sm md:text-lg leading-relaxed">
                     <p>
                       {t(
                         "Lielākā kļūda ar AI automatizācijām nav tehnoloģija. Tā ir nepareiza izvēle. Uzņēmumi ievieš rīkus, cerot uz rezultātu, bet beigās iegūst vēl vienu sistēmu, kas jāuztur un jāapkalpo.",
@@ -371,7 +371,7 @@ export default function AiPakalpojumi() {
           <div className="max-w-5xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-10 md:mb-14">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 text-balance">
                   {t("Kā izvēlēties pareizo", "How to choose the right")}{" "}
                   <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
                     {t("AI automatizāciju?", "AI automation?")}
@@ -386,7 +386,7 @@ export default function AiPakalpojumi() {
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6 mb-10 md:mb-14">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-14">
               {[
                 {
                   num: "01",
@@ -419,9 +419,9 @@ export default function AiPakalpojumi() {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="relative group h-full"
                   >
-                    <div className="h-full bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 p-6 md:p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+                    <div className="h-full bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 p-5 md:p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
                       <div className="flex items-start justify-between mb-5">
-                        <span className="text-4xl md:text-5xl font-bold text-primary/10 leading-none">{item.num}</span>
+                        <span className="text-3xl md:text-5xl font-bold text-primary/10 leading-none">{item.num}</span>
                         <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                           <item.icon className="w-5 h-5 text-primary" />
                         </div>
@@ -458,7 +458,7 @@ export default function AiPakalpojumi() {
       </section>
 
       {/* ========== SERVICES ========== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-14 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
         <div className="absolute inset-0 grid-overlay-subtle" />
 
@@ -503,7 +503,7 @@ export default function AiPakalpojumi() {
                       {/* Top accent bar */}
                       <div className={`h-1 bg-gradient-to-r ${service.accentFrom} ${service.accentTo}`} />
 
-                      <div className="p-6 md:p-8 lg:p-10">
+                      <div className="p-5 md:p-8 lg:p-10">
                         <div
                           className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 lg:gap-10`}
                         >
@@ -553,9 +553,9 @@ export default function AiPakalpojumi() {
                             </div>
                           </div>
 
-                          {/* Visual sidebar */}
-                          <div className="lg:w-64 flex-shrink-0">
-                            <div className="bg-muted/50 rounded-xl p-4 border border-border/50 space-y-3">
+                          {/* Visual sidebar - horizontal on mobile */}
+                          <div className="lg:w-64 flex-shrink-0 w-full">
+                            <div className="bg-muted/50 rounded-xl p-3 md:p-4 border border-border/50 grid grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-3">
                               {service.visualItems.map((item, i) => (
                                 <motion.div
                                   key={i}
@@ -586,7 +586,7 @@ export default function AiPakalpojumi() {
       </section>
 
       {/* Personalized Solutions Block */}
-      <section className="py-20 md:py-28 px-4">
+      <section className="py-14 md:py-28 px-4">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden">
@@ -597,7 +597,7 @@ export default function AiPakalpojumi() {
               <div className="absolute inset-0 rounded-3xl border border-primary/15" />
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-500 to-amber-500" />
 
-              <div className="relative z-10 p-8 md:p-12 lg:p-16">
+              <div className="relative z-10 p-6 md:p-12 lg:p-16">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -608,7 +608,7 @@ export default function AiPakalpojumi() {
                   </span>
                 </div>
 
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance leading-tight">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-balance leading-tight">
                   <span
                     style={{
                       background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
@@ -621,7 +621,7 @@ export default function AiPakalpojumi() {
                   <span className="text-foreground">{t("Jūsu uzņēmumam", "for Your business")}</span>
                 </h2>
 
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-10">
+                <p className="text-muted-foreground text-sm md:text-lg leading-relaxed max-w-3xl mb-8 md:mb-10">
                   {t(
                     "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus - mēs būvējam tieši jums.",
                     "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions - we build specifically for you.",
@@ -629,7 +629,7 @@ export default function AiPakalpojumi() {
                 </p>
 
                 {/* Process cards grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
                   {[
                     {
                       icon: BarChart3,
@@ -680,7 +680,7 @@ export default function AiPakalpojumi() {
                 </div>
 
                 {/* Pillars row */}
-                <div className="flex flex-wrap gap-3 mb-10">
+                <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-10">
                   {[
                     { lv: "Būvēts jums", en: "Built for you.", icon: CheckCircle2 },
                     { lv: "Integrēts ar esošo", en: "Integrated with existing.", icon: Layers },
