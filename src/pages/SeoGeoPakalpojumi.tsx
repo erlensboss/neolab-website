@@ -195,9 +195,41 @@ export default function SeoGeoPakalpojumi() {
                     </div>
                   </div>
 
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 flex-1">
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                     {t("Tieši tāpēc SEO audits ir būtisks. Tas nosaka prioritātes, secību un virzienu, ļaujot koncentrēties uz darbiem, kas dod reālu efektu, nevis tērēt laiku un resursus bez skaidra pamata.", "That's exactly why an SEO audit is essential. It sets priorities, sequence, and direction, allowing you to focus on actions that deliver real impact rather than spending time and resources without a clear foundation.")}
                   </p>
+
+                  {/* Visual: Priority flow */}
+                  <div className="bg-amber-50/60 rounded-xl p-4 border border-amber-200/40 mb-6 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      {[
+                        { icon: Search, label: t("Audits", "Audit"), step: "01" },
+                        { icon: Target, label: t("Prioritātes", "Priorities"), step: "02" },
+                        { icon: BarChart3, label: t("Rezultāts", "Result"), step: "03" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex flex-col items-center gap-1.5 flex-1">
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + i * 0.15 }}
+                            className="relative"
+                          >
+                            <div className="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center border border-amber-200/50">
+                              <item.icon className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
+                            </div>
+                            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-[10px] font-bold text-primary-foreground flex items-center justify-center">{item.step}</span>
+                          </motion.div>
+                          <span className="text-xs font-medium text-foreground">{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-center gap-0 mt-2 px-8">
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-amber-300/50 to-amber-400/70 rounded" />
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-400 mx-1" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-amber-400/70 to-primary/60 rounded" />
+                      <ArrowRight className="w-3.5 h-3.5 text-primary/60 mx-1" />
+                    </div>
+                  </div>
 
                   {/* Key insight box */}
                   <div className="bg-gradient-to-r from-primary/5 to-amber-50 rounded-xl p-4 border border-primary/10">
