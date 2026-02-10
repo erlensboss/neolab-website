@@ -59,8 +59,8 @@ export default function SeoGeoPakalpojumi() {
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6"
             >
               {t(
-                "Ja ar mājaslapu viss būtu kārtībā, šo lapu tu nelasītu. Parasti ir sajūta, ka potenciāls ir, bet rezultāts neatnāk. Redzamība stagnē, konkurenti ir priekšā, un nav līdz galam skaidrs, kur tieši ir problēma.",
-                "If everything was fine with your website, you wouldn't be reading this page. Usually there's a feeling that potential exists, but results don't come. Visibility stagnates, competitors are ahead, and it's not entirely clear where exactly the problem is."
+                "Mājaslapas problēmas reti ir acīmredzamas. Rezultāta nav, bet nav arī skaidrs, kas tieši to kavē.",
+                "The website's network problems are obvious. As a result, there is no, but there is also no winter that really hinders it.",
               )}
             </motion.p>
 
@@ -71,8 +71,8 @@ export default function SeoGeoPakalpojumi() {
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
             >
               {t(
-                "Tieši tāpēc SEO nevar sākt ar \"labojam šo\" vai \"pamēģinām to\". Visam pamatā ir skaidrība. Un skaidrība sākas ar SEO auditu.",
-                "That's exactly why SEO can't start with \"let's fix this\" or \"let's try that\". Everything is based on clarity. And clarity starts with an SEO audit."
+                "Tāpēc SEO nevar sākt ar labojumiem. Vispirms ir jābūt skaidrai situācijas izpratnei. Un tā sākas ar SEO auditu.",
+                "That's why SEO can't start with fixes. First, you need to have a clear understanding of the situation. And that starts with an SEO audit.",
               )}
             </motion.p>
 
