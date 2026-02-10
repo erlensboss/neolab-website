@@ -59,7 +59,7 @@ export default function SeoGeoPakalpojumi() {
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6"
             >
               {t(
-                "Ja ar mājaslapu viss būtu kārtībā, šī lapa nebūtu aktuāla. Parasti potenciāls ir, bet redzamība neaug, konkurenti ir priekšā un nav skaidrs, kur tieši pazūd iespējas.",
+                "Ja ar mājaslapu viss būtu kārtībā, šo lapu tu nelasītu. Parasti ir sajūta, ka potenciāls ir, bet rezultāts neatnāk. Redzamība stagnē, konkurenti ir priekšā, un nav līdz galam skaidrs, kur tieši ir problēma.",
                 "If everything was fine with your website, you wouldn't be reading this page. Usually there's a feeling that potential exists, but results don't come. Visibility stagnates, competitors are ahead, and it's not entirely clear where exactly the problem is."
               )}
             </motion.p>
