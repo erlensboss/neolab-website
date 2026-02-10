@@ -292,6 +292,71 @@ export default function AiPakalpojumi() {
         </div>
       </section>
 
+      {/* ========== INTRO BLOCK ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <ScrollReveal>
+              <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/50 p-8 md:p-12 lg:p-16 overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full blur-3xl" />
+                <div className="absolute top-8 right-8 md:top-12 md:right-12 opacity-[0.04]">
+                  <Brain className="w-32 h-32 md:w-48 md:h-48 text-primary" />
+                </div>
+
+                <div className="relative z-10 max-w-3xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-8 bg-gradient-to-b from-primary to-orange-500 rounded-full" />
+                    <span className="text-sm font-medium text-primary tracking-wide uppercase">
+                      {t("Mūsu pieeja", "Our approach")}
+                    </span>
+                  </div>
+
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
+                    {t(
+                      "AI Automatizācija pati par sevi neko neatrisina",
+                      "AI Automation alone doesn't solve anything"
+                    )}
+                  </h2>
+
+                  <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+                    <p>
+                      {t(
+                        "Lielākā kļūda ar AI automatizācijām nav tehnoloģija. Tā ir nepareiza izvēle. Uzņēmumi ievieš rīkus, cerot uz rezultātu, bet beigās iegūst vēl vienu sistēmu, kas jāuztur un jāapkalpo.",
+                        "The biggest mistake with AI automation isn't the technology. It's the wrong choice. Companies implement tools hoping for results, but end up with yet another system to maintain and service."
+                      )}
+                    </p>
+                    <p>
+                      {t(
+                        "AI sāk strādāt tikai tad, kad tas ir pieslēgts reāliem procesiem, skaidram mērķim un pareizajai vietai uzņēmumā. Pretējā gadījumā automatizācija kļūst par dārgu eksperimentu, nevis risinājumu.",
+                        "AI only starts working when it's connected to real processes, a clear goal, and the right place in your business. Otherwise, automation becomes an expensive experiment, not a solution."
+                      )}
+                    </p>
+                    <p className="text-foreground font-medium">
+                      {t(
+                        "Šī iemesla dēļ mēs nekad nesākam ar rīku. Mēs sākam ar sapratni.",
+                        "That's why we never start with a tool. We start with understanding."
+                      )}
+                    </p>
+                  </div>
+
+                  {/* Visual accent dots */}
+                  <div className="flex items-center gap-2 mt-8">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-primary to-orange-500 rounded-full" />
+                    <div className="w-2 h-2 rounded-full bg-orange-500" />
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-orange-500 to-amber-400 rounded-full" />
+                    <div className="w-2 h-2 rounded-full bg-amber-400" />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ========== SERVICES ========== */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
