@@ -38,11 +38,57 @@ export default function SeoGeoPakalpojumi() {
         descriptionEn="Full SEO & GEO service cycle for businesses – audits, technical and on-page optimization, keywords, GEO audits and strategy. A clear approach that works."
       />
 
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px]" />
+      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[85vh] flex items-center mt-[30px]">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient mesh */}
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage: `
+                radial-gradient(ellipse 80% 60% at 70% 40%, hsl(21 90% 48%) 0px, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 20% 60%, hsl(32 90% 55%) 0px, transparent 50%)
+              `,
+            }}
+          />
+
+          {/* Subtle grid pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `
+                linear-gradient(hsl(21 90% 48%) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(21 90% 48%) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 80px",
+            }}
+          />
+
+          {/* Floating orbs */}
+          <motion.div
+            className="absolute top-1/4 right-[15%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-amber-400/5 blur-3xl"
+            animate={{
+              y: [0, -30, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 left-[10%] w-48 h-48 rounded-full bg-gradient-to-tl from-amber-400/10 to-primary/5 blur-3xl"
+            animate={{
+              y: [0, 20, 0],
+              scale: [1, 1.15, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
