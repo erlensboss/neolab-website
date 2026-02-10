@@ -728,9 +728,9 @@ export default function SeoGeoPakalpojumi() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-white to-amber-50/30" />
         <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
-          backgroundSize: "40px 40px"
-        }} />
+        backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+        backgroundSize: "40px 40px"
+      }} />
 
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal>
@@ -754,82 +754,81 @@ export default function SeoGeoPakalpojumi() {
               {/* Vertical connection line */}
               <div className="absolute left-8 md:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-orange-300/40 to-sky-400/40 hidden md:block" />
 
-              {[
-                {
-                  step: "01",
-                  icon: Search,
-                  titleLv: "SEO audits",
-                  titleEn: "SEO audit",
-                  descLv: "Nosaka virzienu",
-                  descEn: "Sets the direction",
-                  color: "from-primary to-orange-400",
-                  bg: "bg-primary/5",
-                  border: "border-primary/20",
-                  iconColor: "text-primary",
-                },
-                {
-                  step: "02",
-                  icon: Gauge,
-                  titleLv: "Tehniskā optimizācija",
-                  titleEn: "Technical optimization",
-                  descLv: "Sakārto pamatus",
-                  descEn: "Sets up the foundation",
-                  color: "from-orange-400 to-amber-400",
-                  bg: "bg-orange-50",
-                  border: "border-orange-200/30",
-                  iconColor: "text-orange-500",
-                },
-                {
-                  step: "03",
-                  icon: AlignLeft,
-                  titleLv: "On-page SEO",
-                  titleEn: "On-page SEO",
-                  descLv: "Sakārto saturu",
-                  descEn: "Organizes content",
-                  color: "from-amber-400 to-yellow-400",
-                  bg: "bg-amber-50",
-                  border: "border-amber-200/30",
-                  iconColor: "text-amber-500",
-                },
-                {
-                  step: "04",
-                  icon: KeyRound,
-                  titleLv: "Atslēgvārdi",
-                  titleEn: "Keywords",
-                  descLv: "Iedod fokusu",
-                  descEn: "Provide focus",
-                  color: "from-emerald-400 to-green-400",
-                  bg: "bg-emerald-50",
-                  border: "border-emerald-200/30",
-                  iconColor: "text-emerald-500",
-                },
-                {
-                  step: "05",
-                  icon: Globe,
-                  titleLv: "GEO audits un stratēģija",
-                  titleEn: "GEO audit & strategy",
-                  descLv: "Paplašina redzamību nākotnē",
-                  descEn: "Expands future visibility",
-                  color: "from-sky-400 to-blue-500",
-                  bg: "bg-sky-50",
-                  border: "border-sky-200/30",
-                  iconColor: "text-sky-500",
-                },
-              ].map((item, i) => (
-                <ScrollReveal key={i} delay={i * 0.1}>
-                  <motion.div
-                    whileHover={{ x: 6 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative flex items-center gap-4 md:gap-6 mb-6 md:mb-8 group"
-                  >
+              {[{
+              step: "01",
+              icon: Search,
+              titleLv: "SEO audits",
+              titleEn: "SEO audit",
+              descLv: "Nosaka virzienu",
+              descEn: "Sets the direction",
+              color: "from-primary to-orange-400",
+              bg: "bg-primary/5",
+              border: "border-primary/20",
+              iconColor: "text-primary"
+            }, {
+              step: "02",
+              icon: Gauge,
+              titleLv: "Tehniskā optimizācija",
+              titleEn: "Technical optimization",
+              descLv: "Sakārto pamatus",
+              descEn: "Sets up the foundation",
+              color: "from-orange-400 to-amber-400",
+              bg: "bg-orange-50",
+              border: "border-orange-200/30",
+              iconColor: "text-orange-500"
+            }, {
+              step: "03",
+              icon: AlignLeft,
+              titleLv: "On-page SEO",
+              titleEn: "On-page SEO",
+              descLv: "Sakārto saturu",
+              descEn: "Organizes content",
+              color: "from-amber-400 to-yellow-400",
+              bg: "bg-amber-50",
+              border: "border-amber-200/30",
+              iconColor: "text-amber-500"
+            }, {
+              step: "04",
+              icon: KeyRound,
+              titleLv: "Atslēgvārdi",
+              titleEn: "Keywords",
+              descLv: "Iedod fokusu",
+              descEn: "Provide focus",
+              color: "from-emerald-400 to-green-400",
+              bg: "bg-emerald-50",
+              border: "border-emerald-200/30",
+              iconColor: "text-emerald-500"
+            }, {
+              step: "05",
+              icon: Globe,
+              titleLv: "GEO audits un stratēģija",
+              titleEn: "GEO audit & strategy",
+              descLv: "Paplašina redzamību nākotnē",
+              descEn: "Expands future visibility",
+              color: "from-sky-400 to-blue-500",
+              bg: "bg-sky-50",
+              border: "border-sky-200/30",
+              iconColor: "text-sky-500"
+            }].map((item, i) => <ScrollReveal key={i} delay={i * 0.1}>
+                  <motion.div whileHover={{
+                x: 6
+              }} transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }} className="relative flex items-center gap-4 md:gap-6 mb-6 md:mb-8 group">
                     {/* Step circle */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 + i * 0.1, type: "spring", stiffness: 200 }}
-                      className={`relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg flex-shrink-0`}
-                    >
+                    <motion.div initial={{
+                  scale: 0
+                }} whileInView={{
+                  scale: 1
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: 0.2 + i * 0.1,
+                  type: "spring",
+                  stiffness: 200
+                }} className={`relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
                       <item.icon className="w-7 h-7 md:w-9 md:h-9 text-white" />
                       <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-[11px] font-bold flex items-center justify-center shadow-md">
                         {item.step}
@@ -847,20 +846,19 @@ export default function SeoGeoPakalpojumi() {
                     </div>
 
                     {/* Arrow connector to next */}
-                    {i < 4 && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 + i * 0.1 }}
-                        className="absolute -bottom-5 left-[30px] md:left-[38px] text-muted-foreground/30 hidden md:block"
-                      >
+                    {i < 4 && <motion.div initial={{
+                  opacity: 0
+                }} whileInView={{
+                  opacity: 1
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: 0.4 + i * 0.1
+                }} className="absolute -bottom-5 left-[30px] md:left-[38px] text-muted-foreground/30 hidden md:block">
                         <ArrowRight className="w-4 h-4 rotate-90" />
-                      </motion.div>
-                    )}
+                      </motion.div>}
                   </motion.div>
-                </ScrollReveal>
-              ))}
+                </ScrollReveal>)}
             </div>
           </div>
         </div>
@@ -869,22 +867,18 @@ export default function SeoGeoPakalpojumi() {
       {/* ========== SECTION 5: Final CTA ========== */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-orange-50/30" />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            opacity: [0.4, 0.6, 0.4],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-          }}
-        />
+        <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" animate={{
+        scale: [1.1, 1, 1.1],
+        opacity: [0.4, 0.6, 0.4]
+      }} transition={{
+        duration: 10,
+        repeat: Infinity
+      }} />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-4 md:mb-6 md:text-6xl">
                 {t("Sper pirmos soļus", "Take the first steps towards")}{" "}
                 <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
                   {t("digitālās redzamības uzlabošanai", "improving digital visibility")}
@@ -893,24 +887,17 @@ export default function SeoGeoPakalpojumi() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-10 leading-relaxed">
-                {t(
-                  "SEO un GEO optimizācija ir piemērotais redzamības un organisku klientu piesaistes veids, kas nodrošinās ilgtermiņa digitālo attīstību uzņēmumam.",
-                  "SEO and GEO optimization is the right approach for visibility and organic client acquisition, ensuring long-term digital growth for your business."
-                )}
+                {t("SEO un GEO optimizācija ir piemērotais redzamības un organisku klientu piesaistes veids, kas nodrošinās ilgtermiņa digitālo attīstību uzņēmumam.", "SEO and GEO optimization is the right approach for visibility and organic client acquisition, ensuring long-term digital growth for your business.")}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-block"
-                >
-                  <Button
-                    variant="hero"
-                    size="lg"
-                    className="shadow-xl hover:shadow-2xl transition-all duration-300 text-sm md:text-base"
-                  >
+                <motion.div whileHover={{
+                scale: 1.02
+              }} whileTap={{
+                scale: 0.98
+              }} className="inline-block">
+                  <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl transition-all duration-300 text-sm md:text-base">
                     {t("Pieteikties SEO auditam", "Apply for SEO audit")}
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
