@@ -364,6 +364,99 @@ export default function AiPakalpojumi() {
         </div>
       </section>
 
+      {/* ========== HOW TO CHOOSE ========== */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/10 via-background to-muted/20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-10 md:mb-14">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+                  {t("Kā izvēlēties pareizo", "How to choose the right")}{" "}
+                  <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
+                    {t("AI automatizāciju?", "AI automation?")}
+                  </span>
+                </h2>
+                <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+                  {t(
+                    "Ne visas automatizācijas dod vienādu atdevi. Dažkārt viena precīzi ieviesta sistēma dod vairāk nekā pieci sadrumstaloti risinājumi.",
+                    "Not all automations provide the same return. Sometimes one precisely implemented system delivers more than five fragmented solutions.",
+                  )}
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-3 gap-5 md:gap-6 mb-10 md:mb-14">
+              {[
+                {
+                  num: "01",
+                  icon: Clock,
+                  titleLv: "Kur tiek zaudēts laiks?",
+                  titleEn: "Where is time lost?",
+                  descLv: "Identificējiet procesus, kuros komanda pavada visvairāk laika atkārtojamiem, manuāliem uzdevumiem.",
+                  descEn: "Identify processes where your team spends the most time on repetitive, manual tasks.",
+                },
+                {
+                  num: "02",
+                  icon: Zap,
+                  titleLv: "Kur rodas kavēšanās?",
+                  titleEn: "Where do delays occur?",
+                  descLv: "Atrodiet vietas, kur rodas kļūdas, aizkavēšanās vai zūd informācija starp posmiem.",
+                  descEn: "Find where errors, delays, or information loss happen between stages.",
+                },
+                {
+                  num: "03",
+                  icon: Brain,
+                  titleLv: "Kur cilvēks nav kritisks?",
+                  titleEn: "Where is human input not critical?",
+                  descLv: "Noskaidrojiet, kur darbs ir atkārtojams un automatizējams, bet cilvēka klātbūtne nav nepieciešama.",
+                  descEn: "Determine where work is repetitive and automatable, but human presence isn't required.",
+                },
+              ].map((item, i) => (
+                <ScrollReveal key={i} delay={0.05 + i * 0.08}>
+                  <motion.div
+                    whileHover={{ y: -3 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="relative group h-full"
+                  >
+                    <div className="h-full bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 p-6 md:p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+                      <div className="flex items-start justify-between mb-5">
+                        <span className="text-4xl md:text-5xl font-bold text-primary/10 leading-none">{item.num}</span>
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                          <item.icon className="w-5 h-5 text-primary" />
+                        </div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">{t(item.titleLv, item.titleEn)}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{t(item.descLv, item.descEn)}</p>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <ScrollReveal delay={0.2}>
+              <div className="relative bg-muted/40 backdrop-blur-sm rounded-2xl border border-border/40 p-6 md:p-8 lg:p-10">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary via-orange-500 to-amber-400 rounded-full" />
+                <div className="pl-4 md:pl-6">
+                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-3">
+                    {t(
+                      "Ja uz šiem jautājumiem nav skaidras atbildes, automatizācija kļūst par minēšanu.",
+                      "If there are no clear answers to these questions, automation becomes guesswork.",
+                    )}
+                  </p>
+                  <p className="text-foreground font-semibold text-base md:text-lg">
+                    {t(
+                      "Tāpēc pareizā izvēle nav par to, ko var automatizēt, bet gan par to, ko ir jēga automatizēt tieši šobrīd.",
+                      "That's why the right choice isn't about what can be automated, but what makes sense to automate right now.",
+                    )}
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ========== SERVICES ========== */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
