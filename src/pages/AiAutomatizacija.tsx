@@ -643,95 +643,68 @@ export default function AiAutomatizacija() {
           {/* Products Grid - Premium Design */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[{
-            icon: MessageSquare,
-            title: "LinkedIn Content System",
-            descriptionLv: "Automatizēta sistēma, kas palīdz regulāri veidot un publicēt saturu LinkedIn, analizējot tēmas, esošo saturu un nozares kontekstu.",
-            descriptionEn: "Automated system that helps regularly create and publish LinkedIn content, analyzing topics, existing content, and industry context.",
-            link: "/ai-automatizacija/linkedin-content-system",
-            gradient: "from-blue-500 via-blue-600 to-indigo-600",
-            bgGlow: "bg-blue-500/20",
-            features: [{
-              lv: "Satura kalendārs",
-              en: "Content calendar"
-            }, {
-              lv: "Tēmu izpēte",
-              en: "Topic research"
-            }, {
-              lv: "AI rakstīšana",
-              en: "AI writing"
-            }]
-          }, {
             icon: Users,
-            title: "Lead Capture Agent",
-            descriptionLv: "AI aģents, kas sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un ievāc potenciālo klientu kontaktus.",
-            descriptionEn: "AI agent that communicates with website visitors, answers questions, and collects potential customer contacts.",
-            link: "/ai-automatizacija/lead-capture-agent",
-            gradient: "from-amber-400 via-amber-500 to-orange-500",
-            bgGlow: "bg-amber-500/20",
-            features: [{
-              lv: "24/7 pieejamība",
-              en: "24/7 availability"
-            }, {
-              lv: "CRM integrācija",
-              en: "CRM integration"
-            }, {
-              lv: "Kvalificēšana",
-              en: "Qualification"
-            }]
-          }, {
-            icon: Zap,
-            title: "Speed-to-Lead System",
-            descriptionLv: "Sistēma, kas reaģē uz jauniem pieprasījumiem gandrīz uzreiz, nodod informāciju CRM un informē atbildīgos cilvēkus.",
-            descriptionEn: "System that responds to new leads almost instantly, transfers data to CRM, and notifies responsible people.",
-            link: "/ai-automatizacija/speed-to-lead",
-            gradient: "from-orange-500 via-red-500 to-rose-500",
-            bgGlow: "bg-orange-500/20",
-            features: [{
-              lv: "5 sek reakcija",
-              en: "5 sec response"
-            }, {
-              lv: "Auto paziņojumi",
-              en: "Auto notifications"
-            }, {
-              lv: "CRM sync",
-              en: "CRM sync"
-            }]
-          }, {
-            icon: Layers,
-            title: "Client Onboarding System",
-            descriptionLv: "Automatizē klienta uzsākšanas procesu – no pirmajām ziņām līdz iekšējo uzdevumu sadalei komandā.",
-            descriptionEn: "Automates the client onboarding process – from first messages to internal task distribution in the team.",
-            link: "/ai-automatizacija/client-onboarding",
+            title: t("Lead Capture Agent", "Lead Capture Agent"),
+            descriptionLv: "AI aģents, kas 24/7 sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un pārvērš interesi reālos kontaktos.",
+            descriptionEn: "AI agent that communicates with website visitors 24/7, answers questions, and converts interest into real contacts.",
+            price: t("No 1 200 €", "From €1,200"),
             gradient: "from-primary via-orange-500 to-amber-500",
             bgGlow: "bg-primary/20",
-            features: [{
-              lv: "Uzdevumu sadale",
-              en: "Task assignment"
-            }, {
-              lv: "E-pasta secības",
-              en: "Email sequences"
-            }, {
-              lv: "Kalendārs",
-              en: "Calendar"
-            }]
+            features: [{ lv: "24/7", en: "24/7" }, { lv: "Kvalificēšana", en: "Qualification" }, { lv: "CRM integrācija", en: "CRM integration" }]
+          }, {
+            icon: Zap,
+            title: t("Speed-to-Lead System", "Speed-to-Lead System"),
+            descriptionLv: "Sistēma, kas reaģē uz jauniem pieteikumiem pirmajās 60 sekundēs – brīdī, kad interese ir visaugstākā.",
+            descriptionEn: "System that responds to new inquiries within the first 60 seconds – when interest is highest.",
+            price: t("No 600 €", "From €600"),
+            gradient: "from-orange-500 via-amber-500 to-primary",
+            bgGlow: "bg-orange-500/20",
+            features: [{ lv: "<60 sek", en: "<60 sec" }, { lv: "Automātiska saziņa", en: "Auto outreach" }, { lv: "CRM sync", en: "CRM sync" }]
           }, {
             icon: MessageSquare,
-            title: "Customer Support Chatbot",
-            descriptionLv: "AI čatbots klientu jautājumu apstrādei, kas spēj sniegt atbildes uz biežākajiem jautājumiem un nodot sarežģītākus gadījumus komandai.",
-            descriptionEn: "AI chatbot for customer question handling that can answer FAQs and hand off complex cases to the team.",
-            link: "/ai-automatizacija/support-chatbot",
-            gradient: "from-amber-500 via-primary to-orange-600",
+            title: t("Customer Support AI Chatbot", "Customer Support AI Chatbot"),
+            descriptionLv: "AI čatbots, kas pārzina tavus pakalpojumus, cenas un procesus, atbild uz biežākajiem jautājumiem un atslogo komandu.",
+            descriptionEn: "AI chatbot that knows your services, prices, and processes, answers FAQs, and relieves your team.",
+            price: t("No 500 €", "From €500"),
+            gradient: "from-amber-500 via-primary to-orange-500",
             bgGlow: "bg-amber-500/20",
-            features: [{
-              lv: "AI atbildes",
-              en: "AI responses"
-            }, {
-              lv: "Nodošana cilvēkam",
-              en: "Human handoff"
-            }, {
-              lv: "Analītika",
-              en: "Analytics"
-            }]
+            features: [{ lv: "Tūlītējas atbildes", en: "Instant answers" }, { lv: "Eskalācija cilvēkam", en: "Human escalation" }]
+          }, {
+            icon: FileSpreadsheet,
+            title: t("LinkedIn Content System", "LinkedIn Content System"),
+            descriptionLv: "Pilnībā automatizēta LinkedIn satura sistēma, kas uztur regulāru klātbūtni, balstoties uz aktuāliem datiem.",
+            descriptionEn: "Fully automated LinkedIn content system that maintains regular presence based on current data.",
+            price: t("No 1 000 €", "From €1,000"),
+            gradient: "from-primary via-primary/80 to-orange-500",
+            bgGlow: "bg-primary/20",
+            features: [{ lv: "Autoritāte", en: "Authority" }, { lv: "Konsekvence", en: "Consistency" }, { lv: "Bez laika patēriņa", en: "No time investment" }]
+          }, {
+            icon: Layers,
+            title: t("Client Onboarding Automation", "Client Onboarding Automation"),
+            descriptionLv: "Automatizēta pāreja no \"darījums noslēgts\" uz sakārtotu klienta uzņemšanu – dokumenti, rēķini un informācija.",
+            descriptionEn: "Automated transition from 'deal closed' to organized client onboarding – documents, invoices, and information.",
+            price: t("No 500 €", "From €500"),
+            gradient: "from-orange-500 via-primary to-amber-500",
+            bgGlow: "bg-orange-500/20",
+            features: [{ lv: "Mazāk haosa", en: "Less chaos" }, { lv: "Labāks pirmais iespaids", en: "Better first impression" }]
+          }, {
+            icon: RefreshCcw,
+            title: t("Client Reactivation Campaigns", "Client Reactivation Campaigns"),
+            descriptionLv: "Sistēma, kas atdzīvina esošo klientu datubāzi ar mērķētām ziņām un atgriež ieņēmumus.",
+            descriptionEn: "System that revives your existing client database with targeted messages and recovers revenue.",
+            price: t("No 300 €", "From €300"),
+            gradient: "from-amber-500 via-orange-500 to-primary",
+            bgGlow: "bg-amber-500/20",
+            features: [{ lv: "LTV pieaugums", en: "LTV growth" }, { lv: "Automatizēti pieskārieni", en: "Automated touchpoints" }]
+          }, {
+            icon: Eye,
+            title: t("Social Media Product Marketing", "Social Media Product Marketing"),
+            descriptionLv: "Automātiska produktu publicēšana sociālajos tīklos – no e-veikala līdz gatavam postam bez manuāla darba.",
+            descriptionEn: "Automatic product publishing on social media – from e-store to finished post without manual work.",
+            price: t("No 600 €", "From €600"),
+            gradient: "from-primary via-amber-500 to-orange-500",
+            bgGlow: "bg-primary/20",
+            features: [{ lv: "E-commerce", en: "E-commerce" }, { lv: "Facebook & Instagram", en: "Facebook & Instagram" }, { lv: "Autopublicēšana", en: "Auto-publishing" }]
           }].map((product, index) => <ScrollReveal key={product.title} delay={0.05 + index * 0.05}>
                 <motion.div whileHover={{
               y: -8,
@@ -741,22 +714,16 @@ export default function AiAutomatizacija() {
               stiffness: 300,
               damping: 20
             }} className="group h-full">
-                  <Link to={getLocalizedPath(product.link)} className="block h-full">
+                  <Link to={getLocalizedPath("/ai-pakalpojumi")} className="block h-full">
                     <div className="relative bg-card/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-neo h-full flex flex-col hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
-                      {/* Gradient top accent */}
                       <div className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`} />
-
-                      {/* Glow effect on hover */}
                       <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 ${product.bgGlow} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
-
                       <div className="relative p-6 sm:p-8 flex flex-col flex-1">
-                        {/* Icon with animated ring */}
                         <div className="relative mb-6">
                           <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
                             <product.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                           </div>
-                          {/* Pulse ring */}
-                          <motion.div className={`absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-primary/30 opacity-0 group-hover:opacity-100`} animate={{
+                          <motion.div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-primary/30 opacity-0 group-hover:opacity-100" animate={{
                         scale: [1, 1.3, 1],
                         opacity: [0.5, 0, 0.5]
                       }} transition={{
@@ -764,25 +731,18 @@ export default function AiAutomatizacija() {
                         repeat: Infinity
                       }} />
                         </div>
-
-                        {/* Title */}
                         <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                           {product.title}
                         </h3>
-
-                        {/* Description */}
-                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
+                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-4 flex-1">
                           {t(product.descriptionLv, product.descriptionEn)}
                         </p>
-
-                        {/* Feature tags */}
+                        <p className="text-sm font-semibold text-foreground mb-4">{product.price}</p>
                         <div className="flex flex-wrap gap-2 mb-6">
                           {product.features.map((feature, i) => <span key={i} className="text-xs px-3 py-1.5 bg-muted/70 rounded-full text-muted-foreground font-medium">
                               {t(feature.lv, feature.en)}
                             </span>)}
                         </div>
-
-                        {/* CTA */}
                         <div className="flex items-center gap-2 text-primary font-semibold text-sm md:text-base group-hover:gap-4 transition-all duration-300">
                           {t("Uzzināt vairāk", "Learn more")}
                           <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
