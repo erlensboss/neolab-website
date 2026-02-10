@@ -45,10 +45,10 @@ export default function SeoGeoPakalpojumi() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
             >
-              {t(
-                "SEO un GEO pakalpojumi uzņēmumiem",
-                "SEO & GEO Services for Businesses"
-              )}
+              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">SEO</span>{" "}
+              {t("un", "&")}{" "}
+              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">GEO</span>{" "}
+              {t("pakalpojumi uzņēmumiem", "Services for Businesses")}
             </motion.h1>
 
             {/* Subtitle */}
@@ -56,11 +56,23 @@ export default function SeoGeoPakalpojumi() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6"
+            >
+              {t(
+                "Ja ar mājaslapu viss būtu kārtībā, šo lapu tu nelasītu. Parasti ir sajūta, ka potenciāls ir, bet rezultāts neatnāk. Redzamība stagnē, konkurenti ir priekšā, un nav līdz galam skaidrs, kur tieši ir problēma.",
+                "If everything was fine with your website, you wouldn't be reading this page. Usually there's a feeling that potential exists, but results don't come. Visibility stagnates, competitors are ahead, and it's not entirely clear where exactly the problem is."
+              )}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
             >
               {t(
-                "Pilns SEO un GEO pakalpojumu cikls – audits, tehniskā un on-page optimizācija, atslēgvārdi, GEO audits un stratēģija. Skaidra pieeja, kas strādā.",
-                "Full SEO & GEO service cycle – audits, technical and on-page optimization, keywords, GEO audits and strategy. A clear approach that works."
+                "Tieši tāpēc SEO nevar sākt ar \"labojam šo\" vai \"pamēģinām to\". Visam pamatā ir skaidrība. Un skaidrība sākas ar SEO auditu.",
+                "That's exactly why SEO can't start with \"let's fix this\" or \"let's try that\". Everything is based on clarity. And clarity starts with an SEO audit."
               )}
             </motion.p>
 
@@ -75,11 +87,6 @@ export default function SeoGeoPakalpojumi() {
                 <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                   {t("Pieteikt konsultāciju", "Book a consultation")}
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to={getLocalizedPath("/seo-un-geo")}>
-                  {t("Apskatīt pakalpojumus", "View services")}
                 </Link>
               </Button>
             </motion.div>
