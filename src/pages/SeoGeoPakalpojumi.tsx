@@ -106,7 +106,7 @@ export default function SeoGeoPakalpojumi() {
               transition={{
                 duration: 0.5,
               }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 my-0 mt-[80px]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 my-0 mt-[40px] md:mt-[80px]"
             >
               <Search className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">SEO & GEO</span>
@@ -522,13 +522,14 @@ export default function SeoGeoPakalpojumi() {
                             "Technical SEO optimization eliminates problems that physically prevent a website from growing. If the technical side isn't in order, any other optimization works only partially. This service provides a solid foundation for content and strategy.",
                           )}
                         </p>
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="flex flex-wrap items-center gap-3">
                           <span className="text-sm font-semibold text-foreground">
                             {t("Cena: no 350€", "Price: from €350")}
                           </span>
-                          <Button size="default" asChild>
+                          <Button size="sm" className="md:size-default" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                              {t("Pieteikt tehnisko SEO optimizāciju", "Request technical SEO optimization")}
+                              <span className="hidden sm:inline">{t("Pieteikt tehnisko SEO optimizāciju", "Request technical SEO optimization")}</span>
+                              <span className="sm:hidden">{t("Pieteikt", "Request")}</span>
                               <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
                           </Button>
@@ -625,17 +626,18 @@ export default function SeoGeoPakalpojumi() {
                             'On-page SEO optimization organizes what happens on the pages themselves – headings, structure, texts, internal links, and semantics. The goal isn\'t to "rewrite everything" but to make each page fulfill its purpose.',
                           )}
                         </p>
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="flex flex-wrap items-center gap-3">
                           <span className="text-sm font-semibold text-foreground">
                             {t("Cena: no 300€", "Price: from €300")}
                           </span>
                           <Button
-                            size="default"
-                            className="bg-amber-500 hover:bg-amber-600 text-primary-foreground"
+                            size="sm"
+                            className="bg-amber-500 hover:bg-amber-600 text-primary-foreground md:size-default"
                             asChild
                           >
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                              {t("Pieteikt on-page SEO optimizāciju", "Request on-page SEO optimization")}
+                              <span className="hidden sm:inline">{t("Pieteikt on-page SEO optimizāciju", "Request on-page SEO optimization")}</span>
+                              <span className="sm:hidden">{t("Pieteikt", "Request")}</span>
                               <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
                           </Button>
@@ -1080,7 +1082,7 @@ export default function SeoGeoPakalpojumi() {
             {/* Flow diagram */}
             <div className="relative">
               {/* Vertical connection line */}
-              <div className="absolute left-8 md:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-orange-300/40 to-sky-400/40 hidden md:block" />
+              <div className="absolute left-6 md:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-orange-300/40 to-sky-400/40" />
 
               {[
                 {
@@ -1164,7 +1166,7 @@ export default function SeoGeoPakalpojumi() {
                       stiffness: 300,
                       damping: 20,
                     }}
-                    className="relative flex items-center gap-4 md:gap-6 mb-6 md:mb-8 group"
+                    className="relative flex items-center gap-3 md:gap-6 mb-6 md:mb-8 group"
                   >
                     {/* Step circle */}
                     <motion.div
@@ -1182,9 +1184,9 @@ export default function SeoGeoPakalpojumi() {
                         type: "spring",
                         stiffness: 200,
                       }}
-                      className={`relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg flex-shrink-0`}
+                      className={`relative z-10 w-12 h-12 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg flex-shrink-0`}
                     >
-                      <item.icon className="w-7 h-7 md:w-9 md:h-9 text-white" />
+                      <item.icon className="w-5 h-5 md:w-9 md:h-9 text-white" />
                     </motion.div>
 
                     {/* Content card */}
