@@ -713,45 +713,65 @@ export default function AiPakalpojumi() {
       </section>
 
       {/* ========== CTA BLOCK ========== */}
-      <section className="py-20 md:py-28 px-4">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal>
-            <div className="relative text-center rounded-3xl overflow-hidden bg-card/60 backdrop-blur-sm border border-border/50 p-10 md:p-16 lg:p-20">
-              {/* Decorative accents */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-500 to-amber-500" />
-              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary/8 to-transparent rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-amber-500/6 to-transparent rounded-full blur-3xl" />
+      <section className="relative py-12 md:py-16 overflow-hidden">
+        {/* Strong orange gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/8 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
 
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance leading-tight">
-                  <span
-                    style={{
-                      background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    {t("Tas, kas attīstās,", "Those who evolve,")}
-                  </span>{" "}
-                  <span className="text-foreground">{t("tas uzvar", "win")}</span>
-                </h2>
+        {/* Radial glow at center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
 
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-                  {t(
-                    "Optimizē un paātrini sava uzņēmuma procesus ar AI automatizācijām. Sāc ar bezmaksas konsultāciju, kuras laikā gūsi skaidrību un sapratni par to, kas ir svarīgākais tavam uzņēmumam.",
-                    "Optimize and accelerate your business processes with AI automation. Start with a free consultation to gain clarity on what matters most for your business.",
-                  )}
-                </p>
+        {/* Corner accents */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl" />
 
-                <Button size="xl" variant="hero" asChild>
-                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                    {t("Pieteikties konsultācijai", "Book a consultation")}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
+        {/* Subtle animated gradient */}
+        <motion.div
+          className="absolute inset-0 opacity-30"
+          animate={{
+            background: [
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 30% 50%, hsla(21, 90%, 48%, 0.1) 0%, transparent 50%)",
+            ],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                {t("Tas, kas attīstās, tas uzvar.", "Those who evolve, win.")}
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                {t(
+                  "Optimizē un paātrini sava uzņēmuma procesus ar AI automatizācijām. Sāc ar bezmaksas konsultāciju, kuras laikā gūsi skaidrību un sapratni par to, kas ir svarīgākais tavam uzņēmumam.",
+                  "Optimize and accelerate your business processes with AI automation. Start with a free consultation to gain clarity on what matters most for your business.",
+                )}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="shadow-orange-strong hover:shadow-orange-hover text-lg px-12 py-8"
+                >
+                  {t("Pieteikties konsultācijai", "Book a consultation")}
+                  <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
-              </div>
-            </div>
-          </ScrollReveal>
+              </Link>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </>
