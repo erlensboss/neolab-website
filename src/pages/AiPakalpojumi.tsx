@@ -700,7 +700,7 @@ export default function AiPakalpojumi() {
                   ))}
                 </div>
 
-                <Button size="xl" variant="hero" asChild>
+                <Button size="lg" variant="hero" asChild className="w-auto max-w-full">
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                     {t("Saņemt pielāgotu risinājumu", "Get a personalized solution")}
                     <ArrowRight className="ml-2 w-5 h-5" />
