@@ -31,9 +31,9 @@ const services = [
     priceLv: "No 1 200 €",
     priceEn: "From €1,200",
     descriptionLv:
-      "AI aģents, kas 24/7 sazinās ar mājaslapas apmeklētājiem, atbild uz jautājumiem un pārvērš interesi reālos kontaktos. Kamēr citi neatbild, tu jau vāksi leadus.",
+      "Lead Capture Agent uzsāk sarunu ar mājaslapas apmeklētājiem un savāc strukturētu informāciju par viņu interesi. Tas atbild uz jautājumiem, kvalificē pieprasījumus un nodod tos tālāk pārdošanai. Rezultātā netiek zaudēti potenciālie klienti tikai tāpēc, ka neviens nepaspēja atbildēt.",
     descriptionEn:
-      "AI agent that communicates with website visitors 24/7, answers questions, and converts interest into real contacts. While others don't respond, you're already collecting leads.",
+      "Lead Capture Agent starts a conversation with website visitors and collects structured information about their interests. It answers questions, qualifies leads, and passes them on for sale. As a result, you don't lose potential customers just because no one responded.",
     tags: [
       { lv: "24/7", en: "24/7" },
       { lv: "Kvalificēšana", en: "Qualification" },
@@ -56,9 +56,9 @@ const services = [
     priceLv: "No 600 €",
     priceEn: "From €600",
     descriptionLv:
-      "Sistēma, kas reaģē uz jauniem pieteikumiem pirmajās 60 sekundēs – brīdī, kad interese ir visaugstākā. Lēna atbilde šeit vairs nav risks.",
+      "Speed-to-Lead System nodrošina tūlītēju reakciju uz jauniem pieteikumiem brīdī, kad interese ir visaugstākā. Sistēma automātiski uzsāk saziņu un informē atbildīgās personas. Tas samazina situācijas, kur darījumi pazūd kavētas atbildes dēļ.",
     descriptionEn:
-      "System that responds to new inquiries within the first 60 seconds – when interest is highest. A slow response is no longer a risk.",
+      "The Speed-to-Lead System ensures immediate response to new leads at the time when interest is highest. The system automatically initiates communication and notifies the responsible persons. This reduces situations where deals are lost due to delayed responses.",
     tags: [
       { lv: "<60 sek", en: "<60 sec" },
       { lv: "Automātiska saziņa", en: "Auto outreach" },
@@ -81,9 +81,9 @@ const services = [
     priceLv: "No 500 €",
     priceEn: "From €500",
     descriptionLv:
-      "AI čatbots, kas pārzina tavus pakalpojumus, cenas un procesus, atbild uz biežākajiem jautājumiem un atslogo komandu no rutīnas.",
+      "Customer Support AI Chatbot atbild uz biežākajiem klientu jautājumiem par pakalpojumiem, cenām un procesiem. Tas strādā nepārtraukti un nodod sarunu cilvēkam, ja nepieciešama padziļināta iesaiste. Klientu atbalsts kļūst ātrāks, bet komandas slodze ir mazāka.",
     descriptionEn:
-      "AI chatbot that knows your services, prices, and processes, answers FAQs, and relieves your team from routine tasks.",
+      "Customer Support AI Chatbot answers the most common customer questions about services, pricing, and processes. It works continuously and transfers the conversation to a human when in-depth engagement is needed. Customer support becomes faster, and the team’s workload is reduced.",
     tags: [
       { lv: "Tūlītējas atbildes", en: "Instant answers" },
       { lv: "Eskalācija cilvēkam", en: "Human escalation" },
@@ -105,9 +105,9 @@ const services = [
     priceLv: "No 1 000 €",
     priceEn: "From €1,000",
     descriptionLv:
-      "Pilnībā automatizēta LinkedIn satura sistēma, kas uztur regulāru klātbūtni, balstoties uz aktuāliem datiem un tavu profesionālo pozīciju.",
+      "LinkedIn Content Automation System nodrošina regulāru un konsekventu klātbūtni LinkedIn bez ikdienas manuāla darba. Saturs tiek veidots atbilstoši izvēlētajam pozicionējumam un auditorijai. Tas palīdz uzturēt profesionālu tēlu un ilgtermiņā stiprina autoritāti.",
     descriptionEn:
-      "Fully automated LinkedIn content system that maintains regular presence based on current data and your professional position.",
+      "LinkedIn Content Automation System ensures a regular and consistent presence on LinkedIn without daily manual work. Content is created according to the chosen positioning and audience. This helps maintain a professional image and strengthens authority in the long term.",
     tags: [
       { lv: "Autoritāte", en: "Authority" },
       { lv: "Konsekvence", en: "Consistency" },
@@ -130,9 +130,9 @@ const services = [
     priceLv: "No 500 €",
     priceEn: "From €500",
     descriptionLv:
-      'Automatizēta pāreja no "darījums noslēgts" uz sakārtotu klienta uzņemšanu – dokumenti, rēķini un informācija bez manuālas skraidīšanas.',
+      "Client Onboarding Automation sakārto klienta uzņemšanas procesu pēc darījuma noslēgšanas. Dokumenti, informācija un nākamie soļi tiek nodoti strukturēti un saprotami. Tas samazina haosu un uzlabo pirmo iespaidu par sadarbību.",
     descriptionEn:
-      "Automated transition from 'deal closed' to organized client onboarding – documents, invoices, and information without manual running around.",
+      "Client Onboarding Automation streamlines the client onboarding process after a deal is closed. Documents, information, and next steps are communicated in a structured and understandable manner. This reduces chaos and improves the first impression of the collaboration.",
     tags: [
       { lv: "Mazāk haosa", en: "Less chaos" },
       { lv: "Labāks pirmais iespaids", en: "Better first impression" },
@@ -154,9 +154,9 @@ const services = [
     priceLv: "No 300 €",
     priceEn: "From €300",
     descriptionLv:
-      "Sistēma, kas atdzīvina esošo klientu datubāzi ar mērķētām ziņām un atgriež ieņēmumus, kurus parasti vienkārši atstāj novārtā.",
+      "Client Reactivation Campaigns atjauno saziņu ar esošajiem klientiem un kontaktiem, kas laika gaitā palikuši neaktīvi. Automatizētas ziņas palīdz atgriezt uzmanību īstajā brīdī. Tas palielina atkārtotu darījumu iespējas bez aktīvas pārdošanas.",
     descriptionEn:
-      "System that revives your existing client database with targeted messages and recovers revenue that is usually simply neglected.",
+      "Client Reactivation Campaigns re-engage with existing customers and contacts who have become inactive over time. Automated messages help bring attention back at the right time. This increases the chances of repeat business without active sales.",
     tags: [
       { lv: "LTV pieaugums", en: "LTV growth" },
       { lv: "Automatizēti pieskārieni", en: "Automated touchpoints" },
@@ -178,8 +178,9 @@ const services = [
     priceLv: "No 600 €",
     priceEn: "From €600",
     descriptionLv:
-      "Automātiska produktu publicēšana sociālajos tīklos – no e-veikala līdz gatavam postam bez manuāla darba.",
-    descriptionEn: "Automatic product publishing on social media – from e-store to finished post without manual work.",
+      "Social Media Product Marketing System automatizē produktu publicēšanu sociālajos tīklos, balstoties uz e-veikala vai produktu kataloga datiem. Saturs tiek publicēts konsekventi un bez manuālas apstrādes. Tas ļauj uzturēt aktīvu klātbūtni pat ar lielu produktu apjomu.",
+    descriptionEn:
+      "Social Media Product Marketing System automates product publishing on social networks based on data from an e-store or product catalog. Content is published consistently and without manual processing. This allows you to maintain an active presence even with a large volume of products.",
     tags: [
       { lv: "E-commerce", en: "E-commerce" },
       { lv: "Facebook & Instagram", en: "Facebook & Instagram" },
