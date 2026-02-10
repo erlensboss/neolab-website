@@ -159,7 +159,7 @@ export default function ParMums() {
         ease: "easeInOut"
       }} className="absolute bottom-10 right-[5%] w-80 h-80 rounded-full bg-gradient-to-tl from-orange-400/15 to-primary/5 blur-3xl" />
         <div className="container-neo px-4 py-12 md:section-padding relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-center min-h-[70vh] md:min-h-[80vh]">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-center min-h-[70vh] md:min-h-[80vh] -mt-[30px]">
             {/* Left: Content */}
             <div className="lg:col-span-6 order-1 lg:order-1">
               <ScrollReveal>
@@ -195,9 +195,9 @@ export default function ParMums() {
             </div>
 
             {/* Right: Animated Logo Visual - Hidden on small mobile, shown below on larger mobile */}
-            <div className="lg:col-span-6 order-2 lg:order-2 hidden sm:flex justify-center lg:justify-end">
+            <div className="lg:col-span-6 order-2 lg:order-2 flex justify-center lg:justify-end">
               <ScrollReveal delay={0.15} direction="right">
-                <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]">
+                <div className="relative w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]">
                   {/* Outer rotating ring */}
                   <motion.div animate={{
                   rotate: 360
