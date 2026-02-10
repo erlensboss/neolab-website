@@ -71,7 +71,7 @@ export default function SeoGeo() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Premium Hero ========== */}
-      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center py-12 md:py-0">
+      <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center py-12 md:py-0 mt-[30px]">
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Gradient mesh */}

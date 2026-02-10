@@ -130,7 +130,7 @@ export default function ParMums() {
   const storyBlocksData = storyBlocks(t);
   return <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Trust Building ========== */}
-      <section className="relative overflow-hidden" style={{
+      <section className="relative overflow-hidden mt-[30px]" style={{
       background: "linear-gradient(135deg, hsl(30 80% 96%) 0%, hsl(28 70% 94%) 30%, hsl(35 60% 97%) 70%, hsl(30 50% 95%) 100%)"
     }}>
         {/* Warm grid pattern */}

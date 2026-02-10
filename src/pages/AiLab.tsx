@@ -144,7 +144,7 @@ export default function AiLab() {
   return (
     <div className="overflow-hidden bg-background">
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
-      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden">
+      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden mt-[30px]">
         {/* Subtle gradient overlays */}
         <div
           className="absolute inset-0 pointer-events-none"

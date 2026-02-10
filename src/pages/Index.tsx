@@ -177,7 +177,7 @@ export default function Index() {
   return (
     <div className="overflow-hidden">
       {/* ========== SECTION 1: HERO — Large, Premium, Dashboard-Style ========== */}
-      <section className="relative min-h-[auto] md:min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden">
+      <section className="relative min-h-[auto] md:min-h-[85vh] bg-gradient-hero-strong dots-atmosphere overflow-hidden mt-[30px]">
         {/* Grid pattern — stronger */}
         <div
           className="absolute inset-0 opacity-[0.05] hidden sm:block"
