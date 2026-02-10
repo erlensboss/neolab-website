@@ -714,7 +714,7 @@ export default function AiAutomatizacija() {
               stiffness: 300,
               damping: 20
             }} className="group h-full">
-                  <Link to={getLocalizedPath("/ai-pakalpojumi")} className="block h-full">
+                  <Link to={getLocalizedPath("/ai-automatizacija/ai-pakalpojumi")} className="block h-full">
                     <div className="relative bg-card/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-neo h-full flex flex-col hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
                       <div className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`} />
                       <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 ${product.bgGlow} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
