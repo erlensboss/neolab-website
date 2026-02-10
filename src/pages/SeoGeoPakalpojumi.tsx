@@ -291,7 +291,7 @@ export default function SeoGeoPakalpojumi() {
                         },
                         {
                           icon: BarChart3,
-                          label: t("Konkurences situāciju", "Competitive landscape"),
+                          label: t("Konkurenci", "Competitive landscape"),
                         },
                         {
                           icon: Wrench,
