@@ -130,7 +130,7 @@ const services = [
     priceLv: "No 500 €",
     priceEn: "From €500",
     descriptionLv:
-      "Automatizēta pāreja no \"darījums noslēgts\" uz sakārtotu klienta uzņemšanu – dokumenti, rēķini un informācija bez manuālas skraidīšanas.",
+      'Automatizēta pāreja no "darījums noslēgts" uz sakārtotu klienta uzņemšanu – dokumenti, rēķini un informācija bez manuālas skraidīšanas.',
     descriptionEn:
       "Automated transition from 'deal closed' to organized client onboarding – documents, invoices, and information without manual running around.",
     tags: [
@@ -179,8 +179,7 @@ const services = [
     priceEn: "From €600",
     descriptionLv:
       "Automātiska produktu publicēšana sociālajos tīklos – no e-veikala līdz gatavam postam bez manuāla darba.",
-    descriptionEn:
-      "Automatic product publishing on social media – from e-store to finished post without manual work.",
+    descriptionEn: "Automatic product publishing on social media – from e-store to finished post without manual work.",
     tags: [
       { lv: "E-commerce", en: "E-commerce" },
       { lv: "Facebook & Instagram", en: "Facebook & Instagram" },
@@ -248,9 +247,7 @@ export default function AiPakalpojumi() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8 mt-[40px] md:mt-[80px]"
             >
               <Brain className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                {t("AI pakalpojumi", "AI Services")}
-              </span>
+              <span className="text-sm font-medium text-primary">{t("AI pakalpojumi", "AI Services")}</span>
             </motion.div>
 
             <motion.h1
@@ -259,9 +256,7 @@ export default function AiPakalpojumi() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
             >
-              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
-                NEOLab
-              </span>{" "}
+              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">NEOLab</span>{" "}
               {t("AI automatizācijas pakalpojumi", "AI automation services")}
             </motion.h1>
 
@@ -273,7 +268,7 @@ export default function AiPakalpojumi() {
             >
               {t(
                 "Pārbaudīti AI risinājumi, kas automatizē ikdienas procesus un palīdz uzņēmumam strādāt efektīvāk – ar skaidrām cenām un ātru ieviešanu.",
-                "Proven AI solutions that automate daily processes and help your business work more efficiently – with clear pricing and fast implementation."
+                "Proven AI solutions that automate daily processes and help your business work more efficiently – with clear pricing and fast implementation.",
               )}
             </motion.p>
 
@@ -303,7 +298,11 @@ export default function AiPakalpojumi() {
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full blur-3xl" />
-                <img src={neolabIcon} alt="" className="absolute top-8 right-8 md:top-12 md:right-12 w-36 h-36 md:w-56 md:h-56 opacity-[0.06]" />
+                <img
+                  src={neolabIcon}
+                  alt=""
+                  className="absolute top-8 right-8 md:top-12 md:right-12 w-36 h-36 md:w-56 md:h-56 opacity-[0.06]"
+                />
 
                 <div className="relative z-10 max-w-3xl">
                   <div className="flex items-center gap-3 mb-6">
@@ -314,7 +313,13 @@ export default function AiPakalpojumi() {
                   </div>
 
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-balance">
-                    <span style={{ background: 'linear-gradient(to right, hsl(var(--primary)), #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <span
+                      style={{
+                        background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
                       {t("AI Automatizācija", "AI Automation")}
                     </span>{" "}
                     <span className="text-foreground">
@@ -326,19 +331,19 @@ export default function AiPakalpojumi() {
                     <p>
                       {t(
                         "Lielākā kļūda ar AI automatizācijām nav tehnoloģija. Tā ir nepareiza izvēle. Uzņēmumi ievieš rīkus, cerot uz rezultātu, bet beigās iegūst vēl vienu sistēmu, kas jāuztur un jāapkalpo.",
-                        "The biggest mistake with AI automation isn't the technology. It's the wrong choice. Companies implement tools hoping for results, but end up with yet another system to maintain and service."
+                        "The biggest mistake with AI automation isn't the technology. It's the wrong choice. Companies implement tools hoping for results, but end up with yet another system to maintain and service.",
                       )}
                     </p>
                     <p>
                       {t(
                         "AI sāk strādāt tikai tad, kad tas ir pieslēgts reāliem procesiem, skaidram mērķim un pareizajai vietai uzņēmumā. Pretējā gadījumā automatizācija kļūst par dārgu eksperimentu, nevis risinājumu.",
-                        "AI only starts working when it's connected to real processes, a clear goal, and the right place in your business. Otherwise, automation becomes an expensive experiment, not a solution."
+                        "AI only starts working when it's connected to real processes, a clear goal, and the right place in your business. Otherwise, automation becomes an expensive experiment, not a solution.",
                       )}
                     </p>
                     <p className="text-foreground font-medium">
                       {t(
                         "Šī iemesla dēļ mēs nekad nesākam ar rīku. Mēs sākam ar sapratni.",
-                        "That's why we never start with a tool. We start with understanding."
+                        "That's why we never start with a tool. We start with understanding.",
                       )}
                     </p>
                   </div>
@@ -368,9 +373,7 @@ export default function AiPakalpojumi() {
             <div className="text-center mb-6 md:mb-8">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-6 text-sm">
                 <Workflow className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">
-                  {t("Pakalpojumi", "Services")}
-                </span>
+                <span className="text-sm font-medium text-primary">{t("Pakalpojumi", "Services")}</span>
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground max-w-4xl mx-auto mb-4">
                 {t("AI automatizācijas", "AI automation")}{" "}
@@ -381,7 +384,7 @@ export default function AiPakalpojumi() {
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
                 {t(
                   "Katrs risinājums ir gatavs ieviešanai un pielāgojams tavam uzņēmumam. Izvēlies to, kas tev šobrīd ir aktuālākais.",
-                  "Each solution is ready for implementation and adaptable to your business. Choose what's most relevant for you right now."
+                  "Each solution is ready for implementation and adaptable to your business. Choose what's most relevant for you right now.",
                 )}
               </p>
             </div>
@@ -407,11 +410,15 @@ export default function AiPakalpojumi() {
                       <div className={`h-1 bg-gradient-to-r ${service.accentFrom} ${service.accentTo}`} />
 
                       <div className="p-6 md:p-8 lg:p-10">
-                        <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 lg:gap-10`}>
+                        <div
+                          className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 lg:gap-10`}
+                        >
                           {/* Content */}
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-4">
-                              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.accentFrom} ${service.accentTo} flex items-center justify-center shadow-md`}>
+                              <div
+                                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.accentFrom} ${service.accentTo} flex items-center justify-center shadow-md`}
+                              >
                                 <service.icon className="w-6 h-6 text-primary-foreground" />
                               </div>
                               <div>
@@ -481,7 +488,6 @@ export default function AiPakalpojumi() {
               );
             })}
           </div>
-
         </div>
       </section>
 
@@ -509,18 +515,22 @@ export default function AiPakalpojumi() {
                 </div>
 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance leading-tight">
-                  <span style={{ background: 'linear-gradient(to right, hsl(var(--primary)), #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                    {t("Veidots tieši", "Built specifically")}
+                  <span
+                    style={{
+                      background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {t("Risinājumi veidoti tieši", "Solutions built specifically")}
                   </span>{" "}
-                  <span className="text-foreground">
-                    {t("jūsu uzņēmumam", "for your business")}
-                  </span>
+                  <span className="text-foreground">{t("Jūsu uzņēmumam", "for Your business")}</span>
                 </h2>
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-10">
                   {t(
-                    "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus — mēs būvējam tieši jums.",
-                    "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions — we build specifically for you."
+                    "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus - mēs būvējam tieši jums.",
+                    "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions - we build specifically for you.",
                   )}
                 </p>
 
@@ -532,7 +542,8 @@ export default function AiPakalpojumi() {
                       titleLv: "Mērķu definēšana",
                       titleEn: "Goal definition",
                       descLv: "Sākam ar jūsu biznesa mērķiem un esošo procesu analīzi, nevis gatavu risinājumu.",
-                      descEn: "We start with your business goals and existing process analysis, not a ready-made solution.",
+                      descEn:
+                        "We start with your business goals and existing process analysis, not a ready-made solution.",
                       step: "01",
                     },
                     {
@@ -568,12 +579,8 @@ export default function AiPakalpojumi() {
                           {card.step}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-2">
-                        {t(card.titleLv, card.titleEn)}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {t(card.descLv, card.descEn)}
-                      </p>
+                      <h3 className="text-lg font-bold text-foreground mb-2">{t(card.titleLv, card.titleEn)}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{t(card.descLv, card.descEn)}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -601,7 +608,7 @@ export default function AiPakalpojumi() {
 
                 <Button size="xl" variant="hero" asChild>
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                    {t("Apspriest savu risinājumu", "Discuss your solution")}
+                    {t("Saņemt pielāgatu risinājumi", "Get customized solutions")}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
