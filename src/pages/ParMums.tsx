@@ -163,7 +163,7 @@ export default function ParMums() {
             {/* Left: Content */}
             <div className="lg:col-span-6 order-1 lg:order-1">
               <ScrollReveal>
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-8">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-8 my-[40px]">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   {t("Par mums", "About Us")}
                 </span>
