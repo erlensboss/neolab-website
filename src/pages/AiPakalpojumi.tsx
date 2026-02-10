@@ -303,9 +303,7 @@ export default function AiPakalpojumi() {
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full blur-3xl" />
-                <div className="absolute top-8 right-8 md:top-12 md:right-12 opacity-[0.03]">
-                  <img src={neolabIcon} alt="" className="w-36 h-36 md:w-56 md:h-56" />
-                </div>
+                <img src={neolabIcon} alt="" className="absolute top-8 right-8 md:top-12 md:right-12 w-36 h-36 md:w-56 md:h-56 opacity-[0.06]" />
 
                 <div className="relative z-10 max-w-3xl">
                   <div className="flex items-center gap-3 mb-6">
@@ -315,14 +313,13 @@ export default function AiPakalpojumi() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
-                    <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-balance">
+                    <span style={{ background: 'linear-gradient(to right, hsl(var(--primary)), #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                       {t("AI Automatizācija", "AI Automation")}
                     </span>{" "}
-                    {t(
-                      "pati par sevi neko neatrisina",
-                      "alone doesn't solve anything"
-                    )}
+                    <span className="text-foreground">
+                      {t("pati par sevi neko neatrisina", "alone doesn't solve anything")}
+                    </span>
                   </h2>
 
                   <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
