@@ -256,7 +256,7 @@ export default function Index() {
             </div>
 
             {/* RIGHT COLUMN: Dashboard Visual - Optimized */}
-            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end order-2 mt-6 sm:mt-0">
+            <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end order-2 mt-6 sm:mt-0 lg:mt-[20px]">
               <OptimizedHeroVisual />
             </div>
           </div>
