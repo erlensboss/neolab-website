@@ -61,10 +61,8 @@ export default function SeoGeoPakalpojumi() {
               }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
             >
-              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">SEO</span>{" "}
-              {t("un", "&")}{" "}
-              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">GEO</span>{" "}
-              {t("pakalpojumi uzņēmumiem", "Services for Businesses")}
+              <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">NEOLab</span>{" "}
+              {t("SEO pakalpojumi", "SEO services")}
             </motion.h1>
 
             {/* Subtitle */}
