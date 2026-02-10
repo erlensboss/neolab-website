@@ -1,27 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Search,
-  MapPin,
-  ArrowRight,
-  Eye,
-  BarChart3,
-  Wrench,
-  FileText,
-  CheckCircle2,
-  Target,
-  Gauge,
-  Code2,
-  Link2,
-  AlignLeft,
-  KeyRound,
-  Layers,
-  Brain,
-  Sparkles,
-  Globe,
-  BookOpen,
-  TrendingUp,
-  Shield,
-} from "lucide-react";
+import { Search, MapPin, ArrowRight, Eye, BarChart3, Wrench, FileText, CheckCircle2, Target, Gauge, Code2, Link2, AlignLeft, KeyRound, Layers, Brain, Sparkles, Globe, BookOpen, TrendingUp, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/shared/SEOHead";
@@ -372,13 +350,14 @@ export default function SeoGeoPakalpojumi() {
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
                 {t(
                   "Pārējie pakalpojumi netiek veikti atrauti. Tie balstās uz audita secinājumiem un tiek pielāgoti konkrētajai situācijai. Tieši šī secība ļauj sasniegt stabilu rezultātu.",
-                  "Other services are not performed in isolation. They are based on audit findings and tailored to the specific situation. This sequence allows for stable results.",
+                  "Other services are not performed in isolation. They are based on audit findings and tailored to the specific situation. This sequence allows for stable results."
                 )}
               </p>
             </div>
           </ScrollReveal>
 
           <div className="space-y-8 md:space-y-10 max-w-5xl mx-auto">
+
             {/* ── Card 1: Tehniskā SEO optimizācija ── */}
             <ScrollReveal delay={0.1}>
               <motion.div
@@ -389,7 +368,7 @@ export default function SeoGeoPakalpojumi() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" />
                 <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/40" />
-
+                  
                   <div className="p-6 md:p-8 lg:p-10">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                       <div className="flex-1">
@@ -398,24 +377,18 @@ export default function SeoGeoPakalpojumi() {
                             <Wrench className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                              {t("Tehniskā SEO optimizācija", "Technical SEO optimization")}
-                            </h3>
-                            <span className="text-xs text-primary font-medium">
-                              {t("Stabils pamats", "Solid foundation")}
-                            </span>
+                            <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Tehniskā SEO optimizācija", "Technical SEO optimization")}</h3>
+                            <span className="text-xs text-primary font-medium">{t("Stabils pamats", "Solid foundation")}</span>
                           </div>
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-4">
                           {t(
                             "Tehniskā SEO optimizācija novērš problēmas, kas fiziski neļauj mājaslapai augt. Ja tehniskā puse nav sakārtota, jebkura cita optimizācija strādā tikai daļēji. Šis pakalpojums nodrošina stabilu pamatu, uz kura var balstīt saturu un stratēģiju.",
-                            "Technical SEO optimization eliminates problems that physically prevent a website from growing. If the technical side isn't in order, any other optimization works only partially. This service provides a solid foundation for content and strategy.",
+                            "Technical SEO optimization eliminates problems that physically prevent a website from growing. If the technical side isn't in order, any other optimization works only partially. This service provides a solid foundation for content and strategy."
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">
-                            {t("Cena: no 350€", "Price: from 350€")}
-                          </span>
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
                           <Button size="default" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt tehnisko SEO optimizāciju", "Request technical SEO optimization")}
@@ -464,7 +437,7 @@ export default function SeoGeoPakalpojumi() {
                 <div className="absolute inset-0 bg-gradient-to-l from-amber-400/10 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" />
                 <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="h-1 bg-gradient-to-r from-amber-400 via-amber-500 to-primary/60" />
-
+                  
                   <div className="p-6 md:p-8 lg:p-10">
                     <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-10">
                       <div className="flex-1">
@@ -473,29 +446,19 @@ export default function SeoGeoPakalpojumi() {
                             <AlignLeft className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                              {t("On-page SEO optimizācija", "On-page SEO optimization")}
-                            </h3>
-                            <span className="text-xs text-amber-600 font-medium">
-                              {t("Satura precizitāte", "Content precision")}
-                            </span>
+                            <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("On-page SEO optimizācija", "On-page SEO optimization")}</h3>
+                            <span className="text-xs text-amber-600 font-medium">{t("Satura precizitāte", "Content precision")}</span>
                           </div>
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-4">
                           {t(
-                            'On-page SEO optimizācija sakārto to, kas notiek pašās lapās – virsrakstus, struktūru, tekstus, iekšējās saites un semantiku. Mērķis nav "pārrakstīt visu", bet panākt, lai katra lapa pilda savu uzdevumu. Šis posms novērš situācijas, kur saturs ir, bet tas netiek uztverts pareizi.',
-                            'On-page SEO optimization organizes what happens on the pages themselves – headings, structure, texts, internal links, and semantics. The goal isn\'t to "rewrite everything" but to make each page fulfill its purpose.',
+                            "On-page SEO optimizācija sakārto to, kas notiek pašās lapās – virsrakstus, struktūru, tekstus, iekšējās saites un semantiku. Mērķis nav \"pārrakstīt visu\", bet panākt, lai katra lapa pilda savu uzdevumu. Šis posms novērš situācijas, kur saturs ir, bet tas netiek uztverts pareizi.",
+                            "On-page SEO optimization organizes what happens on the pages themselves – headings, structure, texts, internal links, and semantics. The goal isn't to \"rewrite everything\" but to make each page fulfill its purpose."
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">
-                            {t("Cena: no 300€", "Price: from 300€")}
-                          </span>
-                          <Button
-                            size="default"
-                            className="bg-amber-500 hover:bg-amber-600 text-primary-foreground"
-                            asChild
-                          >
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
+                          <Button size="default" className="bg-amber-500 hover:bg-amber-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt on-page SEO optimizāciju", "Request on-page SEO optimization")}
                               <ArrowRight className="ml-2 w-4 h-4" />
@@ -522,19 +485,13 @@ export default function SeoGeoPakalpojumi() {
                                 transition={{ delay: 0.4 + i * 0.08, duration: 0.4 }}
                                 className="origin-left"
                               >
-                                <div
-                                  className={`${item.w} h-6 rounded-md bg-gradient-to-r from-amber-200/80 to-amber-100/60 flex items-center px-2`}
-                                >
-                                  <span className="text-[10px] font-mono font-bold text-amber-700/70">
-                                    {item.label}
-                                  </span>
+                                <div className={`${item.w} h-6 rounded-md bg-gradient-to-r from-amber-200/80 to-amber-100/60 flex items-center px-2`}>
+                                  <span className="text-[10px] font-mono font-bold text-amber-700/70">{item.label}</span>
                                 </div>
                               </motion.div>
                             ))}
                           </div>
-                          <p className="text-[10px] text-amber-600/60 mt-3 text-center font-medium">
-                            {t("Lapas struktūra", "Page structure")}
-                          </p>
+                          <p className="text-[10px] text-amber-600/60 mt-3 text-center font-medium">{t("Lapas struktūra", "Page structure")}</p>
                         </div>
                       </div>
                     </div>
@@ -553,7 +510,7 @@ export default function SeoGeoPakalpojumi() {
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" />
                 <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500" />
-
+                  
                   <div className="p-6 md:p-8 lg:p-10">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                       <div className="flex-1">
@@ -562,27 +519,20 @@ export default function SeoGeoPakalpojumi() {
                             <KeyRound className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                              {t("Atslēgvārdu saraksta un struktūras izveide", "Keyword list & structure development")}
-                            </h3>
-                            <span className="text-xs text-emerald-600 font-medium">
-                              {t("Ilgtermiņa pamats", "Long-term foundation")}
-                            </span>
+                            <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("Atslēgvārdu saraksta un struktūras izveide", "Keyword list & structure development")}</h3>
+                            <span className="text-xs text-emerald-600 font-medium">{t("Ilgtermiņa pamats", "Long-term foundation")}</span>
                           </div>
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-3">
                           {t(
                             "Atslēgvārdu saraksts nav vienkārši vārdu kopa. Tā ir struktūra, kas nosaka, par ko katrai lapai ir jābūt un kā izvairīties no iekšējas konkurences.",
-                            "A keyword list isn't just a collection of words. It's a structure that determines what each page should be about and how to avoid internal competition.",
+                            "A keyword list isn't just a collection of words. It's a structure that determines what each page should be about and how to avoid internal competition."
                           )}
                         </p>
                         <div className="space-y-2 mb-5">
                           {[
                             t("Kuras tēmas ir prioritāras", "Which topics are priorities"),
-                            t(
-                              "Kurām lapām jāstrādā uz konkrētiem meklējumiem",
-                              "Which pages should target specific searches",
-                            ),
+                            t("Kurām lapām jāstrādā uz konkrētiem meklējumiem", "Which pages should target specific searches"),
                             t("Kā veidot saturu bez kanibalizācijas", "How to create content without cannibalization"),
                           ].map((item, i) => (
                             <div key={i} className="flex items-center gap-2">
@@ -592,12 +542,8 @@ export default function SeoGeoPakalpojumi() {
                           ))}
                         </div>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">{t("Cena: 99€", "Price: 99€")}</span>
-                          <Button
-                            size="default"
-                            className="bg-emerald-500 hover:bg-emerald-600 text-primary-foreground"
-                            asChild
-                          >
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: ___€", "Price: ___€")}</span>
+                          <Button size="default" className="bg-emerald-500 hover:bg-emerald-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Saņemt atslēgvārdu struktūru", "Get keyword structure")}
                               <ArrowRight className="ml-2 w-4 h-4" />
@@ -610,9 +556,7 @@ export default function SeoGeoPakalpojumi() {
                         <div className="bg-emerald-50/60 rounded-xl p-5 border border-emerald-200/40">
                           <div className="flex flex-col items-center">
                             <div className="w-full bg-emerald-200/50 rounded-lg p-2.5 text-center mb-2">
-                              <span className="text-xs font-bold text-emerald-700">
-                                {t("Galvenā tēma", "Main topic")}
-                              </span>
+                              <span className="text-xs font-bold text-emerald-700">{t("Galvenā tēma", "Main topic")}</span>
                             </div>
                             <div className="w-px h-4 bg-emerald-300" />
                             <div className="flex gap-3 w-full">
@@ -626,9 +570,7 @@ export default function SeoGeoPakalpojumi() {
                                     transition={{ delay: 0.5 + i * 0.1 }}
                                     className="w-full bg-emerald-100/80 rounded-md p-1.5 text-center border border-emerald-200/50"
                                   >
-                                    <span className="text-[9px] font-medium text-emerald-600">
-                                      {t(`Tēma ${i + 1}`, `Topic ${i + 1}`)}
-                                    </span>
+                                    <span className="text-[9px] font-medium text-emerald-600">{t(`Tēma ${i + 1}`, `Topic ${i + 1}`)}</span>
                                   </motion.div>
                                   <div className="w-px h-2 bg-emerald-200" />
                                   <div className="w-full bg-emerald-50 rounded p-1 text-center">
@@ -638,9 +580,7 @@ export default function SeoGeoPakalpojumi() {
                               ))}
                             </div>
                           </div>
-                          <p className="text-[10px] text-emerald-600/60 mt-3 text-center font-medium">
-                            {t("Atslēgvārdu struktūra", "Keyword structure")}
-                          </p>
+                          <p className="text-[10px] text-emerald-600/60 mt-3 text-center font-medium">{t("Atslēgvārdu struktūra", "Keyword structure")}</p>
                         </div>
                       </div>
                     </div>
@@ -659,7 +599,7 @@ export default function SeoGeoPakalpojumi() {
                 <div className="absolute inset-0 bg-gradient-to-l from-violet-400/10 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" />
                 <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="h-1 bg-gradient-to-r from-violet-400 via-violet-500 to-purple-500" />
-
+                  
                   <div className="p-6 md:p-8 lg:p-10">
                     <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-10">
                       <div className="flex-1">
@@ -668,29 +608,19 @@ export default function SeoGeoPakalpojumi() {
                             <Brain className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                              {t("GEO mājaslapas audits", "GEO website audit")}
-                            </h3>
-                            <span className="text-xs text-violet-600 font-medium">
-                              {t("AI meklēšanas gatavība", "AI search readiness")}
-                            </span>
+                            <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("GEO mājaslapas audits", "GEO website audit")}</h3>
+                            <span className="text-xs text-violet-600 font-medium">{t("AI meklēšanas gatavība", "AI search readiness")}</span>
                           </div>
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-4">
                           {t(
                             "GEO audits izvērtē, cik labi mājaslapa ir sagatavota AI balstītai meklēšanai. Tas parāda, vai saturs ir pietiekami skaidrs, strukturēts un uztverams, lai to izmantotu ģeneratīvās atbildēs. Šis audits ļauj saprast, vai mājaslapa spēj kļūt par avotu, nevis tikai par vienu no daudziem rezultātiem.",
-                            "A GEO audit evaluates how well a website is prepared for AI-based search. It shows whether content is clear, structured, and perceivable enough to be used in generative responses.",
+                            "A GEO audit evaluates how well a website is prepared for AI-based search. It shows whether content is clear, structured, and perceivable enough to be used in generative responses."
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">
-                            {t("Cena: 249€", "Price: 249€")}
-                          </span>
-                          <Button
-                            size="default"
-                            className="bg-violet-500 hover:bg-violet-600 text-primary-foreground"
-                            asChild
-                          >
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: ___€", "Price: ___€")}</span>
+                          <Button size="default" className="bg-violet-500 hover:bg-violet-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Pieteikt GEO auditu", "Request GEO audit")}
                               <ArrowRight className="ml-2 w-4 h-4" />
@@ -705,12 +635,7 @@ export default function SeoGeoPakalpojumi() {
                             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                               <circle cx="50" cy="50" r="40" fill="none" stroke="hsl(263 60% 90%)" strokeWidth="8" />
                               <motion.circle
-                                cx="50"
-                                cy="50"
-                                r="40"
-                                fill="none"
-                                stroke="hsl(263 70% 60%)"
-                                strokeWidth="8"
+                                cx="50" cy="50" r="40" fill="none" stroke="hsl(263 70% 60%)" strokeWidth="8"
                                 strokeLinecap="round"
                                 strokeDasharray={`${2 * Math.PI * 40}`}
                                 initial={{ strokeDashoffset: 2 * Math.PI * 40 }}
@@ -724,9 +649,7 @@ export default function SeoGeoPakalpojumi() {
                               <span className="text-xs font-bold text-violet-700">GEO</span>
                             </div>
                           </div>
-                          <p className="text-[10px] text-violet-600/60 mt-2 text-center font-medium">
-                            {t("AI gatavības līmenis", "AI readiness level")}
-                          </p>
+                          <p className="text-[10px] text-violet-600/60 mt-2 text-center font-medium">{t("AI gatavības līmenis", "AI readiness level")}</p>
                         </div>
                       </div>
                     </div>
@@ -745,7 +668,7 @@ export default function SeoGeoPakalpojumi() {
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-400/10 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" />
                 <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-border/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="h-1 bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500" />
-
+                  
                   <div className="p-6 md:p-8 lg:p-10">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                       <div className="flex-1">
@@ -754,29 +677,19 @@ export default function SeoGeoPakalpojumi() {
                             <Globe className="w-6 h-6 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                              {t("GEO stratēģija", "GEO strategy")}
-                            </h3>
-                            <span className="text-xs text-sky-600 font-medium">
-                              {t("Ilgtermiņa redzējums", "Long-term vision")}
-                            </span>
+                            <h3 className="text-xl md:text-2xl font-bold text-foreground">{t("GEO stratēģija", "GEO strategy")}</h3>
+                            <span className="text-xs text-sky-600 font-medium">{t("Ilgtermiņa redzējums", "Long-term vision")}</span>
                           </div>
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-4">
                           {t(
                             "GEO stratēģija nosaka, kā saturam un struktūrai jāattīstās tālāk, lai uzņēmuma informācija būtu konkurētspējīga arī AI meklēšanas vidē. Tā balstās uz skaidru tematisko fokusu, kontekstu un autoritātes veidošanu. Šis pakalpojums ir paredzēts uzņēmumiem, kuri skatās uz priekšu un plāno ilgtermiņā.",
-                            "GEO strategy determines how content and structure should evolve so that company information remains competitive in the AI search environment. It is based on clear topical focus, context, and authority building.",
+                            "GEO strategy determines how content and structure should evolve so that company information remains competitive in the AI search environment. It is based on clear topical focus, context, and authority building."
                           )}
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
-                          <span className="text-sm font-semibold text-foreground">
-                            {t("Cena: no 350€", "Price: from 350€")}
-                          </span>
-                          <Button
-                            size="default"
-                            className="bg-sky-500 hover:bg-sky-600 text-primary-foreground"
-                            asChild
-                          >
+                          <span className="text-sm font-semibold text-foreground">{t("Cena: no ___€", "Price: from ___€")}</span>
+                          <Button size="default" className="bg-sky-500 hover:bg-sky-600 text-primary-foreground" asChild>
                             <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
                               {t("Izstrādāt GEO stratēģiju", "Develop GEO strategy")}
                               <ArrowRight className="ml-2 w-4 h-4" />
@@ -802,17 +715,13 @@ export default function SeoGeoPakalpojumi() {
                                 className="flex flex-col items-center gap-1.5 origin-bottom flex-1"
                               >
                                 <item.icon className="w-3.5 h-3.5 text-sky-500" />
-                                <div
-                                  className={`${item.h} w-full rounded-t-lg bg-gradient-to-t from-sky-300/80 to-sky-200/50 border border-sky-200/50`}
-                                />
+                                <div className={`${item.h} w-full rounded-t-lg bg-gradient-to-t from-sky-300/80 to-sky-200/50 border border-sky-200/50`} />
                                 <span className="text-[9px] font-medium text-sky-600">{item.label}</span>
                               </motion.div>
                             ))}
                           </div>
                           <div className="h-px bg-sky-200/60 mt-1" />
-                          <p className="text-[10px] text-sky-600/60 mt-2 text-center font-medium">
-                            {t("Stratēģijas pīlāri", "Strategy pillars")}
-                          </p>
+                          <p className="text-[10px] text-sky-600/60 mt-2 text-center font-medium">{t("Stratēģijas pīlāri", "Strategy pillars")}</p>
                         </div>
                       </div>
                     </div>
@@ -820,6 +729,7 @@ export default function SeoGeoPakalpojumi() {
                 </div>
               </motion.div>
             </ScrollReveal>
+
           </div>
         </div>
       </section>
