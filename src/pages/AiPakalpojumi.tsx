@@ -711,6 +711,49 @@ export default function AiPakalpojumi() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ========== CTA BLOCK ========== */}
+      <section className="py-20 md:py-28 px-4">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal>
+            <div className="relative text-center rounded-3xl overflow-hidden bg-card/60 backdrop-blur-sm border border-border/50 p-10 md:p-16 lg:p-20">
+              {/* Decorative accents */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-500 to-amber-500" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary/8 to-transparent rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-amber-500/6 to-transparent rounded-full blur-3xl" />
+
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance leading-tight">
+                  <span
+                    style={{
+                      background: "linear-gradient(to right, hsl(var(--primary)), #f97316)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {t("Tas, kas attīstās,", "Those who evolve,")}
+                  </span>{" "}
+                  <span className="text-foreground">{t("tas uzvar", "win")}</span>
+                </h2>
+
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+                  {t(
+                    "Optimizē un paātrini sava uzņēmuma procesus ar AI automatizācijām. Sāc ar bezmaksas konsultāciju, kuras laikā gūsi skaidrību un sapratni par to, kas ir svarīgākais tavam uzņēmumam.",
+                    "Optimize and accelerate your business processes with AI automation. Start with a free consultation to gain clarity on what matters most for your business.",
+                  )}
+                </p>
+
+                <Button size="xl" variant="hero" asChild>
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+                    {t("Pieteikties konsultācijai", "Book a consultation")}
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </>
   );
 }
