@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import neolabIcon from "@/assets/neolab-icon-black.svg";
 import {
   Brain,
   ArrowRight,
@@ -302,8 +303,8 @@ export default function AiPakalpojumi() {
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-56 h-56 bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full blur-3xl" />
-                <div className="absolute top-8 right-8 md:top-12 md:right-12 opacity-[0.04]">
-                  <Brain className="w-32 h-32 md:w-48 md:h-48 text-primary" />
+                <div className="absolute top-8 right-8 md:top-12 md:right-12 opacity-[0.03]">
+                  <img src={neolabIcon} alt="" className="w-36 h-36 md:w-56 md:h-56" />
                 </div>
 
                 <div className="relative z-10 max-w-3xl">
@@ -315,9 +316,12 @@ export default function AiPakalpojumi() {
                   </div>
 
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
+                    <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">
+                      {t("AI Automatizācija", "AI Automation")}
+                    </span>{" "}
                     {t(
-                      "AI Automatizācija pati par sevi neko neatrisina",
-                      "AI Automation alone doesn't solve anything"
+                      "pati par sevi neko neatrisina",
+                      "alone doesn't solve anything"
                     )}
                   </h2>
 
