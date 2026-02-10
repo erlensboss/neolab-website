@@ -482,21 +482,94 @@ export default function AiPakalpojumi() {
             })}
           </div>
 
-          {/* Bottom CTA */}
-          <ScrollReveal delay={0.2}>
-            <div className="text-center mt-16">
-              <p className="text-muted-foreground mb-6 text-lg">
-                {t(
-                  "Nezini, kurš risinājums der tev? Sāc ar bezmaksas konsultāciju.",
-                  "Not sure which solution fits you? Start with a free consultation."
-                )}
-              </p>
-              <Button size="lg" variant="hero" asChild>
-                <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                  {t("Bezmaksas konsultācija", "Free consultation")}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
+        </div>
+      </section>
+
+      {/* Personalized Solutions Block */}
+      <section className="py-20 md:py-28 px-4">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="relative rounded-3xl overflow-hidden">
+              {/* Background gradient layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-orange-500/[0.04] to-amber-500/[0.07]" />
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-amber-500/8 to-transparent rounded-full blur-3xl" />
+              
+              {/* NEOLab watermark */}
+              <img src={neolabIcon} alt="" className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-44 h-44 md:w-64 md:h-64 opacity-[0.04]" />
+
+              {/* Accent border */}
+              <div className="absolute inset-0 rounded-3xl border border-primary/15" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-500 to-amber-500" />
+
+              <div className="relative z-10 p-8 md:p-12 lg:p-16">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Layers className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-sm font-semibold text-primary tracking-wide uppercase">
+                    {t("Personalizēti AI risinājumi, nevis gatavi šabloni", "Personalized AI solutions, not ready-made templates")}
+                  </span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-balance leading-tight">
+                  <span style={{ background: 'linear-gradient(to right, hsl(var(--primary)), #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    {t("Veidots tieši", "Built specifically")}
+                  </span>{" "}
+                  <span className="text-foreground">
+                    {t("jūsu uzņēmumam", "for your business")}
+                  </span>
+                </h2>
+
+                <div className="space-y-5 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-10">
+                  <p>
+                    {t(
+                      "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus, kas visiem izskatās labi, bet reāli nestrādā nevienam.",
+                      "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions that look good for everyone but actually work for no one."
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      "Mēs sākam ar jūsu mērķu definēšanu, analizējam esošos procesus un integrējam risinājumus sistēmās, kuras jau tiek izmantotas. Rezultāts nav atsevišķs rīks, bet stabila sistēma, kas organiski iekļaujas ikdienas darbā.",
+                      "We start by defining your goals, analyzing existing processes, and integrating solutions into systems already in use. The result isn't a separate tool, but a stable system that organically fits into daily work."
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      "Šie risinājumi ir paredzēti ilgtermiņam — ar skaidru loģiku, uzturēšanu un atbalstu, nevis vienreizēju uzstādīšanu un cerību, ka viss pats strādās.",
+                      "These solutions are built for the long term — with clear logic, maintenance, and support, not a one-time setup and hoping everything works on its own."
+                    )}
+                  </p>
+                </div>
+
+                {/* Pillars */}
+                <div className="flex flex-wrap gap-4 mb-10">
+                  {[
+                    { lv: "Būvēts jums.", en: "Built for you.", icon: CheckCircle2 },
+                    { lv: "Integrēts ar esošo.", en: "Integrated with existing.", icon: Workflow },
+                    { lv: "Paredzēts stabilai lietošanai.", en: "Built for stable use.", icon: RefreshCcw },
+                  ].map((pillar, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + i * 0.1 }}
+                      className="flex items-center gap-2.5 bg-card/80 backdrop-blur-sm rounded-xl px-5 py-3 border border-border/60 shadow-sm"
+                    >
+                      <pillar.icon className="w-4.5 h-4.5 text-primary flex-shrink-0" />
+                      <span className="text-sm font-semibold text-foreground">{t(pillar.lv, pillar.en)}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <Button size="xl" variant="hero" asChild>
+                  <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
+                    {t("Apspriest savu risinājumu", "Discuss your solution")}
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </ScrollReveal>
         </div>
