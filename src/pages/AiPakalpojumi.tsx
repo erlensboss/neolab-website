@@ -588,9 +588,9 @@ export default function AiPakalpojumi() {
                 {/* Pillars row */}
                 <div className="flex flex-wrap gap-3 mb-10">
                   {[
-                    { lv: "Būvēts jums.", en: "Built for you.", icon: CheckCircle2 },
-                    { lv: "Integrēts ar esošo.", en: "Integrated with existing.", icon: Layers },
-                    { lv: "Paredzēts stabilai lietošanai.", en: "Built for stable use.", icon: RefreshCcw },
+                    { lv: "Būvēts jums", en: "Built for you.", icon: CheckCircle2 },
+                    { lv: "Integrēts ar esošo", en: "Integrated with existing.", icon: Layers },
+                    { lv: "Paredzēts stabilai lietošanai", en: "Built for stable use.", icon: RefreshCcw },
                   ].map((pillar, i) => (
                     <motion.div
                       key={i}
@@ -608,7 +608,7 @@ export default function AiPakalpojumi() {
 
                 <Button size="xl" variant="hero" asChild>
                   <Link to={getLocalizedPath("/bezmaksas-konsultacija")}>
-                    {t("Saņemt pielāgatu risinājumi", "Get customized solutions")}
+                    {t("Saņemt pielāgotu risinājumu", "Get a personalized solution")}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
