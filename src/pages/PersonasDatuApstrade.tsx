@@ -5,7 +5,7 @@ export default function PersonasDatuApstrade() {
     t
   } = useLanguage();
   return <>
-      <SEOHead titleLv="Personas datu apstrāde | NEOLab" titleEn="Personal Data Processing | NEOLab" descriptionLv="Informācija par personas datu apstrādi NEOLab vietnē." descriptionEn="Information about personal data processing on NEOLab website." />
+      <SEOHead titleLv="Personas datu apstrāde | NEOLab" titleEn="Personal Data Processing | NEOLab" descriptionLv="Informācija par personas datu apstrādi, glabāšanu un aizsardzību atbilstoši GDPR prasībām." descriptionEn="Information about personal data processing, storage, and protection in accordance with GDPR requirements." />
 
       <main className="min-h-screen bg-background">
         <div className="container-neo py-16 md:py-24">

@@ -204,10 +204,10 @@ export default function AiPakalpojumi() {
   return (
     <>
       <SEOHead
-        titleLv="AI automatizācijas pakalpojumi | NEOLab"
-        titleEn="AI Automation Services | NEOLab"
-        descriptionLv="Pilns AI automatizācijas pakalpojumu klāsts uzņēmumiem – no lead capture līdz klientu reaktivācijai. Gatavi risinājumi ar skaidru cenu."
-        descriptionEn="Full range of AI automation services for businesses – from lead capture to client reactivation. Ready solutions with clear pricing."
+        titleLv="AI pakalpojumi uzņēmumu izaugsmei | NEOLab"
+        titleEn="AI Services for Business Growth | NEOLab"
+        descriptionLv="AI pakalpojumi uzņēmumiem – automatizācijas, AI risinājumi un digitālie procesi, kas balstīti reālās biznesa vajadzībās."
+        descriptionEn="AI services for businesses – automation, AI solutions, and digital processes based on real business needs."
       />
 
       {/* ========== HERO ========== */}

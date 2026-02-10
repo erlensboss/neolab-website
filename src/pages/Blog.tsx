@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/shared/SEOHead";
 
 export default function Blog() {
   const { t, getLocalizedPath } = useLanguage();
@@ -168,6 +169,13 @@ export default function Blog() {
   }, [activeCategory, blogPosts]);
 
   return (
+    <>
+      <SEOHead
+        titleLv="AI, SEO un digitālā attīstība | NEOLab Blogs"
+        titleEn="AI, SEO and Digital Growth | NEOLab Blog"
+        descriptionLv="Praktiski raksti par AI, SEO, digitālo mārketingu un automatizāciju uzņēmumiem bez liekas teorijas."
+        descriptionEn="Practical articles on AI, SEO, digital marketing, and automation for businesses without unnecessary theory."
+      />
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Header ========== */}
       <section className="bg-gradient-hero">
@@ -346,5 +354,6 @@ export default function Blog() {
         </div>
       </section>
     </div>
+    </>
   );
 }

@@ -32,10 +32,10 @@ export default function SeoGeoPakalpojumi() {
   return (
     <>
       <SEOHead
-        titleLv="SEO un GEO pakalpojumi uzņēmumiem | NEOLab"
-        titleEn="SEO & GEO Services for Businesses | NEOLab"
-        descriptionLv="Pilns SEO un GEO pakalpojumu cikls uzņēmumiem – audits, tehniskā un on-page optimizācija, atslēgvārdi, GEO audits un stratēģija. Skaidra pieeja, kas strādā."
-        descriptionEn="Full SEO & GEO service cycle for businesses – audits, technical and on-page optimization, keywords, GEO audits and strategy. A clear approach that works."
+        titleLv="SEO un GEO pakalpojumi | Audits un stratēģija | NEOLab"
+        titleEn="SEO & GEO Services | Audit & Strategy | NEOLab"
+        descriptionLv="SEO un GEO pakalpojumi – audits, optimizācija un stratēģija uzņēmumiem, kuriem svarīga ilgtermiņa redzamība."
+        descriptionEn="SEO & GEO services – audit, optimization, and strategy for businesses seeking long-term visibility."
       />
 
       <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[85vh] flex items-center mt-[30px]">

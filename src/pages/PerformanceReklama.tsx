@@ -31,6 +31,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { SEOHead } from "@/components/shared/SEOHead";
 // Data moved inside component to use t() function
 export default function PerformanceReklama() {
   const { t, getLocalizedPath, language } = useLanguage();
@@ -113,6 +114,13 @@ export default function PerformanceReklama() {
     },
   ];
   return (
+    <>
+      <SEOHead
+        titleLv="Digitālā reklāma Google, Meta un TikTok | NEOLab"
+        titleEn="Digital Advertising on Google, Meta & TikTok | NEOLab"
+        descriptionLv="Digitālā reklāma uzņēmumiem – Google Ads, Meta un TikTok kampaņas ar skaidru mērķi un izmērāmu atdevi."
+        descriptionEn="Digital advertising for businesses – Google Ads, Meta, and TikTok campaigns with clear goals and measurable ROI."
+      />
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Maksas reklāmu pārvalde ========== */}
       <section className="relative overflow-hidden">
@@ -1459,5 +1467,6 @@ export default function PerformanceReklama() {
         </div>
       </section>
     </div>
+    </>
   );
 }

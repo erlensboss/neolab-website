@@ -33,6 +33,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { SEOHead } from "@/components/shared/SEOHead";
 
 // These will be translated inline with the t() function
 
@@ -69,6 +70,13 @@ export default function SeoGeo() {
     t("Strukturēti dati lokālajam biznesam", "Structured data for local business"),
   ];
   return (
+    <>
+      <SEOHead
+        titleLv="SEO un GEO optimizācija uzņēmumiem | NEOLab"
+        titleEn="SEO & GEO Optimization for Businesses | NEOLab"
+        descriptionLv="SEO un GEO optimizācija uzņēmumiem – redzamība Google un AI balstītās meklēšanas sistēmās."
+        descriptionEn="SEO & GEO optimization for businesses – visibility in Google and AI-powered search engines."
+      />
     <div className="overflow-hidden">
       {/* ========== SECTION 1: Premium Hero ========== */}
       <section className="relative bg-gradient-hero bg-atmosphere overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center py-12 md:py-0 mt-[30px]">
@@ -2148,5 +2156,6 @@ export default function SeoGeo() {
         </div>
       </section>
     </div>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/shared/SEOHead";
 import logoSecondaryOrange from "@/assets/logo-secondary-orange.svg";
 import iconWhite from "@/assets/icon-white.svg";
 import { useRef } from "react";
@@ -128,7 +129,14 @@ export default function ParMums() {
     getLocalizedPath
   } = useLanguage();
   const storyBlocksData = storyBlocks(t);
-  return <div className="overflow-hidden">
+  return <>
+    <SEOHead
+      titleLv="Par NEOLab – AI un digitālo risinājumu partneris"
+      titleEn="About NEOLab – AI & Digital Solutions Partner"
+      descriptionLv="NEOLab palīdz uzņēmumiem ieviest AI risinājumus, automatizēt procesus un attīstīt digitālo redzamību."
+      descriptionEn="NEOLab helps businesses implement AI solutions, automate processes, and develop digital visibility."
+    />
+    <div className="overflow-hidden">
       {/* ========== SECTION 1: Hero - Trust Building ========== */}
       <section className="relative overflow-hidden mt-[30px]" style={{
       background: "linear-gradient(135deg, hsl(30 80% 96%) 0%, hsl(28 70% 94%) 30%, hsl(35 60% 97%) 70%, hsl(30 50% 95%) 100%)"
@@ -1171,5 +1179,6 @@ export default function ParMums() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  </>;
 }

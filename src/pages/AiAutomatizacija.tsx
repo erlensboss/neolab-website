@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { SEOHead } from "@/components/shared/SEOHead";
 
 // Data moved inside component to use t() function
 
@@ -77,7 +78,14 @@ export default function AiAutomatizacija() {
     x: 85,
     y: 50
   }];
-  return <div className="overflow-hidden">
+  return <>
+    <SEOHead
+      titleLv="AI automatizācijas uzņēmumiem | NEOLab"
+      titleEn="AI Automations for Businesses | NEOLab"
+      descriptionLv="AI automatizācijas uzņēmumiem – pārdošanas, klientu atbalsta un procesu automatizācija ar skaidru biznesa mērķi."
+      descriptionEn="AI automations for businesses – sales, customer support, and process automation with a clear business goal."
+    />
+    <div className="overflow-hidden">
       {/* ========== SECTION 1: CENTERED Hero with AI System Visual ========== */}
       <section className="relative min-h-[75vh] sm:min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden py-8 sm:py-0">
         {/* Background layers */}
@@ -1289,5 +1297,6 @@ export default function AiAutomatizacija() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  </>;
 }
