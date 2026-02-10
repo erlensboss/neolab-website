@@ -144,7 +144,7 @@ export default function AiLab() {
   return (
     <div className="overflow-hidden bg-background">
       {/* ========== SECTION 1: Hero — Light Theme with Floating Icons ========== */}
-      <section ref={containerRef} className="min-h-[95vh] relative overflow-hidden mt-[30px]">
+      <section ref={containerRef} className="min-h-[70vh] md:min-h-[95vh] relative overflow-hidden mt-[30px]">
         {/* Subtle gradient overlays */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -203,7 +203,7 @@ export default function AiLab() {
         />
 
         {/* Hero Content */}
-        <div className="container-neo px-4 py-12 md:section-padding relative z-10 flex items-center justify-center min-h-[80vh] md:min-h-[95vh]">
+        <div className="container-neo px-4 py-12 md:section-padding relative z-10 flex items-center justify-center min-h-[60vh] md:min-h-[95vh]">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge */}
             <ScrollReveal>
