@@ -487,32 +487,28 @@ export default function AiPakalpojumi() {
 
       {/* Personalized Solutions Block */}
       <section className="py-20 md:py-28 px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden">
-              {/* Background gradient layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-orange-500/[0.04] to-amber-500/[0.07]" />
+              {/* Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-amber-500/[0.06]" />
               <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-amber-500/8 to-transparent rounded-full blur-3xl" />
-              
-              {/* NEOLab watermark */}
-              <img src={neolabIcon} alt="" className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-44 h-44 md:w-64 md:h-64 opacity-[0.04]" />
-
-              {/* Accent border */}
               <div className="absolute inset-0 rounded-3xl border border-primary/15" />
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-500 to-amber-500" />
 
               <div className="relative z-10 p-8 md:p-12 lg:p-16">
+                {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Layers className="w-5 h-5 text-primary" />
                   </div>
                   <span className="text-sm font-semibold text-primary tracking-wide uppercase">
-                    {t("Personalizēti AI risinājumi, nevis gatavi šabloni", "Personalized AI solutions, not ready-made templates")}
+                    {t("Personalizēti AI risinājumi", "Personalized AI solutions")}
                   </span>
                 </div>
 
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-balance leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance leading-tight">
                   <span style={{ background: 'linear-gradient(to right, hsl(var(--primary)), #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                     {t("Veidots tieši", "Built specifically")}
                   </span>{" "}
@@ -521,43 +517,83 @@ export default function AiPakalpojumi() {
                   </span>
                 </h2>
 
-                <div className="space-y-5 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-10">
-                  <p>
-                    {t(
-                      "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus, kas visiem izskatās labi, bet reāli nestrādā nevienam.",
-                      "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions that look good for everyone but actually work for no one."
-                    )}
-                  </p>
-                  <p>
-                    {t(
-                      "Mēs sākam ar jūsu mērķu definēšanu, analizējam esošos procesus un integrējam risinājumus sistēmās, kuras jau tiek izmantotas. Rezultāts nav atsevišķs rīks, bet stabila sistēma, kas organiski iekļaujas ikdienas darbā.",
-                      "We start by defining your goals, analyzing existing processes, and integrating solutions into systems already in use. The result isn't a separate tool, but a stable system that organically fits into daily work."
-                    )}
-                  </p>
-                  <p>
-                    {t(
-                      "Šie risinājumi ir paredzēti ilgtermiņam — ar skaidru loģiku, uzturēšanu un atbalstu, nevis vienreizēju uzstādīšanu un cerību, ka viss pats strādās.",
-                      "These solutions are built for the long term — with clear logic, maintenance, and support, not a one-time setup and hoping everything works on its own."
-                    )}
-                  </p>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-10">
+                  {t(
+                    "Katrs uzņēmums strādā citādi. Procesi, mērķi un sistēmas atšķiras, un AI automatizācijām tas ir kritiski svarīgi. Tāpēc mēs neveidojam universālus risinājumus — mēs būvējam tieši jums.",
+                    "Every business operates differently. Processes, goals, and systems vary, and for AI automation, this is critically important. That's why we don't build universal solutions — we build specifically for you."
+                  )}
+                </p>
+
+                {/* Process cards grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                  {[
+                    {
+                      icon: BarChart3,
+                      titleLv: "Mērķu definēšana",
+                      titleEn: "Goal definition",
+                      descLv: "Sākam ar jūsu biznesa mērķiem un esošo procesu analīzi, nevis gatavu risinājumu.",
+                      descEn: "We start with your business goals and existing process analysis, not a ready-made solution.",
+                      step: "01",
+                    },
+                    {
+                      icon: Workflow,
+                      titleLv: "Integrācija sistēmās",
+                      titleEn: "System integration",
+                      descLv: "Risinājums iekļaujas rīkos, kurus jūs jau izmantojat — CRM, e-pasts, čats, datu bāzes.",
+                      descEn: "The solution fits into tools you already use — CRM, email, chat, databases.",
+                      step: "02",
+                    },
+                    {
+                      icon: RefreshCcw,
+                      titleLv: "Ilgtermiņa stabilitāte",
+                      titleEn: "Long-term stability",
+                      descLv: "Skaidra loģika, uzturēšana un atbalsts — nevis vienreizēja uzstādīšana un cerība.",
+                      descEn: "Clear logic, maintenance, and support — not a one-time setup and hope.",
+                      step: "03",
+                    },
+                  ].map((card, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.15 + i * 0.1 }}
+                      className="group relative bg-card/70 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-lg"
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/15 to-orange-500/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                          <card.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="text-3xl font-black text-primary/10 group-hover:text-primary/20 transition-colors duration-300">
+                          {card.step}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground mb-2">
+                        {t(card.titleLv, card.titleEn)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {t(card.descLv, card.descEn)}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
 
-                {/* Pillars */}
-                <div className="flex flex-wrap gap-4 mb-10">
+                {/* Pillars row */}
+                <div className="flex flex-wrap gap-3 mb-10">
                   {[
                     { lv: "Būvēts jums.", en: "Built for you.", icon: CheckCircle2 },
-                    { lv: "Integrēts ar esošo.", en: "Integrated with existing.", icon: Workflow },
+                    { lv: "Integrēts ar esošo.", en: "Integrated with existing.", icon: Layers },
                     { lv: "Paredzēts stabilai lietošanai.", en: "Built for stable use.", icon: RefreshCcw },
                   ].map((pillar, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.2 + i * 0.1 }}
-                      className="flex items-center gap-2.5 bg-card/80 backdrop-blur-sm rounded-xl px-5 py-3 border border-border/60 shadow-sm"
+                      transition={{ delay: 0.4 + i * 0.08 }}
+                      className="flex items-center gap-2 bg-primary/[0.07] rounded-full px-4 py-2 border border-primary/10"
                     >
-                      <pillar.icon className="w-4.5 h-4.5 text-primary flex-shrink-0" />
+                      <pillar.icon className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-sm font-semibold text-foreground">{t(pillar.lv, pillar.en)}</span>
                     </motion.div>
                   ))}
