@@ -58,7 +58,7 @@ const services = [
     descEn:
       "Google Ads is used as a paid demand acquisition channel. Work includes campaign setup, optimization, conversion tracking, and results analysis to ensure controllable and predictable outcomes.",
     icon: TrendingUp,
-    path: "/performance-reklama",
+    path: "/digitala-reklama",
   },
   {
     id: "lab",

@@ -19,13 +19,13 @@ export const routeMappings: RouteMapping[] = [
   { lv: "/ai-automatizacija/speed-to-lead", en: "/en/ai-automations/speed-to-lead", labelLv: "Speed-to-Lead System", labelEn: "Speed-to-Lead System" },
   { lv: "/ai-automatizacija/client-onboarding", en: "/en/ai-automations/client-onboarding", labelLv: "Client Onboarding System", labelEn: "Client Onboarding System" },
   { lv: "/ai-automatizacija/support-chatbot", en: "/en/ai-automations/support-chatbot", labelLv: "Customer Support Chatbot", labelEn: "Customer Support Chatbot" },
-  { lv: "/performance-reklama", en: "/en/performance-ads", labelLv: "Digitālā reklāma", labelEn: "Digital Advertising" },
-  { lv: "/performance-reklama/reklamas-strategija", en: "/en/performance-ads/advertising-strategy", labelLv: "Reklāmas stratēģija", labelEn: "Advertising Strategy" },
-  { lv: "/performance-reklama/google-ads", en: "/en/performance-ads/google-ads", labelLv: "Google Ads", labelEn: "Google Ads" },
-  { lv: "/performance-reklama/meta-ads", en: "/en/performance-ads/meta-ads", labelLv: "Meta Ads", labelEn: "Meta Ads" },
-  { lv: "/performance-reklama/tiktok-ads", en: "/en/performance-ads/tiktok-ads", labelLv: "TikTok Ads", labelEn: "TikTok Ads" },
-  { lv: "/performance-reklama/microsoft-ads", en: "/en/performance-ads/microsoft-ads", labelLv: "Microsoft Ads", labelEn: "Microsoft Ads" },
-  { lv: "/performance-reklama/konversiju-optimizacija", en: "/en/performance-ads/conversion-optimization", labelLv: "Konversiju optimizācija", labelEn: "Conversion Optimization" },
+  { lv: "/digitala-reklama", en: "/en/digital-advertising", labelLv: "Digitālā reklāma", labelEn: "Digital Advertising" },
+  { lv: "/digitala-reklama/reklamas-strategija", en: "/en/digital-advertising/advertising-strategy", labelLv: "Reklāmas stratēģija", labelEn: "Advertising Strategy" },
+  { lv: "/digitala-reklama/google-ads", en: "/en/digital-advertising/google-ads", labelLv: "Google Ads", labelEn: "Google Ads" },
+  { lv: "/digitala-reklama/meta-ads", en: "/en/digital-advertising/meta-ads", labelLv: "Meta Ads", labelEn: "Meta Ads" },
+  { lv: "/digitala-reklama/tiktok-ads", en: "/en/digital-advertising/tiktok-ads", labelLv: "TikTok Ads", labelEn: "TikTok Ads" },
+  { lv: "/digitala-reklama/microsoft-ads", en: "/en/digital-advertising/microsoft-ads", labelLv: "Microsoft Ads", labelEn: "Microsoft Ads" },
+  { lv: "/digitala-reklama/konversiju-optimizacija", en: "/en/digital-advertising/conversion-optimization", labelLv: "Konversiju optimizācija", labelEn: "Conversion Optimization" },
   { lv: "/ai-lab", en: "/en/ai-lab", labelLv: "AI Lab", labelEn: "AI Lab" },
   { lv: "/par-mums", en: "/en/about", labelLv: "Par mums", labelEn: "About Us" },
   { lv: "/blog", en: "/en/blog", labelLv: "Blog", labelEn: "Blog" },
@@ -113,13 +113,13 @@ export const navItems = routeMappings.filter(m =>
   
   !m.lv.includes("/seo-un-geo/") &&
   !m.lv.includes("/ai-automatizacija/") &&
-  !m.lv.includes("/performance-reklama/") &&
+  !m.lv.includes("/digitala-reklama/") &&
   !["/b2b-pardosana-2025-ai-vertiba", "/maksligais-intelekts-pateretaju-uzvediba-ai-lemumu-pienemsana", "/generativais-ai-pasreizejais-stavoklis-nakotnes-virzieni", "/preskriptiva-analitika-ai-pateretaju-lemumi-b2b", "/ka-maksligais-intelekts-veicina-ai-marketings-uznemumiem", "/maksligais-intelekts-pateretaju-uzvediba-no-predictive-uz-generative-ai", "/seo-un-geo-optimizacija-kapec-seo-nepazudis", "/jaunais-digitalo-reklamu-laikmets-google-meta-tiktok"].includes(m.lv)
 );
 
 // Footer service links
 export const footerServiceLinks = routeMappings.filter(m => 
-  ["/seo-un-geo", "/ai-automatizacija", "/performance-reklama", "/ai-lab"].includes(m.lv)
+  ["/seo-un-geo", "/ai-automatizacija", "/digitala-reklama", "/ai-lab"].includes(m.lv)
 );
 
 // Footer company links
