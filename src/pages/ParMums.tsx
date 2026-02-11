@@ -110,15 +110,6 @@ function StoryBlock({
           {/* Description */}
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{block.content}</p>
 
-          {/* Hover indicator */}
-          <motion.div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" initial={{
-          x: -10
-        }} whileHover={{
-          x: 0
-        }}>
-            <span className="text-sm font-medium">{useLanguage().t("Uzzināt vairāk", "Learn more")}</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.div>
         </div>
       </div>
     </motion.div>;
