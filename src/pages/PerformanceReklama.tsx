@@ -314,7 +314,8 @@ export default function PerformanceReklama() {
           <ScrollReveal className="max-w-3xl mb-8 md:mb-20">
             <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">{t("Priekšrocības", "Benefits")}</span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              {t("Kādas ir maksas reklāmas priekšrocības", "What are the benefits of paid advertising")}
+              {t("Kādas ir maksas reklāmas ", "What are the benefits of paid ")}
+              <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">{t("priekšrocības", "advertising")}</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               {t(
