@@ -89,13 +89,13 @@ const App = () => (
                 <Route path="/ai-automatizacija/speed-to-lead" element={<SpeedToLead />} />
                 <Route path="/ai-automatizacija/client-onboarding" element={<ClientOnboarding />} />
                 <Route path="/ai-automatizacija/support-chatbot" element={<SupportChatbot />} />
-                <Route path="/performance-reklama" element={<PerformanceReklama />} />
-                <Route path="/performance-reklama/reklamas-strategija" element={<ReklamasStrategija />} />
-                <Route path="/performance-reklama/google-ads" element={<GoogleAds />} />
-                <Route path="/performance-reklama/meta-ads" element={<MetaAds />} />
-                <Route path="/performance-reklama/tiktok-ads" element={<TikTokAds />} />
-                <Route path="/performance-reklama/microsoft-ads" element={<MicrosoftAds />} />
-                <Route path="/performance-reklama/konversiju-optimizacija" element={<KonversijuOptimizacija />} />
+                <Route path="/digitala-reklama" element={<PerformanceReklama />} />
+                <Route path="/digitala-reklama/reklamas-strategija" element={<ReklamasStrategija />} />
+                <Route path="/digitala-reklama/google-ads" element={<GoogleAds />} />
+                <Route path="/digitala-reklama/meta-ads" element={<MetaAds />} />
+                <Route path="/digitala-reklama/tiktok-ads" element={<TikTokAds />} />
+                <Route path="/digitala-reklama/microsoft-ads" element={<MicrosoftAds />} />
+                <Route path="/digitala-reklama/konversiju-optimizacija" element={<KonversijuOptimizacija />} />
                 <Route path="/ai-lab" element={<AiLab />} />
                 <Route path="/par-mums" element={<ParMums />} />
                 <Route path="/blog" element={<Blog />} />
@@ -123,13 +123,13 @@ const App = () => (
                 <Route path="/en/ai-automations/speed-to-lead" element={<SpeedToLead />} />
                 <Route path="/en/ai-automations/client-onboarding" element={<ClientOnboarding />} />
                 <Route path="/en/ai-automations/support-chatbot" element={<SupportChatbot />} />
-                <Route path="/en/performance-ads" element={<PerformanceReklama />} />
-                <Route path="/en/performance-ads/advertising-strategy" element={<ReklamasStrategija />} />
-                <Route path="/en/performance-ads/google-ads" element={<GoogleAds />} />
-                <Route path="/en/performance-ads/meta-ads" element={<MetaAds />} />
-                <Route path="/en/performance-ads/tiktok-ads" element={<TikTokAds />} />
-                <Route path="/en/performance-ads/microsoft-ads" element={<MicrosoftAds />} />
-                <Route path="/en/performance-ads/conversion-optimization" element={<KonversijuOptimizacija />} />
+                <Route path="/en/digital-advertising" element={<PerformanceReklama />} />
+                <Route path="/en/digital-advertising/advertising-strategy" element={<ReklamasStrategija />} />
+                <Route path="/en/digital-advertising/google-ads" element={<GoogleAds />} />
+                <Route path="/en/digital-advertising/meta-ads" element={<MetaAds />} />
+                <Route path="/en/digital-advertising/tiktok-ads" element={<TikTokAds />} />
+                <Route path="/en/digital-advertising/microsoft-ads" element={<MicrosoftAds />} />
+                <Route path="/en/digital-advertising/conversion-optimization" element={<KonversijuOptimizacija />} />
                 <Route path="/en/ai-lab" element={<AiLab />} />
                 <Route path="/en/about" element={<ParMums />} />
                 <Route path="/en/blog" element={<Blog />} />

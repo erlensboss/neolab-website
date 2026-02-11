@@ -79,7 +79,7 @@ export default function MetaAds() {
           <div className="container-neo section-padding relative z-10">
             <ScrollReveal>
               <Link 
-                to={getLocalizedPath("/performance-reklama")} 
+                to={getLocalizedPath("/digitala-reklama")} 
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
               >
                 <ArrowLeft className="w-4 h-4" />

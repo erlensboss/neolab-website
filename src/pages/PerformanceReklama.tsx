@@ -844,7 +844,7 @@ export default function PerformanceReklama() {
           <div className="space-y-5 md:space-y-10">
             {/* BLOCK 1: Strategy */}
             <ScrollReveal delay={0.05}>
-              <Link to={getLocalizedPath("/performance-reklama/reklamas-strategija")}>
+              <Link to={getLocalizedPath("/digitala-reklama/reklamas-strategija")}>
                 <motion.div
                   whileHover={{
                     y: -4,
@@ -926,7 +926,7 @@ export default function PerformanceReklama() {
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4">
                   {/* Google Ads */}
-                  <Link to={getLocalizedPath("/performance-reklama/google-ads")}>
+                  <Link to={getLocalizedPath("/digitala-reklama/google-ads")}>
                     <motion.div
                       whileHover={{
                         y: -3,
@@ -948,7 +948,7 @@ export default function PerformanceReklama() {
                   </Link>
 
                   {/* Meta Ads */}
-                  <Link to={getLocalizedPath("/performance-reklama/meta-ads")}>
+                  <Link to={getLocalizedPath("/digitala-reklama/meta-ads")}>
                     <motion.div
                       whileHover={{
                         y: -3,
@@ -970,7 +970,7 @@ export default function PerformanceReklama() {
                   </Link>
 
                   {/* TikTok Ads */}
-                  <Link to={getLocalizedPath("/performance-reklama/tiktok-ads")}>
+                  <Link to={getLocalizedPath("/digitala-reklama/tiktok-ads")}>
                     <motion.div
                       whileHover={{
                         y: -3,
@@ -992,7 +992,7 @@ export default function PerformanceReklama() {
                   </Link>
 
                   {/* Microsoft Ads */}
-                  <Link to={getLocalizedPath("/performance-reklama/microsoft-ads")}>
+                  <Link to={getLocalizedPath("/digitala-reklama/microsoft-ads")}>
                     <motion.div
                       whileHover={{
                         y: -3,
@@ -1016,7 +1016,7 @@ export default function PerformanceReklama() {
 
             {/* BLOCK 3: Conversions */}
             <ScrollReveal delay={0.15}>
-              <Link to={getLocalizedPath("/performance-reklama/konversiju-optimizacija")}>
+              <Link to={getLocalizedPath("/digitala-reklama/konversiju-optimizacija")}>
                 <motion.div
                   whileHover={{
                     y: -4,
