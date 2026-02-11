@@ -629,19 +629,24 @@ export default function PerformanceReklama() {
               return (
                 <ScrollReveal key={idx} delay={idx * 0.06}>
                   <motion.div
-                    whileHover={{ y: -6, scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ y: -6, scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative h-full p-5 md:p-6 rounded-xl bg-white/80 border border-primary/12 shadow-md hover:shadow-xl hover:shadow-primary/10 overflow-hidden group cursor-default"
+                    className="relative h-full p-5 md:p-6 rounded-xl bg-gradient-to-br from-primary/10 via-orange-100/60 to-amber-50/40 border border-primary/15 shadow-md hover:shadow-xl hover:shadow-primary/15 overflow-hidden group cursor-default"
                   >
-                    <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-primary/8 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                    {/* Decorative glow */}
+                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-primary/15 to-orange-300/10 rounded-full group-hover:scale-[2] transition-transform duration-700" />
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-amber-200/20 to-transparent rounded-full" />
                     <div className="relative z-10">
-                      <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-                      <p className="text-sm md:text-base font-medium text-foreground/85 leading-snug">
+                      <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
+                        <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                      </div>
+                      <p className="text-sm md:text-base font-semibold text-foreground/90 leading-snug">
                         {t(point.lv, point.en)}
                       </p>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/40 via-orange-400/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    {/* Bottom accent */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-400 to-amber-300 opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
                   </motion.div>
                 </ScrollReveal>
               );
