@@ -166,8 +166,8 @@ export default function PerformanceReklama() {
         {/* Accent line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-        <div className="container-neo py-12 md:py-28 lg:py-32 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+        <div className="container-neo py-10 md:py-28 lg:py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-center">
             <div>
               <ScrollReveal>
                 <span className="inline-flex items-center gap-2 py-1.5 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-xs md:text-sm mb-4 md:mb-6 px-3 md:px-4">
@@ -599,7 +599,7 @@ export default function PerformanceReklama() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-5">
             {[
               {
                 lv: "Reklāma balstās uz datiem, nevis pieņēmumiem",
@@ -634,16 +634,16 @@ export default function PerformanceReklama() {
                     whileHover={{ y: -6, scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative h-full p-5 md:p-6 rounded-xl bg-gradient-to-br from-primary/10 via-orange-100/60 to-amber-50/40 border border-primary/15 shadow-md hover:shadow-xl hover:shadow-primary/15 overflow-hidden group cursor-default"
+                    className="relative h-full p-4 md:p-6 rounded-xl bg-gradient-to-br from-primary/10 via-orange-100/60 to-amber-50/40 border border-primary/15 shadow-md hover:shadow-xl hover:shadow-primary/15 overflow-hidden group cursor-default"
                   >
                     {/* Decorative glow */}
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-primary/15 to-orange-300/10 rounded-full group-hover:scale-[2] transition-transform duration-700" />
                     <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-amber-200/20 to-transparent rounded-full" />
                     <div className="relative z-10">
-                      <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
-                        <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                      <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
+                        <Icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                       </div>
-                      <p className="text-sm md:text-base font-semibold text-foreground/90 leading-snug">
+                      <p className="text-xs md:text-base font-semibold text-foreground/90 leading-snug">
                         {t(point.lv, point.en)}
                       </p>
                     </div>
@@ -680,13 +680,13 @@ export default function PerformanceReklama() {
           </ScrollReveal>
 
           {/* Services grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {/* 1. Reklāmas stratēģija */}
             <ScrollReveal delay={0.05}>
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 {/* Decorative visuals */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
@@ -697,8 +697,8 @@ export default function PerformanceReklama() {
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
-                    <Compass className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
+                    <Compass className="w-5 h-5 md:w-7 md:h-7 text-white" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     {t("Reklāmas stratēģija", "Advertising Strategy")}
@@ -735,7 +735,7 @@ export default function PerformanceReklama() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-green-100/80 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
                 <div className="absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-tl from-green-100/40 to-transparent rounded-full" />
@@ -752,8 +752,8 @@ export default function PerformanceReklama() {
                   ))}
                 </div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-green-500/20">
-                    <Search className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-green-500/20">
+                    <Search className="w-5 h-5 md:w-7 md:h-7 text-white" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     {t("Google Ads pārvaldība", "Google Ads Management")}
@@ -791,7 +791,7 @@ export default function PerformanceReklama() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-purple-100/80 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
                 {/* Layered circles visual */}
@@ -803,8 +803,8 @@ export default function PerformanceReklama() {
                   </div>
                 </div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-purple-500/20">
-                    <Users className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-purple-500/20">
+                    <Users className="w-5 h-5 md:w-7 md:h-7 text-white" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     Meta Ads (Facebook & Instagram)
@@ -841,7 +841,7 @@ export default function PerformanceReklama() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-cyan-100/60 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
                 {/* Play button visual */}
@@ -853,8 +853,8 @@ export default function PerformanceReklama() {
                   <div className="w-0 h-0 border-l-[8px] border-l-foreground/40 border-y-[5px] border-y-transparent ml-0.5" />
                 </motion.div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-foreground to-foreground/80 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-foreground/20">
-                    <Play className="w-6 h-6 md:w-7 md:h-7 text-background" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-foreground to-foreground/80 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-foreground/20">
+                    <Play className="w-5 h-5 md:w-7 md:h-7 text-background" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     TikTok Ads
@@ -890,7 +890,7 @@ export default function PerformanceReklama() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-amber-100/80 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
                 {/* Code brackets visual */}
@@ -898,8 +898,8 @@ export default function PerformanceReklama() {
                   {"{ }"}
                 </div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-amber-500/20">
-                    <Code className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-amber-500/20">
+                    <Code className="w-5 h-5 md:w-7 md:h-7 text-white" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     {t("Konversiju uzstādīšana un datu integrācija", "Conversion Setup & Data Integration")}
@@ -937,7 +937,7 @@ export default function PerformanceReklama() {
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
+                className="relative h-full p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl overflow-hidden group"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-blue-100/80 to-transparent rounded-full group-hover:scale-[2] transition-transform duration-700" />
                 {/* Upward trend visual */}
@@ -954,8 +954,8 @@ export default function PerformanceReklama() {
                   />
                 </svg>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-blue-500/20">
-                    <RefreshCw className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-blue-500/20">
+                    <RefreshCw className="w-5 h-5 md:w-7 md:h-7 text-white" />
                   </div>
                   <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3">
                     {t("Optimizācija un skalēšana", "Optimization & Scaling")}
@@ -1041,9 +1041,9 @@ export default function PerformanceReklama() {
             />
 
             {/* Mobile vertical line */}
-            <div className="md:hidden absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/15 to-primary/30" />
+            <div className="md:hidden absolute left-[15px] top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/15 to-primary/30" />
 
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-3 md:space-y-6">
               {[
                 {
                   step: "01",
@@ -1133,11 +1133,11 @@ export default function PerformanceReklama() {
                 const isEven = idx % 2 === 0;
                 return (
                   <ScrollReveal key={idx} delay={0.1 + idx * 0.08}>
-                    <div className="relative flex items-start md:items-center gap-4 md:gap-0">
+                    <div className="relative flex items-start gap-3 md:items-center md:gap-0">
                       {/* Mobile: dot on vertical line */}
                       <div className="md:hidden relative z-10 flex-shrink-0">
-                        <div className={`w-10 h-10 rounded-full ${item.dotColor} flex items-center justify-center shadow-lg`}>
-                          <span className="text-xs font-bold text-white">{item.step}</span>
+                        <div className={`w-8 h-8 rounded-full ${item.dotColor} flex items-center justify-center shadow-md`}>
+                          <span className="text-[10px] font-bold text-white">{item.step}</span>
                         </div>
                       </div>
 
