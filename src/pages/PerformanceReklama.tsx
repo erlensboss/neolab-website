@@ -25,6 +25,8 @@ import {
   Layers,
   Wallet,
   ClipboardCheck,
+  Code,
+  RefreshCw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
@@ -667,31 +669,6 @@ export default function PerformanceReklama() {
           }}
         />
 
-        {/* Accent orbs - hidden on mobile */}
-        <motion.div
-          className="hidden md:block absolute top-20 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-bl from-primary/8 to-transparent blur-3xl"
-          animate={{
-            opacity: [0.4, 0.6, 0.4],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="hidden md:block absolute bottom-20 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-amber-200/10 to-transparent blur-3xl"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-
         <div className="container-neo relative z-10">
           {/* Section header */}
           <ScrollReveal className="max-w-3xl mx-auto text-center mb-8 md:mb-20">
@@ -702,307 +679,264 @@ export default function PerformanceReklama() {
             </h2>
           </ScrollReveal>
 
-          {/* 3-Block Structure */}
-          <div className="space-y-5 md:space-y-10">
-            {/* BLOCK 1: Strategy */}
+          {/* Services grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {/* 1. Reklāmas stratēģija */}
             <ScrollReveal delay={0.05}>
               <Link to={getLocalizedPath("/digitala-reklama/reklamas-strategija")}>
                 <motion.div
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="relative p-5 md:p-10 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-amber-50/50 border border-primary/20 overflow-hidden group cursor-pointer"
+                  whileHover={{ y: -4 }}
+                  className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group cursor-pointer"
                 >
-                  {/* Decorative visual - hidden on small mobile */}
-                  <div className="hidden sm:block absolute top-4 right-4 md:top-6 md:right-6 w-20 h-20 md:w-36 md:h-36">
-                    <div className="relative w-full h-full">
-                      <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-primary/20"
-                        animate={{
-                          rotate: 360,
-                        }}
-                        transition={{
-                          duration: 30,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                      <motion.div
-                        className="absolute inset-3 rounded-full border border-primary/15"
-                        animate={{
-                          rotate: -360,
-                        }}
-                        transition={{
-                          duration: 25,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                          <Compass className="w-5 h-5 md:w-8 md:h-8 text-primary" />
-                        </div>
-                      </div>
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-primary/8 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                  <div className="relative z-10">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-primary/10">
+                      <Compass className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
-                  </div>
-
-                  <div className="relative z-10 max-w-xl">
-                    <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-3 md:mb-5">
-                      <Compass className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                      {t("Stratēģija", "Strategy")}
-                    </div>
-                    <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-4 group-hover:text-primary transition-colors">
-                      {t("Reklāmas stratēģija un kanālu izvēle", "Ad strategy and channel selection")}
+                    <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-primary transition-colors">
+                      {t("Reklāmas stratēģija", "Advertising Strategy")}
                     </h3>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
                       {t(
-                        "Tiek izvērtēts, kuri kanāli konkrētajā situācijā dos labāko rezultātu – Google, Meta, TikTok, Microsoft vai to kombinācija.",
-                        "We evaluate which channels will deliver the best results in your specific situation – Google, Meta, TikTok, Microsoft, or a combination.",
+                        "Digitālās reklāmas stratēģija tiek izstrādāta pirms budžeta tērēšanas, lai nodrošinātu skaidru virzienu, pareizu kanālu izvēli un izmērāmu atdevi.",
+                        "Digital advertising strategy is developed before spending budget, ensuring clear direction, proper channel selection, and measurable returns.",
                       )}
                     </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {[
+                        t("Kanālu izvēle", "Channel selection"),
+                        t("Budžeta modelēšana", "Budget modeling"),
+                        t("KPI definēšana", "KPI definition"),
+                        t("Mērķauditorija", "Target audience"),
+                        t("Piltuves plānošana", "Funnel planning"),
+                        t("Konkurences analīze", "Competitive analysis"),
+                      ].map((tag) => (
+                        <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
                     <span className="inline-flex items-center gap-2 text-primary font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
                       {t("Uzzināt vairāk", "Learn more")}
                       <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                     </span>
                   </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 md:h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary/20 to-transparent" />
                 </motion.div>
               </Link>
             </ScrollReveal>
 
-            {/* BLOCK 2: Ad Channels Grid */}
+            {/* 2. Google Ads */}
             <ScrollReveal delay={0.1}>
-              <div className="p-4 md:p-8 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm">
-                <div className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-6">
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-muted flex items-center justify-center">
-                    <Layers className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-base md:text-lg font-semibold">{t("Reklāmas kanāli", "Ad channels")}</h3>
-                    <p className="text-xs md:text-sm text-muted-foreground">
-                      {t("Izvēlies platformu, kas atbilst tavam mērķim", "Choose the platform that matches your goal")}
+              <Link to={getLocalizedPath("/digitala-reklama/google-ads")}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group cursor-pointer"
+                >
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-green-100/60 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                  <div className="relative z-10">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-green-200/50">
+                      <Search className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-green-600 transition-colors">
+                      {t("Google Ads pārvaldība", "Google Ads Management")}
+                    </h3>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
+                      {t(
+                        "Google Ads pārvaldība fokusējas uz augsta pirkuma nodoma pieprasījuma piesaisti un strukturētu kampaņu optimizāciju, kas balstīta datos un skaidros mērķos.",
+                        "Google Ads management focuses on capturing high purchase intent demand and structured campaign optimization based on data and clear objectives.",
+                      )}
                     </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {[
+                        "Search",
+                        "Performance Max",
+                        "Shopping",
+                        "Display & remarketing",
+                        "YouTube",
+                        t("Bid stratēģijas", "Bid strategies"),
+                        t("Atslēgvārdi", "Keywords"),
+                      ].map((tag) => (
+                        <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-green-600 font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
+                      {t("Uzzināt vairāk", "Learn more")}
+                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    </span>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4">
-                  {/* Google Ads */}
-                  <Link to={getLocalizedPath("/digitala-reklama/google-ads")}>
-                    <motion.div
-                      whileHover={{
-                        y: -3,
-                      }}
-                      className="relative p-3 md:p-5 rounded-lg md:rounded-xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
-                      <div className="flex items-start justify-between mb-2 md:mb-4">
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-green-100 border border-green-200/50 flex items-center justify-center">
-                          <Search className="w-4 h-4 md:w-6 md:h-6 text-green-600" />
-                        </div>
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <h4 className="font-semibold text-foreground mb-1 md:mb-2 text-sm md:text-base">Google Ads</h4>
-                      <p className="text-[10px] md:text-xs text-muted-foreground leading-tight">
-                        Search, Display, YouTube, Performance Max
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                    </motion.div>
-                  </Link>
-
-                  {/* Meta Ads */}
-                  <Link to={getLocalizedPath("/digitala-reklama/meta-ads")}>
-                    <motion.div
-                      whileHover={{
-                        y: -3,
-                      }}
-                      className="relative p-3 md:p-5 rounded-lg md:rounded-xl bg-gradient-to-br from-purple-50 to-pink-50/50 border border-purple-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
-                      <div className="flex items-start justify-between mb-2 md:mb-4">
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-purple-100 border border-purple-200/50 flex items-center justify-center">
-                          <Users className="w-4 h-4 md:w-6 md:h-6 text-purple-600" />
-                        </div>
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <h4 className="font-semibold text-foreground mb-1 md:mb-2 text-sm md:text-base">Meta Ads</h4>
-                      <p className="text-[10px] md:text-xs text-muted-foreground leading-tight">
-                        Facebook, Instagram, Audience Network
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                    </motion.div>
-                  </Link>
-
-                  {/* TikTok Ads */}
-                  <Link to={getLocalizedPath("/digitala-reklama/tiktok-ads")}>
-                    <motion.div
-                      whileHover={{
-                        y: -3,
-                      }}
-                      className="relative p-3 md:p-5 rounded-lg md:rounded-xl bg-gradient-to-br from-cyan-50 to-pink-50/30 border border-cyan-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
-                      <div className="flex items-start justify-between mb-2 md:mb-4">
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-foreground/5 border border-foreground/10 flex items-center justify-center">
-                          <Play className="w-4 h-4 md:w-6 md:h-6 text-foreground" />
-                        </div>
-                        <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <h4 className="font-semibold text-foreground mb-1 md:mb-2 text-sm md:text-base">TikTok Ads</h4>
-                      <p className="text-[10px] md:text-xs text-muted-foreground leading-tight">
-                        In-Feed, TopView, Spark Ads
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-foreground/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                    </motion.div>
-                  </Link>
-
-                  {/* Microsoft Ads */}
-                  <Link to={getLocalizedPath("/digitala-reklama/microsoft-ads")}>
-                    <motion.div
-                      whileHover={{
-                        y: -3,
-                      }}
-                      className="relative p-3 md:p-5 rounded-lg md:rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200/50 overflow-hidden group cursor-pointer h-full"
-                    >
-                      <div className="flex items-start justify-between mb-2 md:mb-4">
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-blue-100 border border-blue-200/50 flex items-center justify-center">
-                          <Building2 className="w-4 h-4 md:w-6 md:h-6 text-blue-600" />
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <h4 className="font-semibold text-foreground mb-2">Microsoft Ads</h4>
-                      <p className="text-xs text-muted-foreground">Bing, LinkedIn Audience, B2B</p>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                    </motion.div>
-                  </Link>
-                </div>
-              </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-green-500/50 via-green-300/20 to-transparent" />
+                </motion.div>
+              </Link>
             </ScrollReveal>
 
-            {/* BLOCK 3: Conversions */}
+            {/* 3. Meta Ads */}
             <ScrollReveal delay={0.15}>
+              <Link to={getLocalizedPath("/digitala-reklama/meta-ads")}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group cursor-pointer"
+                >
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-purple-100/60 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                  <div className="relative z-10">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-purple-100 to-pink-50 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-purple-200/50">
+                      <Users className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-purple-600 transition-colors">
+                      Meta Ads (Facebook & Instagram)
+                    </h3>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
+                      {t(
+                        "Meta reklāmu pārvaldība ļauj precīzi segmentēt auditoriju, testēt kreatīvos risinājumus un veidot daudzslāņu kampaņu struktūru.",
+                        "Meta ads management enables precise audience segmentation, creative testing, and multi-layered campaign structures.",
+                      )}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {[
+                        t("Cold auditorijas", "Cold audiences"),
+                        "Retargeting",
+                        t("Kreatīvo testēšana", "Creative testing"),
+                        "Video & static",
+                        "Lead forms",
+                        "Conversion API",
+                      ].map((tag) => (
+                        <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-purple-600 font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
+                      {t("Uzzināt vairāk", "Learn more")}
+                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400/50 via-purple-200/20 to-transparent" />
+                </motion.div>
+              </Link>
+            </ScrollReveal>
+
+            {/* 4. TikTok Ads */}
+            <ScrollReveal delay={0.2}>
+              <Link to={getLocalizedPath("/digitala-reklama/tiktok-ads")}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group cursor-pointer"
+                >
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-cyan-100/60 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                  <div className="relative z-10">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-foreground/10">
+                      <Play className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-foreground/70 transition-colors">
+                      TikTok Ads
+                    </h3>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
+                      {t(
+                        "TikTok reklāmas stratēģija balstās uz video-first pieeju un ātru uzmanības piesaisti, ļaujot testēt jaunus tirgus segmentus.",
+                        "TikTok advertising strategy is based on a video-first approach and rapid attention capture, enabling testing of new market segments.",
+                      )}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {[
+                        "Video-first",
+                        "Spark Ads",
+                        t("Jaunu auditoriju testi", "New audience tests"),
+                        t("Kreatīvo optimizācija", "Creative optimization"),
+                        "E-commerce",
+                      ].map((tag) => (
+                        <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-foreground font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
+                      {t("Uzzināt vairāk", "Learn more")}
+                      <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-foreground/30 via-foreground/10 to-transparent" />
+                </motion.div>
+              </Link>
+            </ScrollReveal>
+
+            {/* 5. Konversiju uzstādīšana */}
+            <ScrollReveal delay={0.25}>
               <Link to={getLocalizedPath("/digitala-reklama/konversiju-optimizacija")}>
                 <motion.div
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="relative p-5 md:p-10 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 via-amber-50/60 to-white border border-primary/20 overflow-hidden group cursor-pointer"
+                  whileHover={{ y: -4 }}
+                  className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group cursor-pointer"
                 >
-                  {/* Conversion visual - Hidden on mobile */}
-                  <div className="hidden sm:block absolute top-4 right-4 md:top-6 md:right-6 w-32 h-16 md:w-48 md:h-28">
-                    <div className="relative w-full h-full flex items-center justify-center gap-1 md:gap-2">
-                      {/* Step 1: Click */}
-                      <motion.div
-                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
-                        initial={{
-                          opacity: 0,
-                          scale: 0.8,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                        }}
-                        transition={{
-                          delay: 0.3,
-                        }}
-                      >
-                        <MousePointer className="w-3.5 h-3.5 md:w-5 md:h-5 text-primary" />
-                      </motion.div>
-
-                      {/* Arrow 1 */}
-                      <motion.div
-                        className="w-4 md:w-6 h-0.5 bg-gradient-to-r from-primary/40 to-primary/60"
-                        initial={{
-                          scaleX: 0,
-                        }}
-                        animate={{
-                          scaleX: 1,
-                        }}
-                        transition={{
-                          delay: 0.5,
-                          duration: 0.3,
-                        }}
-                      />
-
-                      {/* Step 2: Target/Conversion */}
-                      <motion.div
-                        className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/20 to-amber-200/30 border border-primary/30 flex items-center justify-center"
-                        initial={{
-                          opacity: 0,
-                          scale: 0.8,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                        }}
-                        transition={{
-                          delay: 0.6,
-                        }}
-                      >
-                        <Target className="w-4 h-4 md:w-6 md:h-6 text-primary" />
-                      </motion.div>
-
-                      {/* Arrow 2 */}
-                      <motion.div
-                        className="w-4 md:w-6 h-0.5 bg-gradient-to-r from-primary/60 to-primary/40"
-                        initial={{
-                          scaleX: 0,
-                        }}
-                        animate={{
-                          scaleX: 1,
-                        }}
-                        transition={{
-                          delay: 0.8,
-                          duration: 0.3,
-                        }}
-                      />
-
-                      {/* Step 3: Analytics */}
-                      <motion.div
-                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center"
-                        initial={{
-                          opacity: 0,
-                          scale: 0.8,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                        }}
-                        transition={{
-                          delay: 0.9,
-                        }}
-                      >
-                        <BarChart3 className="w-3.5 h-3.5 md:w-5 md:h-5 text-primary" />
-                      </motion.div>
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-amber-100/60 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                  <div className="relative z-10">
+                    <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-amber-200/50">
+                      <Code className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
                     </div>
-                  </div>
-
-                  <div className="relative z-10 max-w-xl">
-                    <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-3 md:mb-5">
-                      <Settings className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                      {t("Tehniski", "Technical")}
-                    </div>
-                    <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-4 group-hover:text-primary transition-colors">
-                      {t("Konversiju uzstādīšana un optimizācija", "Conversion setup and optimization")}
+                    <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-amber-600 transition-colors">
+                      {t("Konversiju uzstādīšana un datu integrācija", "Conversion Setup & Data Integration")}
                     </h3>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
                       {t(
-                        "Bez korektas datu uzskaites reklāma netiek palaista. Tiek iestatītas konversijas, notikumi un mērījumi.",
-                        "Without proper data tracking, advertising is not launched. Conversions, events, and measurements are set up.",
+                        "Precīza datu uzskaite ir reklāmas sistēmas pamats, jo bez korekti iestatītiem mērījumiem nav iespējams objektīvi analizēt rezultātus.",
+                        "Precise data tracking is the foundation of the advertising system, as without correctly set measurements, objective result analysis is impossible.",
                       )}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-primary font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {[
+                        "GA4",
+                        "Google Tag Manager",
+                        "Meta Pixel",
+                        "Conversion API",
+                        "Server-side tracking",
+                        "CRM",
+                        "Enhanced conversions",
+                      ].map((tag) => (
+                        <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-amber-600 font-medium text-xs md:text-sm group-hover:gap-3 transition-all">
                       {t("Uzzināt vairāk", "Learn more")}
                       <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                     </span>
                   </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 md:h-1 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500/50 via-amber-300/20 to-transparent" />
                 </motion.div>
               </Link>
+            </ScrollReveal>
+
+            {/* 6. Optimizācija un skalēšana */}
+            <ScrollReveal delay={0.3}>
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative h-full p-5 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm overflow-hidden group"
+              >
+                <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-bl from-blue-100/60 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
+                <div className="relative z-10">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform border border-blue-200/50">
+                    <RefreshCw className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
+                    {t("Optimizācija un skalēšana", "Optimization & Scaling")}
+                  </h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
+                    {t(
+                      "Reklāmu pārvaldība nebeidzas ar kampaņu palaišanu – regulāra optimizācija un skalēšana ļauj uzlabot efektivitāti un palielināt rentabilitāti ilgtermiņā.",
+                      "Ad management doesn't end with campaign launch – regular optimization and scaling improves efficiency and increases long-term profitability.",
+                    )}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      "A/B testing",
+                      t("Kreatīvo cikli", "Creative cycles"),
+                      t("Budžeta pārstrukturēšana", "Budget restructuring"),
+                      t("CPA samazināšana", "CPA reduction"),
+                      t("ROAS uzlabošana", "ROAS improvement"),
+                      t("Auditoriju paplašināšana", "Audience expansion"),
+                    ].map((tag) => (
+                      <span key={tag} className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/50 via-blue-300/20 to-transparent" />
+              </motion.div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 5: NEOLab Approach - Process Flow ========== */}
       <section className="relative overflow-hidden py-12 md:py-16">
         {/* Warm gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-amber-50/40 to-white" />
