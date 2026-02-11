@@ -83,7 +83,7 @@ export default function GoogleAds() {
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>{t("Atpakaļ uz Performance reklāmu", "Back to Performance Ads")}</span>
+                <span>{t("Atpakaļ uz Digitālo reklāmu", "Back to Digital Advertising")}</span>
               </Link>
             </ScrollReveal>
 
