@@ -572,6 +572,63 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
+      {/* ========== SECTION 3: Advertising as a System ========== */}
+      <section className="relative overflow-hidden py-12 md:py-20">
+        <div className="absolute inset-0 bg-foreground" />
+        <div className="container-neo relative z-10">
+          <ScrollReveal className="max-w-3xl mb-8 md:mb-14">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-background">
+              {t("Reklāma kā sistēma, nevis atsevišķs rīks", "Advertising as a system, not a standalone tool")}
+            </h2>
+            <p className="text-base md:text-lg text-background/60 leading-relaxed">
+              {t(
+                "NEOLab nestrādā ar reklāmu kā izolētu aktivitāti. Reklāma tiek integrēta kopējā digitālajā struktūrā ar korektu datu uzskaiti, piedāvājuma validāciju un ilgtermiņa optimizāciju.",
+                "NEOLab doesn't treat advertising as an isolated activity. Advertising is integrated into the overall digital structure with proper data tracking, offer validation, and long-term optimization.",
+              )}
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+            {[
+              {
+                number: "01",
+                lv: "Reklāma balstās uz datiem, nevis pieņēmumiem",
+                en: "Advertising is based on data, not assumptions",
+              },
+              {
+                number: "02",
+                lv: "Pirms kampaņas tiek izvērtēts piedāvājums",
+                en: "The offer is evaluated before the campaign",
+              },
+              {
+                number: "03",
+                lv: "Bez konversiju uzstādīšanas reklāma netiek palaista",
+                en: "No ads run without conversion tracking setup",
+              },
+              {
+                number: "04",
+                lv: "Lēmumi balstīti KPI, nevis sajūtās",
+                en: "Decisions are based on KPIs, not feelings",
+              },
+              {
+                number: "05",
+                lv: "Fokusējamies uz rentabilitāti, nevis klikšķiem",
+                en: "We focus on profitability, not clicks",
+              },
+            ].map((point, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.05}>
+                <div className="relative h-full p-5 md:p-6 rounded-xl border border-background/10 bg-background/5 backdrop-blur-sm">
+                  <span className="text-xs font-mono font-semibold text-primary mb-3 block">{point.number}</span>
+                  <p className="text-sm md:text-base font-medium text-background/90 leading-snug">
+                    {t(point.lv, point.en)}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ========== SECTION 4: NEOLab Offerings - Restructured ========== */}
       <section className="relative overflow-hidden py-12 md:py-16">
         {/* Background */}
