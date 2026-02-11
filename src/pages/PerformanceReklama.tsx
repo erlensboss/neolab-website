@@ -1250,43 +1250,58 @@ export default function PerformanceReklama() {
             <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {[
                 {
-                  icon: Layers,
-                  question: t("Vai jāizmanto visi reklāmas kanāli?", "Do I need to use all ad channels?"),
+                  icon: Gauge,
+                  question: t("Cik ātri iespējams redzēt rezultātus?", "How quickly can I see results?"),
                   answer: t(
-                    "Nē. Kanāli tiek izvēlēti pēc mērķa un auditorijas.",
-                    "No. Channels are selected based on goals and audience.",
+                    "Pirmie dati ir redzami dažu dienu laikā, bet stabilai optimizācijai parasti nepieciešamas 3–6 nedēļas atkarībā no budžeta un tirgus konkurences.",
+                    "Initial data is visible within a few days, but stable optimization usually requires 3–6 weeks depending on budget and market competition.",
                   ),
                   gradient: "from-primary to-orange-500",
                 },
                 {
                   icon: Wallet,
-                  question: t("Kas apmaksā reklāmas budžetu?", "Who pays for the ad budget?"),
+                  question: t("Kāds ir minimālais reklāmas budžets?", "What is the minimum advertising budget?"),
                   answer: t(
-                    "Reklāmas budžetu apmaksā klients tieši platformām.",
-                    "The client pays the ad budget directly to the platforms.",
+                    "Budžets ir atkarīgs no nozares un mērķiem, taču, lai reklāma būtu jēgpilna un dotu datus optimizācijai, parasti ieteicams sākums no 800–1500 € mēnesī.",
+                    "The budget depends on the industry and goals, but for advertising to be meaningful and provide optimization data, a starting point of €800–1500 per month is usually recommended.",
                   ),
                   gradient: "from-orange-500 to-amber-500",
+                },
+                {
+                  icon: DollarSign,
+                  question: t("Vai reklāmas budžetu maksā aģentūra?", "Does the agency pay the ad budget?"),
+                  answer: t(
+                    "Nē. Reklāmas budžets tiek maksāts tieši platformām (Google, Meta u.c.). NEOLab pārvalda un optimizē kampaņas.",
+                    "No. The ad budget is paid directly to platforms (Google, Meta, etc.). NEOLab manages and optimizes campaigns.",
+                  ),
+                  gradient: "from-amber-500 to-orange-400",
                 },
                 {
                   icon: ClipboardCheck,
                   question: t("Vai iespējams audits esošām kampaņām?", "Is an audit of existing campaigns possible?"),
                   answer: t(
-                    "Jā, iespējams izvērtēt esošo reklāmas kontu un sniegt konkrētus ieteikumus.",
-                    "Yes, it's possible to evaluate the existing ad account and provide specific recommendations.",
+                    "Jā. Veicam esošo Google, Meta vai citu kanālu auditu, izvērtējam struktūru, izmaksas un potenciālās optimizācijas iespējas.",
+                    "Yes. We audit existing Google, Meta, or other channel accounts, evaluating structure, costs, and potential optimization opportunities.",
                   ),
-                  gradient: "from-amber-500 to-yellow-500",
+                  gradient: "from-orange-400 to-primary",
                 },
                 {
                   icon: TrendingUp,
-                  question: t(
-                    "Vai performance reklāmu var apvienot ar SEO?",
-                    "Can performance advertising be combined with SEO?",
-                  ),
+                  question: t("Vai reklāmu var apvienot ar SEO?", "Can advertising be combined with SEO?"),
                   answer: t(
-                    "Jā, kombinācija bieži dod labākos ilgtermiņa rezultātus.",
-                    "Yes, the combination often delivers the best long-term results.",
+                    "Jā. Reklāma var dot ātru rezultātu, kamēr SEO veido ilgtermiņa redzamību. Apvienojot abus, iespējams samazināt kopējās piesaistes izmaksas.",
+                    "Yes. Advertising can deliver quick results while SEO builds long-term visibility. Combining both can reduce overall acquisition costs.",
                   ),
-                  gradient: "from-yellow-500 to-primary",
+                  gradient: "from-primary to-amber-500",
+                },
+                {
+                  icon: Activity,
+                  question: t("Vai ir minimālais sadarbības termiņš?", "Is there a minimum collaboration period?"),
+                  answer: t(
+                    "Reklāmai nepieciešams laiks testēšanai un optimizācijai, tāpēc parasti ieteicams vismaz 3 mēnešu sadarbības periods.",
+                    "Advertising needs time for testing and optimization, so a minimum collaboration period of at least 3 months is usually recommended.",
+                  ),
+                  gradient: "from-amber-500 to-primary",
                 },
               ].map((faq, index) => (
                 <ScrollReveal key={index} delay={index * 0.05}>
