@@ -1142,33 +1142,32 @@ export default function PerformanceReklama() {
                       </div>
 
                       {/* Desktop: alternating left/right layout */}
-                      <div className={`hidden md:grid md:grid-cols-[1fr_auto_1fr] gap-6 w-full items-center`}>
+                      <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] gap-6 w-full items-center">
                         {/* Left content */}
-                        <div className={isEven ? "" : "order-3"}>
-                          <motion.div
-                            whileHover={{ y: -4, scale: 1.02 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                            className={`relative p-6 rounded-2xl bg-gradient-to-br ${item.bgColor} border border-border/60 shadow-sm hover:shadow-lg overflow-hidden group cursor-default`}
-                          >
-                            {/* Decorative corner glow */}
-                            <div className={`absolute ${isEven ? "-top-8 -right-8" : "-top-8 -left-8"} w-24 h-24 bg-gradient-to-br ${item.color} opacity-10 rounded-full group-hover:scale-[2.5] transition-transform duration-700`} />
-                            
-                            <div className="relative z-10">
-                              <div className="flex items-center gap-3 mb-3">
-                                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                                  <item.icon className="w-5 h-5 text-white" />
+                        <div className="col-start-1">
+                          {isEven ? (
+                            <motion.div
+                              whileHover={{ y: -4, scale: 1.02 }}
+                              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                              className={`relative p-6 rounded-2xl bg-gradient-to-br ${item.bgColor} border border-border/60 shadow-sm hover:shadow-lg overflow-hidden group cursor-default`}
+                            >
+                              <div className={`absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br ${item.color} opacity-10 rounded-full group-hover:scale-[2.5] transition-transform duration-700`} />
+                              <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-3">
+                                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                                    <item.icon className="w-5 h-5 text-white" />
+                                  </div>
+                                  <h3 className="text-lg font-semibold">{item.title}</h3>
                                 </div>
-                                <h3 className="text-lg font-semibold">{item.title}</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                               </div>
-                              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                            </div>
-                            {/* Bottom accent */}
-                            <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-30 group-hover:opacity-70 transition-opacity duration-300`} />
-                          </motion.div>
+                              <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-30 group-hover:opacity-70 transition-opacity duration-300`} />
+                            </motion.div>
+                          ) : null}
                         </div>
 
                         {/* Center: timeline node */}
-                        <div className="relative flex flex-col items-center z-10">
+                        <div className="col-start-2 relative flex flex-col items-center z-10">
                           <motion.div
                             whileHover={{ scale: 1.2 }}
                             className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg cursor-default`}
@@ -1177,8 +1176,28 @@ export default function PerformanceReklama() {
                           </motion.div>
                         </div>
 
-                        {/* Right content (empty on even, content on odd) */}
-                        <div className={isEven ? "order-3" : ""} />
+                        {/* Right content */}
+                        <div className="col-start-3">
+                          {!isEven ? (
+                            <motion.div
+                              whileHover={{ y: -4, scale: 1.02 }}
+                              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                              className={`relative p-6 rounded-2xl bg-gradient-to-br ${item.bgColor} border border-border/60 shadow-sm hover:shadow-lg overflow-hidden group cursor-default`}
+                            >
+                              <div className={`absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br ${item.color} opacity-10 rounded-full group-hover:scale-[2.5] transition-transform duration-700`} />
+                              <div className="relative z-10">
+                                <div className="flex items-center gap-3 mb-3">
+                                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                                    <item.icon className="w-5 h-5 text-white" />
+                                  </div>
+                                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                                </div>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                              </div>
+                              <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-30 group-hover:opacity-70 transition-opacity duration-300`} />
+                            </motion.div>
+                          ) : null}
+                        </div>
                       </div>
 
                       {/* Mobile: card content */}
