@@ -1043,7 +1043,7 @@ export default function PerformanceReklama() {
             {/* Mobile vertical line */}
             <div className="md:hidden absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/15 to-primary/30" />
 
-            <div className="space-y-4 md:space-y-0">
+            <div className="space-y-4 md:space-y-6">
               {[
                 {
                   step: "01",
@@ -1066,7 +1066,7 @@ export default function PerformanceReklama() {
                   ),
                   icon: Eye,
                   color: "from-orange-500 to-amber-500",
-                  bgColor: "from-orange-50/80 to-amber-50/40",
+                  bgColor: "from-orange-50/80 to-amber-50/50",
                   dotColor: "bg-orange-500",
                 },
                 {
@@ -1077,8 +1077,8 @@ export default function PerformanceReklama() {
                     "Target audience segmentation, behavior research, and demand structure identification, so advertising reaches the right customers.",
                   ),
                   icon: Users,
-                  color: "from-amber-500 to-yellow-500",
-                  bgColor: "from-amber-50/80 to-yellow-50/40",
+                  color: "from-amber-500 to-orange-400",
+                  bgColor: "from-amber-50/70 to-orange-50/40",
                   dotColor: "bg-amber-500",
                 },
                 {
@@ -1089,9 +1089,9 @@ export default function PerformanceReklama() {
                     "Defining clear, measurable KPIs and budget allocation modeling according to potential return and business goals.",
                   ),
                   icon: BarChart3,
-                  color: "from-yellow-500 to-green-500",
-                  bgColor: "from-yellow-50/60 to-green-50/40",
-                  dotColor: "bg-yellow-500",
+                  color: "from-orange-400 to-primary",
+                  bgColor: "from-orange-50/60 to-primary/6",
+                  dotColor: "bg-orange-400",
                 },
                 {
                   step: "05",
@@ -1101,9 +1101,9 @@ export default function PerformanceReklama() {
                     "Creating structured campaigns, audiences, and messages with precisely defined conversion goals and data tracking.",
                   ),
                   icon: Settings,
-                  color: "from-green-500 to-teal-500",
-                  bgColor: "from-green-50/60 to-teal-50/40",
-                  dotColor: "bg-green-500",
+                  color: "from-primary to-amber-500",
+                  bgColor: "from-primary/8 to-amber-50/50",
+                  dotColor: "bg-primary",
                 },
                 {
                   step: "06",
@@ -1113,9 +1113,9 @@ export default function PerformanceReklama() {
                     "Continuous testing of advertising structure, creatives, and audiences based on real data and performance analysis.",
                   ),
                   icon: RefreshCw,
-                  color: "from-teal-500 to-blue-500",
-                  bgColor: "from-teal-50/60 to-blue-50/40",
-                  dotColor: "bg-teal-500",
+                  color: "from-amber-500 to-primary",
+                  bgColor: "from-amber-50/60 to-primary/6",
+                  dotColor: "bg-amber-500",
                 },
                 {
                   step: "07",
@@ -1125,15 +1125,15 @@ export default function PerformanceReklama() {
                     "Budget increase and audience expansion only after validated profitability and stable conversion structure.",
                   ),
                   icon: TrendingUp,
-                  color: "from-blue-500 to-primary",
-                  bgColor: "from-blue-50/60 to-primary/8",
-                  dotColor: "bg-blue-500",
+                  color: "from-orange-500 to-primary",
+                  bgColor: "from-orange-50/70 to-primary/8",
+                  dotColor: "bg-orange-500",
                 },
               ].map((item, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
                   <ScrollReveal key={idx} delay={0.1 + idx * 0.08}>
-                    <div className={`relative flex items-start md:items-center gap-4 md:gap-0 ${idx > 0 ? "md:mt-[-1px]" : ""}`}>
+                    <div className="relative flex items-start md:items-center gap-4 md:gap-0">
                       {/* Mobile: dot on vertical line */}
                       <div className="md:hidden relative z-10 flex-shrink-0">
                         <div className={`w-10 h-10 rounded-full ${item.dotColor} flex items-center justify-center shadow-lg`}>
