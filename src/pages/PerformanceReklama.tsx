@@ -574,7 +574,14 @@ export default function PerformanceReklama() {
 
       {/* ========== SECTION 3: Advertising as a System ========== */}
       <section className="relative overflow-hidden py-12 md:py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-muted/30 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50/50 to-white" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(21 90% 48%) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
         <div className="container-neo relative z-10">
           <ScrollReveal className="max-w-3xl mb-8 md:mb-14">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -593,71 +600,48 @@ export default function PerformanceReklama() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
             {[
               {
-                number: "01",
                 lv: "Reklāma balstās uz datiem, nevis pieņēmumiem",
                 en: "Advertising is based on data, not assumptions",
                 icon: BarChart3,
-                accent: "from-primary/10 to-primary/5",
-                border: "border-primary/15",
-                iconColor: "text-primary",
               },
               {
-                number: "02",
                 lv: "Pirms kampaņas tiek izvērtēts piedāvājums",
                 en: "The offer is evaluated before the campaign",
                 icon: Search,
-                accent: "from-amber-100/60 to-amber-50/30",
-                border: "border-amber-200/40",
-                iconColor: "text-amber-600",
               },
               {
-                number: "03",
                 lv: "Bez konversiju uzstādīšanas reklāma netiek palaista",
                 en: "No ads run without conversion tracking setup",
                 icon: Target,
-                accent: "from-green-100/60 to-green-50/30",
-                border: "border-green-200/40",
-                iconColor: "text-green-600",
               },
               {
-                number: "04",
                 lv: "Lēmumi balstīti KPI, nevis sajūtās",
                 en: "Decisions are based on KPIs, not feelings",
                 icon: Gauge,
-                accent: "from-blue-100/60 to-blue-50/30",
-                border: "border-blue-200/40",
-                iconColor: "text-blue-600",
               },
               {
-                number: "05",
                 lv: "Fokusējamies uz rentabilitāti, nevis klikšķiem",
                 en: "We focus on profitability, not clicks",
                 icon: TrendingUp,
-                accent: "from-primary/10 to-orange-100/30",
-                border: "border-primary/15",
-                iconColor: "text-primary",
               },
             ].map((point, idx) => {
               const Icon = point.icon;
               return (
-                <ScrollReveal key={idx} delay={idx * 0.05}>
+                <ScrollReveal key={idx} delay={idx * 0.06}>
                   <motion.div
-                    whileHover={{ y: -4 }}
-                    className={`relative h-full p-5 md:p-6 rounded-xl bg-gradient-to-br ${point.accent} border ${point.border} shadow-sm overflow-hidden group`}
+                    whileHover={{ y: -6, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="relative h-full p-5 md:p-6 rounded-xl bg-white/80 border border-primary/12 shadow-md hover:shadow-xl hover:shadow-primary/10 overflow-hidden group cursor-default"
                   >
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-bl from-primary/5 to-transparent rounded-full opacity-60" />
+                    <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-bl from-primary/8 to-transparent rounded-full group-hover:scale-150 transition-transform duration-500" />
                     <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-mono font-bold text-primary/60">{point.number}</span>
-                        <div className={`w-8 h-8 rounded-lg bg-background/80 flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                          <Icon className={`w-4 h-4 ${point.iconColor}`} />
-                        </div>
-                      </div>
+                      <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                       <p className="text-sm md:text-base font-medium text-foreground/85 leading-snug">
                         {t(point.lv, point.en)}
                       </p>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/30 via-primary/10 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/40 via-orange-400/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                   </motion.div>
                 </ScrollReveal>
               );
