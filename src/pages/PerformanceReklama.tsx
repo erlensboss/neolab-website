@@ -990,157 +990,221 @@ export default function PerformanceReklama() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-12 md:py-16">
-        {/* Warm gradient background */}
+      {/* ========== SECTION 5: Roadmap / Approach ========== */}
+      <section className="relative overflow-hidden py-12 md:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-amber-50/40 to-white" />
         <div
-          className="absolute inset-0 opacity-[0.015]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
 
-        {/* Decorative side accents - hidden on mobile */}
-        <motion.div
-          className="hidden md:block absolute top-1/4 -left-20 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-        />
-
         <div className="container-neo relative z-10">
-          {/* Section header - centered */}
-          <ScrollReveal className="max-w-3xl mx-auto text-center mb-8 md:mb-20">
+          {/* Section header */}
+          <ScrollReveal className="max-w-3xl mx-auto text-center mb-8 md:mb-16">
             <span className="chip mb-3 md:mb-4 inline-block text-xs md:text-sm">
               {t("Mūsu pieeja", "Our approach")}
             </span>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              {t("NEOLab maksas reklāmu", "NEOLab paid advertising")}{" "}
-              <span className="text-gradient-orange">{t("pieeja", "approach")}</span>
+              {t("Strukturēta pieeja reklāmas ", "Structured approach to advertising ")}{" "}
+              <span className="text-gradient-orange">{t("optimizācijā", "optimization")}</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               {t(
-                "NEOLab nestrādā ar reklāmu kā atsevišķu rīku. Mēs to uztveram kā daļu no kopējās digitālās stratēģijas.",
-                "NEOLab doesn't work with advertising as a separate tool. We see it as part of the overall digital strategy.",
+                "Reklāma tiek veidota soli pa solim ar skaidru mērķi, korektu datu uzskaiti un fokusētu optimizāciju. Katrs risinājums ir personalizēts konkrētajam gadījumam.",
+                "Advertising is built step by step with a clear goal, proper data tracking, and focused optimization. Each solution is personalized for the specific case.",
               )}
             </p>
           </ScrollReveal>
 
-          {/* Horizontal process flow */}
-          <div className="max-w-5xl mx-auto">
-            {/* Horizontal timeline flow */}
-            <div className="relative">
-              {/* Connection line - horizontal on desktop */}
-              <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
-
-              {/* Animated flow dots */}
+          {/* Roadmap */}
+          <div className="max-w-5xl mx-auto relative">
+            {/* Vertical connection line - desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
               <motion.div
-                className="hidden lg:block absolute top-[60px] left-[10%] w-3 h-3 rounded-full bg-primary"
-                animate={{
-                  x: ["0%", "800%", "0%"],
-                  opacity: [0, 1, 1, 1, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                className="w-full h-full bg-gradient-to-b from-primary/40 via-primary/20 to-primary/40"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                style={{ transformOrigin: "top" }}
               />
-
-              {/* Steps grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-4">
-                {[
-                  {
-                    step: "01",
-                    title: t("Mērķu izpratne", "Understanding goals"),
-                    description: t(
-                      "Uzņēmuma biznesa mērķu un prioritāšu izpratne",
-                      "Understanding company business goals and priorities",
-                    ),
-                    icon: Target,
-                  },
-                  {
-                    step: "02",
-                    title: t("Piedāvājuma izvērtēšana", "Offer evaluation"),
-                    description: t(
-                      "Produkta konkurētspējas un pozicionējuma analīze",
-                      "Product competitiveness and positioning analysis",
-                    ),
-                    icon: Eye,
-                  },
-                  {
-                    step: "03",
-                    title: t("Auditorijas analīze", "Audience analysis"),
-                    description: t("Mērķauditorijas un konkurences izpēte", "Target audience and competition research"),
-                    icon: Users,
-                  },
-                  {
-                    step: "04",
-                    title: t("KPI noteikšana", "KPI definition"),
-                    description: t("Skaidru, izmērāmu mērķu definēšana", "Defining clear, measurable goals"),
-                    icon: BarChart3,
-                  },
-                ].map((item, idx) => (
-                  <ScrollReveal key={idx} delay={0.15 + idx * 0.1}>
-                    <motion.div
-                      whileHover={{
-                        y: -6,
-                      }}
-                      className="relative group"
-                    >
-                      {/* Step indicator - circle on timeline */}
-                      <div className="hidden lg:flex absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-card border-2 border-primary/30 items-center justify-center z-10 group-hover:border-primary/60 transition-colors">
-                        <span className="text-xs font-bold text-primary">{idx + 1}</span>
-                      </div>
-
-                      {/* Card */}
-                      <div className="mt-0 lg:mt-10 p-4 md:p-7 rounded-xl md:rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/30 h-full">
-                        {/* Mobile step number */}
-                        <div className="flex lg:hidden items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                          <span className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs md:text-sm font-bold text-primary">
-                            {item.step}
-                          </span>
-                          <div className="flex-1 h-px bg-gradient-to-r from-primary/20 to-transparent" />
-                        </div>
-
-                        {/* Icon */}
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                          <item.icon className="w-4 h-4 md:w-6 md:h-6 text-primary" />
-                        </div>
-
-                        <h3 className="text-sm md:text-lg font-semibold mb-1 md:mb-2">{item.title}</h3>
-                        <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                      </div>
-                    </motion.div>
-                  </ScrollReveal>
-                ))}
-              </div>
             </div>
 
-            {/* Result statement */}
-            <ScrollReveal delay={0.5}>
-              <div className="mt-8 md:mt-20 relative">
-                <div className="max-w-2xl mx-auto text-center p-5 md:p-10 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20">
-                  {/* Arrow indicator */}
-                  <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-primary rotate-90" />
-                  </div>
+            {/* Animated pulse traveling down the line */}
+            <motion.div
+              className="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-lg shadow-primary/40 z-20"
+              animate={{ y: ["0%", "2000%", "0%"], opacity: [0, 1, 1, 1, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-                  <p className="text-sm md:text-xl font-medium text-foreground leading-relaxed">
-                    {t("Tikai pēc tam tiek izvēlēti piemērotākie", "Only then are the most suitable")}{" "}
-                    <span className="text-primary font-semibold">{t("reklāmas kanāli", "ad channels")}</span>{" "}
-                    {t("un", "and")}{" "}
-                    <span className="text-primary font-semibold">{t("kampaņu struktūra", "campaign structure")}</span>{" "}
-                    {t("", "selected")}.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
+            {/* Mobile vertical line */}
+            <div className="md:hidden absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/15 to-primary/30" />
+
+            <div className="space-y-4 md:space-y-0">
+              {[
+                {
+                  step: "01",
+                  title: t("Biznesa mērķu izpratne", "Understanding business goals"),
+                  description: t(
+                    "Uzņēmuma biznesa mērķu, prioritāšu un izaugsmes virziena skaidra izpratne, lai reklāma kalpotu konkrētam rezultātam, nevis aktivitātei bez virziena.",
+                    "Clear understanding of company business goals, priorities, and growth direction, so advertising serves a concrete result, not directionless activity.",
+                  ),
+                  icon: Target,
+                  color: "from-primary to-orange-500",
+                  bgColor: "from-primary/8 to-orange-50/60",
+                  dotColor: "bg-primary",
+                },
+                {
+                  step: "02",
+                  title: t("Piedāvājuma un konkurences izvērtēšana", "Offer and competitive evaluation"),
+                  description: t(
+                    "Produkta vai pakalpojuma konkurētspējas, cenu pozicionējuma un tirgus situācijas analīze pirms reklāmas budžeta investēšanas.",
+                    "Product or service competitiveness, pricing positioning, and market situation analysis before investing the advertising budget.",
+                  ),
+                  icon: Eye,
+                  color: "from-orange-500 to-amber-500",
+                  bgColor: "from-orange-50/80 to-amber-50/40",
+                  dotColor: "bg-orange-500",
+                },
+                {
+                  step: "03",
+                  title: t("Auditorijas analīze", "Audience analysis"),
+                  description: t(
+                    "Mērķauditorijas segmentācija, uzvedības izpēte un pieprasījuma struktūras identificēšana, lai reklāma sasniegtu atbilstošos klientus.",
+                    "Target audience segmentation, behavior research, and demand structure identification, so advertising reaches the right customers.",
+                  ),
+                  icon: Users,
+                  color: "from-amber-500 to-yellow-500",
+                  bgColor: "from-amber-50/80 to-yellow-50/40",
+                  dotColor: "bg-amber-500",
+                },
+                {
+                  step: "04",
+                  title: t("KPI un budžeta struktūra", "KPI and budget structure"),
+                  description: t(
+                    "Skaidru, izmērāmu KPI definēšana un budžeta sadalījuma modelēšana atbilstoši potenciālajai atdevei un biznesa mērķiem.",
+                    "Defining clear, measurable KPIs and budget allocation modeling according to potential return and business goals.",
+                  ),
+                  icon: BarChart3,
+                  color: "from-yellow-500 to-green-500",
+                  bgColor: "from-yellow-50/60 to-green-50/40",
+                  dotColor: "bg-yellow-500",
+                },
+                {
+                  step: "05",
+                  title: t("Kampaņu izveide", "Campaign creation"),
+                  description: t(
+                    "Strukturētu kampaņu, auditoriju un ziņojumu izveide ar precīzi definētu konversiju mērķi un datu uzskaiti.",
+                    "Creating structured campaigns, audiences, and messages with precisely defined conversion goals and data tracking.",
+                  ),
+                  icon: Settings,
+                  color: "from-green-500 to-teal-500",
+                  bgColor: "from-green-50/60 to-teal-50/40",
+                  dotColor: "bg-green-500",
+                },
+                {
+                  step: "06",
+                  title: t("Testēšana un optimizācija", "Testing and optimization"),
+                  description: t(
+                    "Pastāvīga reklāmas struktūras, kreatīvo un auditoriju testēšana, balstoties uz reāliem datiem un veiktspējas analīzi.",
+                    "Continuous testing of advertising structure, creatives, and audiences based on real data and performance analysis.",
+                  ),
+                  icon: RefreshCw,
+                  color: "from-teal-500 to-blue-500",
+                  bgColor: "from-teal-50/60 to-blue-50/40",
+                  dotColor: "bg-teal-500",
+                },
+                {
+                  step: "07",
+                  title: t("Skalēšana", "Scaling"),
+                  description: t(
+                    "Budžeta palielināšana un auditoriju paplašināšana tikai pēc validētas rentabilitātes un stabilas konversiju struktūras.",
+                    "Budget increase and audience expansion only after validated profitability and stable conversion structure.",
+                  ),
+                  icon: TrendingUp,
+                  color: "from-blue-500 to-primary",
+                  bgColor: "from-blue-50/60 to-primary/8",
+                  dotColor: "bg-blue-500",
+                },
+              ].map((item, idx) => {
+                const isEven = idx % 2 === 0;
+                return (
+                  <ScrollReveal key={idx} delay={0.1 + idx * 0.08}>
+                    <div className={`relative flex items-start md:items-center gap-4 md:gap-0 ${idx > 0 ? "md:mt-[-1px]" : ""}`}>
+                      {/* Mobile: dot on vertical line */}
+                      <div className="md:hidden relative z-10 flex-shrink-0">
+                        <div className={`w-10 h-10 rounded-full ${item.dotColor} flex items-center justify-center shadow-lg`}>
+                          <span className="text-xs font-bold text-white">{item.step}</span>
+                        </div>
+                      </div>
+
+                      {/* Desktop: alternating left/right layout */}
+                      <div className={`hidden md:grid md:grid-cols-[1fr_auto_1fr] gap-6 w-full items-center`}>
+                        {/* Left content */}
+                        <div className={isEven ? "" : "order-3"}>
+                          <motion.div
+                            whileHover={{ y: -4, scale: 1.02 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                            className={`relative p-6 rounded-2xl bg-gradient-to-br ${item.bgColor} border border-border/60 shadow-sm hover:shadow-lg overflow-hidden group cursor-default`}
+                          >
+                            {/* Decorative corner glow */}
+                            <div className={`absolute ${isEven ? "-top-8 -right-8" : "-top-8 -left-8"} w-24 h-24 bg-gradient-to-br ${item.color} opacity-10 rounded-full group-hover:scale-[2.5] transition-transform duration-700`} />
+                            
+                            <div className="relative z-10">
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                                  <item.icon className="w-5 h-5 text-white" />
+                                </div>
+                                <h3 className="text-lg font-semibold">{item.title}</h3>
+                              </div>
+                              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                            </div>
+                            {/* Bottom accent */}
+                            <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-30 group-hover:opacity-70 transition-opacity duration-300`} />
+                          </motion.div>
+                        </div>
+
+                        {/* Center: timeline node */}
+                        <div className="relative flex flex-col items-center z-10">
+                          <motion.div
+                            whileHover={{ scale: 1.2 }}
+                            className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg cursor-default`}
+                          >
+                            <span className="text-sm font-bold text-white">{item.step}</span>
+                          </motion.div>
+                        </div>
+
+                        {/* Right content (empty on even, content on odd) */}
+                        <div className={isEven ? "order-3" : ""} />
+                      </div>
+
+                      {/* Mobile: card content */}
+                      <div className="md:hidden flex-1">
+                        <motion.div
+                          whileHover={{ y: -2 }}
+                          className={`relative p-4 rounded-xl bg-gradient-to-br ${item.bgColor} border border-border/60 shadow-sm overflow-hidden group`}
+                        >
+                          <div className={`absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br ${item.color} opacity-10 rounded-full`} />
+                          <div className="relative z-10">
+                            <div className="flex items-center gap-2.5 mb-2">
+                              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center shadow-sm`}>
+                                <item.icon className="w-4 h-4 text-white" />
+                              </div>
+                              <h3 className="text-sm font-semibold">{item.title}</h3>
+                            </div>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                          </div>
+                          <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-30`} />
+                        </motion.div>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
