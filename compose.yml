@@ -1,0 +1,18 @@
+networks:
+  vlan:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${DOCKER_SUBNET_NETWORK_ID}.0/24
+          gateway: ${DOCKER_SUBNET_NETWORK_ID}.254
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    networks:
+      vlan:
+        ipv4_address: ${DOCKER_SUBNET_NETWORK_ID}.1
+    environment:
+      NODE_ENV: production
