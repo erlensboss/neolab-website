@@ -2,14 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { setFormSubmitted } from "./Paldies";
-import { Calendar, Clock, MessageSquare, CheckCircle2, User, Mail, Building, Send } from "lucide-react";
+import { Calendar, Clock, MessageSquare, CheckCircle2, User, Mail, Building, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "sonner";
 
 export default function BezmaksasKonsultacija() {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,13 +19,37 @@ export default function BezmaksasKonsultacija() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mark form as submitted to allow access to thank-you page
-    setFormSubmitted();
-    // Redirect to thank-you page based on current language
-    const thankYouPath = language === "en" ? "/en/thank-you" : "/paldies";
-    navigate(thankYouPath);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setFormSubmitted();
+      const thankYouPath = language === "en" ? "/en/thank-you" : "/paldies";
+      navigate(thankYouPath);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error(
+        t(
+          "Neizdevās nosūtīt ziņojumu. Lūdzu, mēģiniet vēlreiz.",
+          "Failed to send message. Please try again."
+        )
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -179,9 +205,18 @@ export default function BezmaksasKonsultacija() {
                   </div>
 
                   {/* Submit */}
-                  <Button type="submit" variant="hero" size="xl" className="w-full">
-                    {t("Pieteikties konsultācijai", "Book a consultation")}
-                    <Send className="ml-2 w-5 h-5" />
+                  <Button type="submit" variant="hero" size="xl" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        {t("Nosūta...", "Sending...")}
+                        <Loader2 className="ml-2 w-5 h-5 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        {t("Pieteikties konsultācijai", "Book a consultation")}
+                        <Send className="ml-2 w-5 h-5" />
+                      </>
+                    )}
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
