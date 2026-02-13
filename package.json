@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "bun run --watch server/index.ts",
-    "build": "vite build",
+    "build": "vite build && bun run scripts/generate-sitemap.ts",
+    "generate:sitemap": "bun run scripts/generate-sitemap.ts",
     "build:dev": "vite build --mode development",
     "start": "bun run server/index.ts",
     "lint": "eslint .",
