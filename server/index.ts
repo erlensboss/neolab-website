@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 serve({
   port: PORT,
+  hostname: "0.0.0.0",
   async fetch(req) {
     const url = new URL(req.url);
 
