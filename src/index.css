@@ -747,6 +747,136 @@
     }
   }
 
+/* ========== COOKIE CONSENT BANNER STYLES ========== */
+/* NEOLab themed styles for vanilla-cookieconsent */
+
+#cc-main {
+  --cc-font-family: 'Inter', sans-serif;
+  --cc-bg: rgba(255, 255, 255, 0.95);
+  --cc-primary-color: hsl(20 15% 12%);
+  --cc-secondary-color: hsl(25 10% 45%);
+  --cc-btn-primary-bg: hsl(21 90% 48%);
+  --cc-btn-primary-hover-bg: hsl(21 90% 42%);
+  --cc-btn-primary-color: white;
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-hover-bg: hsl(21 90% 48% / 0.1);
+  --cc-btn-secondary-color: hsl(21 90% 48%);
+  --cc-btn-secondary-border-color: hsl(21 90% 48%);
+  --cc-toggle-on-bg: hsl(21 90% 48%);
+  --cc-toggle-off-bg: hsl(30 15% 88%);
+  --cc-toggle-readonly-bg: hsl(30 15% 88%);
+  --cc-separator-border-color: hsl(30 15% 88%);
+  --cc-cookie-category-block-bg: hsl(40 20% 98%);
+  --cc-cookie-category-block-hover-bg: hsl(35 25% 96%);
+  --cc-overlay-bg: rgba(0, 0, 0, 0.5);
+  --cc-modal-border-radius: 1rem;
+  --cc-btn-border-radius: 0.625rem;
+}
+
+/* Glass morphism effect */
+#cc-main .cm,
+#cc-main .pm {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px hsla(20 15% 12% / 0.1), 0 2px 8px hsla(20 15% 12% / 0.05);
+}
+
+/* GDPR: Both buttons have equal visual weight - filled style */
+#cc-main .cm__btn,
+#cc-main .pm__btn {
+  background: hsl(21 90% 48%) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px hsla(21 90% 48% / 0.25);
+  transition: all 0.2s ease !important;
+}
+
+#cc-main .cm__btn:hover,
+#cc-main .pm__btn:hover {
+  background: hsl(21 90% 42%) !important;
+  box-shadow: 0 4px 12px hsla(21 90% 48% / 0.35);
+}
+
+/* Toggle switch - orange when on */
+#cc-main .section__toggle input:checked + .toggle__icon {
+  background: hsl(21 90% 48%) !important;
+}
+
+#cc-main .toggle__icon-circle {
+  background: white !important;
+}
+
+/* Title styling */
+#cc-main .cm__title,
+#cc-main .pm__title {
+  font-weight: 600 !important;
+  color: hsl(20 15% 12%) !important;
+}
+
+/* Description text */
+#cc-main .cm__desc,
+#cc-main .pm__section-desc {
+  color: hsl(25 10% 40%) !important;
+  line-height: 1.6 !important;
+}
+
+/* Section titles in preferences */
+#cc-main .pm__section-title {
+  font-weight: 600 !important;
+  color: hsl(20 15% 12%) !important;
+}
+
+/* Fade-in animation */
+#cc-main .cm--box {
+  animation: ccFadeIn 0.3s ease-out;
+}
+
+#cc-main .pm--box {
+  animation: ccSlideIn 0.3s ease-out;
+}
+
+@keyframes ccFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ccSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  #cc-main .cm {
+    margin: 0.75rem !important;
+    max-width: calc(100% - 1.5rem) !important;
+  }
+
+  #cc-main .cm__btns {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  #cc-main .cm__btn {
+    width: 100% !important;
+  }
+}
+
 @layer utilities {
   /* Scroll reveal animation classes */
   .reveal {

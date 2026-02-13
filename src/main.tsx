@@ -15,5 +15,9 @@ if (typeof window !== 'undefined' && !window.requestIdleCallback) {
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { initCookieConsent } from "./lib/cookieconsent-config";
+
+// Initialize cookie consent before React renders
+initCookieConsent();
 
 createRoot(document.getElementById("root")!).render(<App />);

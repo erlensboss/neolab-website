@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { footerServiceLinks, footerCompanyLinks } from "@/lib/routeMapping";
 import LogoBlack from "@/assets/logo-black.svg";
+import { CookieConsent } from "@/lib/cookieconsent-config";
 
 export function Footer() {
   const { language, t, getLocalizedPath } = useLanguage();
@@ -88,17 +89,25 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} NEOLab. {t("Visas tiesības aizsargātas.", "All rights reserved.")}
           </p>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <Link 
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <Link
               to={getLocalizedPath("/sikdatnes")}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors whitespace-nowrap"
             >
               {t("Sīkdatnes", "Cookies")}
             </Link>
-            <span className="w-1 h-1 rounded-full bg-primary/50" />
-            <Link 
+            <span className="w-1 h-1 rounded-full bg-primary/50 hidden sm:block" />
+            <button
+              type="button"
+              onClick={() => CookieConsent.showPreferences()}
+              className="hover:text-primary transition-colors whitespace-nowrap"
+            >
+              {t("Sīkdatņu iestatījumi", "Cookie Settings")}
+            </button>
+            <span className="w-1 h-1 rounded-full bg-primary/50 hidden sm:block" />
+            <Link
               to={getLocalizedPath("/personas-datu-apstrade")}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors whitespace-nowrap"
             >
               {t("Personas datu apstrāde", "Personal Data Processing")}
             </Link>
