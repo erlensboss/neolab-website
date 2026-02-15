@@ -22,9 +22,8 @@ serve({
     const file = Bun.file(filePath);
 
     if (await file.exists()) {
-      return new Response(file, {
-        headers: getContentTypeHeaders(filePath),
-      });
+      const headers = getContentTypeHeaders(filePath);
+      return new Response(await file.arrayBuffer(), { headers });
     }
 
     const indexFile = Bun.file(join(STATIC_DIR, "index.html"));
@@ -87,13 +86,14 @@ function getContentTypeHeaders(filePath: string): Record<string, string> {
     woff2: "font/woff2",
     ttf: "font/ttf",
     eot: "application/vnd.ms-fontobject",
-    xml: "application/xml",
+    xml: "text/xml",
     txt: "text/plain",
     webmanifest: "application/manifest+json",
   };
 
   return {
     "Content-Type": contentTypes[ext || ""] || "application/octet-stream",
+    "X-Content-Type-Options": "nosniff",
   };
 }
 
