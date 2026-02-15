@@ -87,6 +87,9 @@ function getContentTypeHeaders(filePath: string): Record<string, string> {
     woff2: "font/woff2",
     ttf: "font/ttf",
     eot: "application/vnd.ms-fontobject",
+    xml: "application/xml",
+    txt: "text/plain",
+    webmanifest: "application/manifest+json",
   };
 
   return {
